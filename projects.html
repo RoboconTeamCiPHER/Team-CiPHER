@@ -74,7 +74,7 @@
         </a>
       </div>
 
-      <div class="section-subhead mt-xl"><div class="kicker">ROBOFEST 5.0 PROJECTS</div><h2 data-reveal>Varuna · Vasudha</h2></div>
+      <div class="section-subhead mt-xl"><div class="kicker">ROBOFEST 5.0 PROJECTS</div><h2 data-reveal>Varuna · Vasudha · Karna</h2></div>
       <div class="projects-grid mt-lg">
         <a class="project-card" href="#varuna" data-reveal>
           <div class="thumb"><img src="assets/images/robots/Varuna.jpg" alt="VARUNA autonomous underwater vehicle" loading="lazy"></div>
@@ -87,6 +87,12 @@
           <div class="project-tag">ROBOFEST 5.0 · MEMBER'S PROJECT</div><h3>VASUDHA</h3>
           <p>Precision-agriculture robot concept using AI-based plant analysis, autonomous navigation and controlled micro-dosing.</p>
           <div class="project-tech"><span>Jetson Orin Nano</span><span>Nav2</span><span>YOLOv8</span></div>
+        </a>
+        <a class="project-card" href="#karna" data-reveal>
+          <div class="thumb"><img src="assets/images/robots/Karna.jpg" alt="KARNA autonomous ground vehicle" loading="lazy"></div>
+          <div class="project-tag">ROBOFEST 5.0 · MEMBER'S PROJECT</div><h3>KARNA</h3>
+          <p>Intelligent ground vehicle for autonomous terrain navigation, AI-assisted perception, surveillance and controlled launching.</p>
+          <div class="project-tech"><span>Jetson Nano</span><span>STM32</span><span>LiDAR</span></div>
         </a>
       </div>
 
@@ -126,7 +132,35 @@
   </section>
 
   <section class="section" id="vasudha"><div class="wrap"><div class="index-mark" data-reveal>ROBOFEST 5.0 · MEMBER'S PROJECT</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">VASUDHA</h2><p class="lede mt-lg" data-reveal>Compact precision-agriculture concept robot using AI-based plant analysis, autonomous navigation and controlled micro-dosing to reduce chemical use and improve targeting.</p><div class="project-detail-wide mt-lg" data-reveal><h4>PROPOSED ARCHITECTURE</h4><p>Jetson Orin Nano · ESP32 · Arduino Uno · camera · 2D LiDAR · MPU-9250/9620 IMU · custom 8-sensor IR array · capacitive tank-level sensing · 4 geared DC motors · mini MacPherson suspension · diaphragm pump + solenoid valves · servo-aligned nozzles · 12V Li-Po with BMS.</p></div><div class="project-detail-wide mt-lg" data-reveal><h4>AUTONOMY &amp; PRECISION AGRICULTURE</h4><p>ROS 2 Nav2 · YOLOv8/TensorRT · RTAB-Map SLAM · EKF fusion · PID control · hybrid IR-line + LiDAR navigation · health-aware micro-dosing · reduced overspray · digital field maps.</p></div><div class="project-detail-wide mt-lg" data-reveal><h4>CURRENT STATUS</h4><p>Ideation stage: concept created, mechanical/CAD design completed, sensor and electronics architecture defined, autonomy pipeline planned and development roadmap established. Fabrication and field testing are planned for the next phase subject to resources and approvals.</p></div><p class="mt-lg"><a class="link-arrow" href="https://a360.co/46rks5a" target="_blank" rel="noopener">View Fusion 360 design ↗</a></p></div></section>
-  <section class="section" id="karna"><div class="wrap"><div class="index-mark" data-reveal>ROBOFEST 5.0 · MEMBER'S PROJECT</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">KARNA — Kinetic Autonomous Robot for Navigation &amp; Assault</h2><p class="lede mt-lg" data-reveal>An intelligent ground vehicle developed for RoboFest Gujarat 5.0, combining a strong MS sheet-metal chassis, independent suspension, 4-wheel BLDC drive, AI vision, LiDAR and autonomous navigation.</p><div class="project-detail-wide mt-lg" data-reveal><h4>SYSTEM</h4><p>NVIDIA Jetson Nano for AI vision, lane detection and decision-making · STM32 for real-time motor control · 360° LiDAR · depth camera · TFmini LiDAR · IMU · surveillance camera.</p></div><div class="project-detail-wide mt-lg" data-reveal><h4>CAPABILITIES</h4><p>Autonomous navigation through complex terrain · obstacle detection and lane identification · path decisions using AI vision + LiDAR · surveillance and controlled launching mechanisms.</p></div></div></section>
+  <section class="section" id="karna">
+    <div class="wrap">
+      <div class="index-mark" data-reveal>ROBOFEST 5.0 · MEMBER'S PROJECT</div>
+      <h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">KARNA — Kinetic Autonomous Robot for Navigation &amp; Assault</h2>
+      <p class="lede mt-lg" data-reveal>An advanced intelligent ground vehicle designed for RoboFest Gujarat 5.0, combining a strong MS sheet-metal chassis, independent suspension and a 4-wheel BLDC drive system for stable movement over rough terrain.</p>
+      <div class="project-detail-wide mt-lg" data-reveal>
+        <h4>WHAT KARNA DOES</h4>
+        <p>Navigates autonomously through complex and uneven terrains · detects obstacles, identifies lanes and makes path decisions using AI vision + LiDAR · performs real-time surveillance and controlled grenade-ball launching.</p>
+      </div>
+      <div class="project-detail-grid mt-lg">
+        <div data-reveal><h4>MECHANICAL PLATFORM</h4><p>MS sheet-metal chassis · independent suspension · 4-wheel BLDC drive system engineered for rough-terrain mobility and stable operation.</p></div>
+        <div data-reveal><h4>COMPUTE &amp; CONTROL</h4><p>NVIDIA Jetson Nano for AI-based vision, lane detection and decision-making · STM32 microcontroller for real-time motor control.</p></div>
+        <div data-reveal><h4>SENSING</h4><p>360° LiDAR · depth camera · TFmini LiDAR · IMU for environmental mapping, obstacle avoidance and smooth navigation.</p></div>
+        <div data-reveal><h4>SURVEILLANCE</h4><p>Mounted camera providing continuous real-time surveillance for remote monitoring and mission awareness.</p></div>
+      </div>
+      <div class="project-detail-wide mt-lg" data-reveal>
+        <h4>DEPLOYMENT MECHANISM</h4>
+        <p>Stepper-driven grenade chain mechanism and lead-screw launching system for controlled and precise projectile deployment in the competition context.</p>
+      </div>
+      <div class="project-detail-wide mt-lg" data-reveal>
+        <h4>APPLICATION AREAS</h4>
+        <p>Defense-oriented robotics concepts · search-and-rescue operations · hazardous inspections · autonomous field missions.</p>
+      </div>
+      <div class="project-detail-wide mt-lg" data-reveal>
+        <h4>PROJECT SUMMARY</h4>
+        <p>KARNA demonstrates an integrated approach to mechanical design, intelligent software and advanced sensing, combining autonomous mobility, AI-assisted perception, navigation and remote surveillance in a single ground-robotics platform.</p>
+      </div>
+    </div>
+  </section>
   <section class="section" id="cura"><div class="wrap"><div class="index-mark" data-reveal>ROBOFEST 6.0 · COMPETITION</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">CURA</h2><p class="lede mt-lg" data-reveal>CURA is a healthcare-assistance robot project developed by Sameer Patwardhan, Manish Patil, Sankalp Khobare and Pranshu Telwane.</p><div class="project-detail-wide mt-lg" data-reveal><h4>PLATFORM</h4><p>ROS 2 Jazzy + Gazebo Harmonic simulation with four-wheel differential drive, LiDAR, RGB camera, IMU, SLAM, localization, Nav2 and a custom hospital ward environment.</p></div></div></section>
   <section class="section" id="tyson"><div class="wrap"><div class="index-mark" data-reveal>ROBOFEST 6.0 · COMPETITION</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">TYSON</h2><p class="lede mt-lg" data-reveal>Self-charging robot platform for AMR fleet charging and EV charging applications.</p></div></section>
   <section class="section" id="fusiontodescription"><div class="wrap"><div class="index-mark" data-reveal>MEMBER'S PROJECT</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">FusionToDescription — Autodesk Fusion 360 → ROS 2 Description Package Exporter</h2><p class="lede mt-lg" data-reveal>FusionToDescription is an Autodesk Fusion 360 add-in that automates generation of ROS 2 robot description packages directly from CAD assemblies, bridging mechanical design and robotics simulation.</p><div class="project-detail-wide mt-lg" data-reveal><h4>CAPABILITIES</h4><p>Automated ROS 2 package generation · organized URDF/Xacro export · automatic mass and inertia tensors · mesh and primitive collision generation · Gazebo sensor integration · automatic ROS-GZ bridge configuration · optional ROS 2 Control support · simulation-ready packages.</p></div><p class="mt-lg"><a class="link-arrow" href="https://github.com/sam-airobotics/FusionToDescription" target="_blank" rel="noopener">View repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div></section>
