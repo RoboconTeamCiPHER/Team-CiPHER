@@ -721,8 +721,9 @@ p { margin: 0; }
 .robocon-history { display: grid; gap: var(--space-xl); }
 .robocon-entry { border-top: 1px solid var(--border); padding-top: var(--space-lg); }
 .robocon-year { font-family: var(--font-display); font-size: var(--step-3); font-weight: 700; color: var(--red); letter-spacing: .04em; margin-bottom: 1rem; }
-.robocon-layout { display: grid; grid-template-columns: minmax(280px, .95fr) minmax(0, 1.35fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-.robocon-photo .g-item { aspect-ratio: 4 / 3; }
+.robocon-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+.robocon-photo { width: 100%; }
+.robocon-photo .g-item { aspect-ratio: 16 / 10; width: 100%; }
 .robocon-info h2 { margin-top: .55rem; font-size: var(--step-4); }
 .robocon-info > p { color: var(--text-dim); max-width: 65ch; margin-top: 1rem; }
 .robocon-info .timeline { margin-top: 1.5rem; }
