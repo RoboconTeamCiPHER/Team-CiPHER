@@ -3,6 +3,9 @@
    Site-wide data structures (team roster, repositories) and small
    dynamic behaviors (footer year, empty-state rendering).
 
+   TEAM HISTORY is maintained in team.html. The TEAM_MEMBERS array below
+   remains available for individual member profiles and future roster cards.
+
    HOW TO ADD A TEAM MEMBER
    -------------------------------------------------------------------------
    Add an object to TEAM_MEMBERS below. Nothing else needs to change —
