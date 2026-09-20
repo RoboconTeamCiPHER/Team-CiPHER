@@ -52,50 +52,39 @@
 
   <section class="section" style="border-top:none;">
     <div class="wrap">
-      <div class="section-subhead">
-        <div class="kicker">COMPETITION</div>
-        <h2 data-reveal>Robofest</h2>
-      </div>
+      <div class="section-subhead"><div class="kicker">COMPETITION · ROBOFEST</div><h2 data-reveal>VARUNA · CURA · TYSON</h2></div>
       <div class="projects-grid mt-lg">
-        <article class="project-card" data-reveal>
-          <div class="thumb project-visual project-visual--technical"><span>VARUNA<br>AUV</span></div>
-          <div class="project-tag">ROBOFEST</div>
-          <h3>VARUNA</h3>
-          <p>An autonomous underwater vehicle project focused on underwater sensing, embedded control and robotic exploration.</p>
-          <div class="project-tech"><span>Jetson Nano</span><span>STM32</span><span>IMU</span></div>
-        </article>
-        <article class="project-card" data-reveal>
-          <div class="thumb"><img src="assets/images/competitions/roboquest.jpeg" alt="Team CiPHER robotics competition project" loading="lazy"></div>
-          <div class="project-tag">ROBOFEST</div>
-          <h3>CURA</h3>
-          <p>An intelligent healthcare-assistant robotics project with a dashboard and physical touch-panel control interface.</p>
-          <div class="project-tech"><span>ROS 2</span><span>UI/UX</span><span>Control Systems</span></div>
-        </article>
-        <article class="project-card" data-reveal>
-          <div class="thumb project-visual project-visual--technical"><span>TYSON<br>ROBOTICS</span></div>
-          <div class="project-tag">ROBOFEST</div>
-          <h3>TYSON</h3>
-          <p>A Robofest competition robotics project integrating mechanical, electronics and control engineering.</p>
-          <div class="project-tech"><span>Mechanical</span><span>Embedded</span><span>Control</span></div>
-        </article>
+        <a class="project-card" href="#varuna" data-reveal><div class="thumb project-visual project-visual--technical"><span>VARUNA<br>AUV</span></div><div class="project-tag">ROBOFEST</div><h3>VARUNA</h3><p>Vision-guided autonomous underwater vehicle for underwater perception, navigation and manipulation.</p><div class="project-tech"><span>Jetson Nano</span><span>STM32</span><span>ROS 2</span></div></a>
+        <a class="project-card" href="#cura" data-reveal><div class="thumb"><img src="assets/images/competitions/roboquest.jpeg" alt="CURA robotics project" loading="lazy"></div><div class="project-tag">ROBOFEST</div><h3>CURA</h3><p>Intelligent healthcare-assistant robotics project with dashboard and touch-panel control.</p><div class="project-tech"><span>ROS 2</span><span>UI/UX</span><span>Control</span></div></a>
+        <a class="project-card" href="#tyson" data-reveal><div class="thumb project-visual project-visual--technical"><span>TYSON<br>ROBOTICS</span></div><div class="project-tag">ROBOFEST</div><h3>TYSON</h3><p>Robofest competition robotics project integrating mechanical, electronics and control engineering.</p><div class="project-tech"><span>Mechanical</span><span>Embedded</span><span>Control</span></div></a>
       </div>
-
-      <div class="section-subhead mt-xl">
-        <div class="kicker">MEMBER'S PROJECTS</div>
-        <h2 data-reveal>Independent Engineering Work</h2>
-      </div>
-      <div class="projects-grid mt-lg">
-        <article class="project-card" data-reveal>
-          <div class="thumb project-visual project-visual--technical"><span>CAD → URDF</span></div>
-          <div class="project-tag">MEMBER'S PROJECT</div>
-          <h3>FusionToDescription</h3>
-          <p>A Fusion 360 add-in that converts CAD assemblies into robotics-oriented description packages, bridging mechanical design and simulation.</p>
-          <div class="project-tech"><span>Fusion 360</span><span>Python</span><span>URDF</span></div>
-          <a class="link-arrow" href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">View repository <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-      </div>
+      <div class="section-subhead mt-xl"><div class="kicker">MEMBER'S PROJECTS</div><h2 data-reveal>FusionToDescription</h2></div>
+      <div class="projects-grid mt-lg"><a class="project-card" href="#fusiontodescription" data-reveal><div class="thumb project-visual project-visual--technical"><span>CAD → URDF</span></div><div class="project-tag">MEMBER'S PROJECT</div><h3>FusionToDescription</h3><p>A Fusion 360 add-in that converts CAD assemblies into robotics-oriented description packages.</p><div class="project-tech"><span>Fusion 360</span><span>Python</span><span>URDF</span></div></a></div>
     </div>
   </section>
+
+<section class="section" id="varuna">
+  <div class="wrap">
+    <div class="index-mark" data-reveal>COMPETITION · ROBOFEST</div>
+    <h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">VARUNA — Vision-Guided Autonomous Underwater Vehicle (AUV)</h2>
+    <p class="lede mt-lg" data-reveal>VARUNA is a compact, fully autonomous underwater vehicle designed for reliable operation in low-visibility aquatic environments. Its architecture combines a waterproof PVC pressure hull, a transparent vision dome, and a six-thruster holonomic propulsion system for precise navigation, perception and underwater manipulation.</p>
+    <div class="mt-lg" style="display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+      <div data-reveal><h4>COMPUTE</h4><p>NVIDIA Jetson Nano for high-level vision, autonomy and AI inference.<br>STM32 Nucleo-64 for real-time motor control, PID loops and low-latency I/O.</p></div>
+      <div data-reveal><h4>SENSORS</h4><p>Underwater HD camera · BNO055 IMU · Bar30 pressure sensor · dual hydrophones for TDOA-based acoustic localization.</p></div>
+      <div data-reveal><h4>ACTUATION</h4><p>Six BLDC thrusters for full 3D holonomic maneuvering · worm–spur gear gripper for underwater object interaction.</p></div>
+      <div data-reveal><h4>POWER</h4><p>14.8V Li-Po propulsion battery with isolated power banks for Jetson Nano and STM32.</p></div>
+    </div>
+    <div class="mt-lg" style="display:grid;gap:2rem;grid-template-columns:1fr;max-width:1000px;">
+      <div data-reveal><h4>AUTONOMY STACK</h4><p>ROS 2 / Nav2 for mission planning and autonomous navigation · OpenCV + transformer-based detectors for gate, mat and object recognition · EKF/UKF multi-sensor fusion · PID stabilization for depth, pitch, roll and thrust · Behavior-tree navigation for modular mission execution.</p></div>
+      <div data-reveal><h4>APPLICATIONS</h4><p>Underwater structure inspection · environmental and ecological monitoring · marine research and sampling · autonomous underwater robotics competitions.</p></div>
+      <div data-reveal><h4>CURRENT STATUS</h4><p>Completed: system ideation, architecture and subsystem design, waterproofing and buoyancy strategy, sensor pipeline design and project timeline. The next phase requires funding support for fabrication, hardware integration and controlled pool testing.</p></div>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="cura"><div class="wrap"><div class="index-mark" data-reveal>COMPETITION · ROBOFEST</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">CURA</h2><p class="lede mt-lg" data-reveal>An intelligent healthcare-assistant robotics project with a dashboard and physical touch-panel control interface.</p></div></section>
+  <section class="section" id="tyson"><div class="wrap"><div class="index-mark" data-reveal>COMPETITION · ROBOFEST</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">TYSON</h2><p class="lede mt-lg" data-reveal>A Robofest competition robotics project integrating mechanical, electronics and control engineering.</p></div></section>
+  <section class="section" id="fusiontodescription"><div class="wrap"><div class="index-mark" data-reveal>MEMBER'S PROJECT</div><h2 class="mt-lg" data-reveal style="font-size:var(--step-4);">FusionToDescription</h2><p class="lede mt-lg" data-reveal>A Fusion 360 add-in that converts CAD assemblies into robotics-oriented description packages, bridging mechanical design and simulation.</p><div class="mt-lg"><p style="color:var(--text-dim);">Fusion 360 · Python · URDF · ROS 2 Jazzy · Gazebo Harmonic</p></div></div></section>
 
 </main>
 
