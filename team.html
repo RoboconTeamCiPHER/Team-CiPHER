@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team | Team CiPHER</title>
+<meta name="description" content="The people behind Team CiPHER — organized across mechanical, electronics, programming and administration.">
+<meta name="theme-color" content="#080808">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="nav is-scrolled">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo"><span class="mark"></span>TEAM CiPHER</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="competitions.html">Competitions</a>
+      <a href="team.html" aria-current="page">Team</a>
+      <a href="index.html#research">Research</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="nav-gh btn" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <button class="mobile-close" aria-label="Close menu">Close ✕</button>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="competitions.html">Competitions</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a></li>
+  </ul>
+</div>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="kicker">TEAM</div>
+    <h1 data-reveal>The people behind the machines.</h1>
+    <p class="sub" data-reveal>Team CiPHER is organized across four domains. Every build needs all four working together.</p>
+  </section>
+
+  <section class="section" style="border-top:none;">
+    <div class="wrap">
+      <div class="domains">
+        <div class="domain" data-reveal>
+          <div class="domain-num">01</div>
+          <div class="domain-body"><h3>Mechanical</h3><p>CAD, mechanisms, analysis, fabrication.</p></div>
+        </div>
+        <div class="domain" data-reveal>
+          <div class="domain-num">02</div>
+          <div class="domain-body"><h3>Electronics</h3><p>Embedded systems, sensors, actuators, power, control.</p></div>
+        </div>
+        <div class="domain" data-reveal>
+          <div class="domain-num">03</div>
+          <div class="domain-body"><h3>Programming</h3><p>ROS 2, algorithms, computer vision, autonomy, software.</p></div>
+        </div>
+        <div class="domain" data-reveal>
+          <div class="domain-num">04</div>
+          <div class="domain-body"><h3>Administration</h3><p>Operations, documentation, outreach, coordination.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>Roster.</h2>
+        <p class="lede" data-reveal>Member profiles are managed in <code>js/main.js</code> — add an entry to the <code>TEAM_MEMBERS</code> array and it appears here automatically.</p>
+      </div>
+      <div data-team-roster></div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="wrap">
+      <h2 data-reveal>Want to join?</h2>
+      <p class="lede" data-reveal>Team CiPHER is always looking for people across mechanical, electronics, programming and administration.</p>
+      <div class="cta-buttons" data-reveal>
+        <a class="btn btn-solid" href="contact.html">Get in touch →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="nav-logo"><span class="mark"></span>TEAM CiPHER</div>
+        <p style="color:var(--text-dim); margin-top:0.8rem; max-width:36ch;">National-Level Robotics Team, JSPM's Rajarshi Shahu College of Engineering, Pune.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h5>Site</h5>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="competitions.html">Competitions</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Design. Build. Program. Test. Iterate.</span>
+      <span>© <span data-year>2026</span> Team CiPHER</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>

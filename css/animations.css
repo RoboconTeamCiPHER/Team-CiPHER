@@ -1,0 +1,58 @@
+/* ==========================================================================
+   TEAM CiPHER — Animation system
+   One orchestrated hero load sequence + scroll-triggered reveals.
+   Everything here is additive on top of the [data-reveal] base rule in
+   style.css, which already sets the resting/hidden state.
+   ========================================================================== */
+
+@keyframes scrollDot {
+  0%   { transform: translateY(0);   opacity: 0.15; }
+  50%  { transform: translateY(18px); opacity: 1; }
+  100% { transform: translateY(36px); opacity: 0; }
+}
+
+.hero-scroll::before {
+  content: '';
+  position: absolute;
+  width: 3px; height: 3px;
+  background: var(--red);
+  border-radius: 50%;
+  top: -6px;
+  animation: scrollDot 2.2s var(--ease-out) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll::before { animation: none; }
+}
+
+/* Staggered reveal delays for groups marked data-reveal-group */
+[data-reveal-group] [data-reveal]:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-group] [data-reveal]:nth-child(2) { transition-delay: 80ms; }
+[data-reveal-group] [data-reveal]:nth-child(3) { transition-delay: 160ms; }
+[data-reveal-group] [data-reveal]:nth-child(4) { transition-delay: 240ms; }
+[data-reveal-group] [data-reveal]:nth-child(5) { transition-delay: 320ms; }
+[data-reveal-group] [data-reveal]:nth-child(6) { transition-delay: 400ms; }
+
+/* Pipeline stage becomes "active" (red node) once revealed, scroll-linked */
+.pipeline-stage[data-reveal] { opacity: 0; transform: translateY(10px); }
+.pipeline-stage[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+/* Project card image micro-zoom handled via transform on .thumb (style.css);
+   this adds the darken-on-hover for the card itself. */
+.project-card {
+  transition: background var(--dur-med) var(--ease-out);
+}
+.project-card:hover { background: #0c0c0c; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(4,4,4,0.94);
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--gutter);
+  opacity: 0; visibility: hidden;
+  transition: opacity var(--dur-med) var(--ease-out), visibility var(--dur-med);
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox img { max-width: 92vw; max-height: 86vh; object-fit: contain; border: 1px solid var(--border); }
+.lightbox-close { position: absolute; top: 1.5rem; right: var(--gutter); font-family: var(--font-mono); }
