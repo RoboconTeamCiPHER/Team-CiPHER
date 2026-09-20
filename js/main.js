@@ -27,19 +27,19 @@ var REPOSITORIES = [
     name: 'AMR-Simulation',
     description: 'ROS 2 + Gazebo simulation of an autonomous mobile robot: SLAM, Nav2, LiDAR and camera-based navigation.',
     language: 'Python',
-    url: '#'
+    url: 'https://github.com/RoboconTeamCiPHER'
   },
   {
     name: 'FusionToDescription',
     description: 'Fusion 360 add-in that exports CAD assemblies into ROS-ready robot description packages.',
     language: 'Python',
-    url: '#'
+    url: 'https://github.com/RoboconTeamCiPHER'
   },
   {
     name: 'CURA',
     description: 'Dashboard and control software for a healthcare-assistant robot built for Robofest.',
     language: 'JavaScript',
-    url: '#'
+    url: 'https://github.com/RoboconTeamCiPHER'
   }
 ];
 
