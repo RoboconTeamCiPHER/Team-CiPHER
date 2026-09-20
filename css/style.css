@@ -733,3 +733,14 @@ p { margin: 0; }
   .robocon-layout { grid-template-columns: 1fr; gap: 1.5rem; }
   .robocon-photo .g-item { aspect-ratio: 16 / 10; }
 }
+
+/* ---- About page: structured introduction ---- */
+.about-intro-head { margin-bottom: clamp(1.5rem, 4vw, 3rem); }
+.about-intro-copy { color: var(--text-dim); max-width: 38ch; font-size: var(--step-1); line-height: 1.65; }
+.about-intro-copy p + p { margin-top: 1rem; }
+.about-story { max-width: 72ch; padding-top: clamp(1.5rem, 4vw, 2.5rem); border-top: 1px solid var(--border); color: var(--text-dim); font-size: var(--step-1); line-height: 1.7; }
+.about-story p + p { margin-top: 1rem; }
+@media (min-width: 900px) {
+  .about-intro-head { grid-template-columns: 1.2fr 1fr; align-items: center; }
+  .about-story { margin-left: 33.333%; }
+}
