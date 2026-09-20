@@ -704,3 +704,15 @@ p { margin: 0; }
 .contact-info dl { display: grid; grid-template-columns: auto 1fr; gap: 0.8rem 1.5rem; }
 .contact-info dt { color: var(--text-faint); font-family: var(--font-mono); font-size: var(--step--1); }
 .contact-info dd { margin: 0; }
+
+
+/* Team CiPHER real media assets */
+.nav-logo-image{display:block;width:clamp(150px,14vw,210px);height:auto;max-height:48px;object-fit:contain}
+.hero-bg{background-image:linear-gradient(90deg,rgba(8,8,8,.84) 0%,rgba(8,8,8,.58) 45%,rgba(8,8,8,.22) 100%),url("../assets/images/robots/robocon2025.jpeg");background-size:cover;background-position:center}
+.project-card .thumb img,.gallery .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--dur-med) var(--ease-out),filter var(--dur-med) var(--ease-out)}
+.project-card:hover .thumb img,.gallery .g-item:hover img{transform:scale(1.05);filter:brightness(.92)}
+.project-visual{display:flex;align-items:center;justify-content:center;min-height:100%;background:linear-gradient(135deg,rgba(227,27,35,.14),transparent 55%),repeating-linear-gradient(90deg,transparent 0 24px,rgba(255,255,255,.035) 24px 25px);position:relative;overflow:hidden}
+.project-visual::after{content:"";position:absolute;inset:12%;border:1px solid rgba(227,27,35,.2);transform:skewX(-12deg)}
+.project-visual span{position:relative;z-index:1;font-family:var(--font-mono);font-size:clamp(.8rem,1.3vw,1rem);letter-spacing:.12em;color:var(--text-dim);text-align:center}
+.gallery .g-item{position:relative;padding:0;border:1px solid var(--border)}
+.gallery .g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.28));pointer-events:none}
