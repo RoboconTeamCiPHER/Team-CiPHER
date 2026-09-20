@@ -791,3 +791,12 @@ p { margin: 0; }
 }
 .team-season.team-current { box-shadow: inset 3px 0 0 var(--red); }
 .team-season.team-current .team-season-head { border-bottom-color: var(--border-bright); }
+
+
+/* ---- Homepage hero brandmark ---- */
+.hero-brandmark { margin-bottom:1.25rem; max-width:clamp(180px,24vw,340px); }
+.hero-brandmark-image { display:block; width:100%; height:auto; max-height:92px; object-fit:contain; object-position:left center; filter:brightness(0) invert(1); }
+@media (max-width:700px) {
+  .hero-brandmark { max-width:clamp(150px,48vw,260px); }
+  .hero-brandmark-image { max-height:72px; }
+}
