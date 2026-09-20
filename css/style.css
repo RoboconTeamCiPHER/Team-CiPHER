@@ -783,3 +783,11 @@ p { margin: 0; }
 @media (max-width:700px) {
   .team-member-groups { grid-template-columns:1fr; }
 }
+
+
+/* ---- Team roster refinement ---- */
+@media (min-width:1100px) {
+  .team-member-groups { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+.team-season.team-current { box-shadow: inset 3px 0 0 var(--red); }
+.team-season.team-current .team-season-head { border-bottom-color: var(--border-bright); }
