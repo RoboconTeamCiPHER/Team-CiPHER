@@ -1,7 +1,6 @@
 # Team CiPHER — Official Website
 
-The public website for **Team CiPHER**, the national-level robotics team at
-JSPM's Rajarshi Shahu College of Engineering (RSCOE), Pune.
+The public website for **Team CiPHER**, the robotics team of JSPM's Rajarshi Shahu College of Engineering (RSCOE), Pune. Founded in **2018**, the team has **20+ members**, works across four engineering domains, participates in many competitions, and organized **RoboQuest in 2026**.
 
 Plain HTML5 / CSS3 / vanilla JavaScript. No build step, no framework —
 open `index.html` directly, or deploy straight to GitHub Pages.
@@ -11,7 +10,7 @@ open `index.html` directly, or deploy straight to GitHub Pages.
 ```text
 team-cipher-website/
 │
-├── index.html          Homepage — hero, domains, pipeline, projects,
+├── index.html          Homepage — team identity, history, projects,
 │                        competitions preview, toolchain, research,
 │                        laboratory, stats, open source, CTA
 ├── about.html           Team identity and mission
@@ -57,10 +56,8 @@ intentionally left as placeholders:
   with `url: '#'` placeholders — update the URLs (and star/fork counts if
   you want to hardcode them, since GitHub Pages can't safely call the
   GitHub API without a backend).
-- **Stats.** The "By the numbers" section on the homepage uses `XX+`
-  placeholders on purpose — replace with real, confirmed figures only.
-- **Competition results.** Each competition entry has an
-  `[ADD ACTUAL COMPETITION RESULT]` marker — replace with the real outcome.
+- **Stats.** The homepage now reflects the confirmed team facts supplied for the site: founded in 2018, 20+ members, four engineering domains, many competitions, and regular work hours of 4:00 PM–10:00 PM with full-time weekend sessions.
+- **Competition history.** The competition page includes DD Robocon 2022–2025, the documented poster results for 2022–2025, additional competitions, and RoboQuest 2026 as a Team CiPHER-organized event.
 - **Contact details & social links.** `contact.html` and the site footer use
   placeholder email/LinkedIn/Instagram links — update them to the team's
   real accounts.
