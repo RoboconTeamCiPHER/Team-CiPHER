@@ -443,6 +443,7 @@ p { margin: 0; }
 
 .project-card {
   background: var(--bg);
+  transition: background-color var(--dur-med) var(--ease-out), color var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
   padding: clamp(1.6rem, 3vw, 2.6rem);
   display: flex;
   flex-direction: column;
@@ -1053,6 +1054,20 @@ body {
 .project-detail-grid > *,
 .team-season {
   background: var(--surface);
+}
+
+.project-card:hover {
+  background: #dff3ff;
+  color: #111827;
+}
+
+.project-card:hover p,
+.project-card:hover .project-tech span {
+  color: #334155;
+}
+
+.project-card:hover .project-tech span {
+  border-color: #b8dff2;
 }
 
 .project-card .thumb {
