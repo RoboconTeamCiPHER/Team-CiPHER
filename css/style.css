@@ -917,3 +917,15 @@ html { scroll-padding-top: var(--nav-h); }
   .hero-content { padding-bottom: 2.5rem; }
   .hero-scroll { display: none; }
 }
+
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  background: var(--red);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
