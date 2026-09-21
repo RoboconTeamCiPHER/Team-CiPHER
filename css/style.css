@@ -929,3 +929,7 @@ html { scroll-padding-top: var(--nav-h); }
   padding: 0.8rem 1.2rem;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+.robocon-full-width { grid-column: 1 / -1; }
+.competition-constraints-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .competition-constraints-grid { grid-template-columns: 1fr; } }
