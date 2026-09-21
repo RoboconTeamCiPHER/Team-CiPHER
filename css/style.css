@@ -975,3 +975,141 @@ html { scroll-padding-top: var(--nav-h); }
 }
 .error-page h1 { font-size: var(--step-4); }
 .error-page p { color: var(--text-dim); max-width: 50ch; }
+
+
+/* ==========================================================================
+   LIGHT THEME
+   Clean, technical visual language inspired by the DD Robocon 2026 reference.
+   ========================================================================== */
+
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --text: #111827;
+  --text-dim: #52637a;
+  --text-faint: #64748b;
+  --red: #2563eb;
+  --red-dim: #1d4ed8;
+  --border: #dbe3ee;
+  --border-bright: #c7d2e0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+  color: var(--text);
+}
+
+.nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 12px rgba(15, 23, 42, 0.04);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--text);
+}
+
+.nav-logo .mark {
+  background: var(--red);
+}
+
+.nav-toggle span {
+  background: var(--text);
+}
+
+.mobile-menu {
+  background: rgba(248, 250, 252, 0.98);
+}
+
+.hero-bg {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(203, 213, 225, 0.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203, 213, 225, 0.42) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.hero-bg::before {
+  background-image: radial-gradient(circle at 50% 40%, rgba(37, 99, 235, 0.08), transparent 62%);
+  opacity: 1;
+  mask-image: none;
+}
+
+.hero-eyebrow,
+.page-hero .kicker,
+.index-mark {
+  color: var(--text-faint);
+}
+
+.project-card,
+.repo-card,
+.project-detail-grid > *,
+.team-season {
+  background: var(--surface);
+}
+
+.project-card .thumb {
+  background: linear-gradient(135deg, var(--surface-2), #ffffff);
+}
+
+.project-visual {
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 55%),
+    repeating-linear-gradient(90deg, transparent 0 24px, rgba(37, 99, 235, 0.035) 24px 25px);
+}
+
+.project-visual::after {
+  border-color: rgba(37, 99, 235, 0.16);
+}
+
+.gallery .g-item {
+  background: var(--surface-2);
+}
+
+.gallery .g-item::after {
+  background: linear-gradient(180deg, transparent 60%, rgba(15, 23, 42, 0.12));
+}
+
+.team-season.team-current {
+  background: var(--surface);
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.site-footer {
+  background: #f1f5f9;
+}
+
+.btn:hover {
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.btn-solid {
+  color: #fff;
+}
+
+.btn-solid:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.placeholder-note {
+  background: var(--surface);
+}
+
+.skip-link {
+  background: var(--red);
+}
+
