@@ -1,20 +1,7 @@
 /* ==========================================================================
    TEAM CiPHER — main.js
-   Site-wide data structures (team roster, repositories) and small
-   dynamic behaviors (footer year, empty-state rendering).
-
-   TEAM HISTORY is maintained in team.html. The TEAM_MEMBERS array is reserved for future individual member profile cards.
-   The historical roster on team.html is maintained directly in that page.
-
-   TEAM MEMBER PROFILES
-   -------------------------------------------------------------------------
-   The historical team roster is maintained in team.html. Use TEAM_MEMBERS
-   only when individual profile cards are introduced in the future.
+   Site-wide data and lightweight dynamic behavior.
    ========================================================================== */
-
-var TEAM_MEMBERS = [
-  // No members published yet — add entries above using the schema shown.
-];
 
 var REPOSITORIES = [
   {
@@ -31,7 +18,7 @@ var REPOSITORIES = [
   },
   {
     name: 'CURA',
-    description: 'Dashboard and control software for a healthcare-assistant robot built for Robofest.',
+    description: 'Simulation and control software for a healthcare-assistance robot developed for Robofest.',
     language: 'JavaScript',
     url: 'https://github.com/sam-airobotics/cortex'
   }
@@ -40,54 +27,25 @@ var REPOSITORIES = [
 (function () {
   'use strict';
 
-  /* ---- Footer year ---- */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---- Team roster rendering (team.html) ---- */
-  var rosterRoot = document.querySelector('[data-team-roster]');
-  if (rosterRoot) {
-    if (!TEAM_MEMBERS.length) {
-      rosterRoot.innerHTML =
-        '<p class="placeholder-note">Member profiles are being added. Check back soon, or see js/main.js to add the team roster.</p>';
-    } else {
-      var grid = document.createElement('div');
-      grid.className = 'team-grid';
-      TEAM_MEMBERS.forEach(function (m) {
-        var card = document.createElement('article');
-        card.className = 'member-card';
-        card.innerHTML =
-          '<div class="member-photo">' +
-          (m.photo ? '<img src="' + m.photo + '" alt="' + m.name + '" loading="lazy">' : 'PHOTO') +
-          '</div>' +
-          '<div class="member-info">' +
-          '<div class="name">' + m.name + '</div>' +
-          '<div class="role">' + m.role + '</div>' +
-          '<div class="member-links">' +
-          (m.linkedin ? '<a href="' + m.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>' : '') +
-          (m.github ? '<a href="' + m.github + '" target="_blank" rel="noopener">GitHub</a>' : '') +
-          '</div></div>';
-        grid.appendChild(card);
-      });
-      rosterRoot.innerHTML = '';
-      rosterRoot.appendChild(grid);
-    }
-  }
-
-  /* ---- Repository cards (index.html open-source section) ---- */
   var repoRoot = document.querySelector('[data-repo-grid]');
-  if (repoRoot) {
-    repoRoot.innerHTML = REPOSITORIES.map(function (r) {
-      return (
-        '<div class="repo-card">' +
-        '<h4>' + r.name + '</h4>' +
-        '<p>' + r.description + '</p>' +
-        '<div class="repo-meta"><span>' + r.language + '</span><span>★ —</span><span>Forks —</span></div>' +
-        '<a class="link-arrow" href="' + r.url + '" target="_blank" rel="noopener">View on GitHub ' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-        '</a></div>'
-      );
-    }).join('');
-  }
+  if (!repoRoot) return;
+
+  repoRoot.innerHTML = REPOSITORIES.map(function (repo) {
+    return (
+      '<article class="repo-card">' +
+      '<h4>' + repo.name + '</h4>' +
+      '<p>' + repo.description + '</p>' +
+      '<div class="repo-meta"><span>' + repo.language + '</span></div>' +
+      '<a class="link-arrow" href="' + repo.url + '" target="_blank" rel="noopener">' +
+      'View on GitHub ' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">' +
+      '<path d="M5 12h14M13 6l6 6-6 6"/>' +
+      '</svg></a>' +
+      '</article>'
+    );
+  }).join('');
 })();
