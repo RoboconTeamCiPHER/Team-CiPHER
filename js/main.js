@@ -3,22 +3,13 @@
    Site-wide data structures (team roster, repositories) and small
    dynamic behaviors (footer year, empty-state rendering).
 
-   TEAM HISTORY is maintained in team.html. The TEAM_MEMBERS array below
-   remains available for individual member profiles and future roster cards.
+   TEAM HISTORY is maintained in team.html. The TEAM_MEMBERS array is reserved for future individual member profile cards.
+   The historical roster on team.html is maintained directly in that page.
 
-   HOW TO ADD A TEAM MEMBER
+   TEAM MEMBER PROFILES
    -------------------------------------------------------------------------
-   Add an object to TEAM_MEMBERS below. Nothing else needs to change —
-   team.html reads this array and builds the cards automatically.
-
-   {
-     name: 'Full Name',
-     role: 'Role / Position',           // e.g. 'Team Lead', 'Mechanical Lead'
-     domain: 'mechanical',              // 'mechanical' | 'electronics' | 'programming' | 'administration'
-     photo: 'assets/images/team/name.jpg', // optional, omit to show placeholder
-     linkedin: 'https://linkedin.com/in/...', // optional
-     github: 'https://github.com/...'         // optional
-   }
+   The historical team roster is maintained in team.html. Use TEAM_MEMBERS
+   only when individual profile cards are introduced in the future.
    ========================================================================== */
 
 var TEAM_MEMBERS = [
@@ -30,19 +21,19 @@ var REPOSITORIES = [
     name: 'AMR-Simulation',
     description: 'ROS 2 + Gazebo simulation of an autonomous mobile robot: SLAM, Nav2, LiDAR and camera-based navigation.',
     language: 'Python',
-    url: 'https://github.com/RoboconTeamCiPHER'
+    url: 'https://github.com/sam-airobotics/amr-simulation'
   },
   {
     name: 'FusionToDescription',
     description: 'Fusion 360 add-in that exports CAD assemblies into ROS-ready robot description packages.',
     language: 'Python',
-    url: 'https://github.com/RoboconTeamCiPHER'
+    url: 'https://github.com/sam-airobotics/FusionToDescription'
   },
   {
     name: 'CURA',
     description: 'Dashboard and control software for a healthcare-assistant robot built for Robofest.',
     language: 'JavaScript',
-    url: 'https://github.com/RoboconTeamCiPHER'
+    url: 'https://github.com/sam-airobotics/cortex'
   }
 ];
 
