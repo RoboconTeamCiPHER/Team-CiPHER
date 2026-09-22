@@ -42,7 +42,7 @@
 .project-card {
   transition: background var(--dur-med) var(--ease-out);
 }
-.project-card:hover { background: #0c0c0c; }
+.project-card:hover { background: #dff3ff; color: #111827; }
 
 /* Lightbox */
 .lightbox {
