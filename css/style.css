@@ -1128,3 +1128,29 @@ body {
   background: var(--red);
 }
 
+
+/* ---- Robocon robot archive ---- */
+.robocon-robot-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--border); }
+.robocon-robot-card { background:var(--surface); padding:clamp(1.25rem,3vw,2rem); min-width:0; }
+.robocon-robot-year { font-family:var(--font-mono); color:var(--red); font-size:.78rem; letter-spacing:.08em; margin-bottom:1rem; }
+.robocon-robot-images { display:grid; gap:.6rem; margin-bottom:1.4rem; }
+.robocon-robot-images.two { grid-template-columns:1fr 1fr; }
+.robocon-robot-images.one { grid-template-columns:1fr; }
+.robocon-robot-image { aspect-ratio:4/3; overflow:hidden; border:1px solid var(--border); background:var(--surface-2); }
+.robocon-robot-image img { width:100%; height:100%; object-fit:cover; display:block; transition:transform var(--dur-med) var(--ease-out); }
+.robocon-robot-image:hover img { transform:scale(1.04); }
+.robocon-robot-card h3 { font-size:var(--step-1); margin-bottom:.6rem; }
+.robocon-robot-card p { color:var(--text-dim); margin-bottom:1rem; font-size:var(--step--1); }
+.robocon-robot-gallery { display:grid; gap:.6rem; }
+.robocon-robot-gallery.two { grid-template-columns:1fr 1fr; }
+.robocon-robot-gallery.one { grid-template-columns:1fr; }
+.robocon-robot-gallery .robocon-robot-image { aspect-ratio:4/3; }
+.robocon-theme { margin-top:1.5rem; padding:1rem 0; border-block:1px solid var(--border); display:flex; flex-direction:column; gap:.3rem; }
+.robocon-theme span { font-family:var(--font-mono); color:var(--text-faint); font-size:.7rem; letter-spacing:.08em; }
+.robocon-theme strong { font-family:var(--font-display); font-size:var(--step-1); }
+@media (max-width:760px) {
+  .robocon-robot-grid { grid-template-columns:1fr; }
+}
+@media (max-width:560px) {
+  .robocon-robot-images.two, .robocon-robot-gallery.two { grid-template-columns:1fr; }
+}
