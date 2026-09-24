@@ -1229,3 +1229,19 @@ body {
     font-size: 46px;
   }
 }
+
+.hero-brand-name {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 120px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .hero-brand-name {
+    font-size: 82px;
+  }
+}
