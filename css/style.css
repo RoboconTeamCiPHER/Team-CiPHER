@@ -1206,26 +1206,26 @@ body {
 .hero-brand-logo {
   display: block;
   width: auto;
-  height: 70px;
-  max-width: min(90vw, 520px);
+  height: 120px;
+  max-width: min(90vw, 680px);
   object-fit: contain;
 }
 
 .hero-title .hero-tagline {
   display: block;
-  font-size: 42px;
-  line-height: 1.1;
+  font-size: 64px;
+  line-height: 1.08;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 @media (max-width: 600px) {
   .hero-brand-logo {
-    height: 58px;
-    max-width: 88vw;
+    height: 82px;
+    max-width: 92vw;
   }
 
   .hero-title .hero-tagline {
-    font-size: 35px;
+    font-size: 46px;
   }
 }
