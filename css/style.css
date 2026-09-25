@@ -1268,3 +1268,25 @@ body {
     font-size: 82px;
   }
 }
+
+/* ---- Contact CTA social buttons ---- */
+.contact-cta {
+  border-top: 1px solid var(--border);
+}
+
+.contact-cta .lede {
+  max-width: 70ch;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.social-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  display: block;
+}
