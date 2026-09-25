@@ -1208,7 +1208,7 @@ body {
   width: auto;
   height: 288px;
   max-width: min(90vw, 1100px);
-  margin-left: -18px;
+  margin-left: -42px;
   object-fit: contain;
 }
 
@@ -1224,7 +1224,7 @@ body {
   .hero-brand-logo {
     height: 196px;
     max-width: 96vw;
-    margin-left: -10px;
+    margin-left: -22px;
   }
 
   .hero-title .hero-tagline {
