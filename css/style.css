@@ -1206,8 +1206,8 @@ body {
 .hero-brand-logo {
   display: block;
   width: auto;
-  height: 144px;
-  max-width: min(90vw, 820px);
+  height: 288px;
+  max-width: min(90vw, 1100px);
   margin-left: -18px;
   object-fit: contain;
 }
@@ -1222,8 +1222,8 @@ body {
 
 @media (max-width: 600px) {
   .hero-brand-logo {
-    height: 98px;
-    max-width: 94vw;
+    height: 196px;
+    max-width: 96vw;
     margin-left: -10px;
   }
 
