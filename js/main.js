@@ -33,18 +33,39 @@ var REPOSITORIES = [
 
   var slider = document.querySelector('[data-robocon-slider]');
   if (slider) {
-    var slides = slider.querySelectorAll('.robocon-slide');
-    var dots = slider.querySelectorAll('.robocon-slider-dots button');
+    var track = slider.querySelector('.robocon-carousel-track');
+    var slides = slider.querySelectorAll('.robocon-carousel-slide');
+    var dotsRoot = slider.querySelector('.robocon-carousel-dots');
     var current = 0;
     var timer;
+    var touchStartX = 0;
+
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', 'Show Robocon robot ' + (i + 1));
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      dot.addEventListener('click', function () {
+        showSlide(i);
+        restartTimer();
+      });
+      dotsRoot.appendChild(dot);
+    });
 
     function showSlide(index) {
       current = (index + slides.length) % slides.length;
+      var active = slides[current];
+      var viewport = slider.querySelector('.robocon-carousel-viewport');
+      var slideCenter = active.offsetLeft + (active.offsetWidth / 2);
+      var viewportCenter = viewport.clientWidth / 2;
+      track.style.transform = 'translateX(' + (viewportCenter - slideCenter) + 'px)';
+
       slides.forEach(function (slide, i) {
         slide.classList.toggle('is-active', i === current);
         slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
       });
-      dots.forEach(function (dot, i) {
+
+      dotsRoot.querySelectorAll('button').forEach(function (dot, i) {
         dot.classList.toggle('is-active', i === current);
         dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
       });
@@ -54,31 +75,31 @@ var REPOSITORIES = [
       window.clearInterval(timer);
       timer = window.setInterval(function () {
         showSlide(current + 1);
-      }, 5500);
+      }, 5000);
     }
-
-    slider.querySelector('.robocon-slider-prev').addEventListener('click', function () {
-      showSlide(current - 1);
-      restartTimer();
-    });
-
-    slider.querySelector('.robocon-slider-next').addEventListener('click', function () {
-      showSlide(current + 1);
-      restartTimer();
-    });
-
-    dots.forEach(function (dot, i) {
-      dot.addEventListener('click', function () {
-        showSlide(i);
-        restartTimer();
-      });
-    });
 
     slider.addEventListener('mouseenter', function () {
       window.clearInterval(timer);
     });
 
     slider.addEventListener('mouseleave', restartTimer);
+
+    slider.addEventListener('touchstart', function (event) {
+      touchStartX = event.changedTouches[0].clientX;
+      window.clearInterval(timer);
+    }, { passive: true });
+
+    slider.addEventListener('touchend', function (event) {
+      var delta = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(delta) > 45) {
+        showSlide(current + (delta < 0 ? 1 : -1));
+      }
+      restartTimer();
+    }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      showSlide(current);
+    });
 
     showSlide(0);
     restartTimer();
