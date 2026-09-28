@@ -31,6 +31,59 @@ var REPOSITORIES = [
     el.textContent = new Date().getFullYear();
   });
 
+  var slider = document.querySelector('[data-robocon-slider]');
+  if (slider) {
+    var slides = slider.querySelectorAll('.robocon-slide');
+    var dots = slider.querySelectorAll('.robocon-slider-dots button');
+    var current = 0;
+    var timer;
+
+    function showSlide(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('is-active', i === current);
+        slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === current);
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+    }
+
+    function restartTimer() {
+      window.clearInterval(timer);
+      timer = window.setInterval(function () {
+        showSlide(current + 1);
+      }, 5500);
+    }
+
+    slider.querySelector('.robocon-slider-prev').addEventListener('click', function () {
+      showSlide(current - 1);
+      restartTimer();
+    });
+
+    slider.querySelector('.robocon-slider-next').addEventListener('click', function () {
+      showSlide(current + 1);
+      restartTimer();
+    });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        showSlide(i);
+        restartTimer();
+      });
+    });
+
+    slider.addEventListener('mouseenter', function () {
+      window.clearInterval(timer);
+    });
+
+    slider.addEventListener('mouseleave', restartTimer);
+
+    showSlide(0);
+    restartTimer();
+  }
+
   var repoRoot = document.querySelector('[data-repo-grid]');
   if (!repoRoot) return;
 
