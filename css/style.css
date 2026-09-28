@@ -1508,3 +1508,18 @@ body {
     font-size:.62rem;
   }
 }
+
+.robocon-carousel-image-link {
+  display:block;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+}
+
+.robocon-carousel-image-link img {
+  transition:transform .45s ease;
+}
+
+.robocon-carousel-image-link:hover img {
+  transform:scale(1.025);
+}
