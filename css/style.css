@@ -1355,135 +1355,106 @@ body {
   .domain-grid .domain-card:last-child { border-bottom:0; }
 }
 
-/* ---- Robocon slideshow ---- */
-.robocon-slideshow {
+/* ---- Robocon centered carousel ---- */
+.robocon-carousel {
   position:relative;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
   overflow:hidden;
-  border:1px solid var(--border);
-  background:var(--surface);
+  padding:0 0 2.75rem;
 }
 
-.robocon-slides {
+.robocon-carousel-viewport {
+  overflow:hidden;
+}
+
+.robocon-carousel-track {
+  display:flex;
+  align-items:stretch;
+  gap:4px;
+  will-change:transform;
+  transition:transform .65s cubic-bezier(.22,.61,.36,1);
+}
+
+.robocon-carousel-slide {
   position:relative;
-  min-height:620px;
+  flex:0 0 min(62vw, 920px);
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  transform:scale(.92);
+  opacity:.72;
+  transition:transform .65s cubic-bezier(.22,.61,.36,1), opacity .65s ease;
 }
 
-.robocon-slide {
-  display:none;
-  grid-template-columns:1.45fr .75fr;
-  min-height:620px;
+.robocon-carousel-slide.is-active {
+  transform:scale(1);
+  opacity:1;
 }
 
-.robocon-slide.is-active {
-  display:grid;
-  animation:roboconSlideIn .45s ease both;
-}
-
-.robocon-slide-images {
-  min-width:0;
-  display:grid;
+.robocon-carousel-slide img {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  padding:1rem;
   background:var(--surface-2);
 }
 
-.robocon-slide-images.two { grid-template-columns:1fr 1fr; }
-.robocon-slide-images.one { grid-template-columns:1fr; }
-
-.robocon-slide .robocon-robot-image {
-  min-height:520px;
-  overflow:hidden;
-  border-right:1px solid var(--border);
-}
-
-.robocon-slide .robocon-robot-image img {
-  width:100%;
-  height:100%;
-  min-height:520px;
-  object-fit:contain;
-  padding:1.25rem;
-  display:block;
-}
-
-.robocon-slide-info {
+.robocon-carousel-caption {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:3rem;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.2rem 1.5rem;
+  color:#fff;
+  background:linear-gradient(to top,rgba(5,15,30,.82),rgba(5,15,30,0));
+  pointer-events:none;
 }
 
-.robocon-slide-info .robocon-robot-year {
-  color:var(--red);
+.robocon-carousel-caption strong {
+  font-size:1.05rem;
+}
+
+.robocon-carousel-caption span {
   font-family:var(--font-mono);
-  font-size:.85rem;
-  letter-spacing:.08em;
-  margin-bottom:1rem;
+  font-size:.68rem;
+  letter-spacing:.03em;
+  opacity:.88;
 }
 
-.robocon-slide-info h3 {
-  margin:0 0 .75rem;
-  font-size:clamp(2rem,3.2vw,3.4rem);
-}
-
-.robocon-slide-info p {
-  color:var(--text-dim);
-  line-height:1.65;
-}
-
-.robocon-slide-info .link-arrow {
-  margin-top:1rem;
-}
-
-.robocon-slider-prev,
-.robocon-slider-next {
+.robocon-carousel-dots {
   position:absolute;
-  top:50%;
-  z-index:3;
-  width:46px;
-  height:46px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.92);
-  color:var(--text);
-  cursor:pointer;
-  transform:translateY(-50%);
-  transition:background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-}
-
-.robocon-slider-prev { left:1rem; }
-.robocon-slider-next { right:1rem; }
-
-.robocon-slider-prev:hover,
-.robocon-slider-next:hover {
-  background:#dff3ff;
-  border-color:#b8dff2;
-}
-
-.robocon-slider-dots {
-  position:absolute;
+  bottom:.35rem;
   left:50%;
-  bottom:1.25rem;
-  z-index:4;
   display:flex;
-  gap:.5rem;
+  align-items:center;
+  gap:.45rem;
   transform:translateX(-50%);
 }
 
-.robocon-slider-dots button {
-  width:8px;
-  height:8px;
+.robocon-carousel-dots button {
+  width:6px;
+  height:6px;
   padding:0;
-  border:1px solid var(--text-faint);
+  border:0;
   border-radius:50%;
-  background:transparent;
+  background:var(--text-faint);
+  opacity:.6;
   cursor:pointer;
+  transition:all .2s ease;
 }
 
-.robocon-slider-dots button.is-active {
-  background:var(--red);
-  border-color:var(--red);
-}
-
-@keyframes roboconSlideIn {
-  from { opacity:0; transform:translateX(18px); }
-  to { opacity:1; transform:translateX(0); }
+.robocon-carousel-dots button.is-active {
+  width:20px;
+  border-radius:4px;
+  background:var(--text);
+  opacity:1;
 }
 
 @media (max-width:767px) {
