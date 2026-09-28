@@ -1486,3 +1486,25 @@ body {
     height:40px;
   }
 }
+
+@media (max-width:767px) {
+  .robocon-carousel-slide {
+    flex-basis:82vw;
+    aspect-ratio:4 / 3;
+  }
+
+  .robocon-carousel-slide img {
+    padding:.5rem;
+  }
+
+  .robocon-carousel-caption {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.2rem;
+    padding:1rem;
+  }
+
+  .robocon-carousel-caption span {
+    font-size:.62rem;
+  }
+}
