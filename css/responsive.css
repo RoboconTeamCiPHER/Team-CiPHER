@@ -1,0 +1,36 @@
+/* ==========================================================================
+   TEAM CiPHER — Responsive refinements
+   Base styles are mobile-first via clamp(); this file handles structural
+   changes at specific breakpoints beyond fluid sizing.
+   ========================================================================== */
+
+@media (max-width: 479px) {
+  .hero-title { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(2n) { border-right: none; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .hero-title { font-size: clamp(3rem, 11vw, 3.8rem); }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .wrap { padding-inline: 2.5rem; }
+}
+
+@media (min-width: 1440px) {
+  :root { --content-max: 1480px; }
+}
+
+/* Landscape / short-viewport hero safety */
+@media (max-height: 620px) and (min-width: 880px) {
+  .hero { min-height: auto; padding-top: var(--nav-h); }
+  .hero-content { padding-top: 4rem; padding-bottom: 3rem; }
+}
+
+/* Print */
+@media print {
+  .nav, .hero-scroll, .loader, .mobile-menu { display: none !important; }
+  body { background: #fff; color: #000; }
+}
