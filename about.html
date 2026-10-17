@@ -4,18 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Team CiPHER</title>
-<meta name="description" content="Team CiPHER is a multidisciplinary student robotics team at JSPM RSCOE Pune, working across mechanical, electronics, programming and robotics research.">
+<meta name="description" content="Team CiPHER is a national-level robotics team from JSPM's Rajarshi Shahu College of Engineering, Pune, working across mechanical engineering, electronics, programming, autonomous robotics, simulation and competitive robotics.">
 <meta name="theme-color" content="#080808">
 <link rel="canonical" href="https://roboconteamcipher.github.io/Team-CiPHER/about.html">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Team CiPHER | Robotics Team | JSPM RSCOE Pune">
+<meta property="og:description" content="Founded in 2018, Team CiPHER is a student robotics team engineering autonomous systems across mechanical, electronics, programming and research.">
+<meta property="og:image" content="assets/images/robots/robocon2025.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Team CiPHER | Robotics Team | JSPM RSCOE Pune">
+<meta name="twitter:description" content="A national-level student robotics team engineering autonomous systems across mechanical, electronics, programming and research.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=3">
 <link rel="shortcut icon" type="image/png" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=2">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/style.css?v=orbit-logo-only-5">
+<link rel="stylesheet" href="css/animations.css?v=orbit-logo-only-5">
+<link rel="stylesheet" href="css/responsive.css?v=orbit-logo-only-5">
 </head>
 <body>
 
-<header class="nav is-scrolled">
+<div class="loader" aria-hidden="true">
+  <div class="loader-line">INITIALIZING SYSTEM...</div>
+  <div class="loader-line">LOADING ROBOTICS DATA...</div>
+  <div class="loader-line">SYSTEM READY.</div>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
   <div class="wrap">
     <a href="index.html" class="nav-logo"><img src="assets/logos/Team%20CiPHER.png" alt="Team CiPHER" class="nav-logo-image"></a>
     <nav class="nav-links" aria-label="Primary">
@@ -23,7 +38,7 @@
       <a href="projects.html">Projects</a>
       <a href="competitions.html">Competitions</a>
       <a href="team.html">Team</a>
-      <a href="index.html#research">Research</a>
+      <a href="about.html#research">Research</a>
       <a href="contact.html">Contact</a>
     </nav>
     <a class="nav-gh btn" href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">GitHub ↗</a>
@@ -38,7 +53,7 @@
     <li><a href="projects.html">Projects</a></li>
     <li><a href="competitions.html">Competitions</a></li>
     <li><a href="team.html">Team</a></li>
-    <li><a href="index.html#research">Research</a></li>
+    <li><a href="about.html#research">Research</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">GitHub ↗</a></li>
   </ul>
@@ -46,74 +61,287 @@
 
 <main id="main">
 
-  <section class="page-hero">
-    <div class="kicker">ABOUT TEAM CIPHER</div>
-    <h1 data-reveal>We don't just enter competitions. We engineer robotic systems.</h1>
-    <p class="sub" data-reveal>Founded in 2018, Team CiPHER is a multidisciplinary student robotics team from JSPM's Rajarshi Shahu College of Engineering, Pune, working across mechanical engineering, electronics, robotics programming, computer vision, autonomous robotics, simulation, competitive robotics and research &amp; development. Today, the team has 20+ members and participates in many robotics competitions.</p>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head about-intro-head">
-        <h2 data-reveal>Who we are.</h2>
-        <div class="about-intro-copy" data-reveal>
-          <p>Team CiPHER's laboratory is located in the Automation and Robotics building at RSCOE.</p>
-          <p>The team is an independent, multidisciplinary student organization — not a department or sub-department of the college.</p>
+  <!-- HERO: TEAM + ROBOTICS TOOL ECOSYSTEM -->
+  <section class="hero hero-orbit">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="orbit-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="orbit-stage">
+      <div class="orbit-tools" aria-label="Team CiPHER tools grouped by domain">
+        <div class="orbit-ring orbit-ring-mechanical" aria-label="Mechanical tools">
+          <div class="orbit-tool orbit-tool-fusion"><span class="tool-mark">F</span><span>Fusion 360</span></div>
+          <div class="orbit-tool orbit-tool-solidworks"><span class="tool-mark">SW</span><span>SOLIDWORKS</span></div>
+          <div class="orbit-tool orbit-tool-ansys"><span class="tool-mark">A</span><span>ANSYS</span></div>
+          <div class="orbit-tool orbit-tool-gdt"><span class="tool-mark">GD&T</span><span>GD&T</span></div>
+        </div>
+        <div class="orbit-ring orbit-ring-electronics" aria-label="Electronics tools">
+          <div class="orbit-tool orbit-tool-kicad"><span class="tool-mark">K</span><span>KiCad</span></div>
+          <div class="orbit-tool orbit-tool-arduino"><span class="tool-mark">∞</span><span>Arduino</span></div>
+          <div class="orbit-tool orbit-tool-esp"><span class="tool-mark">ESP</span><span>ESP32</span></div>
+          <div class="orbit-tool orbit-tool-stm"><span class="tool-mark">STM</span><span>STM32</span></div>
+        </div>
+        <div class="orbit-ring orbit-ring-programming" aria-label="Programming and robotics software">
+          <div class="orbit-tool orbit-tool-ros"><span class="tool-mark">ROS</span><span>ROS 2</span></div>
+          <div class="orbit-tool orbit-tool-gazebo"><span class="tool-mark">GZ</span><span>Gazebo</span></div>
+          <div class="orbit-tool orbit-tool-python"><span class="tool-mark">Py</span><span>Python</span></div>
+          <div class="orbit-tool orbit-tool-opencv"><span class="tool-mark">CV</span><span>OpenCV</span></div>
+        </div>
+        <div class="orbit-ring orbit-ring-administration" aria-label="Administration and collaboration tools">
+          <div class="orbit-tool orbit-tool-canva"><span class="tool-mark">C</span><span>Canva</span></div>
+          <div class="orbit-tool orbit-tool-notion"><span class="tool-mark">N</span><span>Notion</span></div>
+          <div class="orbit-tool orbit-tool-freedcamp"><span class="tool-mark">FC</span><span>Freedcamp</span></div>
+          <div class="orbit-tool orbit-tool-office"><span class="tool-mark">365</span><span>Microsoft 365</span></div>
         </div>
       </div>
-      <div class="about-story" data-reveal>
-        <p>The team was formed in 2018 to take robotics beyond the classroom: full systems built from concept through CAD, simulation, fabrication, electronics, software, integration, testing and iteration.</p>
-        <p>That process is the same whether the outcome is a competition robot, a simulation stack, or an internal tool used to speed up the next build.</p>
-      </div>
-    </div>
+      <div class="orbit-center">
+        <img class="hero-brand-logo" src="assets/logos/Team%20CiPHER.png" alt="Team CiPHER">
+        <div class="orbit-tagline">LEARN <span>|</span> ADAPT <span>|</span> GROW</div>
+      </div>    </div>
+    <div class="hero-scroll" aria-hidden="true">SCROLL</div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head mt-xl">
-        <h2 data-reveal>Team rhythm.</h2>
-        <p class="lede" data-reveal>Our regular working schedule supports sustained design, fabrication, software and testing work.</p>
-      </div>
-      <div class="schedule-grid stack-grid">
-        <div class="stack-group" data-reveal><h4>WEEKDAYS</h4><p>Daily team work: <strong>4:00 PM – 10:00 PM</strong></p></div>
-        <div class="stack-group" data-reveal><h4>WEEKENDS</h4><p><strong>Full-time</strong> build, testing and development sessions.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
+  <!-- INTRO / DOMAINS -->
+  <section class="section" id="about">
     <div class="wrap">
       <div class="section-head">
-        <h2 data-reveal>How we work.</h2>
-        <p class="lede" data-reveal>Four domains, one build process.</p>
+        <h2 data-reveal>We build robotic systems.</h2>
+        <p class="lede" data-reveal>Founded in 2018, Team CiPHER is a multidisciplinary robotics team focused on designing, building, programming, testing and refining robotic systems for competitions, experimentation and research. The lab sits inside the Automation and Robotics building at RSCOE, but the team operates independently of any single department.</p>
       </div>
-      <div class="domains">
-        <div class="domain" data-reveal>
-          <div class="domain-num">01</div>
-          <div class="domain-body"><h3>Mechanical</h3><p>CAD, mechanism design, structural analysis and fabrication.</p></div>
+      <div class="domains domain-grid" data-reveal-group>
+        <article class="domain-card" data-reveal>
+          <div class="domain-card-head"><span class="domain-num">01</span><h3>Mechanical</h3></div>
+          <ul>
+            <li>CAD and 3D modelling</li>
+            <li>Mechanism and system design</li>
+            <li>Structural analysis and FEA</li>
+            <li>Fabrication and manufacturing</li>
+            <li>Robot integration and testing</li>
+          </ul>
+        </article>
+        <article class="domain-card" data-reveal>
+          <div class="domain-card-head"><span class="domain-num">02</span><h3>Electronics</h3></div>
+          <ul>
+            <li>Embedded systems</li>
+            <li>Sensors and actuators</li>
+            <li>Power distribution</li>
+            <li>Motor and actuator control</li>
+            <li>Low-level hardware integration</li>
+          </ul>
+        </article>
+        <article class="domain-card" data-reveal>
+          <div class="domain-card-head"><span class="domain-num">03</span><h3>Programming</h3></div>
+          <ul>
+            <li>ROS 2 and robotic software</li>
+            <li>Autonomous navigation</li>
+            <li>Computer vision</li>
+            <li>Simulation and digital robotics</li>
+            <li>Software-hardware integration</li>
+          </ul>
+        </article>
+        <article class="domain-card" data-reveal>
+          <div class="domain-card-head"><span class="domain-num">04</span><h3>Administration</h3></div>
+          <ul>
+            <li>Team operations and coordination</li>
+            <li>Documentation and records</li>
+            <li>Outreach and communications</li>
+            <li>Event and competition management</li>
+            <li>Planning and scheduling</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section" id="pipeline">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>From idea to machine.</h2>
+        <p class="lede" data-reveal>Every build moves through the same nine stages, from first sketch to a tested, competition-ready system.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">01</span><span class="pipeline-name">Concept</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">02</span><span class="pipeline-name">CAD</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">03</span><span class="pipeline-name">Simulation</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">04</span><span class="pipeline-name">Fabrication</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">05</span><span class="pipeline-name">Electronics</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">06</span><span class="pipeline-name">Software</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">07</span><span class="pipeline-name">Integration</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">08</span><span class="pipeline-name">Testing</span></div>
+        <div class="pipeline-stage" data-reveal><span class="pipeline-num">09</span><span class="pipeline-name">Iteration</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITION ROBOTS -->
+  <section class="section" id="competition-robots">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>Robocon Robots.</h2>
+        <p class="lede" data-reveal>Competition machines from Team CiPHER's Robocon seasons, with every robot currently published in the website's robot archive grouped by year.</p>
+      </div>
+
+      <div class="robocon-carousel mt-lg" data-robocon-slider aria-label="Robocon robot carousel">
+        <div class="robocon-carousel-viewport">
+          <div class="robocon-carousel-track">
+            <article class="robocon-carousel-slide is-active">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2020" aria-label="View Team CiPHER Robocon 2020 robot design in Competitions"><img src="assets/images/robots/Robocon%202020%20Design.jpg" alt="Team CiPHER Robocon 2020 robot design"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2020</strong><span>Robo Rugby 7s</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2020" aria-label="View Team CiPHER Robocon 2020 Robot 2 design in Competitions"><img src="assets/images/robots/Robocon%202020%20Design%20R2.jpg" alt="Team CiPHER Robocon 2020 Robot 2 design"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2020 · R2</strong><span>Robo Rugby 7s</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2021" aria-label="View Team CiPHER Robocon 2021 Robot 1 in Competitions"><img src="assets/images/robots/Robocon%202021%20Robot%201.jpg" alt="Team CiPHER Robocon 2021 Robot 1"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2021 · R1</strong><span>Throwing Arrows into Pots</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2021" aria-label="View Team CiPHER Robocon 2021 Robot 2 in Competitions"><img src="assets/images/robots/Robocon%202021%20Robot%202.jpg" alt="Team CiPHER Robocon 2021 Robot 2"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2021 · R2</strong><span>Throwing Arrows into Pots</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2022" aria-label="View Team CiPHER Robocon 2022 main robot in Competitions"><img src="assets/images/robots/Robocon%202022%20Robot.jpg" alt="Team CiPHER Robocon 2022 main robot"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2022</strong><span>Lagori</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2022" aria-label="View Team CiPHER Robocon 2022 throwing robot in Competitions"><img src="assets/images/robots/Robocon%202022%20Throwing%20Robot.jpg" alt="Team CiPHER Robocon 2022 throwing robot"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2022 · Throwing Robot</strong><span>Lagori</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2023" aria-label="View Team CiPHER Robocon 2023 Elephant Robot in Competitions"><img src="assets/images/robots/Robocon%202023%20Elephant%20Robot.png" alt="Team CiPHER Robocon 2023 Elephant Robot"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2023</strong><span>Casting Flowers over Angkor Wat</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2024" aria-label="View Team CiPHER Robocon 2024 Robot 1 in Competitions"><img src="assets/images/robots/Robocon%202024%20R1.png" alt="Team CiPHER Robocon 2024 Robot 1"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2024 · R1</strong><span>Harvest Day</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2024" aria-label="View Team CiPHER Robocon 2024 Robot 2 in Competitions"><img src="assets/images/robots/Robocon%202024%20R2.png" alt="Team CiPHER Robocon 2024 Robot 2"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2024 · R2</strong><span>Harvest Day</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2025" aria-label="View Team CiPHER Robocon 2025 Robot 1 in Competitions"><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Team CiPHER Robocon 2025 Robot 1"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2025 · R1</strong><span>Robot Basketball</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2025" aria-label="View Team CiPHER Robocon 2025 Robot 2 in Competitions"><img src="assets/images/robots/Robocon%202025%20R2.png" alt="Team CiPHER Robocon 2025 Robot 2"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2025 · R2</strong><span>Robot Basketball</span></div>
+            </article>
+            <article class="robocon-carousel-slide">
+              <a class="robocon-carousel-image-link" href="competitions.html#robocon-2026" aria-label="View Team CiPHER Robocon 2026 Robot 2 in Competitions"><img src="assets/images/robots/Robocon%202026%20R2.png" alt="Team CiPHER Robocon 2026 Robot 2"></a>
+              <div class="robocon-carousel-caption"><strong>Robocon 2026 · R2</strong><span>Kung Fu Quest</span></div>
+            </article>
+          </div>
         </div>
-        <div class="domain" data-reveal>
-          <div class="domain-num">02</div>
-          <div class="domain-body"><h3>Electronics</h3><p>Embedded systems, sensors, actuators, power and control.</p></div>
+        <div class="robocon-carousel-dots" role="tablist" aria-label="Robocon robot slides"></div>
+      </div>
+
+      <p class="mt-lg"><a class="link-arrow" href="competitions.html">Explore competition history <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </section>
+
+  <!-- TOOLCHAIN -->
+  <section class="section" id="toolchain">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>Our toolchain.</h2>
+        <p class="lede" data-reveal>The stack that carries a build from first sketch to a tested machine.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-group" data-reveal>
+          <h4>Robotics</h4>
+          <ul><li>ROS 2</li><li>Gazebo</li><li>RViz</li><li>Navigation2</li><li>SLAM</li></ul>
         </div>
-        <div class="domain" data-reveal>
-          <div class="domain-num">03</div>
-          <div class="domain-body"><h3>Programming</h3><p>ROS 2, algorithms, computer vision, autonomy and software.</p></div>
+        <div class="stack-group" data-reveal>
+          <h4>Programming</h4>
+          <ul><li>C++</li><li>Python</li><li>C</li><li>Embedded C</li></ul>
         </div>
-        <div class="domain" data-reveal>
-          <div class="domain-num">04</div>
-          <div class="domain-body"><h3>Administration</h3><p>Operations, documentation, outreach and coordination.</p></div>
+        <div class="stack-group" data-reveal>
+          <h4>CAD &amp; Engineering</h4>
+          <ul><li>Fusion 360</li><li>SolidWorks</li><li>ANSYS</li><li>FEA</li><li>GD&amp;T</li></ul>
+        </div>
+        <div class="stack-group" data-reveal>
+          <h4>Embedded</h4>
+          <ul><li>STM32</li><li>ESP32</li><li>Arduino</li><li>Raspberry Pi</li></ul>
+        </div>
+        <div class="stack-group" data-reveal>
+          <h4>Perception</h4>
+          <ul><li>OpenCV</li><li>YOLO</li><li>Computer Vision</li><li>Machine Learning</li></ul>
+        </div>
+        <div class="stack-group" data-reveal>
+          <h4>Development</h4>
+          <ul><li>Linux</li><li>Git</li><li>GitHub</li><li>Docker</li></ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- RESEARCH -->
+  <section class="section" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>Beyond competition.</h2>
+        <p class="lede" data-reveal>Team CiPHER is also a platform for experimentation and exploration in robotics. These are research interests we're actively developing, not completed publications.</p>
+      </div>
+      <div class="research-list">
+        <div class="research-item" data-reveal><span>Autonomous Robotics</span><span class="status">Developing</span></div>
+        <div class="research-item" data-reveal><span>Mobile Robotics</span><span class="status">Developing</span></div>
+        <div class="research-item" data-reveal><span>Robot Manipulation</span><span class="status">Exploring</span></div>
+        <div class="research-item" data-reveal><span>Computer Vision</span><span class="status">Developing</span></div>
+        <div class="research-item" data-reveal><span>Artificial Intelligence</span><span class="status">Learning</span></div>
+        <div class="research-item" data-reveal><span>Simulation</span><span class="status">Developing</span></div>
+        <div class="research-item" data-reveal><span>Embedded Robotics</span><span class="status">Developing</span></div>
+        <div class="research-item" data-reveal><span>Human-Robot Interaction</span><span class="status">Exploring</span></div>
+        <div class="research-item" data-reveal><span>Humanoid Robotics</span><span class="status">Research Interest</span></div>
+        <div class="research-item" data-reveal><span>Robotics Research</span><span class="status">Ongoing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="section" id="stats">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>By the numbers.</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat" data-reveal><div class="num">2018</div><div class="label">Founded</div></div>
+        <div class="stat" data-reveal><div class="num">20+</div><div class="label">Team members</div></div>
+        <div class="stat" data-reveal><div class="num">04</div><div class="label">Engineering domains</div></div>
+        <div class="stat" data-reveal><div class="num">Many</div><div class="label">Competitions</div></div>
+        <div class="stat" data-reveal><div class="num">4–10 PM</div><div class="label">Daily lab hours</div></div>
+        <div class="stat" data-reveal><div class="num">Weekends</div><div class="label">Full-time build sessions</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN SOURCE -->
+  <section class="section" id="open-source">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 data-reveal>Open engineering.</h2>
+        <p class="lede" data-reveal>Team CiPHER documents and shares selected technical work on GitHub.</p>
+      </div>
+      <div class="repo-grid" data-repo-grid></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="section cta">
     <div class="wrap">
-      <h2 data-reveal>Want to know more?</h2>
+      <h2 data-reveal>Let's build something.</h2>
+      <p class="lede" data-reveal>Interested in robotics, engineering, research or collaboration? Connect with Team CiPHER.</p>
       <div class="cta-buttons" data-reveal>
-        <a class="btn" href="projects.html">See our projects →</a>
-        <a class="btn btn-solid" href="contact.html">Get in touch →</a>
+        <a class="btn social-btn" href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener" aria-label="Team CiPHER on GitHub">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.22c1.02 0 2.05.14 3.01.42 2.29-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"/></svg><span>GitHub ↗</span>
+        </a>
+        <a class="btn social-btn" href="https://linkedin.com/company/team-cipher" target="_blank" rel="noopener" aria-label="Team CiPHER on LinkedIn">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2 2 0 1 0 5.25 7 2 2 0 0 0 5.25 3ZM20.44 13.41c0-3.47-1.85-5.09-4.32-5.09-1.99 0-2.88 1.09-3.38 1.85V8.5H9.36V20h3.38v-6.4c0-1.69.32-3.32 2.4-3.32 2.04 0 2.07 1.93 2.07 3.43V20h3.38l-.15-6.59Z"/></svg><span>LinkedIn ↗</span>
+        </a>
+        <a class="btn social-btn" href="https://www.instagram.com/team_cipher_/" target="_blank" rel="noopener" aria-label="Team CiPHER on Instagram">
+          <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.2 2.5h9.6A4.7 4.7 0 0 1 21.5 7.2v9.6a4.7 4.7 0 0 1-4.7 4.7H7.2a4.7 4.7 0 0 1-4.7-4.7V7.2a4.7 4.7 0 0 1 4.7-4.7Zm0 2A2.7 2.7 0 0 0 4.5 7.2v9.6a2.7 2.7 0 0 0 2.7 2.7h9.6a2.7 2.7 0 0 0 2.7-2.7V7.2a2.7 2.7 0 0 0-2.7-2.7H7.2Zm4.8 2.9A4.6 4.6 0 1 1 7.4 12a4.6 4.6 0 0 1 4.6-4.6Zm0 2A2.6 2.6 0 1 0 14.6 12a2.6 2.6 0 0 0-2.6-2.6Zm5.1-2.45a1.08 1.08 0 1 1 0 2.16 1.08 1.08 0 0 1 0-2.16Z"/></svg><span>Instagram ↗</span>
+        </a>
+        <a class="btn btn-solid" href="contact.html">Contact Us →</a>
       </div>
     </div>
   </section>
@@ -135,6 +363,7 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="competitions.html">Competitions</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="about.html#research">Research</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -155,8 +384,13 @@
   </div>
 </footer>
 
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" aria-label="Close preview">Close ✕</button>
+  <img src="" alt="">
+</div>
+
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
-<script src="js/animations.js"></script>
+<script src="js/animations.js?v=orbit-logo-only-5"></script>
 </body>
 </html>
