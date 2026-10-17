@@ -1842,3 +1842,95 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .hero-orbit .orbit-tool { animation: none; }
 }
+
+
+/* Correct orbit tracks: each badge follows a circular path around the centered brand. */
+.hero-orbit .orbit-stage {
+  min-height: clamp(740px, 88svh, 920px);
+  overflow: hidden;
+}
+.hero-orbit .orbit-tools {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+.hero-orbit .orbit-ring {
+  --orbit-size: 680px;
+  position:absolute;
+  width:min(var(--orbit-size), 94vw);
+  height:min(var(--orbit-size), 94vw);
+  top:50%;
+  left:50%;
+  translate:-50% -50%;
+  border:1px solid rgba(148,163,184,.24);
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero-orbit .orbit-ring-middle { --orbit-size: 500px; }
+.hero-orbit .orbit-ring-inner { --orbit-size: 340px; }
+.hero-orbit .orbit-tool {
+  position:absolute;
+  top:50%;
+  left:50%;
+  right:auto;
+  bottom:auto;
+  offset-path:circle(calc(min(var(--orbit-size), 94vw) / 2) at 50% 50%);
+  offset-distance:var(--orbit-start, 0%);
+  offset-rotate:0deg;
+  animation:orbitPath var(--orbit-duration, 32s) linear infinite;
+  animation-delay:var(--orbit-delay, 0s);
+  transform:none;
+  translate:-50% -50%;
+  z-index:2;
+  pointer-events:auto;
+  cursor:default;
+  transition:scale .22s ease, box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+}
+@keyframes orbitPath {
+  from { offset-distance:var(--orbit-start, 0%); }
+  to { offset-distance:calc(var(--orbit-start, 0%) + 100%); }
+}
+.hero-orbit .orbit-tool:hover {
+  scale:1.12;
+  z-index:10;
+  background:#e0f2fe;
+  border-color:#38bdf8;
+  box-shadow:0 12px 32px rgba(14,165,233,.25);
+  animation-play-state:paused;
+}
+.hero-orbit .orbit-tool:hover .tool-mark {
+  background:#bae6fd;
+  color:#075985;
+}
+.hero-orbit .orbit-tool-fusion { --orbit-start:0%; --orbit-duration:34s; --orbit-delay:-2s; }
+.hero-orbit .orbit-tool-github { --orbit-start:25%; --orbit-duration:34s; --orbit-delay:-2s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-start:50%; --orbit-duration:34s; --orbit-delay:-2s; }
+.hero-orbit .orbit-tool-opencv { --orbit-start:75%; --orbit-duration:34s; --orbit-delay:-2s; }
+.hero-orbit .orbit-tool-kicad { --orbit-start:0%; --orbit-duration:27s; --orbit-delay:-1s; }
+.hero-orbit .orbit-tool-arduino { --orbit-start:25%; --orbit-duration:27s; --orbit-delay:-1s; }
+.hero-orbit .orbit-tool-esp { --orbit-start:50%; --orbit-duration:27s; --orbit-delay:-1s; }
+.hero-orbit .orbit-tool-pi { --orbit-start:75%; --orbit-duration:27s; --orbit-delay:-1s; }
+.hero-orbit .orbit-tool-ros { --orbit-start:0%; --orbit-duration:22s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-start:25%; --orbit-duration:22s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-python { --orbit-start:50%; --orbit-duration:22s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-nvidia { --orbit-start:75%; --orbit-duration:22s; --orbit-delay:-3s; }
+@media (max-width:1100px) {
+  .hero-orbit .orbit-stage { min-height:820px; }
+  .hero-orbit .orbit-ring { --orbit-size:600px; }
+  .hero-orbit .orbit-ring-middle { --orbit-size:430px; }
+  .hero-orbit .orbit-ring-inner { --orbit-size:280px; }
+  .hero-orbit .orbit-tool { padding:.5rem .6rem; gap:.4rem; font-size:.72rem; }
+}
+@media (max-width:700px) {
+  .hero-orbit .orbit-stage { min-height:780px; padding-inline:.5rem; }
+  .hero-orbit .orbit-center { width:min(100%,430px); padding:1.5rem .8rem; }
+  .hero-orbit .orbit-ring { --orbit-size:500px; }
+  .hero-orbit .orbit-ring-middle { --orbit-size:360px; }
+  .hero-orbit .orbit-ring-inner { --orbit-size:230px; }
+  .hero-orbit .orbit-tool { min-height:34px; padding:.3rem .42rem; gap:.28rem; border-radius:10px; font-size:.58rem; }
+  .hero-orbit .tool-mark { width:20px; height:20px; flex-basis:20px; font-size:.65rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .hero-orbit .orbit-tool { animation:none; }
+}
