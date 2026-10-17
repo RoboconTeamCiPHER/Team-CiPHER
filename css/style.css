@@ -2700,3 +2700,46 @@ select {
  .hero-orbit .orbit-ring-programming { --orbit-width:60vw; --orbit-height:42vh; }
  .hero-orbit .orbit-ring-administration { --orbit-width:38vw; --orbit-height:22vh; }
 }
+
+
+/* Collision fix: use fixed, evenly spaced bubble positions on each ellipse.
+   Static placement is intentional here: independent rotations caused bubbles
+   from separate tracks to converge and overlap. */
+.hero-orbit .orbit-ring .orbit-tool {
+  animation:none !important;
+  offset-path:none !important;
+  transform:none !important;
+  translate:-50% -50% !important;
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:6% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:94% !important; top:50% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+/* Keep each bubble fully inside the hero and ensure track spacing exceeds bubble size. */
+.hero-orbit .orbit-ring-mechanical { --orbit-width: min(112vw, 1500px) !important; --orbit-height: min(82vh, 760px) !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-width: min(94vw, 1240px) !important; --orbit-height: min(66vh, 600px) !important; }
+.hero-orbit .orbit-ring-programming { --orbit-width: min(76vw, 980px) !important; --orbit-height: min(50vh, 440px) !important; }
+.hero-orbit .orbit-ring-administration { --orbit-width: min(58vw, 720px) !important; --orbit-height: min(34vh, 300px) !important; }
+@media (max-width:700px) {
+ .hero-orbit .orbit-tool { width:64px !important; height:64px !important; min-width:64px !important; min-height:64px !important; padding:10px !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:140vw !important; --orbit-height:74vh !important; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:116vw !important; --orbit-height:60vh !important; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:92vw !important; --orbit-height:46vh !important; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:68vw !important; --orbit-height:32vh !important; }
+}
