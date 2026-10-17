@@ -28,6 +28,28 @@
     }
   }
 
+  /* ---------------- Orbit hero reveal ---------------- */
+  var orbitHero = document.querySelector('.hero-orbit');
+  if (orbitHero) {
+    var orbitLogo = orbitHero.querySelector('.hero-brand-logo');
+    var orbitStarted = false;
+
+    function startOrbitAfterHeroCopy() {
+      if (orbitStarted) return;
+      orbitStarted = true;
+      window.setTimeout(function () {
+        orbitHero.classList.add('orbit-ready');
+      }, reduceMotion ? 0 : 1100);
+    }
+
+    if (orbitLogo && !orbitLogo.complete) {
+      orbitLogo.addEventListener('load', startOrbitAfterHeroCopy, { once: true });
+      orbitLogo.addEventListener('error', startOrbitAfterHeroCopy, { once: true });
+    } else {
+      startOrbitAfterHeroCopy();
+    }
+  }
+
   /* ---------------- Scroll reveal ---------------- */
   var revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && revealEls.length) {
