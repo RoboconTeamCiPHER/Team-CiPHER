@@ -2205,3 +2205,26 @@ select {
 .hero-orbit .orbit-tool-altium { --orbit-start:75%; --orbit-duration:39s; --orbit-delay:-7s; }
 .hero-orbit .orbit-tool-github { --orbit-start:75%; --orbit-duration:32s; --orbit-delay:-3s; }
 .hero-orbit .orbit-tool-social { --orbit-start:75%; --orbit-duration:26s; --orbit-delay:-6s; }
+
+
+/* Orbit cleanup: show exactly four evenly spaced domain tracks. The decorative
+   orbit-lines were adding a second set of circles behind the domain rings. */
+.hero-orbit .orbit-lines {
+  display: none !important;
+}
+.hero-orbit .orbit-ring-mechanical { --orbit-size: 900px; }
+.hero-orbit .orbit-ring-electronics { --orbit-size: 740px; }
+.hero-orbit .orbit-ring-programming { --orbit-size: 580px; }
+.hero-orbit .orbit-ring-administration { --orbit-size: 420px; }
+@media (max-width: 1100px) {
+  .hero-orbit .orbit-ring-mechanical { --orbit-size: 820px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size: 660px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size: 500px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size: 340px; }
+}
+@media (max-width: 700px) {
+  .hero-orbit .orbit-ring-mechanical { --orbit-size: 650px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size: 510px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size: 370px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size: 230px; }
+}
