@@ -1,0 +1,31 @@
+/* Native pixel-reveal logo for the index page */
+.pixel-logo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  perspective: 800px;
+}
+.pixel-logo-canvas {
+  display: block;
+  width: min(260px, 62vw);
+  height: auto;
+  aspect-ratio: 3 / 1;
+  overflow: visible;
+  filter: drop-shadow(0 8px 22px rgba(37, 99, 235, .12));
+  cursor: pointer;
+  outline: none;
+}
+.pixel-logo-canvas:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 8px;
+  border-radius: 8px;
+}
+@media (max-width: 700px) {
+  .pixel-logo-wrap { margin-bottom: 1rem; }
+  .pixel-logo-canvas { width: min(220px, 68vw); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pixel-logo-canvas { filter: none; }
+}
