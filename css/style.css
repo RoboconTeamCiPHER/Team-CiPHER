@@ -2076,3 +2076,57 @@ select {
   .hero-orbit .orbit-ring-middle { --orbit-size:400px; }
   .hero-orbit .orbit-ring-inner { --orbit-size:300px; }
 }
+
+
+/* Four widely spaced orbit domains: mechanical, electronics, programming, administration. */
+.hero-orbit .orbit-stage { min-height:clamp(760px, 96svh, 1000px); }
+.hero-orbit .orbit-ring {
+  --orbit-size:900px;
+  border-color:rgba(148,163,184,.22);
+}
+.hero-orbit .orbit-ring-mechanical { --orbit-size:900px; }
+.hero-orbit .orbit-ring-electronics { --orbit-size:740px; }
+.hero-orbit .orbit-ring-programming { --orbit-size:580px; }
+.hero-orbit .orbit-ring-administration { --orbit-size:420px; }
+.hero-orbit .orbit-tool {
+  min-height:42px;
+  padding:.55rem .8rem;
+  gap:.5rem;
+  font-size:.72rem;
+  box-shadow:0 5px 16px rgba(15,23,42,.08);
+}
+.hero-orbit .orbit-tool-fusion { --orbit-start:0%; --orbit-duration:46s; --orbit-delay:-4s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-start:25%; --orbit-duration:46s; --orbit-delay:-4s; }
+.hero-orbit .orbit-tool-ansys { --orbit-start:50%; --orbit-duration:46s; --orbit-delay:-4s; }
+.hero-orbit .orbit-tool-gdt { --orbit-start:75%; --orbit-duration:46s; --orbit-delay:-4s; }
+
+.hero-orbit .orbit-tool-kicad { --orbit-start:0%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-arduino { --orbit-start:25%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-esp { --orbit-start:50%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-stm { --orbit-start:75%; --orbit-duration:39s; --orbit-delay:-7s; }
+
+.hero-orbit .orbit-tool-ros { --orbit-start:0%; --orbit-duration:32s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-start:25%; --orbit-duration:32s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-python { --orbit-start:50%; --orbit-duration:32s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-opencv { --orbit-start:75%; --orbit-duration:32s; --orbit-delay:-3s; }
+
+.hero-orbit .orbit-tool-canva { --orbit-start:0%; --orbit-duration:26s; --orbit-delay:-6s; }
+.hero-orbit .orbit-tool-notion { --orbit-start:25%; --orbit-duration:26s; --orbit-delay:-6s; }
+.hero-orbit .orbit-tool-freedcamp { --orbit-start:50%; --orbit-duration:26s; --orbit-delay:-6s; }
+.hero-orbit .orbit-tool-office { --orbit-start:75%; --orbit-duration:26s; --orbit-delay:-6s; }
+
+@media (max-width:1100px) {
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:820px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:670px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:520px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:380px; }
+}
+@media (max-width:700px) {
+  .hero-orbit .orbit-stage { min-height:720px; }
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:650px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:530px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:420px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:320px; }
+  .hero-orbit .orbit-tool { min-height:32px; padding:.3rem .42rem; gap:.28rem; font-size:.56rem; }
+  .hero-orbit .tool-mark { width:20px; height:20px; flex-basis:20px; font-size:.62rem; }
+}
