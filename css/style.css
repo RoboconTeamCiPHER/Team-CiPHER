@@ -2631,3 +2631,72 @@ select {
  .hero-orbit .orbit-tool { width:64px !important; height:64px !important; min-width:64px !important; min-height:64px !important; padding:10px !important; }
  .hero-orbit .orbit-center .hero-brand-logo { width:min(320px,70vw) !important; }
 }
+
+
+/* Collision-safe orbit motion: each bubble uses a distinct angular slot. */
+.hero-orbit .orbit-tool {
+  animation-name:cipherOrbitSafe !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  transform-origin:center;
+}
+@keyframes cipherOrbitSafe {
+  from { transform:rotate(var(--orbit-angle, 0deg)) translateX(var(--orbit-rx, 0px)); }
+  to { transform:rotate(calc(var(--orbit-angle, 0deg) + 360deg)) translateX(var(--orbit-rx, 0px)); }
+}
+/* Place each orbit tool on its own ellipse and distribute items evenly. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-programming .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-administration .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+
+.hero-orbit .orbit-tool-fusion { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-solidworks { --orbit-angle:120deg; }
+.hero-orbit .orbit-tool-ansys { --orbit-angle:240deg; }
+
+.hero-orbit .orbit-tool-arduino { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-kicad { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-matlab { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-altium { --orbit-angle:270deg; }
+
+.hero-orbit .orbit-tool-ros { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-gazebo { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-opencv { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-github { --orbit-angle:270deg; }
+
+.hero-orbit .orbit-tool-canva { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-office { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-notion { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-instagram { --orbit-angle:240deg; }
+.hero-orbit .orbit-tool-linkedin { --orbit-angle:300deg; }
+
+/* Give bubbles enough room and stagger orbit speeds to prevent bunching. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --orbit-duration:72s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --orbit-duration:58s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --orbit-duration:46s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --orbit-duration:38s; }
+.hero-orbit .orbit-tool-fusion { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-delay:-24s; }
+.hero-orbit .orbit-tool-ansys { --orbit-delay:-48s; }
+.hero-orbit .orbit-tool-arduino { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-kicad { --orbit-delay:-14.5s; }
+.hero-orbit .orbit-tool-matlab { --orbit-delay:-29s; }
+.hero-orbit .orbit-tool-altium { --orbit-delay:-43.5s; }
+.hero-orbit .orbit-tool-ros { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-delay:-11.5s; }
+.hero-orbit .orbit-tool-opencv { --orbit-delay:-23s; }
+.hero-orbit .orbit-tool-github { --orbit-delay:-34.5s; }
+.hero-orbit .orbit-tool-canva { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-office { --orbit-delay:-7.6s; }
+.hero-orbit .orbit-tool-notion { --orbit-delay:-15.2s; }
+.hero-orbit .orbit-tool-instagram { --orbit-delay:-20s; }
+.hero-orbit .orbit-tool-linkedin { --orbit-delay:-25.5s; }
+
+/* Maintain a full hero while keeping the orbit tracks inside the viewport. */
+@media (min-width:901px) {
+ .hero-orbit .orbit-stage { min-height:calc(100svh - var(--nav-h)) !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:104vw; --orbit-height:82vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:82vw; --orbit-height:62vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:60vw; --orbit-height:42vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:38vw; --orbit-height:22vh; }
+}
