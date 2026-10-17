@@ -2743,3 +2743,69 @@ select {
  .hero-orbit .orbit-ring-programming { --orbit-width:92vw !important; --orbit-height:46vh !important; }
  .hero-orbit .orbit-ring-administration { --orbit-width:68vw !important; --orbit-height:32vh !important; }
 }
+
+
+/* Orbit animation restart + 90-degree slots, with each successive track offset by 45 degrees. */
+.hero-orbit .orbit-ring {
+  transform-origin: 50% 50% !important;
+  animation: cipherOrbitTrack var(--track-duration, 64s) linear infinite !important;
+  animation-delay: var(--track-delay, 0s) !important;
+}
+.hero-orbit .orbit-ring-mechanical { --track-duration:72s; --track-delay:0s; }
+.hero-orbit .orbit-ring-electronics { --track-duration:64s; --track-delay:-8s; }
+.hero-orbit .orbit-ring-programming { --track-duration:56s; --track-delay:-7s; }
+.hero-orbit .orbit-ring-administration { --track-duration:48s; --track-delay:-6s; }
+
+@keyframes cipherOrbitTrack {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to { transform:translate(-50%,-50%) rotate(360deg); }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  animation: cipherOrbitCounter var(--track-duration, 64s) linear infinite !important;
+  animation-delay: var(--track-delay, 0s) !important;
+  transform:translate(-50%,-50%) rotate(0deg) !important;
+  translate:0 0 !important;
+}
+@keyframes cipherOrbitCounter {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to { transform:translate(-50%,-50%) rotate(-360deg); }
+}
+/* Four evenly spaced starting slots per track; successive tracks are phase-shifted 45 degrees. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:85.35% !important; top:14.65% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:85.35% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:14.65% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:14.65% !important; top:14.65% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:50% !important; top:100% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:0% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+/* Scale all orbit bubbles and their logo marks to 75% of the previous size. */
+.hero-orbit .orbit-ring .orbit-tool {
+  width:63px !important;
+  height:63px !important;
+  min-width:63px !important;
+  min-height:63px !important;
+  padding:8px !important;
+}
+.hero-orbit .orbit-logo { max-width:100% !important; max-height:100% !important; }
+@media (max-width:700px) {
+  .hero-orbit .orbit-ring .orbit-tool {
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    padding:6px !important;
+  }
+}
