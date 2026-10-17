@@ -2256,3 +2256,23 @@ select {
 .nav-item-contact .nav-popover { width:210px; }
 @media (max-width:1100px) and (min-width:880px) { .nav-links { gap:.8rem; font-size:.82rem; } .nav-gh { padding:.8rem 1rem; } }
 @media (max-width:879px) { .nav-links { display:none !important; } .nav-item { display:none; } }
+
+
+/* Navigation dropdown positioning fix: keep the original horizontal navbar intact. */
+@media (min-width:880px) {
+  .nav .wrap { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .nav-links { display:flex !important; flex:0 1 auto; flex-direction:row; align-items:center; justify-content:center; gap:clamp(1rem,1.6vw,1.8rem); height:var(--nav-h); white-space:nowrap; }
+  .nav-links > a, .nav-links > .nav-item { flex:0 0 auto; }
+  .nav-item { height:var(--nav-h); align-self:center; }
+  .nav-popover { display:flex !important; position:absolute !important; top:100% !important; left:50% !important; z-index:500 !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; transform:translate(-50%,8px) !important; }
+  .nav-item:hover > .nav-popover, .nav-item:focus-within > .nav-popover { opacity:1 !important; visibility:visible !important; pointer-events:auto !important; transform:translate(-50%,0) !important; }
+  .nav-item-about > .nav-popover { width:235px; }
+  .nav-item-team > .nav-popover { width:260px; }
+  .nav-item-contact > .nav-popover { width:210px; }
+  .nav-item-competitions > .nav-popover { width:min(650px,80vw); }
+  .nav-gh { flex:0 0 auto; white-space:nowrap; }
+}
+@media (max-width:879px) {
+  .nav-links { display:none !important; }
+  .nav-popover { display:none !important; }
+}
