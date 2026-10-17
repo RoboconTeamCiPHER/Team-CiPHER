@@ -1545,3 +1545,209 @@ select {
   font-size: var(--step-0);
 }
 
+
+/* ==========================================================================
+   HOMEPAGE ORBIT HERO — centered Team CiPHER with surrounding tool ecosystem
+   ========================================================================== */
+.hero-orbit {
+  min-height: min(920px, calc(100svh - var(--nav-h)));
+  min-height: max(720px, calc(100svh - var(--nav-h)));
+  justify-content: center;
+  background: #fbfcfe;
+  color: #111827;
+  isolation: isolate;
+}
+.hero-orbit .hero-bg {
+  z-index:-3;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(59,130,246,.12), transparent 32%),
+    linear-gradient(180deg,#fff 0%,#f8fafc 100%);
+}
+.hero-orbit .hero-bg::before {
+  background-image:linear-gradient(rgba(148,163,184,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.12) 1px,transparent 1px);
+  background-size:48px 48px;
+  opacity:.55;
+  mask-image:radial-gradient(ellipse at center,#000 20%,transparent 78%);
+}
+.orbit-stage {
+  width:min(1260px,100%);
+  min-height:clamp(640px,78svh,850px);
+  margin:0 auto;
+  padding:calc(var(--nav-h) + 1rem) var(--gutter) 3rem;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+.orbit-center {
+  position:relative;
+  z-index:2;
+  width:min(590px,100%);
+  text-align:center;
+  padding:2.5rem 2rem;
+  border:1px solid rgba(203,213,225,.72);
+  border-radius:28px;
+  background:rgba(255,255,255,.82);
+  box-shadow:0 24px 90px rgba(15,23,42,.08);
+  backdrop-filter:blur(10px);
+}
+.orbit-center .hero-eyebrow {
+  color:#64748b;
+  font-size:.78rem;
+  letter-spacing:.09em;
+  margin-bottom:1.25rem;
+}
+.orbit-center .hero-brand-logo {
+  display:block;
+  width:min(390px,90%);
+  max-height:145px;
+  object-fit:contain;
+  margin:0 auto .65rem;
+}
+.orbit-tagline {
+  font-family:var(--font-display);
+  color:#2563eb;
+  font-size:clamp(1.35rem,2.4vw,2rem);
+  font-weight:700;
+  letter-spacing:-.035em;
+  white-space:nowrap;
+}
+.orbit-tagline span { color:#94a3b8; padding:0 .08em; }
+.orbit-center .hero-sub {
+  max-width:44ch;
+  margin:1rem auto 0;
+  color:#52637a;
+  font-size:1rem;
+  line-height:1.65;
+}
+.orbit-center .hero-meta {
+  justify-content:center;
+  margin-top:1.65rem;
+  gap:.75rem;
+}
+.orbit-center .btn {
+  font-size:.95rem;
+  padding:.9rem 1.25rem;
+}
+.orbit-lines {
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  overflow:hidden;
+}
+.orbit-lines span {
+  position:absolute;
+  width:min(92vw,940px);
+  aspect-ratio:1;
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:50%;
+}
+.orbit-lines span:nth-child(2) { width:min(76vw,770px); }
+.orbit-lines span:nth-child(3) { width:min(60vw,600px); }
+.orbit-lines span:nth-child(4) { width:min(44vw,440px); }
+.orbit-tools {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.orbit-tool {
+  position:absolute;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  padding:.7rem .9rem;
+  min-height:52px;
+  border:1px solid rgba(203,213,225,.88);
+  border-radius:16px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 8px 26px rgba(15,23,42,.08);
+  color:#334155;
+  font-family:var(--font-display);
+  font-size:.82rem;
+  font-weight:600;
+  white-space:nowrap;
+  animation:orbitFloat 6s ease-in-out infinite;
+}
+.tool-mark {
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  flex:0 0 30px;
+  border-radius:9px;
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:.9rem;
+  font-weight:700;
+}
+.orbit-tool-fusion { top:15%; left:13%; }
+.orbit-tool-github { top:10%; right:17%; animation-delay:-1.3s; }
+.orbit-tool-solidworks { top:42%; left:3%; animation-delay:-2.1s; }
+.orbit-tool-opencv { top:42%; right:3%; animation-delay:-.8s; }
+.orbit-tool-kicad { bottom:18%; left:13%; animation-delay:-3s; }
+.orbit-tool-arduino { bottom:12%; right:16%; animation-delay:-1.7s; }
+.orbit-tool-esp { top:23%; left:28%; animation-delay:-2.6s; }
+.orbit-tool-pi { top:24%; right:28%; animation-delay:-.5s; }
+.orbit-tool-ros { bottom:27%; left:25%; animation-delay:-3.6s; }
+.orbit-tool-gazebo { bottom:25%; right:25%; animation-delay:-2.2s; }
+.orbit-tool-python { top:63%; left:8%; animation-delay:-4s; }
+.orbit-tool-nvidia { top:63%; right:8%; animation-delay:-1s; }
+.orbit-tool-solidworks .tool-mark { background:#fff1f2;color:#dc2626; }
+.orbit-tool-opencv .tool-mark { background:#fff7ed;color:#ea580c; }
+.orbit-tool-kicad .tool-mark { background:#fef2f2;color:#b91c1c; }
+.orbit-tool-arduino .tool-mark { background:#ecfdf5;color:#059669; }
+.orbit-tool-esp .tool-mark { background:#fef3c7;color:#92400e; }
+.orbit-tool-pi .tool-mark { background:#fdf2f8;color:#be185d; }
+.orbit-tool-ros .tool-mark,.orbit-tool-gazebo .tool-mark { background:#f1f5f9;color:#475569; }
+.orbit-tool-python .tool-mark { background:#fef9c3;color:#a16207; }
+.orbit-tool-nvidia .tool-mark { background:#ecfccb;color:#3f6212; }
+@keyframes orbitFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-7px); }
+}
+.hero-orbit .hero-scroll { color:#64748b; }
+@media (max-width:900px) {
+  .orbit-stage { min-height:760px; }
+  .orbit-center { width:min(540px,86%); }
+  .orbit-tool { padding:.55rem .65rem; font-size:.72rem; min-height:44px; gap:.45rem; }
+  .tool-mark { width:26px;height:26px;flex-basis:26px; }
+  .orbit-tool-esp { left:12%; top:22%; }
+  .orbit-tool-pi { right:12%; top:22%; }
+  .orbit-tool-ros { left:12%; bottom:20%; }
+  .orbit-tool-gazebo { right:12%; bottom:20%; }
+  .orbit-tool-python { left:4%; top:57%; }
+  .orbit-tool-nvidia { right:4%; top:57%; }
+}
+@media (max-width:600px) {
+  .hero-orbit { min-height:auto; }
+  .orbit-stage { min-height:850px; padding:calc(var(--nav-h) + 1.5rem) 1rem 3rem; }
+  .orbit-center { width:100%; padding:2rem 1.15rem; border-radius:22px; }
+  .orbit-center .hero-brand-logo { width:min(300px,90%); }
+  .orbit-tagline { font-size:clamp(1.05rem,4.5vw,1.5rem); }
+  .orbit-center .hero-sub { font-size:.94rem; }
+  .orbit-center .hero-meta { flex-direction:column; align-items:stretch; }
+  .orbit-center .hero-meta .btn { justify-content:center; }
+  .orbit-tool { min-height:38px; padding:.4rem .5rem; border-radius:12px; font-size:.64rem; gap:.35rem; }
+  .tool-mark { width:22px;height:22px;flex-basis:22px;font-size:.72rem; }
+  .orbit-tool-fusion { top:8%;left:3%; }
+  .orbit-tool-github { top:8%;right:3%; }
+  .orbit-tool-solidworks { top:27%;left:0; }
+  .orbit-tool-opencv { top:27%;right:0; }
+  .orbit-tool-esp { top:18%;left:50%;transform:translateX(-50%); }
+  .orbit-tool-pi { top:38%;right:1%; }
+  .orbit-tool-kicad { bottom:17%;left:2%; }
+  .orbit-tool-arduino { bottom:17%;right:2%; }
+  .orbit-tool-ros { bottom:8%;left:8%; }
+  .orbit-tool-gazebo { bottom:8%;right:8%; }
+  .orbit-tool-python { top:46%;left:0; }
+  .orbit-tool-nvidia { top:46%;right:0; }
+  .orbit-lines span { width:115vw; }
+  .orbit-lines span:nth-child(2) { width:95vw; }
+  .orbit-lines span:nth-child(3) { width:75vw; }
+  .orbit-lines span:nth-child(4) { width:55vw; }
+  .hero-orbit .hero-scroll { display:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .orbit-tool { animation:none; }
+}
