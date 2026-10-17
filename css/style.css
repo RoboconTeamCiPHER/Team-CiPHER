@@ -2809,3 +2809,71 @@ select {
     padding:6px !important;
   }
 }
+
+
+/* Final orbit geometry: anchor every track at the hero center, then rotate only
+   the ring's individual rotate property so its centering transform never drifts. */
+.hero-orbit .orbit-stage { position:relative !important; overflow:hidden !important; }
+.hero-orbit .orbit-tools { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; }
+.hero-orbit .orbit-ring {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  transform-origin:50% 50% !important;
+  rotate:0deg;
+  animation:cipherOrbitRotate var(--track-duration,64s) linear infinite !important;
+  animation-delay:var(--track-delay,0s) !important;
+  overflow:visible !important;
+}
+@keyframes cipherOrbitRotate {
+  from { rotate:0deg; }
+  to { rotate:360deg; }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  position:absolute !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
+  rotate:0deg;
+  animation:cipherBubbleUpright var(--track-duration,64s) linear infinite !important;
+  animation-delay:var(--track-delay,0s) !important;
+}
+@keyframes cipherBubbleUpright {
+  from { rotate:0deg; }
+  to { rotate:-360deg; }
+}
+/* Each track has four 90-degree slots; the next track is offset by 45 degrees. */
+.hero-orbit .orbit-ring-mechanical { --track-duration:72s; --track-delay:0s; --orbit-width:min(112vw,1500px); --orbit-height:min(82vh,760px); }
+.hero-orbit .orbit-ring-electronics { --track-duration:64s; --track-delay:-8s; --orbit-width:min(94vw,1240px); --orbit-height:min(66vh,600px); }
+.hero-orbit .orbit-ring-programming { --track-duration:56s; --track-delay:-7s; --orbit-width:min(76vw,980px); --orbit-height:min(50vh,440px); }
+.hero-orbit .orbit-ring-administration { --track-duration:48s; --track-delay:-6s; --orbit-width:min(58vw,720px); --orbit-height:min(34vh,300px); }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:85.35% !important; top:14.65% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:85.35% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:14.65% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:14.65% !important; top:14.65% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:50% !important; top:100% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:0% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring .orbit-tool { width:63px !important; height:63px !important; min-width:63px !important; min-height:63px !important; padding:8px !important; }
+.hero-orbit .orbit-logo { width:100% !important; height:100% !important; object-fit:contain !important; }
+@media(max-width:700px) {
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:140vw; --orbit-height:74vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:116vw; --orbit-height:60vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:92vw; --orbit-height:46vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:68vw; --orbit-height:32vh; }
+ .hero-orbit .orbit-ring .orbit-tool { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; padding:6px !important; }
+}
