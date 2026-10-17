@@ -2198,3 +2198,10 @@ select {
   .hero-orbit .orbit-center .hero-brand-logo { width:min(280px, 68vw); max-height:95px; }
   .hero-orbit .orbit-tagline { font-size:clamp(.8rem, 3.5vw, 1rem); }
 }
+
+
+/* Requested four orbit groups and their exact tool sets. */
+.hero-orbit .orbit-tool-matlab { --orbit-start:50%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-altium { --orbit-start:75%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-github { --orbit-start:75%; --orbit-duration:32s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-social { --orbit-start:75%; --orbit-duration:26s; --orbit-delay:-6s; }
