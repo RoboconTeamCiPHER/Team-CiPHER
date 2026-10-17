@@ -2502,3 +2502,132 @@ select {
   }
   .hero-orbit .orbit-center .hero-brand-logo { width:min(330px,68vw); }
 }
+
+
+/* Final orbit layout: wide, flattened ellipses that fill the hero. */
+.hero-orbit {
+  min-height:calc(100svh - var(--nav-h)) !important;
+  height:calc(100svh - var(--nav-h));
+  overflow:hidden;
+}
+.hero-orbit .orbit-stage {
+  width:100% !important;
+  max-width:none !important;
+  min-height:100% !important;
+  height:100%;
+  padding:0 !important;
+  overflow:hidden;
+}
+.hero-orbit .orbit-lines {
+  inset:0 !important;
+  overflow:hidden;
+}
+.hero-orbit .orbit-lines span {
+  width:118vw !important;
+  height:92vh !important;
+  max-width:none !important;
+  aspect-ratio:auto !important;
+  border:1px solid rgba(148,163,184,.25) !important;
+}
+.hero-orbit .orbit-lines span:nth-child(2) { width:96vw !important; height:72vh !important; }
+.hero-orbit .orbit-lines span:nth-child(3) { width:74vw !important; height:52vh !important; }
+.hero-orbit .orbit-lines span:nth-child(4) { width:52vw !important; height:32vh !important; }
+.hero-orbit .orbit-ring {
+  width:var(--orbit-width, 80vw) !important;
+  height:var(--orbit-height, 52vh) !important;
+  max-width:none !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:transparent !important;
+}
+.hero-orbit .orbit-ring-mechanical { --orbit-width:110vw; --orbit-height:88vh; --orbit-size:110vw !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-width:88vw; --orbit-height:68vh; --orbit-size:88vw !important; }
+.hero-orbit .orbit-ring-programming { --orbit-width:66vw; --orbit-height:48vh; --orbit-size:66vw !important; }
+.hero-orbit .orbit-ring-administration { --orbit-width:44vw; --orbit-height:28vh; --orbit-size:44vw !important; }
+.hero-orbit .orbit-tool {
+  width:116px !important;
+  height:116px !important;
+  min-width:116px !important;
+  min-height:116px !important;
+  padding:20px !important;
+  box-sizing:border-box;
+  animation-name:cipherOrbitFlattened !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  offset-path:none !important;
+  translate:-50% -50% !important;
+  transform-origin:center;
+  will-change:transform;
+}
+@keyframes cipherOrbitFlattened {
+  from { transform:rotate(0deg) translateX(var(--orbit-rx, 0px)) scale(1); }
+  to { transform:rotate(360deg) translateX(var(--orbit-rx, 0px)) scale(1); }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  --orbit-rx:calc(var(--orbit-width) / 2);
+  animation-name:cipherOrbitEllipse !important;
+  animation-duration:var(--orbit-duration, 48s) !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+}
+@keyframes cipherOrbitEllipse {
+  from { transform:rotate(0deg) translateX(calc(var(--orbit-width) / 2)) scale(1); }
+  to { transform:rotate(360deg) translateX(calc(var(--orbit-width) / 2)) scale(1); }
+}
+/* Counter-rotate the bubble contents so logos stay upright. */
+.hero-orbit .orbit-tool .orbit-logo,
+.hero-orbit .orbit-tool .orbit-logo-text {
+  animation:cipherLogoCounter var(--orbit-duration, 48s) linear infinite;
+}
+@keyframes cipherLogoCounter {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(-360deg); }
+}
+.hero-orbit .orbit-tool-fusion { --orbit-duration:54s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-duration:54s; --orbit-delay:-25s; }
+.hero-orbit .orbit-tool-ansys { --orbit-duration:54s; --orbit-delay:-43s; }
+.hero-orbit .orbit-tool-arduino { --orbit-duration:46s; --orbit-delay:-5s; }
+.hero-orbit .orbit-tool-kicad { --orbit-duration:46s; --orbit-delay:-16s; }
+.hero-orbit .orbit-tool-matlab { --orbit-duration:46s; --orbit-delay:-27s; }
+.hero-orbit .orbit-tool-altium { --orbit-duration:46s; --orbit-delay:-38s; }
+.hero-orbit .orbit-tool-ros { --orbit-duration:38s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-duration:38s; --orbit-delay:-12s; }
+.hero-orbit .orbit-tool-opencv { --orbit-duration:38s; --orbit-delay:-21s; }
+.hero-orbit .orbit-tool-github { --orbit-duration:38s; --orbit-delay:-30s; }
+.hero-orbit .orbit-tool-canva { --orbit-duration:30s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-office { --orbit-duration:30s; --orbit-delay:-10s; }
+.hero-orbit .orbit-tool-notion { --orbit-duration:30s; --orbit-delay:-17s; }
+.hero-orbit .orbit-tool-instagram { --orbit-duration:30s; --orbit-delay:-22s; }
+.hero-orbit .orbit-tool-linkedin { --orbit-duration:30s; --orbit-delay:-27s; }
+.hero-orbit .orbit-center {
+  position:absolute !important;
+  top:50% !important;
+  left:50% !important;
+  transform:translate(-50%,-50%);
+  z-index:5;
+  max-width:90%;
+}
+.hero-orbit .orbit-center .hero-brand-logo { width:min(500px,40vw) !important; max-height:170px !important; }
+.hero-orbit .orbit-tagline { display:none !important; }
+@media (max-width:900px) {
+ .hero-orbit { height:auto; min-height:820px !important; }
+ .hero-orbit .orbit-stage { height:820px; }
+ .hero-orbit .orbit-lines span { width:130vw !important; height:80vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(2) { width:108vw !important; height:62vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(3) { width:84vw !important; height:44vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(4) { width:60vw !important; height:26vh !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:116vw; --orbit-height:74vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:92vw; --orbit-height:56vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:68vw; --orbit-height:38vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:44vw; --orbit-height:22vh; }
+ .hero-orbit .orbit-tool { width:84px !important; height:84px !important; min-width:84px !important; min-height:84px !important; padding:14px !important; }
+}
+@media (max-width:600px) {
+ .hero-orbit { min-height:760px !important; }
+ .hero-orbit .orbit-stage { height:760px; min-height:760px !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:125vw; --orbit-height:70vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:100vw; --orbit-height:52vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:75vw; --orbit-height:34vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:50vw; --orbit-height:18vh; }
+ .hero-orbit .orbit-tool { width:64px !important; height:64px !important; min-width:64px !important; min-height:64px !important; padding:10px !important; }
+ .hero-orbit .orbit-center .hero-brand-logo { width:min(320px,70vw) !important; }
+}
