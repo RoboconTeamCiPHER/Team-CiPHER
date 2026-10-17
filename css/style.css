@@ -1751,3 +1751,94 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .orbit-tool { animation:none; }
 }
+
+
+
+/* OrbitingCircles-style continuous orbital motion */
+.hero-orbit .orbit-stage {
+  width: min(1440px, 100%);
+  min-height: clamp(700px, 86svh, 900px);
+  overflow: hidden;
+}
+.hero-orbit .orbit-lines span {
+  width: min(94vw, 1120px);
+}
+.hero-orbit .orbit-lines span:nth-child(2) { width: min(78vw, 900px); }
+.hero-orbit .orbit-lines span:nth-child(3) { width: min(62vw, 700px); }
+.hero-orbit .orbit-lines span:nth-child(4) { width: min(46vw, 520px); }
+
+.hero-orbit .orbit-tools {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-orbit .orbit-tool {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform-origin: center;
+  animation-name: cipherOrbit;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--orbit-duration, 30s);
+  animation-delay: var(--orbit-delay, 0s);
+  will-change: transform;
+  pointer-events: auto;
+  z-index: 1;
+}
+@keyframes cipherOrbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius, 340px)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-radius, 340px)) rotate(-360deg); }
+}
+.hero-orbit .orbit-tool-fusion { --orbit-radius: 360px; --orbit-delay: -1s; --orbit-duration: 34s; }
+.hero-orbit .orbit-tool-github { --orbit-radius: 360px; --orbit-delay: -9s; --orbit-duration: 34s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-radius: 360px; --orbit-delay: -17s; --orbit-duration: 34s; }
+.hero-orbit .orbit-tool-opencv { --orbit-radius: 360px; --orbit-delay: -25s; --orbit-duration: 34s; }
+.hero-orbit .orbit-tool-kicad { --orbit-radius: 270px; --orbit-delay: -2s; --orbit-duration: 27s; }
+.hero-orbit .orbit-tool-arduino { --orbit-radius: 270px; --orbit-delay: -8.75s; --orbit-duration: 27s; }
+.hero-orbit .orbit-tool-esp { --orbit-radius: 270px; --orbit-delay: -15.5s; --orbit-duration: 27s; }
+.hero-orbit .orbit-tool-pi { --orbit-radius: 270px; --orbit-delay: -22.25s; --orbit-duration: 27s; }
+.hero-orbit .orbit-tool-ros { --orbit-radius: 440px; --orbit-delay: -3s; --orbit-duration: 42s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-radius: 440px; --orbit-delay: -13.5s; --orbit-duration: 42s; }
+.hero-orbit .orbit-tool-python { --orbit-radius: 440px; --orbit-delay: -24s; --orbit-duration: 42s; }
+.hero-orbit .orbit-tool-nvidia { --orbit-radius: 440px; --orbit-delay: -34.5s; --orbit-duration: 42s; }
+
+@media (max-width: 1100px) {
+  .hero-orbit .orbit-stage { min-height: 820px; }
+  .hero-orbit .orbit-tool { gap:.4rem; padding:.5rem .6rem; font-size:.72rem; }
+  .hero-orbit .orbit-tool-ros,
+  .hero-orbit .orbit-tool-gazebo,
+  .hero-orbit .orbit-tool-python,
+  .hero-orbit .orbit-tool-nvidia { --orbit-radius: 390px; }
+  .hero-orbit .orbit-tool-fusion,
+  .hero-orbit .orbit-tool-github,
+  .hero-orbit .orbit-tool-solidworks,
+  .hero-orbit .orbit-tool-opencv { --orbit-radius: 305px; }
+  .hero-orbit .orbit-tool-kicad,
+  .hero-orbit .orbit-tool-arduino,
+  .hero-orbit .orbit-tool-esp,
+  .hero-orbit .orbit-tool-pi { --orbit-radius: 220px; }
+}
+@media (max-width: 700px) {
+  .hero-orbit .orbit-stage { min-height: 850px; padding-inline:.5rem; }
+  .hero-orbit .orbit-center { width: min(100%, 460px); padding:1.6rem .9rem; }
+  .hero-orbit .orbit-tool { min-height:34px; padding:.32rem .42rem; border-radius:10px; font-size:.58rem; gap:.28rem; }
+  .hero-orbit .tool-mark { width:20px; height:20px; flex-basis:20px; border-radius:6px; font-size:.65rem; }
+  .hero-orbit .orbit-tool-ros,
+  .hero-orbit .orbit-tool-gazebo,
+  .hero-orbit .orbit-tool-python,
+  .hero-orbit .orbit-tool-nvidia { --orbit-radius: 340px; }
+  .hero-orbit .orbit-tool-fusion,
+  .hero-orbit .orbit-tool-github,
+  .hero-orbit .orbit-tool-solidworks,
+  .hero-orbit .orbit-tool-opencv { --orbit-radius: 265px; }
+  .hero-orbit .orbit-tool-kicad,
+  .hero-orbit .orbit-tool-arduino,
+  .hero-orbit .orbit-tool-esp,
+  .hero-orbit .orbit-tool-pi { --orbit-radius: 185px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit .orbit-tool { animation: none; }
+}
