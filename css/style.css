@@ -1970,3 +1970,52 @@ select {
   .hero-orbit.orbit-ready .orbit-tools,
   .hero-orbit.orbit-ready .orbit-lines { transition:none; }
 }
+
+
+/* Final hero hierarchy: keep branding minimal and orbit badges outside the copy. */
+.hero-orbit .orbit-stage {
+  min-height: clamp(740px, 88svh, 920px);
+}
+.hero-orbit .orbit-center {
+  z-index: 4;
+  width: min(560px, 94%);
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.hero-orbit .orbit-center .hero-eyebrow,
+.hero-orbit .orbit-center .orbit-tagline,
+.hero-orbit .orbit-center .hero-sub,
+.hero-orbit .orbit-center .hero-meta {
+  display: none !important;
+}
+.hero-orbit .orbit-center .hero-brand-logo {
+  width: min(420px, 76%);
+  max-height: 180px;
+  margin: 0 auto;
+}
+.hero-orbit .orbit-ring-outer { --orbit-size: min(900px, 92vw); }
+.hero-orbit .orbit-ring-middle { --orbit-size: min(720px, 76vw); }
+.hero-orbit .orbit-ring-inner { --orbit-size: min(540px, 58vw); }
+.hero-orbit .orbit-tool {
+  z-index: 2;
+}
+.hero-orbit .orbit-tool:hover {
+  z-index: 8;
+}
+@media (max-width: 1100px) {
+  .hero-orbit .orbit-ring-outer { --orbit-size: min(820px, 96vw); }
+  .hero-orbit .orbit-ring-middle { --orbit-size: min(640px, 78vw); }
+  .hero-orbit .orbit-ring-inner { --orbit-size: min(460px, 60vw); }
+}
+@media (max-width: 700px) {
+  .hero-orbit .orbit-stage { min-height: 700px; }
+  .hero-orbit .orbit-center .hero-brand-logo { width: min(310px, 72%); }
+  .hero-orbit .orbit-ring-outer { --orbit-size: 94vw; }
+  .hero-orbit .orbit-ring-middle { --orbit-size: 76vw; }
+  .hero-orbit .orbit-ring-inner { --orbit-size: 58vw; }
+}
