@@ -10,6 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=2">
 <link rel="shortcut icon" type="image/png" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=2">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pixel-logo.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -47,7 +48,11 @@
 <main id="main">
 
   <section class="page-hero">
-    <div class="kicker">ABOUT TEAM CIPHER</div>
+    <div class="pixel-logo-wrap" aria-label="Team CiPHER pixel logo animation">
+    <canvas class="pixel-logo-canvas" data-pixel-logo role="img" aria-label="Team CiPHER logo assembling from pixels" tabindex="0"></canvas>
+    <img data-pixel-logo-fallback src="assets/logos/Team%20CiPHER.png" alt="Team CiPHER" hidden>
+  </div>
+  <div class="kicker">ABOUT TEAM CIPHER</div>
     <h1 data-reveal>We don't just enter competitions. We engineer robotic systems.</h1>
     <p class="sub" data-reveal>Founded in 2018, Team CiPHER is a multidisciplinary student robotics team from JSPM's Rajarshi Shahu College of Engineering, Pune, working across mechanical engineering, electronics, robotics programming, computer vision, autonomous robotics, simulation, competitive robotics and research &amp; development. Today, the team has 20+ members and participates in many robotics competitions.</p>
   </section>
@@ -155,6 +160,7 @@
   </div>
 </footer>
 
+<script src="js/pixel-logo.js"></script>
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
