@@ -2402,3 +2402,103 @@ select {
 .hero-orbit .orbit-tool-gazebo {
   background:#f0f7ff;
 }
+
+
+/* Homepage orbit scale-up to match the reference hero */
+.hero-orbit {
+  min-height:calc(100svh - var(--nav-h));
+  overflow:hidden;
+}
+.hero-orbit .orbit-stage {
+  width:min(1560px,100%);
+  min-height:clamp(760px, calc(100svh - var(--nav-h)), 1040px);
+  padding:1rem var(--gutter) 2rem;
+}
+.hero-orbit .orbit-lines span {
+  width:min(112vw,1460px);
+  border-color:rgba(148,163,184,.25);
+}
+.hero-orbit .orbit-lines span:nth-child(2) { width:min(94vw,1220px); }
+.hero-orbit .orbit-lines span:nth-child(3) { width:min(76vw,980px); }
+.hero-orbit .orbit-lines span:nth-child(4) { width:min(58vw,740px); }
+.hero-orbit .orbit-ring-mechanical { --orbit-size:1260px !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-size:1020px !important; }
+.hero-orbit .orbit-ring-programming { --orbit-size:790px !important; }
+.hero-orbit .orbit-ring-administration { --orbit-size:560px !important; }
+.hero-orbit .orbit-tool {
+  width:116px !important;
+  height:116px !important;
+  min-height:116px !important;
+  padding:20px !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.98) !important;
+  border:1px solid rgba(203,213,225,.72) !important;
+  box-shadow:0 12px 34px rgba(15,23,42,.12) !important;
+}
+.hero-orbit .orbit-tool .orbit-logo {
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+}
+.hero-orbit .orbit-tool .orbit-logo-text {
+  font-size:1.9rem;
+}
+.hero-orbit .orbit-center {
+  width:auto;
+  max-width:90%;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.hero-orbit .orbit-center .hero-brand-logo {
+  width:min(500px,65vw);
+  max-height:180px;
+  margin:0 auto;
+}
+.hero-orbit .orbit-tagline { display:none; }
+.hero-orbit .orbit-tool-fusion .orbit-logo {
+  display:none !important;
+}
+.hero-orbit .orbit-tool-fusion::after {
+  content:"F";
+  display:grid;
+  width:100%;
+  height:100%;
+  place-items:center;
+  border-radius:22%;
+  background:#f28c18;
+  color:#fff;
+  font-size:3.4rem;
+  line-height:1;
+  font-weight:800;
+}
+@media (max-width:900px) {
+  .hero-orbit .orbit-stage { min-height:760px; }
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:1000px !important; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:820px !important; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:640px !important; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:460px !important; }
+  .hero-orbit .orbit-tool {
+    width:84px !important;
+    height:84px !important;
+    min-height:84px !important;
+    padding:14px !important;
+  }
+}
+@media (max-width:600px) {
+  .hero-orbit .orbit-stage { min-height:690px; }
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:720px !important; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:590px !important; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:460px !important; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:330px !important; }
+  .hero-orbit .orbit-tool {
+    width:64px !important;
+    height:64px !important;
+    min-height:64px !important;
+    padding:10px !important;
+  }
+  .hero-orbit .orbit-center .hero-brand-logo { width:min(330px,68vw); }
+}
