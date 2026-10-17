@@ -1934,3 +1934,39 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .hero-orbit .orbit-tool { animation:none; }
 }
+
+
+/* Hero refinement: plain centered content; orbit begins after the copy is ready. */
+.hero-orbit .orbit-center {
+  width:min(640px, 100%);
+  padding:1.25rem 1.5rem;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.hero-orbit .orbit-center .hero-eyebrow { margin-bottom:1.1rem; }
+.hero-orbit .orbit-center .hero-brand-logo { width:min(390px,88%); }
+.hero-orbit .orbit-tools,
+.hero-orbit .orbit-lines {
+  opacity:0;
+  visibility:hidden;
+}
+.hero-orbit.orbit-ready .orbit-tools,
+.hero-orbit.orbit-ready .orbit-lines {
+  opacity:1;
+  visibility:visible;
+  transition:opacity .8s ease;
+}
+.hero-orbit .orbit-tool { animation-play-state:paused; }
+.hero-orbit.orbit-ready .orbit-tool { animation-play-state:running; }
+.hero-orbit .orbit-ring { opacity:0; }
+.hero-orbit.orbit-ready .orbit-ring { opacity:1; transition:opacity .7s ease; }
+@media (max-width:700px) {
+  .hero-orbit .orbit-center { padding:1rem .5rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .hero-orbit.orbit-ready .orbit-tools,
+  .hero-orbit.orbit-ready .orbit-lines { transition:none; }
+}
