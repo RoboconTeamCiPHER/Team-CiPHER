@@ -2276,3 +2276,64 @@ select {
   .nav-links { display:none !important; }
   .nav-popover { display:none !important; }
 }
+
+
+/* Logo bubbles for the homepage orbit */
+.hero-orbit .orbit-tool {
+  border-radius:999px !important;
+  padding:.48rem .78rem .48rem .5rem;
+  gap:.55rem;
+  min-height:48px;
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(203,213,225,.9);
+  box-shadow:0 7px 22px rgba(15,23,42,.09);
+}
+.hero-orbit .orbit-tool .tool-mark {
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  border-radius:50%;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  padding:5px;
+}
+.hero-orbit .orbit-tool .tool-mark img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.hero-orbit .orbit-tool .tool-mark.tool-mark-text {
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:.8rem;
+  font-weight:750;
+}
+.hero-orbit .orbit-tool-social {
+  display:grid;
+  grid-template-columns:34px auto;
+  grid-template-rows:auto auto;
+  column-gap:.5rem;
+  row-gap:.12rem;
+  padding:.42rem .8rem .42rem .48rem;
+  border-radius:999px !important;
+  min-height:58px;
+}
+.hero-orbit .orbit-tool-social > .tool-mark { grid-column:1; grid-row:1 / span 2; align-self:center; }
+.hero-orbit .orbit-tool-social .social-label { grid-column:2; grid-row:1; align-self:end; }
+.hero-orbit .orbit-tool-social .social-icons {
+  grid-column:2;
+  grid-row:2;
+  display:flex;
+  align-items:center;
+  gap:.28rem;
+  align-self:start;
+}
+.hero-orbit .orbit-tool-social .social-icons img {
+  display:block;
+  width:16px;
+  height:16px;
+  object-fit:contain;
+}
