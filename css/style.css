@@ -2380,3 +2380,25 @@ select {
   align-items:center;
   justify-content:center;
 }
+
+
+/* Ensure Instagram and Gazebo marks remain visible inside logo-only bubbles. */
+.hero-orbit .orbit-tool-instagram {
+  background:linear-gradient(135deg,#feda75 0%,#fa7e1e 28%,#d62976 58%,#962fbf 78%,#4f5bd5 100%) !important;
+  border-color:rgba(255,255,255,.95);
+}
+.hero-orbit .orbit-tool-instagram .orbit-logo {
+  width:38px;
+  height:38px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+}
+.hero-orbit .orbit-tool-gazebo .orbit-logo {
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  filter:brightness(0) saturate(100%) invert(36%) sepia(83%) saturate(1150%) hue-rotate(177deg) brightness(94%) contrast(95%);
+}
+.hero-orbit .orbit-tool-gazebo {
+  background:#f0f7ff;
+}
