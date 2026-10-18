@@ -3654,3 +3654,60 @@ select {
   .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
   .projects-page .project-ring-copy { padding:.95rem 1rem; }
 }
+
+
+/* Final viewport sizing: carousel should occupy the large marked area */
+.projects-page .projects-showcase {
+  min-height:calc(100vh - 64px - 90px);
+  height:calc(100vh - 64px - 90px);
+  overflow:hidden;
+}
+.projects-page .projects-showcase > .wrap {
+  height:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:stretch;
+}
+.projects-page .project-ring-shell {
+  flex:1 1 auto;
+  min-height:0;
+  height:100%;
+}
+.projects-page .project-ring-stage {
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+}
+.projects-page .project-ring {
+  --project-card-width:min(48vw, 620px);
+  --project-card-height:min(66vh, 600px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-controls { margin:.15rem 0 .25rem; }
+.projects-page .project-ring-hint { margin:.1rem 0 .35rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    height:calc(100svh - 64px - 70px);
+    min-height:0;
+  }
+  .projects-page .project-ring-stage { height:100%; min-height:0; }
+  .projects-page .project-ring {
+    --project-card-width:min(78vw, 410px);
+    --project-card-height:min(58svh, 490px);
+  }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+}
+@media (min-width:1400px) {
+  .projects-page .project-ring {
+    --project-card-width:min(48vw, 660px);
+    --project-card-height:min(68vh, 640px);
+  }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+}
