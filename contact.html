@@ -36,24 +36,34 @@
   .contact-cta h2 {
     max-width: 100%;
     margin: 0;
-    font-size: clamp(3rem, 7.3vw, 7rem);
+    font-size: clamp(4rem, 8.5vw, 8.5rem);
     line-height: 1.06;
     letter-spacing: -0.045em;
     text-wrap: balance;
   }
   .contact-cta .lede {
-    max-width: 70ch;
+    max-width: 76ch;
     margin: 2rem auto 0;
+    font-size: clamp(1.15rem, 1.45vw, 1.45rem);
+    line-height: 1.6;
     text-align: center;
   }
   .contact-cta .cta-buttons {
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    gap: 1rem;
+  }
+  .contact-cta .cta-buttons .btn {
+    min-height: 4.25rem;
+    padding: 1.2rem 2rem;
+    font-size: 1.15rem;
   }
   @media (max-width: 600px) {
     .contact-cta { min-height: calc(100svh - 68px); padding-block: 3.5rem; }
     .contact-cta > .wrap { width: min(100% - 2rem, 1440px); }
-    .contact-cta h2 { font-size: clamp(2.7rem, 12vw, 4rem); }
+    .contact-cta h2 { font-size: clamp(2.7rem, 12vw, 4.5rem); }
+    .contact-cta .lede { font-size: 1rem; }
+    .contact-cta .cta-buttons .btn { min-height: 3.5rem; padding: .9rem 1.1rem; font-size: 1rem; }
     .contact-cta .cta-buttons { gap: .75rem; }
   }
 </style>
