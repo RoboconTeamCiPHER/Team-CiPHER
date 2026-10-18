@@ -30,6 +30,44 @@ var REPOSITORIES = [
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+  // Site-wide light/dark theme toggle. Light mode is the initial theme.
+  var themeButtons = document.querySelectorAll('.nav-theme-toggle, .mobile-theme-toggle');
+  var savedTheme = null;
+  try { savedTheme = window.localStorage.getItem('cipher-theme'); } catch (error) {}
+  var initialTheme = savedTheme === 'dark' ? 'dark' : 'light';
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelectorAll('.footer-team-logo[data-logo-light][data-logo-dark]').forEach(function (logo) {
+      logo.src = theme === 'dark' ? logo.getAttribute('data-logo-dark') : logo.getAttribute('data-logo-light');
+    });
+    document.querySelectorAll('.footer-team-logo[data-logo-light][data-logo-dark]').forEach(function (logo) {
+      logo.src = theme === 'dark' ? logo.getAttribute('data-logo-dark') : logo.getAttribute('data-logo-light');
+    });
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+      meta.setAttribute('content', theme === 'dark' ? '#080808' : '#ffffff');
+    });
+    themeButtons.forEach(function (button) {
+      var nextTheme = theme === 'dark' ? 'light' : 'dark';
+      var label = nextTheme === 'dark' ? 'Dark mode' : 'Light mode';
+      button.setAttribute('aria-label', 'Switch to ' + nextTheme + ' mode');
+      button.setAttribute('title', 'Switch to ' + nextTheme + ' mode');
+      var icon = button.querySelector('.theme-toggle-icon');
+      var textLabel = button.querySelector('.theme-toggle-label');
+      if (icon) icon.textContent = nextTheme === 'dark' ? '☾' : '☀';
+      if (textLabel) textLabel.textContent = label;
+    });
+    try { window.localStorage.setItem('cipher-theme', theme); } catch (error) {}
+  }
+
+  applyTheme(initialTheme);
+  themeButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+  });
+
 
   var slider = document.querySelector('[data-robocon-slider]');
   if (slider) {

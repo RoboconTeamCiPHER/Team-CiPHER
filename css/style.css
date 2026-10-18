@@ -4227,3 +4227,618 @@ select {
  .competition-tile-grid .competition-tile { height:250px; }
  .competition-tile-track .competition-tile { flex-basis:82vw; }
 }
+
+
+/* ==========================================================================
+   Theme switcher
+   Light mode is the default; data-theme="dark" uses the original dark palette.
+   ========================================================================== */
+:root {
+  color-scheme: light;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f5f6f8;
+  --surface-2: #eceff3;
+  --text: #17191d;
+  --text-dim: #5d6572;
+  --text-faint: #818a98;
+  --border: #e2e6ec;
+  --border-bright: #cbd3de;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #080808;
+  --surface: #111111;
+  --surface-2: #181818;
+  --text: #f5f5f5;
+  --text-dim: #9a9a9a;
+  --text-faint: #5c5c5c;
+  --border: #2a2a2a;
+  --border-bright: #3d3d3d;
+}
+:root[data-theme="light"] body,
+:root[data-theme="light"] .mobile-menu,
+:root[data-theme="light"] .loader {
+  background-color: var(--bg);
+  color: var(--text);
+}
+:root[data-theme="light"] .nav.is-scrolled {
+  background: rgba(255,255,255,0.88);
+  border-bottom-color: var(--border);
+}
+:root[data-theme="light"] .hero-bg {
+  background: radial-gradient(circle at 50% 30%, #f1f3f6 0%, #ffffff 70%);
+}
+:root[data-theme="light"] .hero-bg::before {
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+}
+:root[data-theme="light"] .project-card,
+:root[data-theme="light"] .pipeline-stage::before,
+:root[data-theme="light"] .field input,
+:root[data-theme="light"] .field textarea,
+:root[data-theme="light"] .field select {
+  background-color: var(--bg);
+  color: var(--text);
+}
+:root[data-theme="light"] .domain:hover,
+:root[data-theme="light"] .nav-popover,
+:root[data-theme="light"] .nav-item .nav-popover,
+:root[data-theme="light"] .repo-card,
+:root[data-theme="light"] .stack-group {
+  background-color: var(--surface);
+  color: var(--text);
+}
+:root[data-theme="light"] .nav-theme-toggle,
+:root[data-theme="light"] .mobile-theme-toggle {
+  color: var(--text);
+  border-color: var(--border-bright);
+}
+.nav-theme-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-width: 128px;
+  padding: 0.85rem 1.1rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+@media (min-width: 880px) {
+  .nav-theme-toggle { display: inline-flex; }
+}
+.theme-toggle-icon { font-size: 1.15rem; line-height: 1; }
+.mobile-theme-item { padding-top: 0.4rem; }
+.mobile-menu .mobile-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  border-bottom: 1px solid var(--border);
+}
+:root[data-theme="dark"] .nav.is-scrolled {
+  background: rgba(8,8,8,0.88);
+  border-bottom-color: var(--border);
+}
+:root[data-theme="dark"] .hero-bg {
+  background: radial-gradient(circle at 50% 30%, #161616 0%, #080808 70%);
+}
+
+
+/* Homepage-only complete dark theme */
+.home-page { background:var(--bg); color:var(--text); }
+:root[data-theme="dark"] .home-page {
+  --bg:#000000;
+  --surface:#0a0a0a;
+  --surface-2:#111111;
+  --text:#ffffff;
+  --text-dim:#d0d0d0;
+  --text-faint:#929292;
+  --border:#242424;
+  --border-bright:#444444;
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .nav,
+:root[data-theme="dark"] .home-page .nav.is-scrolled {
+  background:#000 !important;
+  border-bottom-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .nav-logo-image {
+  filter:brightness(0) invert(1);
+}
+:root[data-theme="dark"] .home-page .nav-links a,
+:root[data-theme="dark"] .home-page .nav-links a:hover,
+:root[data-theme="dark"] .home-page .nav-links a[aria-current="page"],
+:root[data-theme="dark"] .home-page .nav-theme-toggle {
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .nav-theme-toggle {
+  background:#090909;
+  border-color:#454545;
+}
+:root[data-theme="dark"] .home-page .nav-popover,
+:root[data-theme="dark"] .home-page .nav-item .nav-popover {
+  background:#090909 !important;
+  color:#fff !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .home-page .hero-cipher-cursor {
+  background:#000 !important;
+  border-bottom-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .site-footer {
+  background:#000 !important;
+  color:#fff !important;
+  border-top-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .site-footer a,
+:root[data-theme="dark"] .home-page .site-footer p,
+:root[data-theme="dark"] .home-page .site-footer span,
+:root[data-theme="dark"] .home-page .site-footer h5 {
+  color:#fff;
+}
+:root[data-theme="dark"] .home-page .mobile-menu {
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .mobile-menu a,
+:root[data-theme="dark"] .home-page .mobile-close,
+:root[data-theme="dark"] .home-page .mobile-theme-toggle {
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .mobile-theme-toggle {
+  border-color:#444 !important;
+}
+:root[data-theme="dark"] .home-page .nav-toggle span {
+  background:#fff !important;
+}
+
+
+:root[data-theme="dark"] .home-page .footer-team-logo { filter:none !important; }
+
+
+/* ==========================================================================
+   GLOBAL DARK MODE COMPLETION — shared by every page
+   ========================================================================== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:#050505;
+  --surface:#101010;
+  --surface-2:#171717;
+  --text:#f5f5f5;
+  --text-dim:#c0c0c0;
+  --text-faint:#929292;
+  --border:#2b2b2b;
+  --border-bright:#454545;
+}
+:root[data-theme="dark"] body {
+  background:#050505 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] main,
+:root[data-theme="dark"] section,
+:root[data-theme="dark"] .page-hero,
+:root[data-theme="dark"] .page-section,
+:root[data-theme="dark"] .content-section,
+:root[data-theme="dark"] .section,
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero-content,
+:root[data-theme="dark"] .site-main {
+  color:var(--text);
+}
+:root[data-theme="dark"] .nav,
+:root[data-theme="dark"] .nav.is-scrolled,
+:root[data-theme="dark"] .projects-page .nav,
+:root[data-theme="dark"] .projects-page .nav.is-scrolled {
+  background:rgba(0,0,0,.96) !important;
+  border-bottom-color:#292929 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .nav-logo-image {
+  filter:brightness(0) invert(1) !important;
+}
+:root[data-theme="dark"] .nav-links a,
+:root[data-theme="dark"] .nav-links a:hover,
+:root[data-theme="dark"] .nav-links a[aria-current="page"],
+:root[data-theme="dark"] .nav-chevron,
+:root[data-theme="dark"] .nav-theme-toggle,
+:root[data-theme="dark"] .mobile-menu,
+:root[data-theme="dark"] .mobile-menu a,
+:root[data-theme="dark"] .mobile-menu .mobile-close,
+:root[data-theme="dark"] .mobile-menu .mobile-theme-toggle {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .nav-theme-toggle,
+:root[data-theme="dark"] .mobile-theme-toggle {
+  background:#090909 !important;
+  border-color:#3c3c3c !important;
+}
+:root[data-theme="dark"] .nav-popover,
+:root[data-theme="dark"] .nav-item .nav-popover,
+:root[data-theme="dark"] .nav-popover > a:not(.competition-popover-card),
+:root[data-theme="dark"] .competition-popover-card {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .nav-popover strong,
+:root[data-theme="dark"] .nav-popover a span {
+  color:#b8b8b8 !important;
+}
+:root[data-theme="dark"] .nav-popover > a:hover {
+  background:#202020 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .site-footer {
+  background:#050505 !important;
+  color:#f5f5f5 !important;
+  border-top-color:#292929 !important;
+}
+:root[data-theme="dark"] .site-footer .footer-top,
+:root[data-theme="dark"] .site-footer .footer-bottom {
+  border-color:#292929 !important;
+}
+:root[data-theme="dark"] .site-footer p,
+:root[data-theme="dark"] .site-footer a,
+:root[data-theme="dark"] .site-footer span,
+:root[data-theme="dark"] .site-footer h5,
+:root[data-theme="dark"] .site-footer .footer-description {
+  color:#c8c8c8 !important;
+}
+:root[data-theme="dark"] .site-footer .footer-team-logo {
+  filter:none !important;
+}
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .repo-card,
+:root[data-theme="dark"] .project-detail-grid > *,
+:root[data-theme="dark"] .project-tile,
+:root[data-theme="dark"] .project-item,
+:root[data-theme="dark"] .project-showcase-card,
+:root[data-theme="dark"] .project-card:hover {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .project-card p,
+:root[data-theme="dark"] .project-card .project-tech span,
+:root[data-theme="dark"] .repo-card p,
+:root[data-theme="dark"] .project-card h3,
+:root[data-theme="dark"] .project-card a {
+  color:#e0e0e0;
+}
+:root[data-theme="dark"] .project-card .thumb {
+  background:linear-gradient(135deg,#151515,#202020) !important;
+  border-color:#3a3a3a !important;
+}
+:root[data-theme="dark"] .project-card:hover p,
+:root[data-theme="dark"] .project-card:hover .project-tech span {
+  color:#e0e0e0 !important;
+}
+:root[data-theme="dark"] .team-photo-stage {
+  background-color:#050505 !important;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="dark"] .team-year-front {
+  background-color:#111 !important;
+}
+:root[data-theme="dark"] .team-year-2020 .team-year-front,
+:root[data-theme="dark"] .team-year-2025 .team-year-front {
+  background-image:linear-gradient(135deg,#171717,#0b0b0b 50%,#202020) !important;
+}
+:root[data-theme="dark"] .team-year-face.team-year-back {
+  background:#111 !important;
+  border:1px solid #333;
+}
+:root[data-theme="dark"] .team-detail-dialog,
+:root[data-theme="dark"] .team-dialog-content .lead-card {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#333 !important;
+}
+:root[data-theme="dark"] .team-dialog-content .lead-card p,
+:root[data-theme="dark"] .team-dialog-content .lead-card span,
+:root[data-theme="dark"] .team-dialog-content .lead-card h5 {
+  color:#e0e0e0 !important;
+}
+:root[data-theme="dark"] .team-domain-table-wrap,
+:root[data-theme="dark"] .team-domain-table,
+:root[data-theme="dark"] .team-domain-table td,
+:root[data-theme="dark"] .team-domain-table th {
+  background-color:#0d0d0d !important;
+  color:#e6e6e6 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .competition-tile,
+:root[data-theme="dark"] .robofest-season-tile,
+:root[data-theme="dark"] .competition-archive {
+  background-color:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#333 !important;
+}
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .field textarea,
+:root[data-theme="dark"] .field select,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#383838 !important;
+}
+:root[data-theme="dark"] .cta,
+:root[data-theme="dark"] .cta-section,
+:root[data-theme="dark"] .research-card,
+:root[data-theme="dark"] .stack-group,
+:root[data-theme="dark"] .domain,
+:root[data-theme="dark"] .pipeline-stage,
+:root[data-theme="dark"] .team-season {
+  background-color:#101010;
+  color:#f5f5f5;
+  border-color:#303030;
+}
+:root[data-theme="dark"] .mobile-menu {
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .nav-toggle span {
+  background:#fff !important;
+}
+
+
+/* Theme-safe surfaces: override hard-coded light styles in both themes. */
+:root[data-theme="dark"] .projects-page .project-ring-card,
+:root[data-theme="dark"] .project-ring-card {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#353535 !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.48) !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-image,
+:root[data-theme="dark"] .project-ring-image {
+  background:#181818 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy,
+:root[data-theme="dark"] .project-ring-copy {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy h3,
+:root[data-theme="dark"] .project-ring-copy h3 {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy p,
+:root[data-theme="dark"] .project-ring-copy p {
+  color:#c4c4c4 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-tech span,
+:root[data-theme="dark"] .project-ring-tech span {
+  background:#171717 !important;
+  border-color:#383838 !important;
+  color:#d0d0d0 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-open,
+:root[data-theme="dark"] .project-ring-open {
+  color:#80adff !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-control,
+:root[data-theme="dark"] .project-ring-control {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#383838 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-controls p,
+:root[data-theme="dark"] .project-ring-controls p,
+:root[data-theme="dark"] .project-ring-hint {
+  color:#b0b0b0 !important;
+}
+:root[data-theme="dark"] .team-photo-stage {
+  background:#050505 !important;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="dark"] .team-photo-pole {
+  background:linear-gradient(90deg,#252525,#414141 50%,#252525) !important;
+}
+:root[data-theme="dark"] .domain-grid .domain-card,
+:root[data-theme="dark"] .domain-grid .domain-card:hover {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .domain-grid .domain-card p,
+:root[data-theme="dark"] .domain-grid .domain-card li {
+  color:#c4c4c4 !important;
+}
+
+/* Explicit light-theme surfaces, including components with hard-coded dark values. */
+:root[data-theme="light"] body {
+  background:#fff !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav,
+:root[data-theme="light"] .nav.is-scrolled,
+:root[data-theme="light"] .projects-page .nav,
+:root[data-theme="light"] .projects-page .nav.is-scrolled {
+  background:rgba(255,255,255,.96) !important;
+  border-bottom-color:#e2e6ec !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav-logo-image { filter:none !important; }
+:root[data-theme="light"] .nav-links a,
+:root[data-theme="light"] .nav-links a:hover,
+:root[data-theme="light"] .nav-links a[aria-current="page"],
+:root[data-theme="light"] .nav-theme-toggle,
+:root[data-theme="light"] .mobile-menu,
+:root[data-theme="light"] .mobile-menu a,
+:root[data-theme="light"] .mobile-menu .mobile-theme-toggle {
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav-theme-toggle,
+:root[data-theme="light"] .mobile-theme-toggle {
+  background:#fff !important;
+  border-color:#cbd3de !important;
+}
+:root[data-theme="light"] .site-footer {
+  background:#f0f4f8 !important;
+  color:#354052 !important;
+  border-top-color:#e2e6ec !important;
+}
+:root[data-theme="light"] .site-footer a,
+:root[data-theme="light"] .site-footer p,
+:root[data-theme="light"] .site-footer span,
+:root[data-theme="light"] .site-footer h5 {
+  color:#5d6572 !important;
+}
+:root[data-theme="light"] .site-footer .footer-team-logo { filter:none !important; }
+:root[data-theme="light"] .projects-page .project-ring-card,
+:root[data-theme="light"] .project-ring-card {
+  background:#fff !important;
+  color:#17191d !important;
+  border-color:#dce5f0 !important;
+  box-shadow:0 16px 45px rgba(15,35,65,.12) !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-image,
+:root[data-theme="light"] .project-ring-image {
+  background:#f3f6fa !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-copy h3,
+:root[data-theme="light"] .project-ring-copy h3 { color:#101828 !important; }
+:root[data-theme="light"] .projects-page .project-ring-copy p,
+:root[data-theme="light"] .project-ring-copy p { color:#58677c !important; }
+:root[data-theme="light"] .projects-page .project-ring-tech span,
+:root[data-theme="light"] .project-ring-tech span {
+  background:#fff !important;
+  border-color:#e0e8f2 !important;
+  color:#526176 !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-open,
+:root[data-theme="light"] .project-ring-open { color:#1f64c8 !important; }
+:root[data-theme="light"] .projects-page .project-ring-control,
+:root[data-theme="light"] .project-ring-control {
+  background:#fff !important;
+  color:#1f2937 !important;
+  border-color:#d9e2ee !important;
+}
+:root[data-theme="light"] .team-photo-stage {
+  background:#fff !important;
+  background-image:radial-gradient(rgba(21,35,58,.09) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="light"] .team-photo-pole {
+  background:linear-gradient(90deg,#e3e8f0,#c4ccd8 50%,#e3e8f0) !important;
+}
+:root[data-theme="light"] .domain-grid .domain-card {
+  background:#f5f6f8 !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .domain-grid .domain-card:hover { background:#dff3ff !important; }
+:root[data-theme="light"] .domain-grid .domain-card p,
+:root[data-theme="light"] .domain-grid .domain-card li { color:#5d6572 !important; }
+
+
+/* Final pass: ensure the complete project page and Team domain panel follow the theme. */
+:root[data-theme="dark"] body:has(.projects-page),
+:root[data-theme="dark"] body:has(.projects-page) main,
+:root[data-theme="dark"] .projects-page,
+:root[data-theme="dark"] .projects-page .projects-showcase,
+:root[data-theme="dark"] .projects-page .section {
+  background-color:#050505 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-shell,
+:root[data-theme="dark"] .projects-page .project-ring-stage {
+  background:transparent !important;
+}
+:root[data-theme="light"] body:has(.projects-page),
+:root[data-theme="light"] body:has(.projects-page) main,
+:root[data-theme="light"] .projects-page,
+:root[data-theme="light"] .projects-page .projects-showcase,
+:root[data-theme="light"] .projects-page .section {
+  background-color:#fff !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-shell,
+:root[data-theme="light"] .projects-page .project-ring-stage {
+  background:transparent !important;
+}
+
+/* The Team hero uses page-local hard-coded light backgrounds, so override them explicitly. */
+:root[data-theme="dark"] .team-page-hero .team-hero-domains,
+:root[data-theme="dark"] .team-page-hero .team-hero-domain {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain strong {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain small {
+  color:#c4c4c4 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain > span,
+:root[data-theme="dark"] .team-page-hero .team-hero-domain em {
+  color:#80aaff !important;
+}
+:root[data-theme="light"] .team-page-hero .team-hero-domains,
+:root[data-theme="light"] .team-page-hero .team-hero-domain {
+  background:#f8fafc !important;
+  color:#17191d !important;
+  border-color:#dce3ec !important;
+}
+:root[data-theme="light"] .team-page-hero .team-hero-domain strong { color:#17191d !important; }
+:root[data-theme="light"] .team-page-hero .team-hero-domain small { color:#687386 !important; }
+:root[data-theme="light"] .team-page-hero .team-hero-domain > span,
+:root[data-theme="light"] .team-page-hero .team-hero-domain em { color:#2868f5 !important; }
+
+
+/* Competition details dialog: theme-aware modal surfaces, content, and robot gallery. */
+:root[data-theme="dark"] .competition-detail-dialog {
+  background:#101318 !important;
+  color:#f5f7fb !important;
+  border-color:#343b48 !important;
+  box-shadow:0 28px 90px rgba(0,0,0,.65) !important;
+  color-scheme:dark;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-shell,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content section {
+  background:#101318 !important;
+  color:#f5f7fb !important;
+  border-color:#303744 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog h2,
+:root[data-theme="dark"] .competition-detail-dialog h3 {
+  color:#f5f7fb !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-subtitle,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content p {
+  color:#c3cbd8 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-close {
+  color:#e5eaf2 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure {
+  background:#171c25 !important;
+  border-color:#343b48 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure img {
+  background:#171c25 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure figcaption {
+  background:#171c25 !important;
+  color:#c3cbd8 !important;
+  border-top-color:#343b48 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-done {
+  background:#171c25 !important;
+  color:#f5f7fb !important;
+  border-color:#454e5e !important;
+}
+:root[data-theme="light"] .competition-detail-dialog {
+  background:#fff !important;
+  color:#151b2a !important;
+  border-color:#dbe3ef !important;
+  color-scheme:light;
+}
