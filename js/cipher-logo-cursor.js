@@ -115,7 +115,7 @@
     const sc = scale;
     const focal = 2.4;
     const thicknessPx = 75;
-    const depthLayers = 5;
+    const depthLayers = 25;
     const faces = [];
     for (const p of particles) {
       const m = easeOutCubic(clamp((intro * 2.05 - p.delay) / 1, 0, 1));
@@ -133,13 +133,13 @@
       faces.push({x,y,size,z:z2,alpha:.18 + .82 * m});
     }
     faces.sort((a,b) => a.z - b.z);
-    // Stacked offset faces create a visible 15px extrusion in screen space.
+    // Closely spaced, uniformly black depth slices create a solid extrusion.
     const depthX = Math.sin(ry) * thicknessPx / depthLayers;
     const depthY = Math.sin(rx) * Math.cos(ry) * thicknessPx / depthLayers;
     for (let layer = depthLayers; layer >= 1; layer--) {
       for (const p of faces) {
-        ctx.globalAlpha = p.alpha * (0.72 + 0.05 * (depthLayers - layer));
-        ctx.fillStyle = layer === depthLayers ? '#555555' : '#292929';
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = '#050505';
         ctx.fillRect(p.x - depthX * layer + p.size * .45,
                      p.y + depthY * layer + p.size * .45,
                      p.size, p.size);
