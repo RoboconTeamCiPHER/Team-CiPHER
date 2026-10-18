@@ -22,6 +22,12 @@
 .robocon-tile:hover>img.robocon-season-logo{transform:none!important;filter:none!important}
 .robocon-tile .tile-overlay{background:linear-gradient(180deg,rgba(8,12,20,0),rgba(8,12,20,.92));padding:14px 0 0}
 @media(max-width:600px){.robocon-tile-track .competition-tile{flex-basis:88vw;height:280px}.robocon-tile>img.robocon-season-logo{padding:14px 14px 76px}}
+.competition-hero{min-height:0;display:block;padding:calc(var(--nav-h) + 2rem) var(--gutter) clamp(2rem,4vw,3.5rem);text-align:left}
+.competition-hero>*{width:min(100%,var(--content-max));margin-left:0;margin-right:0}
+.competition-hero .kicker{margin-bottom:.65rem}
+.competition-hero h1{font-size:clamp(2.6rem,5.2vw,4.4rem);line-height:1.04;max-width:18ch;letter-spacing:-.045em}
+.competition-hero .sub{margin-top:.8rem;max-width:62ch;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.55}
+@media(max-width:600px){.competition-hero{padding-top:calc(var(--nav-h) + 1.5rem);padding-bottom:2rem}.competition-hero h1{font-size:clamp(2.25rem,10vw,3.2rem)}.competition-hero .sub{font-size:1rem}}
 </style>
 </head>
 <body>
