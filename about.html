@@ -117,16 +117,26 @@
         <h2 data-reveal>From idea to machine.</h2>
         <p class="lede" data-reveal>Every build moves through the same nine stages, from first sketch to a tested, competition-ready system.</p>
       </div>
-      <div class="pipeline">
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">01</span><span class="pipeline-name">Concept</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">02</span><span class="pipeline-name">CAD</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">03</span><span class="pipeline-name">Simulation</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">04</span><span class="pipeline-name">Fabrication</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">05</span><span class="pipeline-name">Electronics</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">06</span><span class="pipeline-name">Software</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">07</span><span class="pipeline-name">Integration</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">08</span><span class="pipeline-name">Testing</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">09</span><span class="pipeline-name">Iteration</span></div>
+      <div class="pipeline-cycle" aria-label="Nine-stage engineering cycle">
+        <svg class="pipeline-cycle-ring" viewBox="0 0 800 800" aria-hidden="true">
+          <defs>
+            <marker id="pipeline-arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#4b8df8"></path>
+            </marker>
+          </defs>
+          <circle class="pipeline-ring-base" cx="400" cy="400" r="270"></circle>
+          <path class="pipeline-ring-flow" d="M400 130 A270 270 0 1 1 399.5 130" marker-end="url(#pipeline-arrow)"></path>
+        </svg>
+        <div class="pipeline-cycle-center"><span>TEAM CiPHER</span><strong>Engineering<br>Cycle</strong><small>Design · Build · Test · Iterate</small></div>
+        <div class="pipeline-cycle-stage stage-1" data-reveal><span class="pipeline-num">01</span><strong>Concept</strong></div>
+        <div class="pipeline-cycle-stage stage-2" data-reveal><span class="pipeline-num">02</span><strong>CAD</strong></div>
+        <div class="pipeline-cycle-stage stage-3" data-reveal><span class="pipeline-num">03</span><strong>Simulation</strong></div>
+        <div class="pipeline-cycle-stage stage-4" data-reveal><span class="pipeline-num">04</span><strong>Fabrication</strong></div>
+        <div class="pipeline-cycle-stage stage-5" data-reveal><span class="pipeline-num">05</span><strong>Electronics</strong></div>
+        <div class="pipeline-cycle-stage stage-6" data-reveal><span class="pipeline-num">06</span><strong>Software</strong></div>
+        <div class="pipeline-cycle-stage stage-7" data-reveal><span class="pipeline-num">07</span><strong>Integration</strong></div>
+        <div class="pipeline-cycle-stage stage-8" data-reveal><span class="pipeline-num">08</span><strong>Testing</strong></div>
+        <div class="pipeline-cycle-stage stage-9" data-reveal><span class="pipeline-num">09</span><strong>Iteration</strong></div>
       </div>
     </div>
   </section>
