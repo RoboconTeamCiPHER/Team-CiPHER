@@ -4125,3 +4125,30 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .cipher-cursor-scene { scroll-behavior: auto; }
 }
+
+
+/* CiPHER logo hero: fixed-size 3D mark; footer starts after the full first viewport */
+.hero-cipher-cursor {
+  height: 100svh !important;
+  min-height: 100svh !important;
+  max-height: 100svh !important;
+  box-sizing: border-box;
+  padding: var(--nav-h) clamp(1rem, 4vw, 3rem) 1rem !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+.cipher-cursor-scene {
+  width: 100% !important;
+  max-width: none !important;
+  height: calc(100svh - var(--nav-h) - 1rem) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+}
+.cipher-cursor-hint { display: none !important; }
+.cipher-cursor-controls { display: none !important; }
+#cipher-cursor-canvas { width: 100%; height: 100%; }
+@media (max-width: 700px) {
+  .hero-cipher-cursor { height: 100svh !important; min-height: 100svh !important; padding: 64px .5rem .5rem !important; }
+  .cipher-cursor-scene { height: calc(100svh - 64px - .5rem) !important; min-height: 0 !important; }
+}
