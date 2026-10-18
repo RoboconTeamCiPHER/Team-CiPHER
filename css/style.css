@@ -4327,3 +4327,73 @@ select {
 :root[data-theme="dark"] .hero-bg {
   background: radial-gradient(circle at 50% 30%, #161616 0%, #080808 70%);
 }
+
+
+/* Homepage-only complete dark theme */
+.home-page { background:var(--bg); color:var(--text); }
+:root[data-theme="dark"] .home-page {
+  --bg:#000000;
+  --surface:#0a0a0a;
+  --surface-2:#111111;
+  --text:#ffffff;
+  --text-dim:#d0d0d0;
+  --text-faint:#929292;
+  --border:#242424;
+  --border-bright:#444444;
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .nav,
+:root[data-theme="dark"] .home-page .nav.is-scrolled {
+  background:#000 !important;
+  border-bottom-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .nav-logo-image {
+  filter:brightness(0) invert(1);
+}
+:root[data-theme="dark"] .home-page .nav-links a,
+:root[data-theme="dark"] .home-page .nav-links a:hover,
+:root[data-theme="dark"] .home-page .nav-links a[aria-current="page"],
+:root[data-theme="dark"] .home-page .nav-theme-toggle {
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .nav-theme-toggle {
+  background:#090909;
+  border-color:#454545;
+}
+:root[data-theme="dark"] .home-page .nav-popover,
+:root[data-theme="dark"] .home-page .nav-item .nav-popover {
+  background:#090909 !important;
+  color:#fff !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .home-page .hero-cipher-cursor {
+  background:#000 !important;
+  border-bottom-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .site-footer {
+  background:#000 !important;
+  color:#fff !important;
+  border-top-color:#242424 !important;
+}
+:root[data-theme="dark"] .home-page .site-footer a,
+:root[data-theme="dark"] .home-page .site-footer p,
+:root[data-theme="dark"] .home-page .site-footer span,
+:root[data-theme="dark"] .home-page .site-footer h5 {
+  color:#fff;
+}
+:root[data-theme="dark"] .home-page .mobile-menu {
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .mobile-menu a,
+:root[data-theme="dark"] .home-page .mobile-close,
+:root[data-theme="dark"] .home-page .mobile-theme-toggle {
+  color:#fff !important;
+}
+:root[data-theme="dark"] .home-page .mobile-theme-toggle {
+  border-color:#444 !important;
+}
+:root[data-theme="dark"] .home-page .nav-toggle span {
+  background:#fff !important;
+}
