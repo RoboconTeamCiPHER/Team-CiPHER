@@ -147,7 +147,7 @@
     }
     for (const p of faces) {
       ctx.globalAlpha = p.alpha;
-      ctx.fillStyle = '#050505';
+      ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#ffffff' : '#050505';
       ctx.fillRect(p.x, p.y, p.size, p.size);
     }
     ctx.globalAlpha = 1;
