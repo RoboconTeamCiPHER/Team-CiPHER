@@ -93,7 +93,7 @@
         cards.forEach(function (card, index) { card.classList.toggle('is-front', index === front); });
         var heading = cards[front].querySelector('h3');
         live.textContent = heading ? heading.textContent : '';
-        position.textContent = 'Project ' + (front + 1) + ' of ' + count + ' · ' + (heading ? heading.textContent : '');
+        if (position) position.textContent = 'Project ' + (front + 1) + ' of ' + count + ' · ' + (heading ? heading.textContent : '');
         lastFront = front;
       }
     }
@@ -148,8 +148,10 @@
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); rotateBy(-1); }
       if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); rotateBy(1); }
     });
-    document.getElementById('project-prev').addEventListener('click', function () { rotateBy(1); });
-    document.getElementById('project-next').addEventListener('click', function () { rotateBy(-1); });
+    var previous = document.getElementById('project-prev');
+    var next = document.getElementById('project-next');
+    if (previous) previous.addEventListener('click', function () { rotateBy(1); });
+    if (next) next.addEventListener('click', function () { rotateBy(-1); });
     window.addEventListener('resize', layout);
     layout();
     requestAnimationFrame(function (time) { lastTime = time; tick(time); });
