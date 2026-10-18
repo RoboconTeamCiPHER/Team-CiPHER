@@ -16,9 +16,9 @@
 <meta name="twitter:description" content="A national-level student robotics team engineering autonomous systems across mechanical, electronics, programming and research.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=3">
 <link rel="shortcut icon" type="image/png" href="assets/images/logos/CiPHER%20Logo%20Tab.png?v=2">
-<link rel="stylesheet" href="css/style.css?v=orbit-logo-only-5">
-<link rel="stylesheet" href="css/animations.css?v=orbit-logo-only-5">
-<link rel="stylesheet" href="css/responsive.css?v=orbit-logo-only-5">
+<link rel="stylesheet" href="css/style.css?v=nav-fix-2">
+<link rel="stylesheet" href="css/animations.css?v=nav-fix-2">
+<link rel="stylesheet" href="css/responsive.css?v=nav-fix-2">
 </head>
 <body>
 
@@ -34,12 +34,12 @@
   <div class="wrap">
     <a href="index.html" class="nav-logo"><img src="assets/logos/Team%20CiPHER.png" alt="Team CiPHER" class="nav-logo-image"></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="about.html" aria-current="page">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="competitions.html">Competitions</a>
-      <a href="team.html">Team</a>
-      <a href="about.html#research">Research</a>
-      <a href="contact.html">Contact</a>
+      <div class="nav-item nav-item-about"><a href="about.html" data-nav="about">About <span class="nav-chevron">⌄</span></a><div class="nav-popover about-popover"><strong>Explore Team CiPHER</strong><a href="about.html#about">Who We Are</a><a href="about.html#pipeline">Our Workflow</a><a href="about.html#competition-robots">Robots & Builds</a><a href="about.html#toolchain">Engineering Toolchain</a></div></div>
+      <a href="projects.html" data-nav="projects">Projects</a>
+      <div class="nav-item nav-item-competitions"><a href="competitions.html" data-nav="competitions">Competitions <span class="nav-chevron">⌄</span></a><div class="nav-popover competitions-popover"><div class="popover-heading"><span>COMPETITIONS</span><a href="competitions.html">All competitions ↗</a></div><div class="competition-popover-grid"><a class="competition-popover-card" href="competitions.html#robocon-2025"><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Robocon robot"><span>DD Robocon</span><small>National robotics competition</small></a><a class="competition-popover-card" href="projects.html"><img src="assets/logos/Robofest.svg" alt="Robofest competition logo"><span>Robofest</span><small>Applied robotics projects</small></a><a class="competition-popover-card" href="competitions.html"><img src="assets/logos/MindSpark.svg" alt="MindSpark competition logo"><span>MindSpark</span><small>Technical festival</small></a></div></div></div>
+      <div class="nav-item nav-item-team"><a href="team.html" data-nav="team">Team <span class="nav-chevron">⌄</span></a><div class="nav-popover team-popover"><strong>Our domains</strong><a href="team.html#mechanical">Mechanical <span>CAD · Design · Analysis</span></a><a href="team.html#electronics">Electronics <span>Embedded · Sensors · Control</span></a><a href="team.html#programming">Programming <span>ROS 2 · Vision · Autonomy</span></a><a href="team.html#administration">Admin <span>Operations · Outreach</span></a></div></div>
+      <a href="research.html" data-nav="research">Research</a>
+      <div class="nav-item nav-item-contact"><a href="contact.html" data-nav="contact">Contact <span class="nav-chevron">⌄</span></a><div class="nav-popover contact-popover"><strong>Connect with us</strong><a href="https://linkedin.com/company/team-cipher" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.instagram.com/team_cipher_/" target="_blank" rel="noopener">Instagram ↗</a><a href="mailto:roboconteamcipher@gmail.com">Email us ↗</a></div></div>
     </nav>
     <a class="nav-gh btn" href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">GitHub ↗</a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -49,55 +49,14 @@
 <div class="mobile-menu" aria-hidden="true">
   <button class="mobile-close" aria-label="Close menu">Close ✕</button>
   <ul>
-    <li><a href="about.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="competitions.html">Competitions</a></li>
-    <li><a href="team.html">Team</a></li>
-    <li><a href="about.html#research">Research</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">GitHub ↗</a></li>
+    <li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="competitions.html">Competitions</a></li><li><a href="team.html">Team</a></li><li><a href="research.html">Research</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://github.com/RoboconTeamCiPHER" target="_blank" rel="noopener">GitHub ↗</a></li>
   </ul>
 </div>
 
 <main id="main">
 
   <!-- HERO: TEAM + ROBOTICS TOOL ECOSYSTEM -->
-  <section class="hero hero-orbit">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="orbit-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <div class="orbit-stage">
-      <div class="orbit-tools" aria-label="Team CiPHER tools grouped by domain">
-        <div class="orbit-ring orbit-ring-mechanical" aria-label="Mechanical tools">
-          <div class="orbit-tool orbit-tool-fusion"><span class="tool-mark">F</span><span>Fusion 360</span></div>
-          <div class="orbit-tool orbit-tool-solidworks"><span class="tool-mark">SW</span><span>SOLIDWORKS</span></div>
-          <div class="orbit-tool orbit-tool-ansys"><span class="tool-mark">A</span><span>ANSYS</span></div>
-          <div class="orbit-tool orbit-tool-gdt"><span class="tool-mark">GD&T</span><span>GD&T</span></div>
-        </div>
-        <div class="orbit-ring orbit-ring-electronics" aria-label="Electronics tools">
-          <div class="orbit-tool orbit-tool-kicad"><span class="tool-mark">K</span><span>KiCad</span></div>
-          <div class="orbit-tool orbit-tool-arduino"><span class="tool-mark">∞</span><span>Arduino</span></div>
-          <div class="orbit-tool orbit-tool-esp"><span class="tool-mark">ESP</span><span>ESP32</span></div>
-          <div class="orbit-tool orbit-tool-stm"><span class="tool-mark">STM</span><span>STM32</span></div>
-        </div>
-        <div class="orbit-ring orbit-ring-programming" aria-label="Programming and robotics software">
-          <div class="orbit-tool orbit-tool-ros"><span class="tool-mark">ROS</span><span>ROS 2</span></div>
-          <div class="orbit-tool orbit-tool-gazebo"><span class="tool-mark">GZ</span><span>Gazebo</span></div>
-          <div class="orbit-tool orbit-tool-python"><span class="tool-mark">Py</span><span>Python</span></div>
-          <div class="orbit-tool orbit-tool-opencv"><span class="tool-mark">CV</span><span>OpenCV</span></div>
-        </div>
-        <div class="orbit-ring orbit-ring-administration" aria-label="Administration and collaboration tools">
-          <div class="orbit-tool orbit-tool-canva"><span class="tool-mark">C</span><span>Canva</span></div>
-          <div class="orbit-tool orbit-tool-notion"><span class="tool-mark">N</span><span>Notion</span></div>
-          <div class="orbit-tool orbit-tool-freedcamp"><span class="tool-mark">FC</span><span>Freedcamp</span></div>
-          <div class="orbit-tool orbit-tool-office"><span class="tool-mark">365</span><span>Microsoft 365</span></div>
-        </div>
-      </div>
-      <div class="orbit-center">
-        <img class="hero-brand-logo" src="assets/logos/Team%20CiPHER.png" alt="Team CiPHER">
-        <div class="orbit-tagline">LEARN <span>|</span> ADAPT <span>|</span> GROW</div>
-      </div>    </div>
-    <div class="hero-scroll" aria-hidden="true">SCROLL</div>
-  </section>
+  
 
   <!-- INTRO / DOMAINS -->
   <section class="section" id="about">
@@ -108,7 +67,7 @@
       </div>
       <div class="domains domain-grid" data-reveal-group>
         <article class="domain-card" data-reveal>
-          <div class="domain-card-head"><span class="domain-num">01</span><h3>Mechanical</h3></div>
+          <div class="domain-card-head"><h3>Mechanical</h3></div>
           <ul>
             <li>CAD and 3D modelling</li>
             <li>Mechanism and system design</li>
@@ -118,7 +77,7 @@
           </ul>
         </article>
         <article class="domain-card" data-reveal>
-          <div class="domain-card-head"><span class="domain-num">02</span><h3>Electronics</h3></div>
+          <div class="domain-card-head"><h3>Electronics</h3></div>
           <ul>
             <li>Embedded systems</li>
             <li>Sensors and actuators</li>
@@ -128,7 +87,7 @@
           </ul>
         </article>
         <article class="domain-card" data-reveal>
-          <div class="domain-card-head"><span class="domain-num">03</span><h3>Programming</h3></div>
+          <div class="domain-card-head"><h3>Programming</h3></div>
           <ul>
             <li>ROS 2 and robotic software</li>
             <li>Autonomous navigation</li>
@@ -138,7 +97,7 @@
           </ul>
         </article>
         <article class="domain-card" data-reveal>
-          <div class="domain-card-head"><span class="domain-num">04</span><h3>Administration</h3></div>
+          <div class="domain-card-head"><h3>Administration</h3></div>
           <ul>
             <li>Team operations and coordination</li>
             <li>Documentation and records</li>
@@ -158,16 +117,35 @@
         <h2 data-reveal>From idea to machine.</h2>
         <p class="lede" data-reveal>Every build moves through the same nine stages, from first sketch to a tested, competition-ready system.</p>
       </div>
-      <div class="pipeline">
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">01</span><span class="pipeline-name">Concept</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">02</span><span class="pipeline-name">CAD</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">03</span><span class="pipeline-name">Simulation</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">04</span><span class="pipeline-name">Fabrication</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">05</span><span class="pipeline-name">Electronics</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">06</span><span class="pipeline-name">Software</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">07</span><span class="pipeline-name">Integration</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">08</span><span class="pipeline-name">Testing</span></div>
-        <div class="pipeline-stage" data-reveal><span class="pipeline-num">09</span><span class="pipeline-name">Iteration</span></div>
+      <div class="pipeline-cycle" aria-label="Nine-stage engineering cycle">
+        <svg class="pipeline-cycle-ring" viewBox="0 0 800 800" aria-hidden="true">
+          <defs>
+            <marker id="pipeline-arrow" markerWidth="24" markerHeight="24" refX="18" refY="12" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M2,2 L20,12 L2,22" fill="none" stroke="#2f7df6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </marker>
+          </defs>
+          <circle class="pipeline-ring-base" cx="400" cy="400" r="270"></circle>
+          <circle class="pipeline-ring-dots" cx="400" cy="400" r="270"></circle>
+          <path class="pipeline-direction-arrow" d="M 460.7 136.9 A 270 270 0 0 1 522.6 159.4" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 615.6 237.5 A 270 270 0 0 1 648.5 294.5" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 669.6 414.1 A 270 270 0 0 1 658.2 478.9" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 597.5 584.1 A 270 270 0 0 1 547.1 626.4" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 432.9 668.0 A 270 270 0 0 1 367.1 668.0" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 252.9 626.4 A 270 270 0 0 1 202.5 584.1" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 141.8 478.9 A 270 270 0 0 1 130.4 414.1" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 151.5 294.5 A 270 270 0 0 1 184.4 237.5" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 277.4 159.4 A 270 270 0 0 1 339.3 136.9" marker-end="url(#pipeline-arrow)"></path>
+        </svg>
+        <div class="pipeline-cycle-center"><span>TEAM CiPHER</span><strong>Engineering<br>Cycle</strong><small>Design · Build · Test · Iterate</small></div>
+        <div class="pipeline-cycle-stage stage-1" data-reveal><span class="pipeline-num">01</span><strong>Concept</strong></div>
+        <div class="pipeline-cycle-stage stage-2" data-reveal><span class="pipeline-num">02</span><strong>CAD</strong></div>
+        <div class="pipeline-cycle-stage stage-3" data-reveal><span class="pipeline-num">03</span><strong>Simulation</strong></div>
+        <div class="pipeline-cycle-stage stage-4" data-reveal><span class="pipeline-num">04</span><strong>Fabrication</strong></div>
+        <div class="pipeline-cycle-stage stage-5" data-reveal><span class="pipeline-num">05</span><strong>Electronics</strong></div>
+        <div class="pipeline-cycle-stage stage-6" data-reveal><span class="pipeline-num">06</span><strong>Software</strong></div>
+        <div class="pipeline-cycle-stage stage-7" data-reveal><span class="pipeline-num">07</span><strong>Integration</strong></div>
+        <div class="pipeline-cycle-stage stage-8" data-reveal><span class="pipeline-num">08</span><strong>Testing</strong></div>
+        <div class="pipeline-cycle-stage stage-9" data-reveal><span class="pipeline-num">09</span><strong>Iteration</strong></div>
       </div>
     </div>
   </section>
@@ -363,7 +341,7 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="competitions.html">Competitions</a></li>
             <li><a href="team.html">Team</a></li>
-            <li><a href="about.html#research">Research</a></li>
+            <li><a href="research.html">Research</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

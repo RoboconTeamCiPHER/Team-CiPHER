@@ -374,8 +374,8 @@ p { margin: 0; }
 }
 .domain {
   display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   padding: 1.8rem clamp(1rem, 3vw, 2rem);
   border-top: 1px solid var(--border);
   transition: background var(--dur-fast) var(--ease-out);
@@ -388,7 +388,6 @@ p { margin: 0; }
   font-size: var(--step-1);
   transition: color var(--dur-fast) var(--ease-out);
 }
-.domain:hover .domain-num { color: var(--red); }
 .domain-body h3 {
   font-size: var(--step-2);
   margin-bottom: 0.5rem;
@@ -398,7 +397,6 @@ p { margin: 0; }
   max-width: 55ch;
 }
 @media (min-width: 720px) {
-  .domain { grid-template-columns: 110px 1fr 1fr; align-items: center; }
 }
 
 /* ---- Pipeline ---- */
@@ -2197,4 +2195,1725 @@ select {
   .hero-orbit .orbit-center { gap:.8rem; }
   .hero-orbit .orbit-center .hero-brand-logo { width:min(280px, 68vw); max-height:95px; }
   .hero-orbit .orbit-tagline { font-size:clamp(.8rem, 3.5vw, 1rem); }
+}
+
+
+/* Requested four orbit groups and their exact tool sets. */
+.hero-orbit .orbit-tool-matlab { --orbit-start:50%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-altium { --orbit-start:75%; --orbit-duration:39s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-github { --orbit-start:75%; --orbit-duration:32s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-social { --orbit-start:75%; --orbit-duration:26s; --orbit-delay:-6s; }
+
+
+/* Orbit cleanup: show exactly four evenly spaced domain tracks. The decorative
+   orbit-lines were adding a second set of circles behind the domain rings. */
+.hero-orbit .orbit-lines {
+  display: none !important;
+}
+.hero-orbit .orbit-ring-mechanical { --orbit-size: 900px; }
+.hero-orbit .orbit-ring-electronics { --orbit-size: 740px; }
+.hero-orbit .orbit-ring-programming { --orbit-size: 580px; }
+.hero-orbit .orbit-ring-administration { --orbit-size: 420px; }
+@media (max-width: 1100px) {
+  .hero-orbit .orbit-ring-mechanical { --orbit-size: 820px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size: 660px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size: 500px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size: 340px; }
+}
+@media (max-width: 700px) {
+  .hero-orbit .orbit-ring-mechanical { --orbit-size: 650px; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size: 510px; }
+  .hero-orbit .orbit-ring-programming { --orbit-size: 370px; }
+  .hero-orbit .orbit-ring-administration { --orbit-size: 230px; }
+}
+
+
+/* Global navigation dropdowns — shared by every page. */
+.nav-links { gap:clamp(1rem,1.6vw,1.8rem); }
+.nav-item { position:relative; display:flex; align-items:center; height:var(--nav-h); }
+.nav-item > a { display:inline-flex; align-items:center; gap:.35rem; position:relative; padding-block:4px; color:var(--text-dim); white-space:nowrap; }
+.nav-item > a:hover, .nav-item:focus-within > a { color:var(--text); }
+.nav-chevron { font-size:.85em; opacity:.75; transition:transform .2s ease; }
+.nav-item:hover .nav-chevron, .nav-item:focus-within .nav-chevron { transform:rotate(180deg); }
+.nav-popover { position:absolute; top:calc(100% - 2px); left:50%; transform:translate(-50%,10px); width:250px; padding:1.1rem; display:flex; flex-direction:column; gap:.25rem; background:rgba(255,255,255,.98); color:#111827; border:1px solid #e5e7eb; border-radius:16px; box-shadow:0 18px 48px rgba(15,23,42,.16); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .18s ease,transform .18s ease,visibility .18s ease; z-index:200; }
+.nav-item:hover .nav-popover, .nav-item:focus-within .nav-popover { opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0); }
+.nav-popover strong { font-size:.78rem; color:#6b7280; font-weight:600; padding:.2rem .55rem .5rem; }
+.nav-popover > a:not(.competition-popover-card) { display:flex; flex-direction:column; padding:.55rem .6rem; border-radius:8px; color:#111827; font-size:.9rem; line-height:1.3; }
+.nav-popover > a:hover { background:#f3f6fa; color:#075fe4; }
+.nav-popover a span { font-size:.72rem; color:#6b7280; margin-top:.18rem; }
+.competitions-popover { width:min(650px,80vw); left:50%; padding:1rem; }
+.popover-heading { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin:.1rem .2rem .8rem; font-size:.75rem; color:#6b7280; }
+.popover-heading a { color:#0868d7; font-size:.78rem; white-space:nowrap; }
+.competition-popover-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
+.competition-popover-card { min-width:0; display:flex; flex-direction:column; gap:.3rem; padding:.4rem; border-radius:10px; color:#111827; }
+.competition-popover-card:hover { background:#f3f6fa; }
+.competition-popover-card img { width:100%; height:108px; object-fit:cover; border-radius:7px; background:#eef2f7; }
+.competition-popover-card span { font-weight:650; font-size:.88rem; }
+.competition-popover-card small { color:#6b7280; font-size:.7rem; line-height:1.35; }
+.nav-item-about .nav-popover { width:235px; }
+.nav-item-contact .nav-popover { width:210px; }
+@media (max-width:1100px) and (min-width:880px) { .nav-links { gap:.8rem; font-size:.82rem; } .nav-gh { padding:.8rem 1rem; } }
+@media (max-width:879px) { .nav-links { display:none !important; } .nav-item { display:none; } }
+
+
+/* Navigation dropdown positioning fix: keep the original horizontal navbar intact. */
+@media (min-width:880px) {
+  .nav .wrap { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .nav-links { display:flex !important; flex:0 1 auto; flex-direction:row; align-items:center; justify-content:center; gap:clamp(1rem,1.6vw,1.8rem); height:var(--nav-h); white-space:nowrap; }
+  .nav-links > a, .nav-links > .nav-item { flex:0 0 auto; }
+  .nav-item { height:var(--nav-h); align-self:center; }
+  .nav-popover { display:flex !important; position:absolute !important; top:100% !important; left:50% !important; z-index:500 !important; opacity:0 !important; visibility:hidden !important; pointer-events:none !important; transform:translate(-50%,8px) !important; }
+  .nav-item:hover > .nav-popover, .nav-item:focus-within > .nav-popover { opacity:1 !important; visibility:visible !important; pointer-events:auto !important; transform:translate(-50%,0) !important; }
+  .nav-item-about > .nav-popover { width:235px; }
+  .nav-item-team > .nav-popover { width:260px; }
+  .nav-item-contact > .nav-popover { width:210px; }
+  .nav-item-competitions > .nav-popover { width:min(650px,80vw); }
+  .nav-gh { flex:0 0 auto; white-space:nowrap; }
+}
+@media (max-width:879px) {
+  .nav-links { display:none !important; }
+  .nav-popover { display:none !important; }
+}
+
+
+/* Logo bubbles for the homepage orbit */
+.hero-orbit .orbit-tool {
+  border-radius:999px !important;
+  padding:.48rem .78rem .48rem .5rem;
+  gap:.55rem;
+  min-height:48px;
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(203,213,225,.9);
+  box-shadow:0 7px 22px rgba(15,23,42,.09);
+}
+.hero-orbit .orbit-tool .tool-mark {
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  border-radius:50%;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  padding:5px;
+}
+.hero-orbit .orbit-tool .tool-mark img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.hero-orbit .orbit-tool .tool-mark.tool-mark-text {
+  background:#eff6ff;
+  color:#2563eb;
+  font-size:.8rem;
+  font-weight:750;
+}
+.hero-orbit .orbit-tool-social {
+  display:grid;
+  grid-template-columns:34px auto;
+  grid-template-rows:auto auto;
+  column-gap:.5rem;
+  row-gap:.12rem;
+  padding:.42rem .8rem .42rem .48rem;
+  border-radius:999px !important;
+  min-height:58px;
+}
+.hero-orbit .orbit-tool-social > .tool-mark { grid-column:1; grid-row:1 / span 2; align-self:center; }
+.hero-orbit .orbit-tool-social .social-label { grid-column:2; grid-row:1; align-self:end; }
+.hero-orbit .orbit-tool-social .social-icons {
+  grid-column:2;
+  grid-row:2;
+  display:flex;
+  align-items:center;
+  gap:.28rem;
+  align-self:start;
+}
+.hero-orbit .orbit-tool-social .social-icons img {
+  display:block;
+  width:16px;
+  height:16px;
+  object-fit:contain;
+}
+
+
+/* Logo-only orbit bubbles: no visible tool names */
+.hero-orbit .orbit-tool {
+  width:58px;
+  height:58px;
+  min-height:58px;
+  padding:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(203,213,225,.92);
+  box-shadow:0 7px 22px rgba(15,23,42,.10);
+}
+.hero-orbit .orbit-tool > span:not(.tool-mark),
+.hero-orbit .orbit-tool .tool-mark,
+.hero-orbit .orbit-tool .social-label,
+.hero-orbit .orbit-tool .social-icons { display:none !important; }
+.hero-orbit .orbit-tool .orbit-logo {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.hero-orbit .orbit-tool .orbit-logo-text {
+  display:grid;
+  width:100%;
+  height:100%;
+  place-items:center;
+  border-radius:50%;
+  background:#eff6ff;
+  color:#2563eb;
+  font-weight:750;
+  font-size:1rem;
+}
+.hero-orbit .orbit-tool-instagram,
+.hero-orbit .orbit-tool-linkedin {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* Ensure Instagram and Gazebo marks remain visible inside logo-only bubbles. */
+.hero-orbit .orbit-tool-instagram {
+  background:linear-gradient(135deg,#feda75 0%,#fa7e1e 28%,#d62976 58%,#962fbf 78%,#4f5bd5 100%) !important;
+  border-color:rgba(255,255,255,.95);
+}
+.hero-orbit .orbit-tool-instagram .orbit-logo {
+  width:38px;
+  height:38px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+}
+.hero-orbit .orbit-tool-gazebo .orbit-logo {
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  filter:brightness(0) saturate(100%) invert(36%) sepia(83%) saturate(1150%) hue-rotate(177deg) brightness(94%) contrast(95%);
+}
+.hero-orbit .orbit-tool-gazebo {
+  background:#f0f7ff;
+}
+
+
+/* Homepage orbit scale-up to match the reference hero */
+.hero-orbit {
+  min-height:calc(100svh - var(--nav-h));
+  overflow:hidden;
+}
+.hero-orbit .orbit-stage {
+  width:min(1560px,100%);
+  min-height:clamp(760px, calc(100svh - var(--nav-h)), 1040px);
+  padding:1rem var(--gutter) 2rem;
+}
+.hero-orbit .orbit-lines span {
+  width:min(112vw,1460px);
+  border-color:rgba(148,163,184,.25);
+}
+.hero-orbit .orbit-lines span:nth-child(2) { width:min(94vw,1220px); }
+.hero-orbit .orbit-lines span:nth-child(3) { width:min(76vw,980px); }
+.hero-orbit .orbit-lines span:nth-child(4) { width:min(58vw,740px); }
+.hero-orbit .orbit-ring-mechanical { --orbit-size:1260px !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-size:1020px !important; }
+.hero-orbit .orbit-ring-programming { --orbit-size:790px !important; }
+.hero-orbit .orbit-ring-administration { --orbit-size:560px !important; }
+.hero-orbit .orbit-tool {
+  width:116px !important;
+  height:116px !important;
+  min-height:116px !important;
+  padding:20px !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.98) !important;
+  border:1px solid rgba(203,213,225,.72) !important;
+  box-shadow:0 12px 34px rgba(15,23,42,.12) !important;
+}
+.hero-orbit .orbit-tool .orbit-logo {
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+}
+.hero-orbit .orbit-tool .orbit-logo-text {
+  font-size:1.9rem;
+}
+.hero-orbit .orbit-center {
+  width:auto;
+  max-width:90%;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+.hero-orbit .orbit-center .hero-brand-logo {
+  width:min(500px,65vw);
+  max-height:180px;
+  margin:0 auto;
+}
+.hero-orbit .orbit-tagline { display:none; }
+.hero-orbit .orbit-tool-fusion .orbit-logo {
+  display:none !important;
+}
+.hero-orbit .orbit-tool-fusion::after {
+  content:"F";
+  display:grid;
+  width:100%;
+  height:100%;
+  place-items:center;
+  border-radius:22%;
+  background:#f28c18;
+  color:#fff;
+  font-size:3.4rem;
+  line-height:1;
+  font-weight:800;
+}
+@media (max-width:900px) {
+  .hero-orbit .orbit-stage { min-height:760px; }
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:1000px !important; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:820px !important; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:640px !important; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:460px !important; }
+  .hero-orbit .orbit-tool {
+    width:84px !important;
+    height:84px !important;
+    min-height:84px !important;
+    padding:14px !important;
+  }
+}
+@media (max-width:600px) {
+  .hero-orbit .orbit-stage { min-height:690px; }
+  .hero-orbit .orbit-ring-mechanical { --orbit-size:720px !important; }
+  .hero-orbit .orbit-ring-electronics { --orbit-size:590px !important; }
+  .hero-orbit .orbit-ring-programming { --orbit-size:460px !important; }
+  .hero-orbit .orbit-ring-administration { --orbit-size:330px !important; }
+  .hero-orbit .orbit-tool {
+    width:64px !important;
+    height:64px !important;
+    min-height:64px !important;
+    padding:10px !important;
+  }
+  .hero-orbit .orbit-center .hero-brand-logo { width:min(330px,68vw); }
+}
+
+
+/* Final orbit layout: wide, flattened ellipses that fill the hero. */
+.hero-orbit {
+  min-height:calc(100svh - var(--nav-h)) !important;
+  height:calc(100svh - var(--nav-h));
+  overflow:hidden;
+}
+.hero-orbit .orbit-stage {
+  width:100% !important;
+  max-width:none !important;
+  min-height:100% !important;
+  height:100%;
+  padding:0 !important;
+  overflow:hidden;
+}
+.hero-orbit .orbit-lines {
+  inset:0 !important;
+  overflow:hidden;
+}
+.hero-orbit .orbit-lines span {
+  width:118vw !important;
+  height:92vh !important;
+  max-width:none !important;
+  aspect-ratio:auto !important;
+  border:1px solid rgba(148,163,184,.25) !important;
+}
+.hero-orbit .orbit-lines span:nth-child(2) { width:96vw !important; height:72vh !important; }
+.hero-orbit .orbit-lines span:nth-child(3) { width:74vw !important; height:52vh !important; }
+.hero-orbit .orbit-lines span:nth-child(4) { width:52vw !important; height:32vh !important; }
+.hero-orbit .orbit-ring {
+  width:var(--orbit-width, 80vw) !important;
+  height:var(--orbit-height, 52vh) !important;
+  max-width:none !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:transparent !important;
+}
+.hero-orbit .orbit-ring-mechanical { --orbit-width:110vw; --orbit-height:88vh; --orbit-size:110vw !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-width:88vw; --orbit-height:68vh; --orbit-size:88vw !important; }
+.hero-orbit .orbit-ring-programming { --orbit-width:66vw; --orbit-height:48vh; --orbit-size:66vw !important; }
+.hero-orbit .orbit-ring-administration { --orbit-width:44vw; --orbit-height:28vh; --orbit-size:44vw !important; }
+.hero-orbit .orbit-tool {
+  width:116px !important;
+  height:116px !important;
+  min-width:116px !important;
+  min-height:116px !important;
+  padding:20px !important;
+  box-sizing:border-box;
+  animation-name:cipherOrbitFlattened !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  offset-path:none !important;
+  translate:-50% -50% !important;
+  transform-origin:center;
+  will-change:transform;
+}
+@keyframes cipherOrbitFlattened {
+  from { transform:rotate(0deg) translateX(var(--orbit-rx, 0px)) scale(1); }
+  to { transform:rotate(360deg) translateX(var(--orbit-rx, 0px)) scale(1); }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  --orbit-rx:calc(var(--orbit-width) / 2);
+  animation-name:cipherOrbitEllipse !important;
+  animation-duration:var(--orbit-duration, 48s) !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+}
+@keyframes cipherOrbitEllipse {
+  from { transform:rotate(0deg) translateX(calc(var(--orbit-width) / 2)) scale(1); }
+  to { transform:rotate(360deg) translateX(calc(var(--orbit-width) / 2)) scale(1); }
+}
+/* Counter-rotate the bubble contents so logos stay upright. */
+.hero-orbit .orbit-tool .orbit-logo,
+.hero-orbit .orbit-tool .orbit-logo-text {
+  animation:cipherLogoCounter var(--orbit-duration, 48s) linear infinite;
+}
+@keyframes cipherLogoCounter {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(-360deg); }
+}
+.hero-orbit .orbit-tool-fusion { --orbit-duration:54s; --orbit-delay:-7s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-duration:54s; --orbit-delay:-25s; }
+.hero-orbit .orbit-tool-ansys { --orbit-duration:54s; --orbit-delay:-43s; }
+.hero-orbit .orbit-tool-arduino { --orbit-duration:46s; --orbit-delay:-5s; }
+.hero-orbit .orbit-tool-kicad { --orbit-duration:46s; --orbit-delay:-16s; }
+.hero-orbit .orbit-tool-matlab { --orbit-duration:46s; --orbit-delay:-27s; }
+.hero-orbit .orbit-tool-altium { --orbit-duration:46s; --orbit-delay:-38s; }
+.hero-orbit .orbit-tool-ros { --orbit-duration:38s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-duration:38s; --orbit-delay:-12s; }
+.hero-orbit .orbit-tool-opencv { --orbit-duration:38s; --orbit-delay:-21s; }
+.hero-orbit .orbit-tool-github { --orbit-duration:38s; --orbit-delay:-30s; }
+.hero-orbit .orbit-tool-canva { --orbit-duration:30s; --orbit-delay:-3s; }
+.hero-orbit .orbit-tool-office { --orbit-duration:30s; --orbit-delay:-10s; }
+.hero-orbit .orbit-tool-notion { --orbit-duration:30s; --orbit-delay:-17s; }
+.hero-orbit .orbit-tool-instagram { --orbit-duration:30s; --orbit-delay:-22s; }
+.hero-orbit .orbit-tool-linkedin { --orbit-duration:30s; --orbit-delay:-27s; }
+.hero-orbit .orbit-center {
+  position:absolute !important;
+  top:50% !important;
+  left:50% !important;
+  transform:translate(-50%,-50%);
+  z-index:5;
+  max-width:90%;
+}
+.hero-orbit .orbit-center .hero-brand-logo { width:min(500px,40vw) !important; max-height:170px !important; }
+.hero-orbit .orbit-tagline { display:none !important; }
+@media (max-width:900px) {
+ .hero-orbit { height:auto; min-height:820px !important; }
+ .hero-orbit .orbit-stage { height:820px; }
+ .hero-orbit .orbit-lines span { width:130vw !important; height:80vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(2) { width:108vw !important; height:62vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(3) { width:84vw !important; height:44vh !important; }
+ .hero-orbit .orbit-lines span:nth-child(4) { width:60vw !important; height:26vh !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:116vw; --orbit-height:74vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:92vw; --orbit-height:56vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:68vw; --orbit-height:38vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:44vw; --orbit-height:22vh; }
+ .hero-orbit .orbit-tool { width:84px !important; height:84px !important; min-width:84px !important; min-height:84px !important; padding:14px !important; }
+}
+@media (max-width:600px) {
+ .hero-orbit { min-height:760px !important; }
+ .hero-orbit .orbit-stage { height:760px; min-height:760px !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:125vw; --orbit-height:70vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:100vw; --orbit-height:52vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:75vw; --orbit-height:34vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:50vw; --orbit-height:18vh; }
+ .hero-orbit .orbit-tool { width:64px !important; height:64px !important; min-width:64px !important; min-height:64px !important; padding:10px !important; }
+ .hero-orbit .orbit-center .hero-brand-logo { width:min(320px,70vw) !important; }
+}
+
+
+/* Collision-safe orbit motion: each bubble uses a distinct angular slot. */
+.hero-orbit .orbit-tool {
+  animation-name:cipherOrbitSafe !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  transform-origin:center;
+}
+@keyframes cipherOrbitSafe {
+  from { transform:rotate(var(--orbit-angle, 0deg)) translateX(var(--orbit-rx, 0px)); }
+  to { transform:rotate(calc(var(--orbit-angle, 0deg) + 360deg)) translateX(var(--orbit-rx, 0px)); }
+}
+/* Place each orbit tool on its own ellipse and distribute items evenly. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-programming .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+.hero-orbit .orbit-ring-administration .orbit-tool { --orbit-rx:calc(var(--orbit-width) / 2); }
+
+.hero-orbit .orbit-tool-fusion { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-solidworks { --orbit-angle:120deg; }
+.hero-orbit .orbit-tool-ansys { --orbit-angle:240deg; }
+
+.hero-orbit .orbit-tool-arduino { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-kicad { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-matlab { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-altium { --orbit-angle:270deg; }
+
+.hero-orbit .orbit-tool-ros { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-gazebo { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-opencv { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-github { --orbit-angle:270deg; }
+
+.hero-orbit .orbit-tool-canva { --orbit-angle:0deg; }
+.hero-orbit .orbit-tool-office { --orbit-angle:90deg; }
+.hero-orbit .orbit-tool-notion { --orbit-angle:180deg; }
+.hero-orbit .orbit-tool-instagram { --orbit-angle:240deg; }
+.hero-orbit .orbit-tool-linkedin { --orbit-angle:300deg; }
+
+/* Give bubbles enough room and stagger orbit speeds to prevent bunching. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --orbit-duration:72s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --orbit-duration:58s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --orbit-duration:46s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --orbit-duration:38s; }
+.hero-orbit .orbit-tool-fusion { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-solidworks { --orbit-delay:-24s; }
+.hero-orbit .orbit-tool-ansys { --orbit-delay:-48s; }
+.hero-orbit .orbit-tool-arduino { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-kicad { --orbit-delay:-14.5s; }
+.hero-orbit .orbit-tool-matlab { --orbit-delay:-29s; }
+.hero-orbit .orbit-tool-altium { --orbit-delay:-43.5s; }
+.hero-orbit .orbit-tool-ros { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-gazebo { --orbit-delay:-11.5s; }
+.hero-orbit .orbit-tool-opencv { --orbit-delay:-23s; }
+.hero-orbit .orbit-tool-github { --orbit-delay:-34.5s; }
+.hero-orbit .orbit-tool-canva { --orbit-delay:0s; }
+.hero-orbit .orbit-tool-office { --orbit-delay:-7.6s; }
+.hero-orbit .orbit-tool-notion { --orbit-delay:-15.2s; }
+.hero-orbit .orbit-tool-instagram { --orbit-delay:-20s; }
+.hero-orbit .orbit-tool-linkedin { --orbit-delay:-25.5s; }
+
+/* Maintain a full hero while keeping the orbit tracks inside the viewport. */
+@media (min-width:901px) {
+ .hero-orbit .orbit-stage { min-height:calc(100svh - var(--nav-h)) !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:104vw; --orbit-height:82vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:82vw; --orbit-height:62vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:60vw; --orbit-height:42vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:38vw; --orbit-height:22vh; }
+}
+
+
+/* Collision fix: use fixed, evenly spaced bubble positions on each ellipse.
+   Static placement is intentional here: independent rotations caused bubbles
+   from separate tracks to converge and overlap. */
+.hero-orbit .orbit-ring .orbit-tool {
+  animation:none !important;
+  offset-path:none !important;
+  transform:none !important;
+  translate:-50% -50% !important;
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:6% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:94% !important; top:50% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+/* Keep each bubble fully inside the hero and ensure track spacing exceeds bubble size. */
+.hero-orbit .orbit-ring-mechanical { --orbit-width: min(112vw, 1500px) !important; --orbit-height: min(82vh, 760px) !important; }
+.hero-orbit .orbit-ring-electronics { --orbit-width: min(94vw, 1240px) !important; --orbit-height: min(66vh, 600px) !important; }
+.hero-orbit .orbit-ring-programming { --orbit-width: min(76vw, 980px) !important; --orbit-height: min(50vh, 440px) !important; }
+.hero-orbit .orbit-ring-administration { --orbit-width: min(58vw, 720px) !important; --orbit-height: min(34vh, 300px) !important; }
+@media (max-width:700px) {
+ .hero-orbit .orbit-tool { width:64px !important; height:64px !important; min-width:64px !important; min-height:64px !important; padding:10px !important; }
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:140vw !important; --orbit-height:74vh !important; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:116vw !important; --orbit-height:60vh !important; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:92vw !important; --orbit-height:46vh !important; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:68vw !important; --orbit-height:32vh !important; }
+}
+
+
+/* Orbit animation restart + 90-degree slots, with each successive track offset by 45 degrees. */
+.hero-orbit .orbit-ring {
+  transform-origin: 50% 50% !important;
+  animation: cipherOrbitTrack var(--track-duration, 64s) linear infinite !important;
+  animation-delay: var(--track-delay, 0s) !important;
+}
+.hero-orbit .orbit-ring-mechanical { --track-duration:72s; --track-delay:0s; }
+.hero-orbit .orbit-ring-electronics { --track-duration:64s; --track-delay:-8s; }
+.hero-orbit .orbit-ring-programming { --track-duration:56s; --track-delay:-7s; }
+.hero-orbit .orbit-ring-administration { --track-duration:48s; --track-delay:-6s; }
+
+@keyframes cipherOrbitTrack {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to { transform:translate(-50%,-50%) rotate(360deg); }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  animation: cipherOrbitCounter var(--track-duration, 64s) linear infinite !important;
+  animation-delay: var(--track-delay, 0s) !important;
+  transform:translate(-50%,-50%) rotate(0deg) !important;
+  translate:0 0 !important;
+}
+@keyframes cipherOrbitCounter {
+  from { transform:translate(-50%,-50%) rotate(0deg); }
+  to { transform:translate(-50%,-50%) rotate(-360deg); }
+}
+/* Four evenly spaced starting slots per track; successive tracks are phase-shifted 45 degrees. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:85.35% !important; top:14.65% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:85.35% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:14.65% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:14.65% !important; top:14.65% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:50% !important; top:100% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:0% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+/* Scale all orbit bubbles and their logo marks to 75% of the previous size. */
+.hero-orbit .orbit-ring .orbit-tool {
+  width:63px !important;
+  height:63px !important;
+  min-width:63px !important;
+  min-height:63px !important;
+  padding:8px !important;
+}
+.hero-orbit .orbit-logo { max-width:100% !important; max-height:100% !important; }
+@media (max-width:700px) {
+  .hero-orbit .orbit-ring .orbit-tool {
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    min-height:48px !important;
+    padding:6px !important;
+  }
+}
+
+
+/* Final orbit geometry: anchor every track at the hero center, then rotate only
+   the ring's individual rotate property so its centering transform never drifts. */
+.hero-orbit .orbit-stage { position:relative !important; overflow:hidden !important; }
+.hero-orbit .orbit-tools { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; }
+.hero-orbit .orbit-ring {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  transform-origin:50% 50% !important;
+  rotate:0deg;
+  animation:cipherOrbitRotate var(--track-duration,64s) linear infinite !important;
+  animation-delay:var(--track-delay,0s) !important;
+  overflow:visible !important;
+}
+@keyframes cipherOrbitRotate {
+  from { rotate:0deg; }
+  to { rotate:360deg; }
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  position:absolute !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
+  rotate:0deg;
+  animation:cipherBubbleUpright var(--track-duration,64s) linear infinite !important;
+  animation-delay:var(--track-delay,0s) !important;
+}
+@keyframes cipherBubbleUpright {
+  from { rotate:0deg; }
+  to { rotate:-360deg; }
+}
+/* Each track has four 90-degree slots; the next track is offset by 45 degrees. */
+.hero-orbit .orbit-ring-mechanical { --track-duration:72s; --track-delay:0s; --orbit-width:min(112vw,1500px); --orbit-height:min(82vh,760px); }
+.hero-orbit .orbit-ring-electronics { --track-duration:64s; --track-delay:-8s; --orbit-width:min(94vw,1240px); --orbit-height:min(66vh,600px); }
+.hero-orbit .orbit-ring-programming { --track-duration:56s; --track-delay:-7s; --orbit-width:min(76vw,980px); --orbit-height:min(50vh,440px); }
+.hero-orbit .orbit-ring-administration { --track-duration:48s; --track-delay:-6s; --orbit-width:min(58vw,720px); --orbit-height:min(34vh,300px); }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-fusion { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-solidworks { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool-ansys { left:50% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring-electronics .orbit-tool-arduino { left:85.35% !important; top:14.65% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-kicad { left:85.35% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-matlab { left:14.65% !important; top:85.35% !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool-altium { left:14.65% !important; top:14.65% !important; }
+
+.hero-orbit .orbit-ring-programming .orbit-tool-ros { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-gazebo { left:50% !important; top:100% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-opencv { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool-github { left:50% !important; top:0% !important; }
+
+.hero-orbit .orbit-ring-administration .orbit-tool-canva { left:50% !important; top:0% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-office { left:0% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-notion { left:100% !important; top:50% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-instagram { left:25% !important; top:100% !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool-linkedin { left:75% !important; top:100% !important; }
+
+.hero-orbit .orbit-ring .orbit-tool { width:63px !important; height:63px !important; min-width:63px !important; min-height:63px !important; padding:8px !important; }
+.hero-orbit .orbit-logo { width:100% !important; height:100% !important; object-fit:contain !important; }
+@media(max-width:700px) {
+ .hero-orbit .orbit-ring-mechanical { --orbit-width:140vw; --orbit-height:74vh; }
+ .hero-orbit .orbit-ring-electronics { --orbit-width:116vw; --orbit-height:60vh; }
+ .hero-orbit .orbit-ring-programming { --orbit-width:92vw; --orbit-height:46vh; }
+ .hero-orbit .orbit-ring-administration { --orbit-width:68vw; --orbit-height:32vh; }
+ .hero-orbit .orbit-ring .orbit-tool { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; padding:6px !important; }
+}
+
+
+
+
+
+/* Final stable orbit system: static concentric tracks, moving upright bubbles. */
+.hero-orbit .orbit-stage {
+  position:relative !important;
+  width:100% !important;
+  min-height:clamp(700px, 88svh, 920px) !important;
+  overflow:hidden !important;
+}
+.hero-orbit .orbit-tools {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  pointer-events:none !important;
+  z-index:2 !important;
+}
+.hero-orbit .orbit-center {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:5 !important;
+  margin:0 !important;
+  pointer-events:none !important;
+}
+.hero-orbit .orbit-ring {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  border:1px solid rgba(148,163,184,.22) !important;
+  border-radius:50% !important;
+  background:transparent !important;
+  animation:none !important;
+  overflow:visible !important;
+  pointer-events:none !important;
+  box-sizing:border-box !important;
+}
+.hero-orbit .orbit-ring-mechanical { width:min(1120px, 118vw) !important; height:min(650px, 76vh) !important; }
+.hero-orbit .orbit-ring-electronics { width:min(940px, 100vw) !important; height:min(540px, 64vh) !important; }
+.hero-orbit .orbit-ring-programming { width:min(760px, 82vw) !important; height:min(430px, 52vh) !important; }
+.hero-orbit .orbit-ring-administration { width:min(580px, 64vw) !important; height:min(320px, 40vh) !important; }
+
+.hero-orbit .orbit-ring .orbit-tool {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
+  rotate:0deg !important;
+  offset-rotate:0deg !important;
+  offset-anchor:50% 50% !important;
+  offset-position:0 0 !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 0 0) !important;
+  offset-distance:var(--orbit-start, 0%) !important;
+  animation:ciPherToolOrbit var(--orbit-duration, 48s) linear infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+  width:63px !important;
+  height:63px !important;
+  min-width:63px !important;
+  min-height:63px !important;
+  padding:8px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+  border:1px solid #d8e2ef !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  box-shadow:0 8px 24px rgba(23,43,77,.13) !important;
+  pointer-events:auto !important;
+  z-index:2 !important;
+}
+@keyframes ciPherToolOrbit {
+  from { offset-distance:var(--orbit-start, 0%); }
+  to { offset-distance:calc(var(--orbit-start, 0%) + 100%); }
+}
+/* Set path radii to match each visible track; only bubbles translate, never rotate. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; --orbit-delay:0s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; --orbit-delay:-6s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; --orbit-delay:-5s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:32s; --orbit-delay:-4s; }
+
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:12.5%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:37.5%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+
+.hero-orbit .orbit-logo {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  transform:none !important;
+  rotate:0deg !important;
+}
+.hero-orbit .orbit-ring .orbit-tool:hover { z-index:8 !important; }
+@media(max-width:1100px) {
+ .hero-orbit .orbit-ring-mechanical { width:112vw !important; height:68vh !important; }
+ .hero-orbit .orbit-ring-electronics { width:94vw !important; height:56vh !important; }
+ .hero-orbit .orbit-ring-programming { width:76vw !important; height:44vh !important; }
+ .hero-orbit .orbit-ring-administration { width:58vw !important; height:32vh !important; }
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:34vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:28vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:22vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:16vh; }
+}
+@media(max-width:700px) {
+ .hero-orbit .orbit-stage { min-height:660px !important; }
+ .hero-orbit .orbit-ring-mechanical { width:112vw !important; height:62vh !important; }
+ .hero-orbit .orbit-ring-electronics { width:94vw !important; height:50vh !important; }
+ .hero-orbit .orbit-ring-programming { width:76vw !important; height:38vh !important; }
+ .hero-orbit .orbit-ring-administration { width:58vw !important; height:28vh !important; }
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:31vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:25vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:19vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
+ .hero-orbit .orbit-ring .orbit-tool { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; padding:6px !important; }
+}
+
+
+/* Centering correction: avoid applying both translate and transform to each ring.
+   Offset paths are centered in the ring's coordinate box, matching the brand mark. */
+.hero-orbit .orbit-ring {
+  translate:0 0 !important;
+  transform:translate(-50%,-50%) !important;
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  offset-position:50% 50% !important;
+  offset-anchor:50% 50% !important;
+}
+
+
+/* Orbit motion-path fix v2: define each ellipse in the ring's own box.
+   Bubble positions are animated along the path; the center logo stays fixed. */
+.hero-orbit .orbit-ring .orbit-tool {
+  left:0 !important;
+  top:0 !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  translate:none !important;
+  rotate:0deg !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 50% 50%) !important;
+  offset-position:normal !important;
+  offset-anchor:50% 50% !important;
+  offset-rotate:0deg !important;
+  animation:ciPherToolOrbit var(--orbit-duration, 48s) linear infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:34s; }
+
+/* Evenly distribute bubbles on their assigned track so none begin stacked. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:20%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:40%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:60%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-start:80%; }
+
+@media(max-width:1100px) {
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:34vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:28vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:22vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:16vh; }
+}
+@media(max-width:700px) {
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:31vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:25vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:19vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
+}
+
+
+/* Orbit motion: rotate each orbit's contents around the fixed Team CiPHER center.
+   The ring track itself stays still; each bubble travels along its ellipse.
+   Counter-rotation is intentionally omitted from the bubble so the whole bubble
+   follows the orbit naturally, while its logo image remains upright. */
+.hero-orbit .orbit-ring .orbit-tool {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  right:auto !important;
+  bottom:auto !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 0 0) !important;
+  offset-position:0 0 !important;
+  offset-anchor:50% 50% !important;
+  offset-rotate:0deg !important;
+  animation-name:ciPherOrbitTravel !important;
+  animation-duration:var(--orbit-duration, 48s) !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+  will-change:offset-distance !important;
+}
+@keyframes ciPherOrbitTravel {
+  from { offset-distance:var(--orbit-start, 0%); }
+  to { offset-distance:calc(var(--orbit-start, 0%) + 100%); }
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; --orbit-delay:0s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; --orbit-delay:-6s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; --orbit-delay:-5s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:34s; --orbit-delay:-4s; }
+
+/* Ensure every tool in each domain has a defined, evenly spaced starting angle. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:20%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:40%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:60%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-start:80%; }
+
+
+/* Reliable orbit animation: animate the bubble's transform around a centered ellipse.
+   This replaces offset-path, which was not animating consistently across browsers. */
+.hero-orbit .orbit-ring .orbit-tool {
+  left:50% !important;
+  top:50% !important;
+  right:auto !important;
+  bottom:auto !important;
+  offset-path:none !important;
+  offset-distance:0% !important;
+  transform:translate(-50%,-50%) translate(var(--path-rx),0) !important;
+  animation:ciPherEllipseOrbit var(--orbit-duration,48s) linear infinite !important;
+  animation-delay:var(--orbit-delay,0s) !important;
+  animation-fill-mode:both !important;
+  will-change:transform;
+}
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0) !important; }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)) !important; }
+  50%  { transform:translate(-50%,-50%) translate(calc(-1 * var(--path-rx)),0) !important; }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(-1 * var(--path-ry))) !important; }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0) !important; }
+}
+/* Negative delays establish evenly distributed starting positions without pausing motion. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-delay:-18.67s !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-delay:-37.33s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-delay:-12s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-delay:-24s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-delay:-36s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-delay:-10s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-delay:-20s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-delay:-30s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-delay:-6.4s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-delay:-12.8s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-delay:-19.2s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-delay:-25.6s !important; }
+
+
+/* Animation correction: !important is invalid inside @keyframes and prevented movement.
+   Keep the base transform important, but animate a valid transform declaration. */
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)); }
+  50%  { transform:translate(-50%,-50%) translate(calc(-1 * var(--path-rx)),0); }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(-1 * var(--path-ry))); }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Preserve orbit motion for this decorative feature even when OS-wide reduced motion is enabled. */
+  .hero-orbit .orbit-ring .orbit-tool {
+    animation-duration:48s !important;
+    animation-iteration-count:infinite !important;
+  }
+}
+
+
+/* Final motion fix: the static transform must not be !important, or it overrides
+   the transform values produced by the orbit keyframes. */
+.hero-orbit .orbit-ring .orbit-tool {
+  transform:translate(-50%,-50%) translate(var(--path-rx),0);
+  animation-name:ciPherEllipseOrbit !important;
+  animation-duration:var(--orbit-duration,48s) !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-delay:var(--orbit-delay,0s) !important;
+  animation-fill-mode:both !important;
+}
+
+
+/* Orbit launch polish: valid negative offsets, centered brand/tagline, visible initial layout. */
+.hero-orbit .orbit-ring .orbit-tool {
+  animation-name:ciPherEllipseOrbit !important;
+  transform:translate(-50%,-50%) translate(var(--path-rx),0);
+}
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)); }
+  50%  { transform:translate(-50%,-50%) translate(calc(0px - var(--path-rx)),0); }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(0px - var(--path-ry))); }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+}
+.hero-orbit .orbit-center {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:14px !important;
+  z-index:10 !important;
+  width:max-content !important;
+  max-width:90vw !important;
+}
+.hero-orbit .hero-brand-logo {
+  display:block !important;
+  width:clamp(260px, 27vw, 430px) !important;
+  max-width:82vw !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+.hero-orbit .orbit-tagline {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:static !important;
+  margin:0 !important;
+  font-size:clamp(12px, 1.1vw, 16px) !important;
+  letter-spacing:.22em !important;
+  line-height:1.4 !important;
+  color:#4f6380 !important;
+  white-space:nowrap !important;
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  animation-play-state:running !important;
+}
+@media (max-width:700px) {
+  .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:42vw !important; --path-ry:27vh !important; }
+  .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:34vw !important; --path-ry:22vh !important; }
+  .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:26vw !important; --path-ry:17vh !important; }
+  .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:18vw !important; --path-ry:12vh !important; }
+}
+
+
+/* ---- About page: evenly spaced nine-stage engineering cycle ---- */
+.pipeline-cycle {
+  position: relative;
+  width: min(100%, 820px);
+  aspect-ratio: 1;
+  margin: 2.5rem auto 0;
+  isolation: isolate;
+}
+.pipeline-cycle-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: visible;
+}
+.pipeline-ring-base { fill:none; stroke:var(--border); stroke-width:2; }
+.pipeline-ring-dots {
+  fill:none;
+  stroke:#4b8df8;
+  stroke-width:4;
+  stroke-linecap:round;
+  stroke-dasharray:7 10;
+  opacity:.9;
+}
+.pipeline-direction-arrow {
+  fill:none;
+  stroke:#2f7df6;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.pipeline-cycle-center {
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:29%;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:1rem;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:50%;
+  background:var(--bg);
+  box-shadow:0 8px 28px rgba(20,35,60,.08);
+}
+.pipeline-cycle-center span { color:#4b8df8; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; }
+.pipeline-cycle-center strong { font-family:var(--font-display); font-size:clamp(1rem,2.1vw,1.6rem); line-height:1.15; }
+.pipeline-cycle-center small { color:var(--text-dim); font-size:clamp(.55rem,1vw,.75rem); }
+.pipeline-cycle-stage {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:max-content;
+  min-width:0;
+  max-width:34%;
+  min-height:0;
+  padding:.7rem .9rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  white-space:nowrap;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg);
+  box-shadow:0 6px 20px rgba(20,35,60,.06);
+  transform:translate(-50%,-50%) !important;
+}
+/* Nine stage centers use a single circle and equal 40-degree angular spacing. */
+.pipeline-cycle-stage.stage-1 { left:50% !important; top:15% !important; }
+.pipeline-cycle-stage.stage-2 { left:72.5% !important; top:22.2% !important; }
+.pipeline-cycle-stage.stage-3 { left:84.5% !important; top:41.3% !important; }
+.pipeline-cycle-stage.stage-4 { left:80% !important; top:64.5% !important; }
+.pipeline-cycle-stage.stage-5 { left:61.7% !important; top:80.5% !important; }
+.pipeline-cycle-stage.stage-6 { left:38.3% !important; top:80.5% !important; }
+.pipeline-cycle-stage.stage-7 { left:20% !important; top:64.5% !important; }
+.pipeline-cycle-stage.stage-8 { left:15.5% !important; top:41.3% !important; }
+.pipeline-cycle-stage.stage-9 { left:27.5% !important; top:22.2% !important; }
+.pipeline-cycle-stage .pipeline-num {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 2rem;
+  width:2rem;
+  height:2rem;
+  border-radius:50%;
+  background:#eaf2ff;
+  color:#2868d7;
+  font-size:.75rem;
+}
+ .pipeline-cycle-stage strong { font-family:var(--font-display); font-size:clamp(.78rem,1.35vw,1.05rem); line-height:1.2; font-weight:600; }
+.pipeline-cycle-stage.stage-3,
+.pipeline-cycle-stage.stage-4,
+.pipeline-cycle-stage.stage-7 { max-width:36%; }
+@media (max-width:620px) {
+  .pipeline-cycle { width:100%; margin-top:1.5rem; }
+  .pipeline-cycle-center { width:27%; padding:.35rem; gap:.25rem; }
+  .pipeline-cycle-center span { font-size:.48rem; }
+  .pipeline-cycle-center small { display:none; }
+  .pipeline-cycle-stage { width:max-content; max-width:38%; min-height:0; padding:.4rem .5rem; gap:.3rem; border-radius:8px; white-space:normal; }
+  .pipeline-cycle-stage .pipeline-num { flex-basis:1.35rem; width:1.35rem; height:1.35rem; font-size:.58rem; }
+  .pipeline-cycle-stage strong { font-size:clamp(.58rem,2.5vw,.8rem); }
+  .pipeline-cycle-stage.stage-3,
+  .pipeline-cycle-stage.stage-4,
+  .pipeline-cycle-stage.stage-7 { max-width:40%; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .pipeline-cycle-stage { transition:none; }
+}
+
+
+/* ---- Projects page: white 3D ring carousel ---- */
+.projects-page { background:#fff; color:#111827; }
+.projects-page .page-hero { background:#fff; }
+.projects-page .projects-showcase { background:#fff; padding-top:clamp(2rem,4vw,4rem); }
+.project-tabs {
+  position:relative;
+  z-index:5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.5rem;
+  flex-wrap:wrap;
+  margin:1.75rem auto 1rem;
+}
+.project-tab {
+  appearance:none;
+  border:1px solid #d9e2ee;
+  border-radius:999px;
+  background:#fff;
+  color:#526176;
+  padding:.75rem 1.2rem;
+  font:inherit;
+  font-size:.92rem;
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.project-tab:hover,.project-tab:focus-visible { border-color:#4b8df8; outline:none; }
+.project-tab.is-active { color:#1458bd; border-color:#4b8df8; background:#edf4ff; }
+.project-ring-shell { position:relative; }
+.project-ring-stage {
+  --project-card-width:430px;
+  --project-card-height:400px;
+  position:relative;
+  width:100%;
+  height:clamp(480px,56vw,620px);
+  display:grid;
+  place-items:center;
+  perspective:1500px;
+  overflow:hidden;
+  touch-action:pan-y;
+  cursor:grab;
+  user-select:none;
+  outline:none;
+}
+.project-ring-stage:focus-visible { outline:2px solid #4b8df8; outline-offset:-4px; }
+.project-ring-stage.is-dragging { cursor:grabbing; }
+.project-ring {
+  position:relative;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  transform-style:preserve-3d;
+}
+.project-spinner {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.project-ring-card {
+  position:absolute;
+  inset:0;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  overflow:hidden;
+  border:1px solid #dce5f0;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 16px 45px rgba(15,35,65,.12);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.project-ring-card.is-front { box-shadow:0 22px 56px rgba(15,35,65,.17); }
+.project-ring-image { height:47%; min-height:0; background:#f3f6fa; overflow:hidden; }
+.project-ring-image img { display:block; width:100%; height:100%; object-fit:cover; pointer-events:none; -webkit-user-drag:none; }
+.project-ring-copy { display:flex; flex:1; min-height:0; flex-direction:column; align-items:flex-start; padding:1.1rem 1.25rem 1.2rem; }
+.project-ring-tag { color:#356fce; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; }
+.project-ring-copy h3 { margin:.4rem 0 .35rem; font-size:clamp(1.2rem,2vw,1.55rem); line-height:1.15; color:#101828; }
+.project-ring-copy p { color:#58677c; font-size:.9rem; line-height:1.45; margin:0 0 .65rem; }
+.project-ring-tech { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:auto; padding-top:.2rem; }
+.project-ring-tech span { border:1px solid #e0e8f2; border-radius:999px; color:#526176; padding:.25rem .5rem; font-size:.68rem; white-space:nowrap; }
+.project-ring-open { display:inline-block; margin-top:.65rem; color:#1f64c8; font-size:.84rem; font-weight:600; text-decoration:none; }
+.project-ring-open:hover { text-decoration:underline; }
+.project-ring-controls { display:flex; justify-content:center; align-items:center; gap:1.25rem; margin-top:-.5rem; }
+.project-ring-controls p { min-width:220px; margin:0; text-align:center; color:#64748b; font-size:.84rem; }
+.project-ring-control { display:grid; place-items:center; width:42px; height:42px; border:1px solid #d9e2ee; border-radius:50%; background:#fff; color:#1f2937; font-size:1.35rem; cursor:pointer; }
+.project-ring-control:hover { border-color:#4b8df8; color:#1458bd; }
+.project-ring-hint { margin:.85rem 0 0; color:#8a96a8; text-align:center; font-size:.78rem; }
+.project-detail-link { display:none; }
+@media (max-width:720px) {
+  .project-tabs { gap:.4rem; margin-top:1.2rem; }
+  .project-tab { padding:.62rem .85rem; font-size:.82rem; }
+  .project-ring-stage { height:510px; --project-card-width:min(78vw,390px); --project-card-height:420px; }
+  .project-ring-copy { padding:.9rem 1rem 1rem; }
+  .project-ring-copy p { font-size:.82rem; }
+  .project-ring-tech span { font-size:.62rem; }
+  .project-ring-controls { margin-top:0; }
+  .project-ring-controls p { min-width:0; font-size:.76rem; }
+}
+@media (max-width:420px) {
+  .project-ring-stage { height:480px; --project-card-width:84vw; --project-card-height:410px; }
+  .project-ring-copy { padding:.8rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .project-tab { transition:none; }
+}
+
+
+/* Projects carousel: retain the uploaded tilted 3D ring behavior on a white site */
+.projects-page { background:#fff; color:#111827; }
+.projects-page .projects-showcase { background:#fff; }
+.projects-page .project-ring-stage {
+  --project-card-width:min(34vw, 390px);
+  --project-card-height:440px;
+  height:clamp(590px, 66vw, 720px);
+  perspective:1400px;
+  overflow:hidden;
+  cursor:grab;
+  touch-action:pan-y;
+}
+.projects-page .project-ring-stage.is-dragging { cursor:grabbing; }
+.projects-page .project-ring {
+  position:relative;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  transform-style:preserve-3d;
+  transform:rotateX(-10deg) rotateZ(-7deg);
+}
+.projects-page .project-spinner {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.projects-page .project-ring-card {
+  position:absolute;
+  inset:0;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #dce5f0;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 12px 32px rgba(20,40,70,.12);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:rotateY(var(--card-angle)) translateZ(var(--card-radius));
+}
+.projects-page .project-ring-card.is-front { outline:2px solid #4b8df8; outline-offset:-2px; }
+.projects-page .project-ring-image { flex:0 0 42%; height:42%; min-height:0; overflow:hidden; background:#f2f5f9; }
+.projects-page .project-ring-image img { width:100%; height:100%; display:block; object-fit:cover; pointer-events:none; -webkit-user-drag:none; }
+.projects-page .project-ring-copy { display:flex; flex:1; min-height:0; flex-direction:column; align-items:flex-start; padding:1rem 1.1rem; }
+.projects-page .project-ring-tag { display:inline-block; color:#356fce; font-family:var(--font-mono); font-size:.62rem; line-height:1.35; letter-spacing:.06em; text-transform:uppercase; }
+.projects-page .project-ring-copy h3 { margin:.45rem 0 .35rem; color:#101828; font-size:1.25rem; line-height:1.15; overflow-wrap:anywhere; }
+.projects-page .project-ring-copy p { margin:0 0 .6rem; color:#58677c; font-size:.83rem; line-height:1.4; }
+.projects-page .project-ring-tech { display:flex; gap:.3rem; flex-wrap:wrap; margin-top:auto; padding-top:.2rem; }
+.projects-page .project-ring-tech span { border:1px solid #e0e8f2; border-radius:999px; padding:.23rem .45rem; color:#526176; font-size:.64rem; white-space:nowrap; }
+.projects-page .project-ring-open { display:inline-block; margin-top:.55rem; color:#1f64c8; font-size:.78rem; font-weight:600; text-decoration:none; }
+.projects-page .project-ring-open:hover { text-decoration:underline; }
+.projects-page .project-ring-hint { position:static; margin:.75rem 0 0; color:#8a96a8; text-align:center; font-size:.78rem; }
+.projects-page .project-ring-sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.projects-page .project-ring-controls { display:flex; justify-content:center; align-items:center; gap:1.25rem; margin-top:-.2rem; }
+.projects-page .project-ring-controls p { min-width:240px; margin:0; text-align:center; color:#64748b; font-size:.84rem; }
+.projects-page .project-ring-control { display:grid; place-items:center; width:42px; height:42px; border:1px solid #d9e2ee; border-radius:50%; background:#fff; color:#1f2937; font-size:1.35rem; cursor:pointer; }
+.projects-page .project-ring-control:hover { border-color:#4b8df8; color:#1458bd; }
+@media (max-width:720px) {
+  .projects-page .project-ring-stage { --project-card-width:min(72vw, 340px); --project-card-height:420px; height:560px; }
+  .projects-page .project-ring-copy { padding:.8rem .9rem; }
+  .projects-page .project-ring-copy p { font-size:.78rem; }
+  .projects-page .project-ring-tech span { font-size:.59rem; }
+  .projects-page .project-ring-controls p { min-width:0; font-size:.76rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .projects-page .project-ring-card { scroll-behavior:auto; }
+}
+
+
+/* Full-viewport Projects carousel: keep site navbar/footer, expand carousel between them */
+.projects-page .projects-hero { display:none !important; }
+.projects-page .projects-showcase {
+  min-height:calc(100vh - var(--nav-height, 64px) - 72px);
+  padding:0 !important;
+  display:flex;
+  align-items:stretch;
+  background:#fff;
+}
+.projects-page .projects-showcase > .wrap {
+  width:100%;
+  max-width:none;
+  min-height:inherit;
+  padding:0 clamp(1rem,3vw,3rem);
+  display:flex;
+  flex-direction:column;
+}
+.projects-page .projects-showcase .section-head {
+  flex:0 0 auto;
+  margin:1rem 0 .25rem;
+  text-align:center;
+}
+.projects-page .projects-showcase .section-head .kicker { margin-bottom:.2rem; }
+.projects-page .projects-showcase .section-head h2 { margin:0; font-size:clamp(1.25rem,2.2vw,1.8rem); }
+.projects-page .project-ring-shell {
+  flex:1 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+.projects-page .project-ring-stage {
+  flex:1 1 auto;
+  min-height:420px;
+  height:auto;
+  max-height:calc(100vh - 190px);
+}
+.projects-page .project-ring {
+  --project-card-width:min(34vw, 390px);
+  --project-card-height:min(52vh, 440px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-controls { flex:0 0 auto; margin:.2rem 0 .25rem; }
+.projects-page .project-ring-hint { margin:.25rem 0 .5rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase { min-height:calc(100svh - 64px - 60px); }
+  .projects-page .projects-showcase > .wrap { padding:0 .6rem; }
+  .projects-page .projects-showcase .section-head { margin:.6rem 0 0; }
+  .projects-page .project-ring-stage { min-height:390px; max-height:calc(100svh - 155px); }
+  .projects-page .project-ring { --project-card-width:min(64vw, 320px); --project-card-height:min(48svh, 380px); }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+  .projects-page .project-ring-controls { margin:.15rem 0; }
+}
+
+
+/* Let the ring carousel dominate the full Projects viewport */
+.projects-page .projects-showcase {
+  min-height:calc(100vh - var(--nav-height, 64px) - 64px);
+  padding:0 !important;
+}
+.projects-page .projects-showcase > .wrap {
+  min-height:inherit;
+  padding:0;
+  max-width:none;
+}
+.projects-page .project-ring-shell { min-height:inherit; }
+.projects-page .project-ring-stage {
+  height:calc(100vh - var(--nav-height, 64px) - 150px);
+  min-height:620px;
+  max-height:none;
+}
+.projects-page .project-ring {
+  --project-card-width:min(42vw, 520px);
+  --project-card-height:min(62vh, 560px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-image { flex-basis:44%; height:44%; }
+.projects-page .project-ring-copy { padding:1.25rem 1.4rem; }
+.projects-page .project-ring-copy h3 { font-size:clamp(1.35rem,2vw,1.8rem); }
+.projects-page .project-ring-copy p { font-size:clamp(.9rem,1.1vw,1.05rem); }
+.projects-page .project-ring-tag { font-size:.72rem; }
+.projects-page .project-ring-tech span { font-size:.72rem; padding:.3rem .6rem; }
+.projects-page .project-ring-open { font-size:.9rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase { min-height:calc(100svh - 124px); }
+  .projects-page .projects-showcase > .wrap { padding:0; }
+  .projects-page .project-ring-stage { height:calc(100svh - 155px); min-height:520px; }
+  .projects-page .project-ring { --project-card-width:min(76vw, 390px); --project-card-height:min(58svh, 470px); }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+  .projects-page .project-ring-copy { padding:.95rem 1rem; }
+}
+
+
+/* Final viewport sizing: carousel should occupy the large marked area */
+.projects-page .projects-showcase {
+  min-height:calc(100vh - 64px - 90px);
+  height:calc(100vh - 64px - 90px);
+  overflow:hidden;
+}
+.projects-page .projects-showcase > .wrap {
+  height:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:stretch;
+}
+.projects-page .project-ring-shell {
+  flex:1 1 auto;
+  min-height:0;
+  height:100%;
+}
+.projects-page .project-ring-stage {
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+}
+.projects-page .project-ring {
+  --project-card-width:min(48vw, 620px);
+  --project-card-height:min(66vh, 600px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-controls { margin:.15rem 0 .25rem; }
+.projects-page .project-ring-hint { margin:.1rem 0 .35rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    height:calc(100svh - 64px - 70px);
+    min-height:0;
+  }
+  .projects-page .project-ring-stage { height:100%; min-height:0; }
+  .projects-page .project-ring {
+    --project-card-width:min(78vw, 410px);
+    --project-card-height:min(58svh, 490px);
+  }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+}
+@media (min-width:1400px) {
+  .projects-page .project-ring {
+    --project-card-width:min(48vw, 660px);
+    --project-card-height:min(68vh, 640px);
+  }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+}
+
+
+/* Offset the Projects carousel below the fixed navbar */
+.projects-page .projects-showcase {
+  margin-top:var(--nav-height, 64px);
+  height:calc(100vh - var(--nav-height, 64px) - 90px);
+  min-height:0;
+  scroll-margin-top:var(--nav-height, 64px);
+}
+.projects-page .project-ring-stage {
+  height:100%;
+  min-height:0;
+}
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:var(--nav-height, 64px);
+    height:calc(100svh - var(--nav-height, 64px) - 70px);
+  }
+}
+
+
+/* Keep a clear navbar-height gap before the Projects carousel */
+.projects-page .projects-showcase {
+  margin-top:calc(var(--nav-height, 64px) + 64px) !important;
+  height:calc(100vh - var(--nav-height, 64px) - 64px - 90px) !important;
+  min-height:0 !important;
+}
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:calc(var(--nav-height, 64px) + 64px) !important;
+    height:calc(100svh - var(--nav-height, 64px) - 64px - 70px) !important;
+  }
+}
+
+
+/* Projects page: keep the navbar transparent and never blur the content behind it */
+.projects-page .nav,
+.projects-page .nav.is-scrolled {
+  background:transparent !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  box-shadow:none !important;
+  border-bottom-color:transparent !important;
+}
+
+
+/* Restore the navbar to its normal fixed height; do not stretch its background */
+.projects-page .nav {
+  height:var(--nav-h, 76px) !important;
+  min-height:var(--nav-h, 76px) !important;
+  max-height:var(--nav-h, 76px) !important;
+  padding-block:0 !important;
+  inset:0 0 auto 0 !important;
+  box-sizing:border-box !important;
+  background:transparent !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.projects-page .nav .wrap {
+  height:100% !important;
+  min-height:0 !important;
+  padding-block:0 !important;
+}
+
+
+/* Final correction: navbar occupies only its own 72px band; carousel starts immediately after it */
+.projects-page .nav,
+.projects-page .nav.is-scrolled {
+  height:72px !important;
+  min-height:72px !important;
+  max-height:72px !important;
+  padding:0 !important;
+  inset:0 0 auto 0 !important;
+  box-sizing:border-box !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.projects-page .nav .wrap {
+  height:72px !important;
+  min-height:72px !important;
+  max-height:72px !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+.projects-page .projects-showcase {
+  margin-top:72px !important;
+  height:calc(100vh - 72px - 90px) !important;
+  min-height:0 !important;
+  border-top:0 !important;
+}
+@media (max-width:720px) {
+  .projects-page .nav,
+  .projects-page .nav.is-scrolled,
+  .projects-page .nav .wrap {
+    height:64px !important;
+    min-height:64px !important;
+    max-height:64px !important;
+  }
+  .projects-page .projects-showcase {
+    margin-top:64px !important;
+    height:calc(100svh - 64px - 70px) !important;
+  }
+}
+
+
+/* Final layout: show the entire project ring below the fixed navbar; keep footer below the first viewport */
+.projects-page .projects-showcase {
+  margin-top:72px !important;
+  height:calc(100vh - 72px) !important;
+  min-height:calc(100vh - 72px) !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+}
+.projects-page .projects-showcase > .wrap {
+  width:100% !important;
+  max-width:none !important;
+  height:100% !important;
+  min-height:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.projects-page .project-ring-shell {
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:100% !important;
+  display:flex !important;
+  align-items:stretch !important;
+}
+.projects-page .project-ring-stage {
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.projects-page .project-ring {
+  --project-card-width:min(35vw, 480px);
+  --project-card-height:min(52vh, 500px);
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+  flex:0 0 auto;
+  margin:0 auto;
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+.projects-page .project-ring-hint,
+.projects-page .project-ring-controls { display:none !important; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:64px !important;
+    height:calc(100svh - 64px) !important;
+    min-height:calc(100svh - 64px) !important;
+  }
+  .projects-page .project-ring {
+    --project-card-width:min(66vw, 340px);
+    --project-card-height:min(48svh, 420px);
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
+}
+
+
+/* Scale the project ring up to fill the available green-box area */
+.projects-page .project-ring {
+  --project-card-width:min(43vw, 620px) !important;
+  --project-card-height:min(66vh, 610px) !important;
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+@media (min-width:1400px) {
+  .projects-page .project-ring {
+    --project-card-width:min(43vw, 680px) !important;
+    --project-card-height:min(68vh, 640px) !important;
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
+}
+@media (max-width:720px) {
+  .projects-page .project-ring {
+    --project-card-width:min(76vw, 390px) !important;
+    --project-card-height:min(58svh, 470px) !important;
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
 }
