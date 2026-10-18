@@ -4,15 +4,11 @@
   if (!scene || !canvas) return;
   const ctx = canvas.getContext('2d');
   const logo = new Image();
-  logo.src = 'assets/logos/Team%20CiPHER.png';
+  logo.src = 'assets/logos/CiPHER.png';
   let w = 0, h = 0, dpr = 1, pointerX = 0, pointerY = 0;
   let yaw = 0, pitch = 0, dragYaw = 0, dragPitch = 0, zoom = 1;
   let dragging = false, lastX = 0, lastY = 0, lastTime = 0;
   let velYaw = 0, velPitch = 0;
-  const particles = Array.from({length: 44}, () => ({
-    x: Math.random(), y: Math.random(), r: .5 + Math.random() * 1.7,
-    phase: Math.random() * Math.PI * 2
-  }));
   function resize() {
     const rect = scene.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -23,13 +19,6 @@
   }
   function draw(now) {
     ctx.clearRect(0, 0, w, h);
-    const t = now * .001;
-    particles.forEach(p => {
-      ctx.globalAlpha = .06 + .13 * (0.5 + 0.5 * Math.sin(t + p.phase));
-      ctx.fillStyle = '#111827';
-      ctx.beginPath(); ctx.arc(p.x * w, p.y * h, p.r, 0, Math.PI * 2); ctx.fill();
-    });
-    ctx.globalAlpha = 1;
     yaw += velYaw; pitch += velPitch;
     if (!dragging) { velYaw *= .94; velPitch *= .94; }
     const targetYaw = pointerX * .48 + dragYaw;
@@ -37,21 +26,17 @@
     yaw += (targetYaw - yaw) * .045;
     pitch += (targetPitch - pitch) * .045;
     if (logo.complete && logo.naturalWidth) {
-      const maxW = Math.min(w * .68, 780), maxH = h * .48;
+      const maxW = Math.min(w * .82, 980), maxH = h * .72;
       const ratio = Math.min(maxW / logo.naturalWidth, maxH / logo.naturalHeight) * zoom;
       const iw = logo.naturalWidth * ratio, ih = logo.naturalHeight * ratio;
       const cx = w / 2 + pointerX * 12, cy = h / 2 + pointerY * 9;
       ctx.save();
       ctx.translate(cx, cy);
       ctx.transform(Math.cos(yaw), Math.sin(pitch) * .22, Math.sin(yaw) * .25, Math.cos(pitch), 0, 0);
-      // A subtle layered extrusion gives the logo a dimensional cursor effect.
-      for (let i = 7; i >= 1; i--) {
-        ctx.globalAlpha = .035;
-        ctx.drawImage(logo, -iw / 2 + Math.sin(yaw) * i * 1.3, -ih / 2 + i * .8, iw, ih);
-      }
+      // Render one clean, solid logo without particles, glow, or extrusion.
       ctx.globalAlpha = 1;
-      ctx.shadowColor = 'rgba(28, 75, 140, .13)';
-      ctx.shadowBlur = 28;
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
       ctx.drawImage(logo, -iw / 2, -ih / 2, iw, ih);
       ctx.restore();
     }
@@ -85,8 +70,5 @@
     yaw = pitch = dragYaw = dragPitch = velYaw = velPitch = 0; zoom = 1;
   });
   window.addEventListener('resize', resize);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    particles.length = 0;
-  }
   resize(); logo.onload = () => {}; requestAnimationFrame(draw);
 })();
