@@ -3372,3 +3372,112 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .pipeline-cycle-stage { transition:none; }
 }
+
+
+/* ---- Projects page: white 3D ring carousel ---- */
+.projects-page { background:#fff; color:#111827; }
+.projects-page .page-hero { background:#fff; }
+.projects-page .projects-showcase { background:#fff; padding-top:clamp(2rem,4vw,4rem); }
+.project-tabs {
+  position:relative;
+  z-index:5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.5rem;
+  flex-wrap:wrap;
+  margin:1.75rem auto 1rem;
+}
+.project-tab {
+  appearance:none;
+  border:1px solid #d9e2ee;
+  border-radius:999px;
+  background:#fff;
+  color:#526176;
+  padding:.75rem 1.2rem;
+  font:inherit;
+  font-size:.92rem;
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.project-tab:hover,.project-tab:focus-visible { border-color:#4b8df8; outline:none; }
+.project-tab.is-active { color:#1458bd; border-color:#4b8df8; background:#edf4ff; }
+.project-ring-shell { position:relative; }
+.project-ring-stage {
+  --project-card-width:430px;
+  --project-card-height:400px;
+  position:relative;
+  width:100%;
+  height:clamp(480px,56vw,620px);
+  display:grid;
+  place-items:center;
+  perspective:1500px;
+  overflow:hidden;
+  touch-action:pan-y;
+  cursor:grab;
+  user-select:none;
+  outline:none;
+}
+.project-ring-stage:focus-visible { outline:2px solid #4b8df8; outline-offset:-4px; }
+.project-ring-stage.is-dragging { cursor:grabbing; }
+.project-ring {
+  position:relative;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  transform-style:preserve-3d;
+}
+.project-spinner {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.project-ring-card {
+  position:absolute;
+  inset:0;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  overflow:hidden;
+  border:1px solid #dce5f0;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 16px 45px rgba(15,35,65,.12);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.project-ring-card.is-front { box-shadow:0 22px 56px rgba(15,35,65,.17); }
+.project-ring-image { height:47%; min-height:0; background:#f3f6fa; overflow:hidden; }
+.project-ring-image img { display:block; width:100%; height:100%; object-fit:cover; pointer-events:none; -webkit-user-drag:none; }
+.project-ring-copy { display:flex; flex:1; min-height:0; flex-direction:column; align-items:flex-start; padding:1.1rem 1.25rem 1.2rem; }
+.project-ring-tag { color:#356fce; font-family:var(--font-mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; }
+.project-ring-copy h3 { margin:.4rem 0 .35rem; font-size:clamp(1.2rem,2vw,1.55rem); line-height:1.15; color:#101828; }
+.project-ring-copy p { color:#58677c; font-size:.9rem; line-height:1.45; margin:0 0 .65rem; }
+.project-ring-tech { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:auto; padding-top:.2rem; }
+.project-ring-tech span { border:1px solid #e0e8f2; border-radius:999px; color:#526176; padding:.25rem .5rem; font-size:.68rem; white-space:nowrap; }
+.project-ring-open { display:inline-block; margin-top:.65rem; color:#1f64c8; font-size:.84rem; font-weight:600; text-decoration:none; }
+.project-ring-open:hover { text-decoration:underline; }
+.project-ring-controls { display:flex; justify-content:center; align-items:center; gap:1.25rem; margin-top:-.5rem; }
+.project-ring-controls p { min-width:220px; margin:0; text-align:center; color:#64748b; font-size:.84rem; }
+.project-ring-control { display:grid; place-items:center; width:42px; height:42px; border:1px solid #d9e2ee; border-radius:50%; background:#fff; color:#1f2937; font-size:1.35rem; cursor:pointer; }
+.project-ring-control:hover { border-color:#4b8df8; color:#1458bd; }
+.project-ring-hint { margin:.85rem 0 0; color:#8a96a8; text-align:center; font-size:.78rem; }
+.project-detail-link { display:none; }
+@media (max-width:720px) {
+  .project-tabs { gap:.4rem; margin-top:1.2rem; }
+  .project-tab { padding:.62rem .85rem; font-size:.82rem; }
+  .project-ring-stage { height:510px; --project-card-width:min(78vw,390px); --project-card-height:420px; }
+  .project-ring-copy { padding:.9rem 1rem 1rem; }
+  .project-ring-copy p { font-size:.82rem; }
+  .project-ring-tech span { font-size:.62rem; }
+  .project-ring-controls { margin-top:0; }
+  .project-ring-controls p { min-width:0; font-size:.76rem; }
+}
+@media (max-width:420px) {
+  .project-ring-stage { height:480px; --project-card-width:84vw; --project-card-height:410px; }
+  .project-ring-copy { padding:.8rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .project-tab { transition:none; }
+}
