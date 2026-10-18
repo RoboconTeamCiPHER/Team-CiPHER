@@ -23,7 +23,7 @@
 .team-photo-carousel-section{border-block:1px solid var(--border);margin-top:1rem}
 .team-carousel-heading{padding-top:clamp(3rem,6vw,5rem);padding-bottom:1.5rem}
 .team-carousel-heading h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;letter-spacing:-.04em;max-width:18ch;margin:.5rem 0}
-.team-photo-rail{position:relative;height:calc(100vh + 4 * 82vh)}
+.team-photo-rail{position:relative;height:calc(100vh + 5 * 82vh)}
 .team-photo-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#fff;background-image:radial-gradient(rgba(21,35,58,.09) 1px,transparent 1.2px);background-size:24px 24px;perspective:1450px;perspective-origin:50% 48%}
 .team-photo-ring{position:absolute;inset:0;transform-style:preserve-3d}
 .team-photo-pole{position:absolute;left:50%;top:-10%;height:120%;width:5px;margin-left:-2.5px;border-radius:8px;background:linear-gradient(90deg,#e3e8f0,#c4ccd8 50%,#e3e8f0);opacity:.65;pointer-events:none}
@@ -38,7 +38,7 @@
 .team-carousel-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:90%;text-align:center;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#5b6b84;pointer-events:none}
 #team-history{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
 .team-season{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
-@media(max-width:720px){.team-year-card{width:76vw;margin-left:-38vw;margin-top:-25.33vw}.team-photo-rail{height:calc(100vh + 4 * 70vh)}.team-domain-table th,.team-domain-table td{padding:.9rem}.team-carousel-hint{font-size:.62rem}}
+@media(max-width:720px){.team-year-card{width:76vw;margin-left:-38vw;margin-top:-25.33vw}.team-photo-rail{height:calc(100vh + 5 * 70vh)}.team-domain-table th,.team-domain-table td{padding:.9rem}.team-carousel-hint{font-size:.62rem}}
 
 .team-history-data{display:none!important}
 .team-detail-dialog{width:min(900px,calc(100vw - 32px));max-width:none;max-height:min(88vh,900px);padding:0;border:1px solid #dbe3ef;border-radius:18px;background:#fff;color:#151b2a;box-shadow:0 28px 90px rgba(17,24,39,.24);overflow:auto}
@@ -68,15 +68,16 @@
 @media(max-width:600px){.team-dialog-content .leadership-grid,.team-dialog-content .team-member-groups{grid-template-columns:minmax(0,1fr)}.team-dialog-shell{padding:26px 20px}.team-dialog-close{right:12px;top:10px}}
 @media(prefers-reduced-motion:reduce){.team-year-card{will-change:auto}}
 
-.team-page-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);align-items:center;gap:clamp(2rem,6vw,6rem);min-height:0;padding-top:calc(var(--nav-h,80px) + clamp(2.5rem,6vw,5rem));padding-bottom:clamp(3rem,6vw,5rem)}
+.team-page-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);align-items:center;gap:clamp(2rem,6vw,6rem);min-height:0;height:auto;padding-top:calc(var(--nav-h,80px) + clamp(2rem,4vw,3.5rem));padding-bottom:clamp(2.5rem,4vw,3.5rem);overflow:hidden}
 .team-hero-copy{max-width:620px}
 .team-hero-copy h1{max-width:11ch;font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.02;letter-spacing:-.055em;margin:0}
 .team-hero-copy .sub{max-width:52ch;margin-top:1.2rem;line-height:1.65}
-.team-hero-domains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;border-top:1px solid var(--border);align-self:center}
-.team-hero-domain{position:relative;display:flex;flex-direction:column;gap:7px;padding:20px 0;border-bottom:1px solid var(--border);min-width:0}
+.team-hero-domains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;border-top:1px solid var(--border);align-self:center;min-width:0;background:#f8fafc;position:relative;z-index:1;padding:0 clamp(1rem,2vw,1.5rem);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.team-hero-domain{position:relative;display:flex;flex-direction:column;gap:7px;padding:20px 0;border-bottom:1px solid var(--border);min-width:0;background:#f8fafc}
 .team-hero-domain>span{font-size:.72rem;letter-spacing:.1em;color:#2868f5}
 .team-hero-domain strong{font-size:clamp(1rem,1.4vw,1.2rem);font-weight:650}
 .team-hero-domain small{font-size:.8rem;line-height:1.5;color:var(--text-dim)}
+.team-hero-domain:nth-last-child(-n+2){border-bottom:0}
 @media(max-width:800px){.team-page-hero{grid-template-columns:minmax(0,1fr);gap:2rem;padding-top:calc(var(--nav-h,80px) + 2.2rem)}.team-hero-copy h1{max-width:14ch;font-size:clamp(2.6rem,9vw,4rem)}.team-hero-domains{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:460px){.team-hero-domains{column-gap:16px}.team-hero-domain{padding:15px 0}.team-hero-domain small{font-size:.74rem}}
 </style>
@@ -121,25 +122,7 @@
     </div>
   </section>
 
-  <section class="section section-first team-domain-section" id="team-domains">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>Team domains.</h2>
-        <p class="lede" data-reveal>Four domains working together to design, build and compete.</p>
-      </div>
-      <div class="team-domain-table-wrap" data-reveal>
-        <table class="team-domain-table">
-          <thead><tr><th scope="col">Domain</th><th scope="col">Primary responsibilities</th><th scope="col">Core focus</th></tr></thead>
-          <tbody>
-            <tr id="mechanical"><th scope="row">Mechanical</th><td>CAD design, fabrication, assembly and mechanical analysis</td><td>Design · Manufacturing · Simulation</td></tr>
-            <tr id="electronics"><th scope="row">Electronics</th><td>Embedded systems, sensors, wiring, actuators and control hardware</td><td>PCB · Embedded · Control</td></tr>
-            <tr id="programming"><th scope="row">Programming</th><td>Robot software, autonomy, computer vision and system integration</td><td>ROS 2 · Vision · Autonomy</td></tr>
-            <tr id="administration"><th scope="row">Administration</th><td>Operations, documentation, outreach, sponsorship and coordination</td><td>Planning · Outreach · Operations</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+
 
   <section class="team-photo-carousel-section" aria-labelledby="team-photo-carousel-title">
     <div class="wrap team-carousel-heading">
@@ -151,20 +134,23 @@
       <div class="team-photo-stage" id="team-photo-stage" aria-label="Team CiPHER historical team photo carousel">
         <div class="team-photo-ring" id="team-photo-ring">
           <div class="team-photo-pole" aria-hidden="true"></div>
+          <a class="team-year-card team-year-2020" href="#team-2020" aria-label="Team CiPHER 2020–21 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:linear-gradient(135deg,#edf2f8,#d8e1ed 50%,#c3cfdd)"><span class="team-year-label">Team CiPHER 2020–21</span></div><div class="team-year-face team-year-back"></div>
+          </a>
           <a class="team-year-card team-year-2021" href="#team-2021" aria-label="Team CiPHER 2021–22 team details">
-            <div class="team-year-face team-year-front" style="--team-photo:linear-gradient(135deg,#1a2637,#55677c 50%,#10151d)"><span class="team-year-label">Team CiPHER 2021–22</span></div><div class="team-year-face team-year-back"></div>
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/Robocon%202022.jpg')"><span class="team-year-label">Team CiPHER 2021–22</span></div><div class="team-year-face team-year-back"></div>
           </a>
           <a class="team-year-card team-year-2022" href="#team-2022" aria-label="Team CiPHER 2022–23 team details">
-            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/Robocon%202022.jpg')"><span class="team-photo-missing">Historical team photo<br>not available</span><span class="team-year-label">Team CiPHER 2022–23</span></div><div class="team-year-face team-year-back"></div>
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2023.jpeg')"><span class="team-year-label">Team CiPHER 2022–23</span></div><div class="team-year-face team-year-back"></div>
           </a>
           <a class="team-year-card team-year-2023" href="#team-2023" aria-label="Team CiPHER 2023–24 team details">
-            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2023.jpeg')"><span class="team-year-label">Team CiPHER 2023–24</span></div><div class="team-year-face team-year-back"></div>
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2024.jpeg')"><span class="team-year-label">Team CiPHER 2023–24</span></div><div class="team-year-face team-year-back"></div>
           </a>
           <a class="team-year-card team-year-2024" href="#team-2024" aria-label="Team CiPHER 2024–25 team details">
-            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2024.jpeg')"><span class="team-year-label">Team CiPHER 2024–25</span></div><div class="team-year-face team-year-back"></div>
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2025.jpeg')"><span class="team-year-label">Team CiPHER 2024–25</span></div><div class="team-year-face team-year-back"></div>
           </a>
           <a class="team-year-card team-year-2025" href="#team-2025" aria-label="Team CiPHER 2025–26 team details">
-            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2025.jpeg')"><span class="team-year-label">Team CiPHER 2025–26</span></div><div class="team-year-face team-year-back"></div>
+            <div class="team-year-face team-year-front" style="--team-photo:linear-gradient(135deg,#edf2f8,#d8e1ed 50%,#c3cfdd)"><span class="team-year-label">Team CiPHER 2025–26</span></div><div class="team-year-face team-year-back"></div>
           </a>
         </div>
         <p class="team-carousel-hint">Scroll to explore · Select a card to view team details</p>
@@ -272,7 +258,7 @@
   if(!rail||!stage||!ring)return;
   var cards=Array.prototype.slice.call(ring.querySelectorAll('.team-year-card'));
   var pole=ring.querySelector('.team-photo-pole');
-  var count=cards.length, perCard=.82, degrees=64, radius=1.02, lift=.48, smooth=.13;
+  var count=cards.length, perCard=.72, degrees=55, radius=.92, lift=.35, smooth=.13;
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced)smooth=1;
   var current=0,target=0,cardW=0,cardH=0,snapTimer=null;
@@ -296,6 +282,7 @@
   var content=document.getElementById('team-dialog-content');
   if(!dialog||!content)return;
   var titles={
+    'team-2020':{title:'Team CiPHER 2020–21',subtitle:'2020–21 season · Historical roster details are not currently listed.'},
     'team-2021':{title:'Team CiPHER 2021–22',subtitle:'2021–22 season · Leadership and domain members'},
     'team-2022':{title:'Team CiPHER 2022–23',subtitle:'2022–23 season · Leadership and domain members'},
     'team-2023':{title:'Team CiPHER 2023–24',subtitle:'2023–24 season · Leadership and domain members'},
@@ -306,10 +293,10 @@
   var subtitleEl=document.getElementById('team-dialog-subtitle');
   function openTeam(id){
     var info=titles[id],source=document.getElementById(id);
-    if(!info||!source)return;
+    if(!info)return;
     titleEl.textContent=info.title;
     subtitleEl.textContent=info.subtitle;
-    content.innerHTML=source.innerHTML;
+    content.innerHTML=source?source.innerHTML:'<p class="team-dialog-subtitle">Historical leadership and member details for this season have not been added yet.</p>';
     content.querySelectorAll('[data-reveal]').forEach(function(el){el.removeAttribute('data-reveal')});
     if(typeof dialog.showModal==='function')dialog.showModal();
     else dialog.setAttribute('open','');
