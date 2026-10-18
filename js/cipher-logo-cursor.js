@@ -6,7 +6,7 @@
   const logo = new Image();
   logo.src = 'assets/logos/CiPHER%20Logo%20Black.png';
   let w = 0, h = 0, dpr = 1, pointerX = 0, pointerY = 0;
-  let yaw = 0, pitch = 0, dragYaw = 0, dragPitch = 0, zoom = 1;
+  let yaw = 0, pitch = 0, dragYaw = 0, dragPitch = 0;
   let dragging = false, lastX = 0, lastY = 0, lastTime = 0;
   let velYaw = 0, velPitch = 0;
   function resize() {
@@ -26,17 +26,22 @@
     yaw += (targetYaw - yaw) * .045;
     pitch += (targetPitch - pitch) * .045;
     if (logo.complete && logo.naturalWidth) {
-      const maxW = Math.min(w * .82, 980), maxH = h * .72;
-      const ratio = Math.min(maxW / logo.naturalWidth, maxH / logo.naturalHeight) * zoom;
+      const maxW = Math.min(w * .42, 520), maxH = Math.min(h * .68, 520);
+      const ratio = Math.min(maxW / logo.naturalWidth, maxH / logo.naturalHeight);
       const iw = logo.naturalWidth * ratio, ih = logo.naturalHeight * ratio;
       const cx = w / 2 + pointerX * 12, cy = h / 2 + pointerY * 9;
       ctx.save();
       ctx.translate(cx, cy);
       ctx.transform(Math.cos(yaw), Math.sin(pitch) * .22, Math.sin(yaw) * .25, Math.cos(pitch), 0, 0);
-      // Render one clean, solid logo without particles, glow, or extrusion.
+      // Layer the black mark with a short graphite extrusion for a solid 3D effect.
       ctx.globalAlpha = 1;
       ctx.shadowColor = 'transparent';
       ctx.shadowBlur = 0;
+      for (let depth = 12; depth >= 1; depth--) {
+        ctx.globalAlpha = 0.10 + (12 - depth) * 0.025;
+        ctx.drawImage(logo, -iw / 2 + depth * 0.8, -ih / 2 + depth * 1.1, iw, ih);
+      }
+      ctx.globalAlpha = 1;
       ctx.drawImage(logo, -iw / 2, -ih / 2, iw, ih);
       ctx.restore();
     }
@@ -61,13 +66,9 @@
   function endDrag() { dragging = false; scene.classList.remove('is-dragging'); }
   scene.addEventListener('pointerup', endDrag);
   scene.addEventListener('pointercancel', endDrag);
-  scene.addEventListener('wheel', e => {
-    e.preventDefault();
-    zoom = Math.max(.65, Math.min(1.6, zoom * Math.exp(-e.deltaY * .001)));
-  }, {passive:false});
-  scene.addEventListener('dblclick', () => document.getElementById('cipher-cursor-reset').click());
+    scene.addEventListener('dblclick', () => document.getElementById('cipher-cursor-reset').click());
   document.getElementById('cipher-cursor-reset').addEventListener('click', () => {
-    yaw = pitch = dragYaw = dragPitch = velYaw = velPitch = 0; zoom = 1;
+    yaw = pitch = dragYaw = dragPitch = velYaw = velPitch = 0;
   });
   window.addEventListener('resize', resize);
   resize(); logo.onload = () => {}; requestAnimationFrame(draw);
