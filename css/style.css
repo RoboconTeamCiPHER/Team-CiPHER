@@ -3256,3 +3256,128 @@ select {
   .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:26vw !important; --path-ry:17vh !important; }
   .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:18vw !important; --path-ry:12vh !important; }
 }
+
+
+/* ---- About page: circular nine-stage engineering cycle ---- */
+.pipeline-cycle {
+  position: relative;
+  width: min(100%, 820px);
+  aspect-ratio: 1;
+  margin: 2.5rem auto 0;
+  isolation: isolate;
+}
+.pipeline-cycle-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: -1;
+}
+.pipeline-ring-base {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2;
+}
+.pipeline-ring-flow {
+  fill: none;
+  stroke: #4b8df8;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 12 13;
+  opacity: .85;
+}
+.pipeline-cycle-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 8px 28px rgba(20, 35, 60, .08);
+}
+.pipeline-cycle-center span {
+  color: #4b8df8;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+}
+.pipeline-cycle-center strong {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.1vw, 1.6rem);
+  line-height: 1.15;
+}
+.pipeline-cycle-center small {
+  color: var(--text-dim);
+  font-size: clamp(.55rem, 1vw, .75rem);
+}
+.pipeline-cycle-stage {
+  position: absolute;
+  width: 26%;
+  min-height: 66px;
+  padding: .85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: 0 6px 20px rgba(20, 35, 60, .06);
+}
+.pipeline-cycle-stage .pipeline-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #eaf2ff;
+  color: #2868d7;
+  font-size: .75rem;
+}
+.pipeline-cycle-stage strong {
+  font-family: var(--font-display);
+  font-size: clamp(.78rem, 1.35vw, 1.05rem);
+  line-height: 1.2;
+}
+.pipeline-cycle-stage.stage-1 { left: 37%; top: 0; transform: translateX(-50%); }
+.pipeline-cycle-stage.stage-2 { left: 69%; top: 7%; }
+.pipeline-cycle-stage.stage-3 { right: 0; top: 31%; }
+.pipeline-cycle-stage.stage-4 { right: 5%; top: 61%; }
+.pipeline-cycle-stage.stage-5 { left: 50%; bottom: 0; transform: translateX(-50%); }
+.pipeline-cycle-stage.stage-6 { left: 5%; top: 72%; }
+.pipeline-cycle-stage.stage-7 { left: 0; top: 43%; }
+.pipeline-cycle-stage.stage-8 { left: 5%; top: 17%; }
+.pipeline-cycle-stage.stage-9 { left: 37%; top: 83%; transform: translate(-50%, -100%); }
+@media (max-width: 620px) {
+  .pipeline-cycle { width: 100%; margin-top: 1.5rem; }
+  .pipeline-cycle-center { width: 29%; padding: .35rem; gap: .25rem; }
+  .pipeline-cycle-center span { font-size: .48rem; }
+  .pipeline-cycle-center small { display: none; }
+  .pipeline-cycle-stage { width: 31%; min-height: 48px; padding: .45rem; gap: .35rem; border-radius: 8px; }
+  .pipeline-cycle-stage .pipeline-num { flex-basis: 1.45rem; width: 1.45rem; height: 1.45rem; font-size: .6rem; }
+  .pipeline-cycle-stage strong { font-size: clamp(.62rem, 2.6vw, .85rem); }
+  .pipeline-cycle-stage.stage-1 { left: 35%; top: 1%; }
+  .pipeline-cycle-stage.stage-2 { left: 66%; top: 9%; }
+  .pipeline-cycle-stage.stage-3 { right: -1%; top: 32%; }
+  .pipeline-cycle-stage.stage-4 { right: 1%; top: 62%; }
+  .pipeline-cycle-stage.stage-5 { left: 50%; bottom: 0; }
+  .pipeline-cycle-stage.stage-6 { left: 1%; top: 73%; }
+  .pipeline-cycle-stage.stage-7 { left: -1%; top: 45%; }
+  .pipeline-cycle-stage.stage-8 { left: 1%; top: 18%; }
+  .pipeline-cycle-stage.stage-9 { left: 37%; top: 83%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-cycle-stage { transition: none; }
+}
