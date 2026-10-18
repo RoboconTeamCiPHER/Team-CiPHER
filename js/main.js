@@ -41,6 +41,9 @@ var REPOSITORIES = [
     document.querySelectorAll('.footer-team-logo[data-logo-light][data-logo-dark]').forEach(function (logo) {
       logo.src = theme === 'dark' ? logo.getAttribute('data-logo-dark') : logo.getAttribute('data-logo-light');
     });
+    document.querySelectorAll('.footer-team-logo[data-logo-light][data-logo-dark]').forEach(function (logo) {
+      logo.src = theme === 'dark' ? logo.getAttribute('data-logo-dark') : logo.getAttribute('data-logo-light');
+    });
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
       meta.setAttribute('content', theme === 'dark' ? '#080808' : '#ffffff');
     });
