@@ -3078,3 +3078,55 @@ select {
  .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:19vh; }
  .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
 }
+
+
+/* Orbit motion: rotate each orbit's contents around the fixed Team CiPHER center.
+   The ring track itself stays still; each bubble travels along its ellipse.
+   Counter-rotation is intentionally omitted from the bubble so the whole bubble
+   follows the orbit naturally, while its logo image remains upright. */
+.hero-orbit .orbit-ring .orbit-tool {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  right:auto !important;
+  bottom:auto !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 0 0) !important;
+  offset-position:0 0 !important;
+  offset-anchor:50% 50% !important;
+  offset-rotate:0deg !important;
+  animation-name:ciPherOrbitTravel !important;
+  animation-duration:var(--orbit-duration, 48s) !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+  will-change:offset-distance !important;
+}
+@keyframes ciPherOrbitTravel {
+  from { offset-distance:var(--orbit-start, 0%); }
+  to { offset-distance:calc(var(--orbit-start, 0%) + 100%); }
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; --orbit-delay:0s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; --orbit-delay:-6s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; --orbit-delay:-5s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:34s; --orbit-delay:-4s; }
+
+/* Ensure every tool in each domain has a defined, evenly spaced starting angle. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:20%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:40%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:60%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-start:80%; }
