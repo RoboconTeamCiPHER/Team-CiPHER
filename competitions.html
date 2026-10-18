@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="css/style.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/animations.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/responsive.css?v=nav-fix-2">
+<style>
+.competition-tile-track{overflow-x:auto;scrollbar-width:none;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.competition-tile-track::-webkit-scrollbar{display:none}
+.competition-tile-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.competition-tile-track .competition-tile{user-select:none;-webkit-user-drag:none}
+</style>
 </head>
 <body>
 
@@ -49,7 +55,7 @@
     <div class="wrap">
       <div class="competition-row-heading">
         <div><div class="kicker">NATIONAL → INTERNATIONAL</div><h2 id="robocon-heading">DD Robocon</h2><p>Our season-by-season engineering journey.</p></div>
-        <div class="competition-carousel-controls"><button type="button" class="tile-arrow" data-carousel-prev="robocon-track" aria-label="Previous Robocon season">←</button><button type="button" class="tile-arrow" data-carousel-next="robocon-track" aria-label="Next Robocon season">→</button></div>
+        
       </div>
       <div class="competition-tile-track robocon-tile-track" id="robocon-track" tabindex="0" aria-label="DD Robocon seasons">
         <a class="competition-tile robocon-tile" href="#robocon-2020"><img src="assets/images/robots/Robocon%202020%20Design.jpg" alt="Robocon 2020 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2020</strong><span>Robo Rugby 7s ↗</span></span></a>
@@ -60,7 +66,7 @@
         <a class="competition-tile robocon-tile" href="#robocon-2025"><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Robocon 2025 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2025</strong><span>Robot Basketball ↗</span></span></a>
         <a class="competition-tile robocon-tile" href="#robocon-2026"><img src="assets/images/robots/Robocon%202026%20R2.png" alt="Robocon 2026 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2026</strong><span>Kung Fu Quest ↗</span></span></a>
       </div>
-      <div class="tile-track-hint">Scroll horizontally or use the arrows to explore all seasons</div>
+      
     </div>
   </section>
 
@@ -185,16 +191,59 @@
 })();
 </script>
 <script>
-document.querySelectorAll('[data-carousel-prev], [data-carousel-next]').forEach(function(button) {
-  button.addEventListener('click', function() {
-    var track = document.getElementById(button.dataset.carouselPrev || button.dataset.carouselNext);
-    if (!track) return;
-    var tile = track.querySelector('.competition-tile');
-    var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
-    var distance = tile ? tile.getBoundingClientRect().width + gap : track.clientWidth * .8;
-    track.scrollBy({ left: button.hasAttribute('data-carousel-next') ? distance : -distance, behavior: 'smooth' });
+(function () {
+  document.querySelectorAll('.competition-tile-track').forEach(function (track) {
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let moved = false;
+
+    track.style.cursor = 'grab';
+    track.style.userSelect = 'none';
+    track.querySelectorAll('img').forEach(function (img) {
+      img.draggable = false;
+    });
+
+    track.addEventListener('pointerdown', function (event) {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      isDragging = true;
+      moved = false;
+      startX = event.clientX;
+      startScrollLeft = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+      track.classList.add('is-dragging');
+    });
+
+    track.addEventListener('pointermove', function (event) {
+      if (!isDragging) return;
+      const delta = event.clientX - startX;
+      if (Math.abs(delta) > 4) moved = true;
+      track.scrollLeft = startScrollLeft - delta;
+    });
+
+    function stopDragging() {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.cursor = 'grab';
+      track.classList.remove('is-dragging');
+      if (moved) {
+        track.dataset.dragged = 'true';
+        window.setTimeout(function () { delete track.dataset.dragged; }, 80);
+      }
+    }
+
+    track.addEventListener('pointerup', stopDragging);
+    track.addEventListener('pointercancel', stopDragging);
+    track.addEventListener('pointerleave', stopDragging);
+
+    track.addEventListener('click', function (event) {
+      if (track.dataset.dragged === 'true') {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
   });
-});
+})();
 </script>
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
