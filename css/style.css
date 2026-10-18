@@ -3884,3 +3884,36 @@ select {
     height:var(--project-card-height) !important;
   }
 }
+
+
+/* Scale the project ring up to fill the available green-box area */
+.projects-page .project-ring {
+  --project-card-width:min(43vw, 620px) !important;
+  --project-card-height:min(66vh, 610px) !important;
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+@media (min-width:1400px) {
+  .projects-page .project-ring {
+    --project-card-width:min(43vw, 680px) !important;
+    --project-card-height:min(68vh, 640px) !important;
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
+}
+@media (max-width:720px) {
+  .projects-page .project-ring {
+    --project-card-width:min(76vw, 390px) !important;
+    --project-card-height:min(58svh, 470px) !important;
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
+}
