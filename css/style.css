@@ -3189,3 +3189,16 @@ select {
     animation-iteration-count:infinite !important;
   }
 }
+
+
+/* Final motion fix: the static transform must not be !important, or it overrides
+   the transform values produced by the orbit keyframes. */
+.hero-orbit .orbit-ring .orbit-tool {
+  transform:translate(-50%,-50%) translate(var(--path-rx),0);
+  animation-name:ciPherEllipseOrbit !important;
+  animation-duration:var(--orbit-duration,48s) !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-delay:var(--orbit-delay,0s) !important;
+  animation-fill-mode:both !important;
+}
