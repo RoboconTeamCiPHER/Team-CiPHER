@@ -3012,3 +3012,15 @@ select {
  .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
  .hero-orbit .orbit-ring .orbit-tool { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; padding:6px !important; }
 }
+
+
+/* Centering correction: avoid applying both translate and transform to each ring.
+   Offset paths are centered in the ring's coordinate box, matching the brand mark. */
+.hero-orbit .orbit-ring {
+  translate:0 0 !important;
+  transform:translate(-50%,-50%) !important;
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  offset-position:50% 50% !important;
+  offset-anchor:50% 50% !important;
+}
