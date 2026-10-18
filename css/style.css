@@ -3202,3 +3202,59 @@ select {
   animation-delay:var(--orbit-delay,0s) !important;
   animation-fill-mode:both !important;
 }
+
+
+/* Orbit launch polish: valid negative offsets, centered brand/tagline, visible initial layout. */
+.hero-orbit .orbit-ring .orbit-tool {
+  animation-name:ciPherEllipseOrbit !important;
+  transform:translate(-50%,-50%) translate(var(--path-rx),0);
+}
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)); }
+  50%  { transform:translate(-50%,-50%) translate(calc(0px - var(--path-rx)),0); }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(0px - var(--path-ry))); }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+}
+.hero-orbit .orbit-center {
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:14px !important;
+  z-index:10 !important;
+  width:max-content !important;
+  max-width:90vw !important;
+}
+.hero-orbit .hero-brand-logo {
+  display:block !important;
+  width:clamp(260px, 27vw, 430px) !important;
+  max-width:82vw !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+.hero-orbit .orbit-tagline {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  position:static !important;
+  margin:0 !important;
+  font-size:clamp(12px, 1.1vw, 16px) !important;
+  letter-spacing:.22em !important;
+  line-height:1.4 !important;
+  color:#4f6380 !important;
+  white-space:nowrap !important;
+}
+.hero-orbit .orbit-ring .orbit-tool {
+  animation-play-state:running !important;
+}
+@media (max-width:700px) {
+  .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:42vw !important; --path-ry:27vh !important; }
+  .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:34vw !important; --path-ry:22vh !important; }
+  .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:26vw !important; --path-ry:17vh !important; }
+  .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:18vw !important; --path-ry:12vh !important; }
+}
