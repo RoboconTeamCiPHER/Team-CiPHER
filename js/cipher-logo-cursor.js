@@ -31,7 +31,7 @@
     });
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     dustCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    scale = Math.min(w, h) * 0.62;
+    scale = Math.min(w, h) * 0.40;
     buildParticles();
   }
 
