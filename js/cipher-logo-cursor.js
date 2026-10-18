@@ -114,7 +114,7 @@
     const cx = w / 2 + smoothX * 7, cy = h / 2 + smoothY * 5;
     const sc = scale;
     const focal = 2.4;
-    const thicknessPx = 15;
+    const thicknessPx = 75;
     const depthLayers = 5;
     const faces = [];
     for (const p of particles) {
