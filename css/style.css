@@ -4588,3 +4588,151 @@ select {
 :root[data-theme="dark"] .nav-toggle span {
   background:#fff !important;
 }
+
+
+/* Theme-safe surfaces: override hard-coded light styles in both themes. */
+:root[data-theme="dark"] .projects-page .project-ring-card,
+:root[data-theme="dark"] .project-ring-card {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#353535 !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.48) !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-image,
+:root[data-theme="dark"] .project-ring-image {
+  background:#181818 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy,
+:root[data-theme="dark"] .project-ring-copy {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy h3,
+:root[data-theme="dark"] .project-ring-copy h3 {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-copy p,
+:root[data-theme="dark"] .project-ring-copy p {
+  color:#c4c4c4 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-tech span,
+:root[data-theme="dark"] .project-ring-tech span {
+  background:#171717 !important;
+  border-color:#383838 !important;
+  color:#d0d0d0 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-open,
+:root[data-theme="dark"] .project-ring-open {
+  color:#80adff !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-control,
+:root[data-theme="dark"] .project-ring-control {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#383838 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-controls p,
+:root[data-theme="dark"] .project-ring-controls p,
+:root[data-theme="dark"] .project-ring-hint {
+  color:#b0b0b0 !important;
+}
+:root[data-theme="dark"] .team-photo-stage {
+  background:#050505 !important;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="dark"] .team-photo-pole {
+  background:linear-gradient(90deg,#252525,#414141 50%,#252525) !important;
+}
+:root[data-theme="dark"] .domain-grid .domain-card,
+:root[data-theme="dark"] .domain-grid .domain-card:hover {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .domain-grid .domain-card p,
+:root[data-theme="dark"] .domain-grid .domain-card li {
+  color:#c4c4c4 !important;
+}
+
+/* Explicit light-theme surfaces, including components with hard-coded dark values. */
+:root[data-theme="light"] body {
+  background:#fff !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav,
+:root[data-theme="light"] .nav.is-scrolled,
+:root[data-theme="light"] .projects-page .nav,
+:root[data-theme="light"] .projects-page .nav.is-scrolled {
+  background:rgba(255,255,255,.96) !important;
+  border-bottom-color:#e2e6ec !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav-logo-image { filter:none !important; }
+:root[data-theme="light"] .nav-links a,
+:root[data-theme="light"] .nav-links a:hover,
+:root[data-theme="light"] .nav-links a[aria-current="page"],
+:root[data-theme="light"] .nav-theme-toggle,
+:root[data-theme="light"] .mobile-menu,
+:root[data-theme="light"] .mobile-menu a,
+:root[data-theme="light"] .mobile-menu .mobile-theme-toggle {
+  color:#17191d !important;
+}
+:root[data-theme="light"] .nav-theme-toggle,
+:root[data-theme="light"] .mobile-theme-toggle {
+  background:#fff !important;
+  border-color:#cbd3de !important;
+}
+:root[data-theme="light"] .site-footer {
+  background:#f0f4f8 !important;
+  color:#354052 !important;
+  border-top-color:#e2e6ec !important;
+}
+:root[data-theme="light"] .site-footer a,
+:root[data-theme="light"] .site-footer p,
+:root[data-theme="light"] .site-footer span,
+:root[data-theme="light"] .site-footer h5 {
+  color:#5d6572 !important;
+}
+:root[data-theme="light"] .site-footer .footer-team-logo { filter:none !important; }
+:root[data-theme="light"] .projects-page .project-ring-card,
+:root[data-theme="light"] .project-ring-card {
+  background:#fff !important;
+  color:#17191d !important;
+  border-color:#dce5f0 !important;
+  box-shadow:0 16px 45px rgba(15,35,65,.12) !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-image,
+:root[data-theme="light"] .project-ring-image {
+  background:#f3f6fa !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-copy h3,
+:root[data-theme="light"] .project-ring-copy h3 { color:#101828 !important; }
+:root[data-theme="light"] .projects-page .project-ring-copy p,
+:root[data-theme="light"] .project-ring-copy p { color:#58677c !important; }
+:root[data-theme="light"] .projects-page .project-ring-tech span,
+:root[data-theme="light"] .project-ring-tech span {
+  background:#fff !important;
+  border-color:#e0e8f2 !important;
+  color:#526176 !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-open,
+:root[data-theme="light"] .project-ring-open { color:#1f64c8 !important; }
+:root[data-theme="light"] .projects-page .project-ring-control,
+:root[data-theme="light"] .project-ring-control {
+  background:#fff !important;
+  color:#1f2937 !important;
+  border-color:#d9e2ee !important;
+}
+:root[data-theme="light"] .team-photo-stage {
+  background:#fff !important;
+  background-image:radial-gradient(rgba(21,35,58,.09) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="light"] .team-photo-pole {
+  background:linear-gradient(90deg,#e3e8f0,#c4ccd8 50%,#e3e8f0) !important;
+}
+:root[data-theme="light"] .domain-grid .domain-card {
+  background:#f5f6f8 !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .domain-grid .domain-card:hover { background:#dff3ff !important; }
+:root[data-theme="light"] .domain-grid .domain-card p,
+:root[data-theme="light"] .domain-grid .domain-card li { color:#5d6572 !important; }
