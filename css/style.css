@@ -3730,3 +3730,17 @@ select {
     height:calc(100svh - var(--nav-height, 64px) - 70px);
   }
 }
+
+
+/* Keep a clear navbar-height gap before the Projects carousel */
+.projects-page .projects-showcase {
+  margin-top:calc(var(--nav-height, 64px) + 64px) !important;
+  height:calc(100vh - var(--nav-height, 64px) - 64px - 90px) !important;
+  min-height:0 !important;
+}
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:calc(var(--nav-height, 64px) + 64px) !important;
+    height:calc(100svh - var(--nav-height, 64px) - 64px - 70px) !important;
+  }
+}
