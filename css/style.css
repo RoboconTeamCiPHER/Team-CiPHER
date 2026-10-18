@@ -3552,3 +3552,62 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .projects-page .project-ring-card { scroll-behavior:auto; }
 }
+
+
+/* Full-viewport Projects carousel: keep site navbar/footer, expand carousel between them */
+.projects-page .projects-hero { display:none !important; }
+.projects-page .projects-showcase {
+  min-height:calc(100vh - var(--nav-height, 64px) - 72px);
+  padding:0 !important;
+  display:flex;
+  align-items:stretch;
+  background:#fff;
+}
+.projects-page .projects-showcase > .wrap {
+  width:100%;
+  max-width:none;
+  min-height:inherit;
+  padding:0 clamp(1rem,3vw,3rem);
+  display:flex;
+  flex-direction:column;
+}
+.projects-page .projects-showcase .section-head {
+  flex:0 0 auto;
+  margin:1rem 0 .25rem;
+  text-align:center;
+}
+.projects-page .projects-showcase .section-head .kicker { margin-bottom:.2rem; }
+.projects-page .projects-showcase .section-head h2 { margin:0; font-size:clamp(1.25rem,2.2vw,1.8rem); }
+.projects-page .project-ring-shell {
+  flex:1 1 auto;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+.projects-page .project-ring-stage {
+  flex:1 1 auto;
+  min-height:420px;
+  height:auto;
+  max-height:calc(100vh - 190px);
+}
+.projects-page .project-ring {
+  --project-card-width:min(34vw, 390px);
+  --project-card-height:min(52vh, 440px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-controls { flex:0 0 auto; margin:.2rem 0 .25rem; }
+.projects-page .project-ring-hint { margin:.25rem 0 .5rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase { min-height:calc(100svh - 64px - 60px); }
+  .projects-page .projects-showcase > .wrap { padding:0 .6rem; }
+  .projects-page .projects-showcase .section-head { margin:.6rem 0 0; }
+  .projects-page .project-ring-stage { min-height:390px; max-height:calc(100svh - 155px); }
+  .projects-page .project-ring { --project-card-width:min(64vw, 320px); --project-card-height:min(48svh, 380px); }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+  .projects-page .project-ring-controls { margin:.15rem 0; }
+}
