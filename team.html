@@ -21,13 +21,17 @@
 .team-domain-table tbody td{color:var(--text-dim);line-height:1.55}
 .team-domain-table tbody tr:last-child th,.team-domain-table tbody tr:last-child td{border-bottom:0}
 .team-photo-carousel-section{border-block:1px solid var(--border);margin-top:1rem}
+.team-carousel-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.team-carousel-heading-copy{flex:1;min-width:0}
+.team-carousel-heading>.lede{max-width:34ch;margin:0 0 .45rem;text-align:right;line-height:1.6}
+
 .team-carousel-heading{padding-top:clamp(3rem,6vw,5rem);padding-bottom:1.5rem}
 .team-carousel-heading h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;letter-spacing:-.04em;max-width:18ch;margin:.5rem 0}
 .team-photo-rail{position:relative;height:calc(100vh + 5 * 82vh)}
 .team-photo-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#fff;background-image:radial-gradient(rgba(21,35,58,.09) 1px,transparent 1.2px);background-size:24px 24px;perspective:1450px;perspective-origin:50% 48%}
 .team-photo-ring{position:absolute;inset:0;transform-style:preserve-3d}
 .team-photo-pole{position:absolute;left:50%;top:-10%;height:120%;width:5px;margin-left:-2.5px;border-radius:8px;background:linear-gradient(90deg,#e3e8f0,#c4ccd8 50%,#e3e8f0);opacity:.65;pointer-events:none}
-.team-year-card{position:absolute;left:50%;top:50%;width:min(54vw,680px);aspect-ratio:3/2;margin-left:calc(min(54vw,680px) / -2);margin-top:calc(min(54vw,680px) / -3);transform-style:preserve-3d;cursor:pointer;outline:none;text-decoration:none;will-change:transform;--card-brightness:1;--card-opacity:1}
+.team-year-card{position:absolute;left:50%;top:50%;width:min(48vw,620px);aspect-ratio:3/2;margin-left:calc(min(48vw,620px) / -2);margin-top:calc(min(48vw,620px) / -3);transform-style:preserve-3d;cursor:pointer;outline:none;text-decoration:none;will-change:transform;--card-brightness:1;--card-opacity:1}
 .team-year-card:focus-visible .team-year-front{outline:3px solid #2f6bff;outline-offset:5px}
 .team-year-face{position:absolute;inset:0;overflow:hidden;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;filter:brightness(var(--card-brightness));opacity:var(--card-opacity);box-shadow:0 18px 46px rgba(20,34,56,.18)}
 .team-year-front{background:var(--team-photo) center/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(1.2rem,3vw,2.5rem)}
@@ -37,6 +41,7 @@
 .team-carousel-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:90%;text-align:center;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#5b6b84;pointer-events:none}
 #team-history{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
 .team-season{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
+@media(max-width:800px){.team-carousel-heading{align-items:flex-start;flex-direction:column;gap:.8rem}.team-carousel-heading>.lede{text-align:left;max-width:52ch;margin:0}.team-hero-domain{padding:22px 0}.team-hero-domain small{font-size:.82rem}}
 @media(max-width:720px){.team-year-card{width:76vw;margin-left:-38vw;margin-top:-25.33vw}.team-photo-rail{height:calc(100vh + 5 * 70vh)}.team-domain-table th,.team-domain-table td{padding:.9rem}.team-carousel-hint{font-size:.62rem}}
 
 .team-history-data{display:none!important}
@@ -71,11 +76,12 @@
 .team-hero-copy{max-width:620px}
 .team-hero-copy h1{max-width:11ch;font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.02;letter-spacing:-.055em;margin:0}
 .team-hero-copy .sub{max-width:52ch;margin-top:1.2rem;line-height:1.65}
-.team-hero-domains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;border-top:1px solid var(--border);align-self:center;min-width:0;background:#f8fafc;position:relative;z-index:1;padding:0 clamp(1rem,2vw,1.5rem);border:1px solid var(--border);border-radius:14px;overflow:hidden}
-.team-hero-domain{position:relative;display:flex;flex-direction:column;gap:7px;padding:20px 0;border-bottom:1px solid var(--border);min-width:0;background:#f8fafc}
+.team-hero-domains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;align-self:center;min-width:0;background:#f8fafc;position:relative;z-index:1;padding:0 clamp(1.25rem,2.4vw,2rem);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.team-hero-domain{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:clamp(22px,2.6vw,34px) 0;border-bottom:1px solid var(--border);min-width:0;background:#f8fafc}
 .team-hero-domain>span{font-size:.72rem;letter-spacing:.1em;color:#2868f5}
-.team-hero-domain strong{font-size:clamp(1rem,1.4vw,1.2rem);font-weight:650}
-.team-hero-domain small{font-size:.8rem;line-height:1.5;color:var(--text-dim)}
+.team-hero-domain strong{font-size:clamp(1.15rem,1.7vw,1.45rem);font-weight:700}
+.team-hero-domain em{font-style:normal;font-size:.75rem;line-height:1.5;letter-spacing:.02em;color:#2868f5;padding-top:3px}
+.team-hero-domain small{font-size:.86rem;line-height:1.65;color:var(--text-dim);max-width:36ch}
 .team-hero-domain:nth-last-child(-n+2){border-bottom:0}
 @media(max-width:800px){.team-page-hero{grid-template-columns:minmax(0,1fr);gap:2rem;padding-top:calc(var(--nav-h,80px) + 2.2rem)}.team-hero-copy h1{max-width:14ch;font-size:clamp(2.6rem,9vw,4rem)}.team-hero-domains{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:460px){.team-hero-domains{column-gap:16px}.team-hero-domain{padding:15px 0}.team-hero-domain small{font-size:.74rem}}
@@ -114,10 +120,10 @@
       <p class="sub" data-reveal>Founded in 2018, Team CiPHER brings mechanical, electronics, programming and administration together to build competitive robots.</p>
     </div>
     <div class="team-hero-domains" aria-label="Team domains">
-      <div class="team-hero-domain"><span>01</span><strong>Mechanical</strong><small>CAD · Fabrication · Analysis</small></div>
-      <div class="team-hero-domain"><span>02</span><strong>Electronics</strong><small>Embedded · Sensors · Control</small></div>
-      <div class="team-hero-domain"><span>03</span><strong>Programming</strong><small>ROS 2 · Vision · Autonomy</small></div>
-      <div class="team-hero-domain"><span>04</span><strong>Administration</strong><small>Operations · Outreach · Planning</small></div>
+      <div class="team-hero-domain"><span>01 · DESIGN &amp; BUILD</span><strong>Mechanical</strong><small>3D CAD, structural design, fabrication, assembly, GD&amp;T and FEA for competition-ready robot mechanisms.</small><em>CAD · Manufacturing · Simulation</em></div>
+      <div class="team-hero-domain"><span>02 · HARDWARE</span><strong>Electronics</strong><small>Embedded systems, PCB design, wiring, sensors, actuators, power distribution and real-time control.</small><em>PCB · Embedded · Control</em></div>
+      <div class="team-hero-domain"><span>03 · INTELLIGENCE</span><strong>Programming</strong><small>ROS 2 integration, robot control, computer vision, localization, SLAM and autonomous navigation.</small><em>ROS 2 · Vision · Autonomy</em></div>
+      <div class="team-hero-domain"><span>04 · OPERATIONS</span><strong>Administration</strong><small>Project coordination, sponsorship, documentation, outreach, event management and team operations.</small><em>Planning · Outreach · Delivery</em></div>
     </div>
   </section>
 
@@ -125,8 +131,10 @@
 
   <section class="team-photo-carousel-section" aria-labelledby="team-photo-carousel-title">
     <div class="wrap team-carousel-heading">
-      <div class="kicker">OUR JOURNEY</div>
-      <h2 id="team-photo-carousel-title">Team CiPHER through the years.</h2>
+      <div class="team-carousel-heading-copy">
+        <div class="kicker">OUR JOURNEY</div>
+        <h2 id="team-photo-carousel-title">Team CiPHER through the years.</h2>
+      </div>
       <p class="lede">Scroll to move through the teams that shaped our journey.</p>
     </div>
     <div class="team-photo-rail" id="team-photo-rail">
@@ -257,7 +265,7 @@
   if(!rail||!stage||!ring)return;
   var cards=Array.prototype.slice.call(ring.querySelectorAll('.team-year-card'));
   var pole=ring.querySelector('.team-photo-pole');
-  var count=cards.length, perCard=.72, degrees=55, radius=.92, lift=.35, smooth=.13;
+  var count=cards.length, perCard=.72, degrees=72, radius=1.2, lift=.22, smooth=.13;
   var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced)smooth=1;
   var current=0,target=0,cardW=0,cardH=0,snapTimer=null;
