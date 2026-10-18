@@ -120,12 +120,21 @@
       <div class="pipeline-cycle" aria-label="Nine-stage engineering cycle">
         <svg class="pipeline-cycle-ring" viewBox="0 0 800 800" aria-hidden="true">
           <defs>
-            <marker id="pipeline-arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#4b8df8"></path>
+            <marker id="pipeline-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#4b8df8"></path>
             </marker>
           </defs>
           <circle class="pipeline-ring-base" cx="400" cy="400" r="270"></circle>
-          <path class="pipeline-ring-flow" d="M400 130 A270 270 0 1 1 399.5 130" marker-end="url(#pipeline-arrow)"></path>
+          <circle class="pipeline-ring-dots" cx="400" cy="400" r="270"></circle>
+          <path class="pipeline-direction-arrow" d="M 460.7 136.9 A 270 270 0 0 1 522.6 159.4" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 615.6 237.5 A 270 270 0 0 1 648.5 294.5" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 669.6 414.1 A 270 270 0 0 1 658.2 478.9" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 597.5 584.1 A 270 270 0 0 1 547.1 626.4" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 432.9 668.0 A 270 270 0 0 1 367.1 668.0" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 252.9 626.4 A 270 270 0 0 1 202.5 584.1" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 141.8 478.9 A 270 270 0 0 1 130.4 414.1" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 151.5 294.5 A 270 270 0 0 1 184.4 237.5" marker-end="url(#pipeline-arrow)"></path>
+          <path class="pipeline-direction-arrow" d="M 277.4 159.4 A 270 270 0 0 1 339.3 136.9" marker-end="url(#pipeline-arrow)"></path>
         </svg>
         <div class="pipeline-cycle-center"><span>TEAM CiPHER</span><strong>Engineering<br>Cycle</strong><small>Design · Build · Test · Iterate</small></div>
         <div class="pipeline-cycle-stage stage-1" data-reveal><span class="pipeline-num">01</span><strong>Concept</strong></div>
