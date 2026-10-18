@@ -3946,3 +3946,111 @@ select {
     padding:calc(var(--nav-h, 64px) + .5rem) .5rem 1rem;
   }
 }
+
+
+/* Team page leadership tree */
+.team-structure-section { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.team-structure {
+  --tree-line: #8bb5ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+  width: 100%;
+  padding: clamp(1.25rem, 4vw, 3rem) 0 clamp(1.5rem, 4vw, 3rem);
+}
+.team-structure-root,
+.team-structure-lead,
+.team-structure-team {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--line, #dbe3ee);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink, #111827);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+.team-structure-root {
+  min-width: min(16rem, 90%);
+  min-height: 4.25rem;
+  border-color: #4f8cff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.team-structure-branches {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.75rem, 2vw, 1.5rem);
+  width: 100%;
+  padding-top: 1.8rem;
+}
+.team-structure-branches::before {
+  position: absolute;
+  top: 0;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1.8rem;
+  border-top: 2px solid var(--tree-line);
+  border-left: 2px solid var(--tree-line);
+  border-right: 2px solid var(--tree-line);
+  border-radius: 10px 10px 0 0;
+  content: "";
+}
+.team-structure-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.team-structure-branch::before {
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  height: 1.8rem;
+  border-left: 2px solid var(--tree-line);
+  content: "";
+}
+.team-structure-lead { font-weight: 650; }
+.team-structure-team { min-height: 3.5rem; color: var(--muted, #52637a); }
+.team-structure-team::before {
+  position: absolute;
+  left: 50%;
+  top: -1.55rem;
+  height: 1.5rem;
+  border-left: 2px solid var(--tree-line);
+  content: "";
+}
+@media (max-width: 760px) {
+  .team-structure { gap: 1.5rem; }
+  .team-structure-branches {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-top: 0;
+    padding-left: 1.5rem;
+  }
+  .team-structure-branches::before { display: none; }
+  .team-structure-branch { gap: .75rem; }
+  .team-structure-branch::before {
+    top: 0;
+    left: -1.5rem;
+    height: 100%;
+    border-left: 2px solid var(--tree-line);
+  }
+  .team-structure-team::before {
+    top: 50%;
+    left: -1.5rem;
+    width: 1.5rem;
+    height: 0;
+    border-top: 2px solid var(--tree-line);
+    border-left: 0;
+  }
+}
