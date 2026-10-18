@@ -3130,3 +3130,44 @@ select {
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:40%; }
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:60%; }
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-start:80%; }
+
+
+/* Reliable orbit animation: animate the bubble's transform around a centered ellipse.
+   This replaces offset-path, which was not animating consistently across browsers. */
+.hero-orbit .orbit-ring .orbit-tool {
+  left:50% !important;
+  top:50% !important;
+  right:auto !important;
+  bottom:auto !important;
+  offset-path:none !important;
+  offset-distance:0% !important;
+  transform:translate(-50%,-50%) translate(var(--path-rx),0) !important;
+  animation:ciPherEllipseOrbit var(--orbit-duration,48s) linear infinite !important;
+  animation-delay:var(--orbit-delay,0s) !important;
+  animation-fill-mode:both !important;
+  will-change:transform;
+}
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0) !important; }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)) !important; }
+  50%  { transform:translate(-50%,-50%) translate(calc(-1 * var(--path-rx)),0) !important; }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(-1 * var(--path-ry))) !important; }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0) !important; }
+}
+/* Negative delays establish evenly distributed starting positions without pausing motion. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-delay:-18.67s !important; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-delay:-37.33s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-delay:-12s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-delay:-24s !important; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-delay:-36s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-delay:-10s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-delay:-20s !important; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-delay:-30s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-delay:0s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-delay:-6.4s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-delay:-12.8s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-delay:-19.2s !important; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-delay:-25.6s !important; }
