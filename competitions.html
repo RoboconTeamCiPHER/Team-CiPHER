@@ -143,6 +143,18 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('[data-carousel-prev], [data-carousel-next]').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var track = document.getElementById(button.dataset.carouselPrev || button.dataset.carouselNext);
+    if (!track) return;
+    var tile = track.querySelector('.competition-tile');
+    var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+    var distance = tile ? tile.getBoundingClientRect().width + gap : track.clientWidth * .8;
+    track.scrollBy({ left: button.hasAttribute('data-carousel-next') ? distance : -distance, behavior: 'smooth' });
+  });
+});
+</script>
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
