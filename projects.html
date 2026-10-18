@@ -154,6 +154,20 @@
     if (next) next.addEventListener('click', function () { rotateBy(-1); });
     window.addEventListener('resize', layout);
     layout();
+    function focusProjectFromHash() {
+      var targetId = decodeURIComponent(window.location.hash.slice(1));
+      if (!targetId) return;
+      var targetIndex = cards.findIndex(function (card) { return card.id === targetId; });
+      if (targetIndex < 0) return;
+      angle = -targetIndex * step;
+      velocity = 0;
+      snapTarget = null;
+      lastInteraction = performance.now();
+      render();
+      stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    window.addEventListener('hashchange', focusProjectFromHash);
+    if (window.location.hash) focusProjectFromHash();
     requestAnimationFrame(function (time) { lastTime = time; tick(time); });
   })();
   </script>
