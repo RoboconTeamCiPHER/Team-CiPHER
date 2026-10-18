@@ -42,7 +42,7 @@
   <section class="page-hero projects-hero">
     <div class="kicker">PROJECTS</div>
     <h1 data-reveal>Built to move ideas forward.</h1>
-    <p class="sub" data-reveal>Explore Team CiPHER's competition robots and member-led engineering projects in an interactive ring carousel.</p>
+    <p class="sub" data-reveal>Explore Team CiPHER's competition robots and member-led engineering projects in a rotating 3D ring.</p>
   </section>
 
   <section class="section projects-showcase" aria-labelledby="project-showcase-title">
@@ -51,26 +51,29 @@
         <div class="kicker">PROJECT PORTFOLIO</div>
         <h2 id="project-showcase-title" data-reveal>Explore the builds.</h2>
       </div>
-      <div class="project-tabs" role="tablist" aria-label="Project categories">
-        <button class="project-tab is-active" id="tab-robofest6" type="button" role="tab" aria-selected="true" aria-controls="project-ring" data-category="robofest6">Robofest 6.0</button>
-        <button class="project-tab" id="tab-robofest5" type="button" role="tab" aria-selected="false" aria-controls="project-ring" data-category="robofest5">Robofest 5.0</button>
-        <button class="project-tab" id="tab-members" type="button" role="tab" aria-selected="false" aria-controls="project-ring" data-category="members">Member's Projects</button>
-      </div>
 
       <div class="project-ring-shell">
-        <div class="project-ring-stage" id="project-ring" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Project carousel. Drag, scroll horizontally, or use arrow keys to rotate.">
-          <div class="project-ring" aria-hidden="true">
-            <div class="project-spinner" id="project-spinner"></div>
+        <div class="project-ring-stage" id="project-ring" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Project carousel. Drag, scroll, or use arrow keys to rotate.">
+          <div class="project-ring">
+            <div class="project-spinner" id="project-spinner">
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/robots/Tyson%20CAD.jpeg" alt="TYSON self-charging robot CAD" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">ROBOFEST 6.0 · COMPETITION</span><h3>TYSON</h3><p>Self-charging robot platform for AMR fleet charging and EV charging applications.</p><div class="project-ring-tech"><span>Mobile Robotics</span><span>Charging</span><span>Automation</span></div><a class="project-ring-open" href="#tyson">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/robots/Cura.jpeg" alt="CURA healthcare-assistance robot" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">ROBOFEST 6.0 · COMPETITION</span><h3>CURA</h3><p>Healthcare-assistance robot for hospital workflows, simulated with ROS 2 and Gazebo.</p><div class="project-ring-tech"><span>ROS 2 Jazzy</span><span>Gazebo Harmonic</span><span>Nav2</span></div><a class="project-ring-open" href="#cura">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/robots/Varuna.jpg" alt="VARUNA autonomous underwater vehicle" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">ROBOFEST 5.0 · COMPETITION</span><h3>VARUNA</h3><p>Vision-guided autonomous underwater vehicle for underwater perception, navigation and manipulation.</p><div class="project-ring-tech"><span>Jetson Nano</span><span>STM32</span><span>ROS 2</span></div><a class="project-ring-open" href="#varuna">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/robots/Vasudha.jpg" alt="VASUDHA precision-agriculture robot" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">ROBOFEST 5.0 · COMPETITION</span><h3>VASUDHA</h3><p>Precision-agriculture robot concept using AI plant analysis, autonomous navigation and controlled micro-dosing.</p><div class="project-ring-tech"><span>Jetson Orin Nano</span><span>Nav2</span><span>YOLOv8</span></div><a class="project-ring-open" href="#vasudha">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/robots/Karna.jpg" alt="KARNA autonomous ground vehicle" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">ROBOFEST 5.0 · COMPETITION</span><h3>KARNA</h3><p>Intelligent ground vehicle for autonomous terrain navigation, AI-assisted perception and surveillance.</p><div class="project-ring-tech"><span>Jetson Nano</span><span>STM32</span><span>LiDAR</span></div><a class="project-ring-open" href="#karna">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/projects/Fusion2Description_Logo.png" alt="FusionToDescription project logo" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">MEMBER'S PROJECT</span><h3>FusionToDescription</h3><p>Fusion 360 add-in that generates ROS 2 description packages from CAD assemblies.</p><div class="project-ring-tech"><span>Fusion 360 API</span><span>Python</span><span>URDF/Xacro</span></div><a class="project-ring-open" href="#fusiontodescription">View project details ↗</a></div></article>
+              <article class="project-ring-card"><div class="project-ring-image"><img src="assets/images/projects/amr_gazebo.png" alt="AMR simulation in Gazebo" draggable="false"></div><div class="project-ring-copy"><span class="project-ring-tag">MEMBER'S PROJECT</span><h3>AMR Simulation</h3><p>ROS 2 and Gazebo simulation covering differential drive, sensors, SLAM and autonomous navigation.</p><div class="project-ring-tech"><span>ROS 2 Jazzy</span><span>Gazebo Harmonic</span><span>Nav2</span></div><a class="project-ring-open" href="#amr-simulation">View project details ↗</a></div></article>
+            </div>
           </div>
+          <p class="project-ring-sr" id="project-live" aria-live="polite"></p>
+          <p class="project-ring-hint">Drag to rotate · Use ← → keys · Auto-rotates when idle</p>
         </div>
         <div class="project-ring-controls">
           <button type="button" class="project-ring-control" id="project-prev" aria-label="Previous project">←</button>
-          <p id="project-position" aria-live="polite">Project 1 of 2</p>
+          <p id="project-position" aria-live="polite">Project 1 of 7</p>
           <button type="button" class="project-ring-control" id="project-next" aria-label="Next project">→</button>
         </div>
-        <p class="project-ring-hint">Drag to rotate · Use ← → keys · Select a category above</p>
       </div>
-      <div class="project-detail-link" id="project-detail-link"></div>
     </div>
   </section>
 
@@ -78,149 +81,93 @@
   (function () {
     var stage = document.getElementById('project-ring');
     var spinner = document.getElementById('project-spinner');
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('.project-tab'));
+    var live = document.getElementById('project-live');
     var position = document.getElementById('project-position');
-    var detailLink = document.getElementById('project-detail-link');
-    if (!stage || !spinner || !tabs.length) return;
-
-    var projects = [
-      { name:'TYSON', category:'robofest6', tag:'ROBOFEST 6.0 · COMPETITION', image:'assets/images/robots/Tyson%20CAD.jpeg', alt:'TYSON self-charging robot CAD', description:'Self-charging robot platform for AMR fleet charging and EV charging applications.', technologies:['Mobile Robotics','Charging','Automation'], detail:'#tyson' },
-      { name:'CURA', category:'robofest6', tag:'ROBOFEST 6.0 · COMPETITION', image:'assets/images/robots/Cura.jpeg', alt:'CURA healthcare-assistance robot', description:'Healthcare-assistance robot developed by Sameer Patwardhan, Manish Patil, Sankalp Khobare and Pranshu Telwane.', technologies:['ROS 2 Jazzy','Gazebo Harmonic','Nav2'], detail:'#cura' },
-      { name:'VARUNA', category:'robofest5', tag:'ROBOFEST 5.0 · COMPETITION', image:'assets/images/robots/Varuna.jpg', alt:'VARUNA autonomous underwater vehicle', description:'Vision-guided autonomous underwater vehicle for perception, navigation and manipulation.', technologies:['Jetson Nano','STM32','ROS 2'], detail:'#varuna' },
-      { name:'VASUDHA', category:'robofest5', tag:'ROBOFEST 5.0 · COMPETITION', image:'assets/images/robots/Vasudha.jpg', alt:'VASUDHA precision-agriculture robot', description:'Precision-agriculture robot concept using AI plant analysis, autonomous navigation and controlled micro-dosing.', technologies:['Jetson Orin Nano','Nav2','YOLOv8'], detail:'#vasudha' },
-      { name:'KARNA', category:'robofest5', tag:'ROBOFEST 5.0 · COMPETITION', image:'assets/images/robots/Karna.jpg', alt:'KARNA autonomous ground vehicle', description:'Intelligent ground vehicle for autonomous terrain navigation, AI-assisted perception and surveillance.', technologies:['Jetson Nano','STM32','LiDAR'], detail:'#karna' },
-      { name:'FusionToDescription', category:'members', tag:'MEMBER’S PROJECT', image:'assets/images/projects/Fusion2Description_Logo.png', alt:'FusionToDescription project logo', description:'Fusion 360 add-in that generates ROS 2 description packages from CAD assemblies.', technologies:['Fusion 360 API','Python','URDF/Xacro'], detail:'#fusiontodescription' },
-      { name:'AMR Simulation', category:'members', tag:'MEMBER’S PROJECT', image:'assets/images/projects/amr_gazebo.png', alt:'AMR simulation in Gazebo', description:'ROS 2 and Gazebo simulation for differential drive, sensors, SLAM and autonomous navigation.', technologies:['ROS 2 Jazzy','Gazebo Harmonic','Nav2'], detail:'#amr-simulation' }
-    ];
-
-    var activeCategory = 'robofest6';
-    var cards = [];
-    var angle = 0;
-    var step = 180;
-    var radius = 0;
-    var dragging = false;
-    var lastX = 0;
-    var velocity = 0;
-    var frame = 0;
-    var lastTime = 0;
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function renderCategory(category) {
-      activeCategory = category;
-      var visible = projects.filter(function (project) { return project.category === category; });
-      spinner.innerHTML = '';
-      cards = visible.map(function (project, index) {
-        var card = document.createElement('article');
-        card.className = 'project-ring-card';
-        card.setAttribute('aria-label', project.name);
-        card.innerHTML = '<div class="project-ring-image"><img src="' + project.image + '" alt="' + project.alt + '" draggable="false"></div>' +
-          '<div class="project-ring-copy"><span class="project-ring-tag"></span><h3></h3><p></p><div class="project-ring-tech"></div></div>';
-        card.querySelector('.project-ring-tag').textContent = project.tag;
-        card.querySelector('h3').textContent = project.name;
-        card.querySelector('p').textContent = project.description;
-        project.technologies.forEach(function (technology) {
-          var chip = document.createElement('span');
-          chip.textContent = technology;
-          card.querySelector('.project-ring-tech').appendChild(chip);
-        });
-        spinner.appendChild(card);
-        return card;
-      });
-      step = 360 / cards.length;
-      angle = 0;
-      velocity = 0;
-      layout();
-      tabs.forEach(function (tab) {
-        var selected = tab.dataset.category === category;
-        tab.classList.toggle('is-active', selected);
-        tab.setAttribute('aria-selected', String(selected));
-        tab.tabIndex = selected ? 0 : -1;
-      });
-      detailLink.textContent = '';
-      position.textContent = 'Project 1 of ' + cards.length;
-    }
-
+    if (!stage || !spinner) return;
+    var cards = Array.prototype.slice.call(spinner.querySelectorAll('.project-ring-card'));
+    var count = cards.length;
+    var step = 360 / count;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var autoSpeed = reducedMotion ? 0 : 4;
+    var angle = 0, velocity = 0, dragging = false, lastX = 0, lastInteraction = 0, snapTarget = null;
+    var lastTime = performance.now(), lastFront = -1, radius = 0;
     function layout() {
       if (!cards.length) return;
-      var width = Math.min(window.innerWidth < 720 ? window.innerWidth * .78 : 430, 430);
-      var cardHeight = Math.round(width * .93);
-      stage.style.setProperty('--project-card-width', width + 'px');
-      stage.style.setProperty('--project-card-height', cardHeight + 'px');
-      radius = cards.length > 1 ? (width / 2 + 34) / Math.tan(Math.PI / cards.length) : 0;
+      var width = cards[0].getBoundingClientRect().width || Math.min(window.innerWidth * .78, 460);
+      radius = (width / 2) / Math.tan(Math.PI / count);
       cards.forEach(function (card, index) {
-        card.style.transform = 'rotateY(' + (index * step) + 'deg) translateZ(' + radius + 'px)';
+        card.style.setProperty('--card-angle', (index * step) + 'deg');
+        card.style.setProperty('--card-radius', radius + 'px');
       });
-      spinner.style.transform = 'translateZ(' + (-radius) + 'px) rotateY(' + angle + 'deg)';
-      updatePosition();
+      render();
     }
-
-    function updatePosition() {
-      if (!cards.length) return;
+    function render() {
       spinner.style.transform = 'translateZ(' + (-radius) + 'px) rotateY(' + angle + 'deg)';
-      var front = ((Math.round((-angle % 360 + 360) % 360 / step) % cards.length) + cards.length) % cards.length;
-      cards.forEach(function (card, index) { card.classList.toggle('is-front', index === front); });
-      position.textContent = 'Project ' + (front + 1) + ' of ' + cards.length + ' · ' + (projects.filter(function (p) { return p.category === activeCategory; })[front].name);
+      var front = Math.round((((-angle % 360) + 360) % 360) / step) % count;
+      if (front !== lastFront) {
+        cards.forEach(function (card, index) { card.classList.toggle('is-front', index === front); });
+        var heading = cards[front].querySelector('h3');
+        live.textContent = heading ? heading.textContent : '';
+        position.textContent = 'Project ' + (front + 1) + ' of ' + count + ' · ' + (heading ? heading.textContent : '');
+        lastFront = front;
+      }
     }
-
-    function go(direction) {
-      angle = Math.round(angle / step) * step + direction * step;
+    function rotateBy(direction) {
+      snapTarget = Math.round(angle / step) * step + direction * step;
       velocity = 0;
-      updatePosition();
+      lastInteraction = performance.now();
     }
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () { renderCategory(tab.dataset.category); });
-      tab.addEventListener('keydown', function (event) {
-        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-        event.preventDefault();
-        var index = tabs.indexOf(tab);
-        tabs[(index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length].focus();
-        tabs[(index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length].click();
-      });
-    });
-    document.getElementById('project-prev').addEventListener('click', function () { go(1); });
-    document.getElementById('project-next').addEventListener('click', function () { go(-1); });
+    function tick(now) {
+      var dt = Math.min((now - lastTime) / 1000, .05);
+      lastTime = now;
+      if (!dragging) {
+        if (snapTarget !== null) {
+          angle += (snapTarget - angle) * Math.min(1, dt * 7);
+          if (Math.abs(snapTarget - angle) < .05) { angle = snapTarget; snapTarget = null; }
+        } else if (Math.abs(velocity) > .02) {
+          angle += velocity;
+          velocity *= .94;
+        } else {
+          velocity = 0;
+          if (lastInteraction && now - lastInteraction < 1500) snapTarget = Math.round(angle / step) * step;
+          else angle += autoSpeed * dt;
+        }
+      }
+      render();
+      requestAnimationFrame(tick);
+    }
     stage.addEventListener('pointerdown', function (event) {
       if (event.target.closest('a')) return;
-      dragging = true; lastX = event.clientX; velocity = 0;
-      stage.classList.add('is-dragging'); stage.setPointerCapture(event.pointerId);
+      dragging = true; snapTarget = null; velocity = 0; lastX = event.clientX;
+      lastInteraction = performance.now(); stage.classList.add('is-dragging');
+      stage.setPointerCapture(event.pointerId);
     });
     stage.addEventListener('pointermove', function (event) {
       if (!dragging) return;
-      var delta = event.clientX - lastX; lastX = event.clientX;
-      angle += delta * .35; velocity = delta * .35; updatePosition();
+      var dx = event.clientX - lastX; lastX = event.clientX;
+      var delta = dx * .25; angle += delta; velocity = delta; lastInteraction = performance.now();
     });
     function endDrag(event) {
       if (!dragging) return;
-      dragging = false; stage.classList.remove('is-dragging');
+      dragging = false; stage.classList.remove('is-dragging'); lastInteraction = performance.now();
       try { stage.releasePointerCapture(event.pointerId); } catch (error) {}
-      if (Math.abs(velocity) > 1) angle += velocity * 1.4;
-      angle = Math.round(angle / step) * step; velocity = 0; updatePosition();
     }
     stage.addEventListener('pointerup', endDrag);
     stage.addEventListener('pointercancel', endDrag);
     stage.addEventListener('wheel', function (event) {
       var delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : (event.shiftKey ? event.deltaY : 0);
       if (!delta) return;
-      event.preventDefault(); go(delta > 0 ? -1 : 1);
+      event.preventDefault(); snapTarget = null; angle -= delta * .15; velocity = 0; lastInteraction = performance.now();
     }, { passive:false });
     stage.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); go(-1); }
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); go(1); }
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); rotateBy(-1); }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); rotateBy(1); }
     });
+    document.getElementById('project-prev').addEventListener('click', function () { rotateBy(1); });
+    document.getElementById('project-next').addEventListener('click', function () { rotateBy(-1); });
     window.addEventListener('resize', layout);
-    renderCategory(activeCategory);
-    if (!reduceMotion) {
-      function animate(time) {
-        if (lastTime && !dragging && Math.abs(velocity) > .05) {
-          angle += velocity;
-          velocity *= .88;
-          updatePosition();
-        }
-        lastTime = time;
-        frame = window.requestAnimationFrame(animate);
-      }
-      frame = window.requestAnimationFrame(animate);
-    }
+    layout();
+    requestAnimationFrame(function (time) { lastTime = time; tick(time); });
   })();
   </script>
 </main>
