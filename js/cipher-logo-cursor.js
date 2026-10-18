@@ -93,7 +93,7 @@
     dustCtx.clearRect(0, 0, w, h);
     specks.forEach(s => {
       dustCtx.globalAlpha = .06 + .16 * Math.abs(Math.sin(t * .8 + s.phase));
-      dustCtx.fillStyle = '#000';
+      dustCtx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#ffffff' : '#000000';
       dustCtx.beginPath(); dustCtx.arc(s.x * w, s.y * h, s.r, 0, Math.PI * 2); dustCtx.fill();
     });
     dustCtx.globalAlpha = 1;
@@ -139,7 +139,7 @@
     for (let layer = depthLayers; layer >= 1; layer--) {
       for (const p of faces) {
         ctx.globalAlpha = p.alpha;
-        ctx.fillStyle = '#050505';
+        ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#ffffff' : '#050505';
         ctx.fillRect(p.x - depthX * layer + p.size * .45,
                      p.y + depthY * layer + p.size * .45,
                      p.size, p.size);
