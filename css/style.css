@@ -3744,3 +3744,14 @@ select {
     height:calc(100svh - var(--nav-height, 64px) - 64px - 70px) !important;
   }
 }
+
+
+/* Projects page: keep the navbar transparent and never blur the content behind it */
+.projects-page .nav,
+.projects-page .nav.is-scrolled {
+  background:transparent !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  box-shadow:none !important;
+  border-bottom-color:transparent !important;
+}
