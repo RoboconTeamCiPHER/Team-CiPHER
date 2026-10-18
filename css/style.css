@@ -3611,3 +3611,46 @@ select {
   .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
   .projects-page .project-ring-controls { margin:.15rem 0; }
 }
+
+
+/* Let the ring carousel dominate the full Projects viewport */
+.projects-page .projects-showcase {
+  min-height:calc(100vh - var(--nav-height, 64px) - 64px);
+  padding:0 !important;
+}
+.projects-page .projects-showcase > .wrap {
+  min-height:inherit;
+  padding:0;
+  max-width:none;
+}
+.projects-page .project-ring-shell { min-height:inherit; }
+.projects-page .project-ring-stage {
+  height:calc(100vh - var(--nav-height, 64px) - 150px);
+  min-height:620px;
+  max-height:none;
+}
+.projects-page .project-ring {
+  --project-card-width:min(42vw, 520px);
+  --project-card-height:min(62vh, 560px);
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+}
+.projects-page .project-ring-image { flex-basis:44%; height:44%; }
+.projects-page .project-ring-copy { padding:1.25rem 1.4rem; }
+.projects-page .project-ring-copy h3 { font-size:clamp(1.35rem,2vw,1.8rem); }
+.projects-page .project-ring-copy p { font-size:clamp(.9rem,1.1vw,1.05rem); }
+.projects-page .project-ring-tag { font-size:.72rem; }
+.projects-page .project-ring-tech span { font-size:.72rem; padding:.3rem .6rem; }
+.projects-page .project-ring-open { font-size:.9rem; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase { min-height:calc(100svh - 124px); }
+  .projects-page .projects-showcase > .wrap { padding:0; }
+  .projects-page .project-ring-stage { height:calc(100svh - 155px); min-height:520px; }
+  .projects-page .project-ring { --project-card-width:min(76vw, 390px); --project-card-height:min(58svh, 470px); }
+  .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
+  .projects-page .project-ring-copy { padding:.95rem 1rem; }
+}
