@@ -12,6 +12,35 @@
 <link rel="stylesheet" href="css/style.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/animations.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/responsive.css?v=nav-fix-2">
+<style>
+.team-domain-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--surface,rgba(255,255,255,.55))}
+.team-domain-table{width:100%;border-collapse:collapse;text-align:left;min-width:650px}
+.team-domain-table th,.team-domain-table td{padding:1.1rem 1.25rem;border-bottom:1px solid var(--border);vertical-align:top}
+.team-domain-table thead th{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);font-weight:600;background:rgba(120,140,160,.07)}
+.team-domain-table tbody th{font-size:1rem;white-space:nowrap}
+.team-domain-table tbody td{color:var(--text-dim);line-height:1.55}
+.team-domain-table tbody tr:last-child th,.team-domain-table tbody tr:last-child td{border-bottom:0}
+.team-photo-carousel-section{border-block:1px solid var(--border);margin-top:1rem}
+.team-carousel-heading{padding-top:clamp(3rem,6vw,5rem);padding-bottom:1.5rem}
+.team-carousel-heading h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;letter-spacing:-.04em;max-width:18ch;margin:.5rem 0}
+.team-photo-rail{position:relative;height:calc(100vh + 4 * 82vh)}
+.team-photo-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#080b11;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.2px);background-size:24px 24px;perspective:1450px;perspective-origin:50% 48%}
+.team-photo-ring{position:absolute;inset:0;transform-style:preserve-3d}
+.team-photo-pole{position:absolute;left:50%;top:-10%;height:120%;width:8px;margin-left:-4px;border-radius:8px;background:linear-gradient(90deg,#1b2029,#667080 50%,#1b2029);opacity:.45;pointer-events:none}
+.team-year-card{position:absolute;left:50%;top:50%;width:min(54vw,680px);aspect-ratio:3/2;margin-left:min(-27vw,-340px);margin-top:min(-18vw,-170px);transform-style:preserve-3d;cursor:pointer;outline:none;text-decoration:none;will-change:transform;--card-brightness:1;--card-opacity:1}
+.team-year-card:focus-visible .team-year-front{outline:3px solid #2f6bff;outline-offset:5px}
+.team-year-face{position:absolute;inset:0;overflow:hidden;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;filter:brightness(var(--card-brightness));opacity:var(--card-opacity);box-shadow:0 20px 60px rgba(0,0,0,.42)}
+.team-year-front{background:var(--team-photo) center/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(1.2rem,3vw,2.5rem)}
+.team-year-front::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,8,16,.02) 25%,rgba(3,8,16,.18) 48%,rgba(3,8,16,.9) 100%)}
+.team-year-label{position:relative;z-index:1;color:#fff;font-size:clamp(1.4rem,3.2vw,2.8rem);font-weight:750;letter-spacing:-.035em;text-shadow:0 2px 12px rgba(0,0,0,.65)}
+.team-photo-missing{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:rgba(255,255,255,.72);font-size:clamp(.9rem,1.5vw,1.2rem);line-height:1.7;letter-spacing:.06em;text-transform:uppercase}
+.team-year-face.team-year-back{transform:rotateY(180deg);background:#101722}
+.team-carousel-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:90%;text-align:center;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#9ba7b9;pointer-events:none}
+#team-history{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
+.team-season{scroll-margin-top:calc(var(--nav-h,80px) + 1rem)}
+@media(max-width:720px){.team-year-card{width:76vw;margin-left:-38vw;margin-top:-25.33vw}.team-photo-rail{height:calc(100vh + 4 * 70vh)}.team-domain-table th,.team-domain-table td{padding:.9rem}.team-carousel-hint{font-size:.62rem}}
+@media(prefers-reduced-motion:reduce){.team-year-card{will-change:auto}}
+</style>
 </head>
 <body>
 
@@ -46,28 +75,53 @@
     <p class="sub" data-reveal>Founded in 2018, Team CiPHER is a multidisciplinary robotics team organized across mechanical, electronics, programming and administration. Explore the leadership and member structure of each competition cycle.</p>
   </section>
 
-  <section class="section section-first team-structure-section">
+  <section class="section section-first team-domain-section" id="team-domains">
     <div class="wrap">
-      <div class="team-structure" data-reveal aria-label="Team CiPHER leadership structure">
-        <div class="team-structure-root">Team Captain</div>
-        <div class="team-structure-branches">
-          <div class="team-structure-branch">
-            <div class="team-structure-lead">Mechanical Lead</div>
-            <div class="team-structure-team">Mechanical Team</div>
-          </div>
-          <div class="team-structure-branch">
-            <div class="team-structure-lead">Electronics Lead</div>
-            <div class="team-structure-team">Electronics Team</div>
-          </div>
-          <div class="team-structure-branch">
-            <div class="team-structure-lead">Programming Lead</div>
-            <div class="team-structure-team">Programming Team</div>
-          </div>
-          <div class="team-structure-branch">
-            <div class="team-structure-lead">Administration Lead</div>
-            <div class="team-structure-team">Administration Team</div>
-          </div>
+      <div class="section-head">
+        <h2 data-reveal>Team domains.</h2>
+        <p class="lede" data-reveal>Four domains working together to design, build and compete.</p>
+      </div>
+      <div class="team-domain-table-wrap" data-reveal>
+        <table class="team-domain-table">
+          <thead><tr><th scope="col">Domain</th><th scope="col">Primary responsibilities</th><th scope="col">Core focus</th></tr></thead>
+          <tbody>
+            <tr id="mechanical"><th scope="row">Mechanical</th><td>CAD design, fabrication, assembly and mechanical analysis</td><td>Design · Manufacturing · Simulation</td></tr>
+            <tr id="electronics"><th scope="row">Electronics</th><td>Embedded systems, sensors, wiring, actuators and control hardware</td><td>PCB · Embedded · Control</td></tr>
+            <tr id="programming"><th scope="row">Programming</th><td>Robot software, autonomy, computer vision and system integration</td><td>ROS 2 · Vision · Autonomy</td></tr>
+            <tr id="administration"><th scope="row">Administration</th><td>Operations, documentation, outreach, sponsorship and coordination</td><td>Planning · Outreach · Operations</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-photo-carousel-section" aria-labelledby="team-photo-carousel-title">
+    <div class="wrap team-carousel-heading">
+      <div class="kicker">OUR JOURNEY</div>
+      <h2 id="team-photo-carousel-title">Team CiPHER through the years.</h2>
+      <p class="lede">Scroll to move through the teams that shaped our journey.</p>
+    </div>
+    <div class="team-photo-rail" id="team-photo-rail">
+      <div class="team-photo-stage" id="team-photo-stage" aria-label="Team CiPHER historical team photo carousel">
+        <div class="team-photo-ring" id="team-photo-ring">
+          <div class="team-photo-pole" aria-hidden="true"></div>
+          <a class="team-year-card team-year-2021" href="#team-2021" aria-label="Team CiPHER 2021–22 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:linear-gradient(135deg,#1a2637,#55677c 50%,#10151d)"><span class="team-photo-missing">Historical team photo<br>not available</span><span class="team-year-label">Team CiPHER 2021–22</span></div><div class="team-year-face team-year-back"></div>
+          </a>
+          <a class="team-year-card team-year-2022" href="#team-2022" aria-label="Team CiPHER 2022–23 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:linear-gradient(135deg,#3b2e26,#806a52 50%,#171717)"><span class="team-photo-missing">Historical team photo<br>not available</span><span class="team-year-label">Team CiPHER 2022–23</span></div><div class="team-year-face team-year-back"></div>
+          </a>
+          <a class="team-year-card team-year-2023" href="#team-2023" aria-label="Team CiPHER 2023–24 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2023.jpeg')"><span class="team-year-label">Team CiPHER 2023–24</span></div><div class="team-year-face team-year-back"></div>
+          </a>
+          <a class="team-year-card team-year-2024" href="#team-2024" aria-label="Team CiPHER 2024–25 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2024.jpeg')"><span class="team-year-label">Team CiPHER 2024–25</span></div><div class="team-year-face team-year-back"></div>
+          </a>
+          <a class="team-year-card team-year-2025" href="#team-2025" aria-label="Team CiPHER 2025–26 team details">
+            <div class="team-year-face team-year-front" style="--team-photo:url('assets/images/competitions/robocon2025.jpeg')"><span class="team-year-label">Team CiPHER 2025–26</span></div><div class="team-year-face team-year-back"></div>
+          </a>
         </div>
+        <p class="team-carousel-hint">Scroll to explore · Select a card to view team details</p>
       </div>
     </div>
   </section>
@@ -116,45 +170,6 @@
   </div>
 </section>
 
-<section class="section team-photos" id="team-photos">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 data-reveal>Team Photos.</h2>
-      <p class="lede" data-reveal>Previous DD Robocon team photographs, preserved with the corresponding competition season.</p>
-    </div>
-    <div class="team-photo-archive">
-      <article class="team-photo-card" data-reveal>
-        <div class="team-photo-frame g-item" data-lightbox>
-          <img src="assets/images/competitions/robocon2023.jpeg" alt="Team CiPHER at DD Robocon 2023" loading="lazy">
-        </div>
-        <div class="team-photo-caption">Team CiPHER 2023</div>
-      </article>
-      <article class="team-photo-card" data-reveal>
-        <div class="team-photo-frame g-item" data-lightbox>
-          <img src="assets/images/competitions/robocon2024.jpeg" alt="Team CiPHER at DD Robocon 2024" loading="lazy">
-        </div>
-        <div class="team-photo-caption">Team CiPHER 2024</div>
-      </article>
-      <article class="team-photo-card" data-reveal>
-        <div class="team-photo-frame g-item" data-lightbox>
-          <img src="assets/images/competitions/robocon2025.jpeg" alt="Team CiPHER at DD Robocon 2025" loading="lazy">
-        </div>
-        <div class="team-photo-caption">Team CiPHER 2025</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section cta">
-    <div class="wrap">
-      <h2 data-reveal>Want to join?</h2>
-      <p class="lede" data-reveal>Team CiPHER is always looking for people across mechanical, electronics, programming and administration.</p>
-      <div class="cta-buttons" data-reveal>
-        <a class="btn btn-solid" href="contact.html">Get in touch →</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer class="site-footer">
@@ -192,6 +207,32 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var rail=document.getElementById('team-photo-rail');
+  var stage=document.getElementById('team-photo-stage');
+  var ring=document.getElementById('team-photo-ring');
+  if(!rail||!stage||!ring)return;
+  var cards=Array.prototype.slice.call(ring.querySelectorAll('.team-year-card'));
+  var pole=ring.querySelector('.team-photo-pole');
+  var count=cards.length, perCard=.82, degrees=64, radius=1.02, lift=.48, smooth=.13;
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced)smooth=1;
+  var current=0,target=0,cardW=0,cardH=0,snapTimer=null;
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+  function measure(){cardW=cards[0].offsetWidth;cardH=cards[0].offsetHeight;pole.style.transform='translateZ('+(-radius*cardW)+'px)';rail.style.height=(window.innerHeight*(1+(count-1)*perCard))+'px'}
+  function range(){return Math.max(1,rail.offsetHeight-window.innerHeight)}
+  function top(){return rail.getBoundingClientRect().top+window.scrollY}
+  function read(){target=clamp((window.scrollY-top())/range(),0,1)*(count-1)}
+  function layout(){cards.forEach(function(card,i){var d=i-current,a=Math.abs(d),theta=d*degrees*Math.PI/180,x=radius*cardW*Math.sin(theta),z=radius*cardW*(Math.cos(theta)-1),y=d*lift*cardH,face=(Math.cos(theta)+1)/2,brightness=.52+.48*face,opacity=1-clamp((a-2.8)/1.4,0,1);card.style.transform='translate3d('+x+'px,'+y+'px,'+z+'px) rotateY('+(d*degrees)+'deg)';card.style.setProperty('--card-brightness',brightness.toFixed(3));card.style.setProperty('--card-opacity',opacity.toFixed(3));card.style.pointerEvents=opacity<.05?'none':'auto';card.setAttribute('aria-current',a<.5?'true':'false')})}
+  function goTo(index){index=clamp(index,0,count-1);window.scrollTo({top:top()+(index/(count-1))*range(),behavior:reduced?'auto':'smooth'})}
+  function tick(){read();var diff=target-current;current=Math.abs(diff)<.0005?target:current+diff*smooth;layout();requestAnimationFrame(tick)}
+  function scheduleSnap(){if(reduced)return;clearTimeout(snapTimer);snapTimer=setTimeout(function(){var p=(window.scrollY-top())/range();if(p>0&&p<1)goTo(Math.round(p*(count-1)))},150)}
+  cards.forEach(function(card,i){card.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();goTo(i);var targetId=card.getAttribute('href');history.replaceState(null,'',targetId)});card.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(Math.min(i+1,count-1));cards[Math.min(i+1,count-1)].focus({preventScroll:true})}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(Math.max(i-1,0));cards[Math.max(i-1,0)].focus({preventScroll:true})}})});
+  window.addEventListener('scroll',scheduleSnap,{passive:true});window.addEventListener('resize',measure);
+  measure();read();current=target;layout();requestAnimationFrame(tick);
+})();
+</script>
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>
