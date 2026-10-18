@@ -3024,3 +3024,57 @@ select {
   offset-position:50% 50% !important;
   offset-anchor:50% 50% !important;
 }
+
+
+/* Orbit motion-path fix v2: define each ellipse in the ring's own box.
+   Bubble positions are animated along the path; the center logo stays fixed. */
+.hero-orbit .orbit-ring .orbit-tool {
+  left:0 !important;
+  top:0 !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  translate:none !important;
+  rotate:0deg !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 50% 50%) !important;
+  offset-position:normal !important;
+  offset-anchor:50% 50% !important;
+  offset-rotate:0deg !important;
+  animation:ciPherToolOrbit var(--orbit-duration, 48s) linear infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
+}
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:34s; }
+
+/* Evenly distribute bubbles on their assigned track so none begin stacked. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:20%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:40%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:60%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-start:80%; }
+
+@media(max-width:1100px) {
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:34vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:28vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:22vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:16vh; }
+}
+@media(max-width:700px) {
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:31vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:25vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:19vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
+}
