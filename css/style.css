@@ -3817,3 +3817,70 @@ select {
     height:calc(100svh - 64px - 70px) !important;
   }
 }
+
+
+/* Final layout: show the entire project ring below the fixed navbar; keep footer below the first viewport */
+.projects-page .projects-showcase {
+  margin-top:72px !important;
+  height:calc(100vh - 72px) !important;
+  min-height:calc(100vh - 72px) !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+}
+.projects-page .projects-showcase > .wrap {
+  width:100% !important;
+  max-width:none !important;
+  height:100% !important;
+  min-height:0 !important;
+  padding:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.projects-page .project-ring-shell {
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:100% !important;
+  display:flex !important;
+  align-items:stretch !important;
+}
+.projects-page .project-ring-stage {
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.projects-page .project-ring {
+  --project-card-width:min(35vw, 480px);
+  --project-card-height:min(52vh, 500px);
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+  flex:0 0 auto;
+  margin:0 auto;
+}
+.projects-page .project-ring-card {
+  width:var(--project-card-width) !important;
+  height:var(--project-card-height) !important;
+}
+.projects-page .project-ring-hint,
+.projects-page .project-ring-controls { display:none !important; }
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:64px !important;
+    height:calc(100svh - 64px) !important;
+    min-height:calc(100svh - 64px) !important;
+  }
+  .projects-page .project-ring {
+    --project-card-width:min(66vw, 340px);
+    --project-card-height:min(48svh, 420px);
+  }
+  .projects-page .project-ring-card {
+    width:var(--project-card-width) !important;
+    height:var(--project-card-height) !important;
+  }
+}
