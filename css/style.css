@@ -4397,3 +4397,6 @@ select {
 :root[data-theme="dark"] .home-page .nav-toggle span {
   background:#fff !important;
 }
+
+
+:root[data-theme="dark"] .home-page .footer-team-logo { filter:none !important; }
