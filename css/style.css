@@ -3258,8 +3258,9 @@ select {
 }
 
 
-/* ---- About page: circular nine-stage engineering cycle ---- */
+/* ---- About page: evenly spaced nine-stage engineering cycle ---- */
 .pipeline-cycle {
+  --cycle-radius: 35%;
   position: relative;
   width: min(100%, 820px);
   aspect-ratio: 1;
@@ -3271,8 +3272,8 @@ select {
   inset: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
   z-index: -1;
+  overflow: visible;
 }
 .pipeline-ring-base {
   fill: none;
@@ -3282,16 +3283,16 @@ select {
 .pipeline-ring-flow {
   fill: none;
   stroke: #4b8df8;
-  stroke-width: 7;
+  stroke-width: 4;
   stroke-linecap: round;
-  stroke-dasharray: 12 13;
-  opacity: .85;
+  stroke-dasharray: 7 10;
+  opacity: .9;
 }
 .pipeline-cycle-center {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 30%;
+  width: 29%;
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   display: flex;
@@ -3323,9 +3324,11 @@ select {
 }
 .pipeline-cycle-stage {
   position: absolute;
-  width: 26%;
-  min-height: 66px;
-  padding: .85rem 1rem;
+  left: 50%;
+  top: 50%;
+  width: 25%;
+  min-height: 64px;
+  padding: .75rem 1rem;
   display: flex;
   align-items: center;
   gap: .65rem;
@@ -3333,7 +3336,18 @@ select {
   border-radius: 12px;
   background: var(--bg);
   box-shadow: 0 6px 20px rgba(20, 35, 60, .06);
+  transform: translate(-50%, -50%);
 }
+/* Stage centers are calculated from one shared radius and 40-degree increments. */
+.pipeline-cycle-stage.stage-1 { left: 50%; top: 15%; }
+.pipeline-cycle-stage.stage-2 { left: 72.5%; top: 22.2%; }
+.pipeline-cycle-stage.stage-3 { left: 84.5%; top: 41.3%; }
+.pipeline-cycle-stage.stage-4 { left: 80%; top: 64.5%; }
+.pipeline-cycle-stage.stage-5 { left: 61.7%; top: 80.5%; }
+.pipeline-cycle-stage.stage-6 { left: 38.3%; top: 80.5%; }
+.pipeline-cycle-stage.stage-7 { left: 20%; top: 64.5%; }
+.pipeline-cycle-stage.stage-8 { left: 15.5%; top: 41.3%; }
+.pipeline-cycle-stage.stage-9 { left: 27.5%; top: 22.2%; }
 .pipeline-cycle-stage .pipeline-num {
   display: inline-flex;
   align-items: center;
@@ -3351,32 +3365,14 @@ select {
   font-size: clamp(.78rem, 1.35vw, 1.05rem);
   line-height: 1.2;
 }
-.pipeline-cycle-stage.stage-1 { left: 37%; top: 0; transform: translateX(-50%); }
-.pipeline-cycle-stage.stage-2 { left: 69%; top: 7%; }
-.pipeline-cycle-stage.stage-3 { right: 0; top: 31%; }
-.pipeline-cycle-stage.stage-4 { right: 5%; top: 61%; }
-.pipeline-cycle-stage.stage-5 { left: 50%; bottom: 0; transform: translateX(-50%); }
-.pipeline-cycle-stage.stage-6 { left: 5%; top: 72%; }
-.pipeline-cycle-stage.stage-7 { left: 0; top: 43%; }
-.pipeline-cycle-stage.stage-8 { left: 5%; top: 17%; }
-.pipeline-cycle-stage.stage-9 { left: 37%; top: 83%; transform: translate(-50%, -100%); }
 @media (max-width: 620px) {
   .pipeline-cycle { width: 100%; margin-top: 1.5rem; }
-  .pipeline-cycle-center { width: 29%; padding: .35rem; gap: .25rem; }
+  .pipeline-cycle-center { width: 27%; padding: .35rem; gap: .25rem; }
   .pipeline-cycle-center span { font-size: .48rem; }
   .pipeline-cycle-center small { display: none; }
-  .pipeline-cycle-stage { width: 31%; min-height: 48px; padding: .45rem; gap: .35rem; border-radius: 8px; }
-  .pipeline-cycle-stage .pipeline-num { flex-basis: 1.45rem; width: 1.45rem; height: 1.45rem; font-size: .6rem; }
-  .pipeline-cycle-stage strong { font-size: clamp(.62rem, 2.6vw, .85rem); }
-  .pipeline-cycle-stage.stage-1 { left: 35%; top: 1%; }
-  .pipeline-cycle-stage.stage-2 { left: 66%; top: 9%; }
-  .pipeline-cycle-stage.stage-3 { right: -1%; top: 32%; }
-  .pipeline-cycle-stage.stage-4 { right: 1%; top: 62%; }
-  .pipeline-cycle-stage.stage-5 { left: 50%; bottom: 0; }
-  .pipeline-cycle-stage.stage-6 { left: 1%; top: 73%; }
-  .pipeline-cycle-stage.stage-7 { left: -1%; top: 45%; }
-  .pipeline-cycle-stage.stage-8 { left: 1%; top: 18%; }
-  .pipeline-cycle-stage.stage-9 { left: 37%; top: 83%; }
+  .pipeline-cycle-stage { width: 29%; min-height: 46px; padding: .4rem; gap: .3rem; border-radius: 8px; }
+  .pipeline-cycle-stage .pipeline-num { flex-basis: 1.35rem; width: 1.35rem; height: 1.35rem; font-size: .58rem; }
+  .pipeline-cycle-stage strong { font-size: clamp(.58rem, 2.5vw, .8rem); }
 }
 @media (prefers-reduced-motion: reduce) {
   .pipeline-cycle-stage { transition: none; }
