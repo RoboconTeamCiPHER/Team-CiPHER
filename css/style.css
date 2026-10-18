@@ -4152,3 +4152,24 @@ select {
   .hero-cipher-cursor { height: 100svh !important; min-height: 100svh !important; padding: 64px .5rem .5rem !important; }
   .cipher-cursor-scene { height: calc(100svh - 64px - .5rem) !important; min-height: 0 !important; }
 }
+
+
+/* Homepage CiPHER particle-assembly hero: hide scroll marker and keep a fixed logo scale */
+.hero-cipher-cursor {
+  height:100svh !important; min-height:100svh !important; max-height:100svh !important;
+  padding:var(--nav-h) 0 0 !important; justify-content:center !important; overflow:hidden !important;
+  background:#fff !important; border-bottom:1px solid #dbe3ee !important;
+}
+.hero-cipher-cursor .hero-scroll { display:none !important; }
+.cipher-cursor-scene {
+  position:relative; width:100% !important; height:calc(100svh - var(--nav-h)) !important;
+  min-height:0 !important; max-height:none !important; overflow:hidden; cursor:grab;
+  touch-action:none; user-select:none;
+}
+.cipher-cursor-scene.is-dragging { cursor:grabbing; }
+#cipher-cursor-canvas,#cipher-cursor-dust { position:absolute; inset:0; width:100%; height:100%; display:block; }
+#cipher-cursor-dust { pointer-events:none; }
+@media(max-width:700px) {
+  .hero-cipher-cursor { height:100svh !important; min-height:100svh !important; padding:64px 0 0 !important; }
+  .cipher-cursor-scene { height:calc(100svh - 64px) !important; }
+}
