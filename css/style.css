@@ -4400,3 +4400,191 @@ select {
 
 
 :root[data-theme="dark"] .home-page .footer-team-logo { filter:none !important; }
+
+
+/* ==========================================================================
+   GLOBAL DARK MODE COMPLETION — shared by every page
+   ========================================================================== */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:#050505;
+  --surface:#101010;
+  --surface-2:#171717;
+  --text:#f5f5f5;
+  --text-dim:#c0c0c0;
+  --text-faint:#929292;
+  --border:#2b2b2b;
+  --border-bright:#454545;
+}
+:root[data-theme="dark"] body {
+  background:#050505 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] main,
+:root[data-theme="dark"] section,
+:root[data-theme="dark"] .page-hero,
+:root[data-theme="dark"] .page-section,
+:root[data-theme="dark"] .content-section,
+:root[data-theme="dark"] .section,
+:root[data-theme="dark"] .hero,
+:root[data-theme="dark"] .hero-content,
+:root[data-theme="dark"] .site-main {
+  color:var(--text);
+}
+:root[data-theme="dark"] .nav,
+:root[data-theme="dark"] .nav.is-scrolled,
+:root[data-theme="dark"] .projects-page .nav,
+:root[data-theme="dark"] .projects-page .nav.is-scrolled {
+  background:rgba(0,0,0,.96) !important;
+  border-bottom-color:#292929 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .nav-logo-image {
+  filter:brightness(0) invert(1) !important;
+}
+:root[data-theme="dark"] .nav-links a,
+:root[data-theme="dark"] .nav-links a:hover,
+:root[data-theme="dark"] .nav-links a[aria-current="page"],
+:root[data-theme="dark"] .nav-chevron,
+:root[data-theme="dark"] .nav-theme-toggle,
+:root[data-theme="dark"] .mobile-menu,
+:root[data-theme="dark"] .mobile-menu a,
+:root[data-theme="dark"] .mobile-menu .mobile-close,
+:root[data-theme="dark"] .mobile-menu .mobile-theme-toggle {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .nav-theme-toggle,
+:root[data-theme="dark"] .mobile-theme-toggle {
+  background:#090909 !important;
+  border-color:#3c3c3c !important;
+}
+:root[data-theme="dark"] .nav-popover,
+:root[data-theme="dark"] .nav-item .nav-popover,
+:root[data-theme="dark"] .nav-popover > a:not(.competition-popover-card),
+:root[data-theme="dark"] .competition-popover-card {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .nav-popover strong,
+:root[data-theme="dark"] .nav-popover a span {
+  color:#b8b8b8 !important;
+}
+:root[data-theme="dark"] .nav-popover > a:hover {
+  background:#202020 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .site-footer {
+  background:#050505 !important;
+  color:#f5f5f5 !important;
+  border-top-color:#292929 !important;
+}
+:root[data-theme="dark"] .site-footer .footer-top,
+:root[data-theme="dark"] .site-footer .footer-bottom {
+  border-color:#292929 !important;
+}
+:root[data-theme="dark"] .site-footer p,
+:root[data-theme="dark"] .site-footer a,
+:root[data-theme="dark"] .site-footer span,
+:root[data-theme="dark"] .site-footer h5,
+:root[data-theme="dark"] .site-footer .footer-description {
+  color:#c8c8c8 !important;
+}
+:root[data-theme="dark"] .site-footer .footer-team-logo {
+  filter:none !important;
+}
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .repo-card,
+:root[data-theme="dark"] .project-detail-grid > *,
+:root[data-theme="dark"] .project-tile,
+:root[data-theme="dark"] .project-item,
+:root[data-theme="dark"] .project-showcase-card,
+:root[data-theme="dark"] .project-card:hover {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .project-card p,
+:root[data-theme="dark"] .project-card .project-tech span,
+:root[data-theme="dark"] .repo-card p,
+:root[data-theme="dark"] .project-card h3,
+:root[data-theme="dark"] .project-card a {
+  color:#e0e0e0;
+}
+:root[data-theme="dark"] .project-card .thumb {
+  background:linear-gradient(135deg,#151515,#202020) !important;
+  border-color:#3a3a3a !important;
+}
+:root[data-theme="dark"] .project-card:hover p,
+:root[data-theme="dark"] .project-card:hover .project-tech span {
+  color:#e0e0e0 !important;
+}
+:root[data-theme="dark"] .team-photo-stage {
+  background-color:#050505 !important;
+  background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px) !important;
+}
+:root[data-theme="dark"] .team-year-front {
+  background-color:#111 !important;
+}
+:root[data-theme="dark"] .team-year-2020 .team-year-front,
+:root[data-theme="dark"] .team-year-2025 .team-year-front {
+  background-image:linear-gradient(135deg,#171717,#0b0b0b 50%,#202020) !important;
+}
+:root[data-theme="dark"] .team-year-face.team-year-back {
+  background:#111 !important;
+  border:1px solid #333;
+}
+:root[data-theme="dark"] .team-detail-dialog,
+:root[data-theme="dark"] .team-dialog-content .lead-card {
+  background:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#333 !important;
+}
+:root[data-theme="dark"] .team-dialog-content .lead-card p,
+:root[data-theme="dark"] .team-dialog-content .lead-card span,
+:root[data-theme="dark"] .team-dialog-content .lead-card h5 {
+  color:#e0e0e0 !important;
+}
+:root[data-theme="dark"] .team-domain-table-wrap,
+:root[data-theme="dark"] .team-domain-table,
+:root[data-theme="dark"] .team-domain-table td,
+:root[data-theme="dark"] .team-domain-table th {
+  background-color:#0d0d0d !important;
+  color:#e6e6e6 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .competition-tile,
+:root[data-theme="dark"] .robofest-season-tile,
+:root[data-theme="dark"] .competition-archive {
+  background-color:#111 !important;
+  color:#f5f5f5 !important;
+  border-color:#333 !important;
+}
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .field textarea,
+:root[data-theme="dark"] .field select,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#383838 !important;
+}
+:root[data-theme="dark"] .cta,
+:root[data-theme="dark"] .cta-section,
+:root[data-theme="dark"] .research-card,
+:root[data-theme="dark"] .stack-group,
+:root[data-theme="dark"] .domain,
+:root[data-theme="dark"] .pipeline-stage,
+:root[data-theme="dark"] .team-season {
+  background-color:#101010;
+  color:#f5f5f5;
+  border-color:#303030;
+}
+:root[data-theme="dark"] .mobile-menu {
+  background:#000 !important;
+  color:#fff !important;
+}
+:root[data-theme="dark"] .nav-toggle span {
+  background:#fff !important;
+}
