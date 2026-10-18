@@ -2964,10 +2964,10 @@ select {
 .hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; --orbit-duration:54s; --orbit-delay:0s; }
 .hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:25%; --orbit-duration:54s; --orbit-delay:0s; }
 .hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:50%; --orbit-duration:54s; --orbit-delay:0s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:45deg; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:135deg; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:225deg; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:315deg; --orbit-duration:46s; --orbit-delay:-5.75s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:12.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:37.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:62.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:87.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
 .hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; --orbit-duration:38s; --orbit-delay:-4s; }
 .hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; --orbit-duration:38s; --orbit-delay:-4s; }
 .hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; --orbit-duration:38s; --orbit-delay:-4s; }
