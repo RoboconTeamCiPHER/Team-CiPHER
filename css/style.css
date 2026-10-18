@@ -3171,3 +3171,21 @@ select {
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-delay:-12.8s !important; }
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-delay:-19.2s !important; }
 .hero-orbit .orbit-ring-administration .orbit-tool:nth-child(5) { --orbit-delay:-25.6s !important; }
+
+
+/* Animation correction: !important is invalid inside @keyframes and prevented movement.
+   Keep the base transform important, but animate a valid transform declaration. */
+@keyframes ciPherEllipseOrbit {
+  0%   { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+  25%  { transform:translate(-50%,-50%) translate(0,var(--path-ry)); }
+  50%  { transform:translate(-50%,-50%) translate(calc(-1 * var(--path-rx)),0); }
+  75%  { transform:translate(-50%,-50%) translate(0,calc(-1 * var(--path-ry))); }
+  100% { transform:translate(-50%,-50%) translate(var(--path-rx),0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Preserve orbit motion for this decorative feature even when OS-wide reduced motion is enabled. */
+  .hero-orbit .orbit-ring .orbit-tool {
+    animation-duration:48s !important;
+    animation-iteration-count:infinite !important;
+  }
+}
