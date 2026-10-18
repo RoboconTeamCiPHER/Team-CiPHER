@@ -4,7 +4,7 @@
   if (!scene || !canvas) return;
   const ctx = canvas.getContext('2d');
   const logo = new Image();
-  logo.src = 'assets/logos/CiPHER.png';
+  logo.src = 'assets/logos/CiPHER%20Logo%20Black.png';
   let w = 0, h = 0, dpr = 1, pointerX = 0, pointerY = 0;
   let yaw = 0, pitch = 0, dragYaw = 0, dragPitch = 0, zoom = 1;
   let dragging = false, lastX = 0, lastY = 0, lastTime = 0;
