@@ -3481,3 +3481,74 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .project-tab { transition:none; }
 }
+
+
+/* Projects carousel: retain the uploaded tilted 3D ring behavior on a white site */
+.projects-page { background:#fff; color:#111827; }
+.projects-page .projects-showcase { background:#fff; }
+.projects-page .project-ring-stage {
+  --project-card-width:min(34vw, 390px);
+  --project-card-height:440px;
+  height:clamp(590px, 66vw, 720px);
+  perspective:1400px;
+  overflow:hidden;
+  cursor:grab;
+  touch-action:pan-y;
+}
+.projects-page .project-ring-stage.is-dragging { cursor:grabbing; }
+.projects-page .project-ring {
+  position:relative;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  transform-style:preserve-3d;
+  transform:rotateX(-10deg) rotateZ(-7deg);
+}
+.projects-page .project-spinner {
+  position:absolute;
+  inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.projects-page .project-ring-card {
+  position:absolute;
+  inset:0;
+  width:var(--project-card-width);
+  height:var(--project-card-height);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #dce5f0;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 12px 32px rgba(20,40,70,.12);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:rotateY(var(--card-angle)) translateZ(var(--card-radius));
+}
+.projects-page .project-ring-card.is-front { outline:2px solid #4b8df8; outline-offset:-2px; }
+.projects-page .project-ring-image { flex:0 0 42%; height:42%; min-height:0; overflow:hidden; background:#f2f5f9; }
+.projects-page .project-ring-image img { width:100%; height:100%; display:block; object-fit:cover; pointer-events:none; -webkit-user-drag:none; }
+.projects-page .project-ring-copy { display:flex; flex:1; min-height:0; flex-direction:column; align-items:flex-start; padding:1rem 1.1rem; }
+.projects-page .project-ring-tag { display:inline-block; color:#356fce; font-family:var(--font-mono); font-size:.62rem; line-height:1.35; letter-spacing:.06em; text-transform:uppercase; }
+.projects-page .project-ring-copy h3 { margin:.45rem 0 .35rem; color:#101828; font-size:1.25rem; line-height:1.15; overflow-wrap:anywhere; }
+.projects-page .project-ring-copy p { margin:0 0 .6rem; color:#58677c; font-size:.83rem; line-height:1.4; }
+.projects-page .project-ring-tech { display:flex; gap:.3rem; flex-wrap:wrap; margin-top:auto; padding-top:.2rem; }
+.projects-page .project-ring-tech span { border:1px solid #e0e8f2; border-radius:999px; padding:.23rem .45rem; color:#526176; font-size:.64rem; white-space:nowrap; }
+.projects-page .project-ring-open { display:inline-block; margin-top:.55rem; color:#1f64c8; font-size:.78rem; font-weight:600; text-decoration:none; }
+.projects-page .project-ring-open:hover { text-decoration:underline; }
+.projects-page .project-ring-hint { position:static; margin:.75rem 0 0; color:#8a96a8; text-align:center; font-size:.78rem; }
+.projects-page .project-ring-sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.projects-page .project-ring-controls { display:flex; justify-content:center; align-items:center; gap:1.25rem; margin-top:-.2rem; }
+.projects-page .project-ring-controls p { min-width:240px; margin:0; text-align:center; color:#64748b; font-size:.84rem; }
+.projects-page .project-ring-control { display:grid; place-items:center; width:42px; height:42px; border:1px solid #d9e2ee; border-radius:50%; background:#fff; color:#1f2937; font-size:1.35rem; cursor:pointer; }
+.projects-page .project-ring-control:hover { border-color:#4b8df8; color:#1458bd; }
+@media (max-width:720px) {
+  .projects-page .project-ring-stage { --project-card-width:min(72vw, 340px); --project-card-height:420px; height:560px; }
+  .projects-page .project-ring-copy { padding:.8rem .9rem; }
+  .projects-page .project-ring-copy p { font-size:.78rem; }
+  .projects-page .project-ring-tech span { font-size:.59rem; }
+  .projects-page .project-ring-controls p { min-width:0; font-size:.76rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .projects-page .project-ring-card { scroll-behavior:auto; }
+}
