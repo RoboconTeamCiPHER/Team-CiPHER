@@ -3711,3 +3711,22 @@ select {
   }
   .projects-page .project-ring-card { width:var(--project-card-width); height:var(--project-card-height); }
 }
+
+
+/* Offset the Projects carousel below the fixed navbar */
+.projects-page .projects-showcase {
+  margin-top:var(--nav-height, 64px);
+  height:calc(100vh - var(--nav-height, 64px) - 90px);
+  min-height:0;
+  scroll-margin-top:var(--nav-height, 64px);
+}
+.projects-page .project-ring-stage {
+  height:100%;
+  min-height:0;
+}
+@media (max-width:720px) {
+  .projects-page .projects-showcase {
+    margin-top:var(--nav-height, 64px);
+    height:calc(100svh - var(--nav-height, 64px) - 70px);
+  }
+}
