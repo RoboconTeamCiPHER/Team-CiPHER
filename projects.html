@@ -114,7 +114,7 @@
         card.className = 'project-ring-card';
         card.setAttribute('aria-label', project.name);
         card.innerHTML = '<div class="project-ring-image"><img src="' + project.image + '" alt="' + project.alt + '" draggable="false"></div>' +
-          '<div class="project-ring-copy"><span class="project-ring-tag"></span><h3></h3><p></p><div class="project-ring-tech"></div><a class="project-ring-open">View project details ↗</a></div>';
+          '<div class="project-ring-copy"><span class="project-ring-tag"></span><h3></h3><p></p><div class="project-ring-tech"></div></div>';
         card.querySelector('.project-ring-tag').textContent = project.tag;
         card.querySelector('h3').textContent = project.name;
         card.querySelector('p').textContent = project.description;
@@ -123,7 +123,6 @@
           chip.textContent = technology;
           card.querySelector('.project-ring-tech').appendChild(chip);
         });
-        card.querySelector('.project-ring-open').href = project.detail;
         spinner.appendChild(card);
         return card;
       });
