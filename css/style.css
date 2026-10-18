@@ -2881,77 +2881,104 @@ select {
 
 
 
-/* Restored orbit motion from the earlier working version. Badges follow each ring's path; the rings themselves stay centered. */
+
+/* Final stable orbit system: static concentric tracks, moving upright bubbles. */
 .hero-orbit .orbit-stage {
   position:relative !important;
+  width:100% !important;
   min-height:clamp(700px, 88svh, 920px) !important;
   overflow:hidden !important;
 }
 .hero-orbit .orbit-tools {
   position:absolute !important;
   inset:0 !important;
-  z-index:2 !important;
+  width:100% !important;
+  height:100% !important;
   pointer-events:none !important;
+  z-index:2 !important;
 }
 .hero-orbit .orbit-center {
   position:absolute !important;
-  top:50% !important;
   left:50% !important;
+  top:50% !important;
   transform:translate(-50%,-50%) !important;
+  z-index:5 !important;
   margin:0 !important;
-  z-index:4 !important;
   pointer-events:none !important;
 }
 .hero-orbit .orbit-ring {
-  --orbit-size:900px;
   position:absolute !important;
-  width:min(var(--orbit-size), 112vw) !important;
-  height:min(calc(var(--orbit-size) * .72), 82vh) !important;
-  top:50% !important;
   left:50% !important;
-  translate:-50% -50% !important;
-  transform:none !important;
+  top:50% !important;
+  margin:0 !important;
+  transform:translate(-50%,-50%) !important;
   border:1px solid rgba(148,163,184,.22) !important;
   border-radius:50% !important;
-  pointer-events:none !important;
+  background:transparent !important;
   animation:none !important;
   overflow:visible !important;
+  pointer-events:none !important;
+  box-sizing:border-box !important;
 }
-.hero-orbit .orbit-ring-mechanical { --orbit-size:1120px; }
-.hero-orbit .orbit-ring-electronics { --orbit-size:940px; }
-.hero-orbit .orbit-ring-programming { --orbit-size:760px; }
-.hero-orbit .orbit-ring-administration { --orbit-size:580px; }
+.hero-orbit .orbit-ring-mechanical { width:min(1120px, 118vw) !important; height:min(650px, 76vh) !important; }
+.hero-orbit .orbit-ring-electronics { width:min(940px, 100vw) !important; height:min(540px, 64vh) !important; }
+.hero-orbit .orbit-ring-programming { width:min(760px, 82vw) !important; height:min(430px, 52vh) !important; }
+.hero-orbit .orbit-ring-administration { width:min(580px, 64vw) !important; height:min(320px, 40vh) !important; }
+
 .hero-orbit .orbit-ring .orbit-tool {
   position:absolute !important;
-  top:50% !important;
   left:50% !important;
+  top:50% !important;
   right:auto !important;
   bottom:auto !important;
-  offset-path:ellipse(calc(min(var(--orbit-size), 112vw) / 2) calc(min(calc(var(--orbit-size) * .72), 82vh) / 2) at 50% 50%) !important;
-  offset-distance:var(--orbit-start, 0%) !important;
-  offset-rotate:0deg !important;
-  animation:orbitPath var(--orbit-duration, 42s) linear infinite !important;
-  animation-delay:var(--orbit-delay, 0s) !important;
-  transform:none !important;
+  transform:translate(-50%,-50%) !important;
+  translate:0 0 !important;
   rotate:0deg !important;
-  translate:-50% -50% !important;
-  z-index:2 !important;
-  pointer-events:auto !important;
+  offset-rotate:0deg !important;
+  offset-anchor:50% 50% !important;
+  offset-position:0 0 !important;
+  offset-path:ellipse(var(--path-rx) var(--path-ry) at 0 0) !important;
+  offset-distance:var(--orbit-start, 0%) !important;
+  animation:ciPherToolOrbit var(--orbit-duration, 48s) linear infinite !important;
+  animation-delay:var(--orbit-delay, 0s) !important;
   width:63px !important;
   height:63px !important;
   min-width:63px !important;
   min-height:63px !important;
   padding:8px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+  border:1px solid #d8e2ef !important;
   border-radius:50% !important;
   background:#fff !important;
-  border:1px solid #d8e2ef !important;
   box-shadow:0 8px 24px rgba(23,43,77,.13) !important;
-  box-sizing:border-box !important;
+  pointer-events:auto !important;
+  z-index:2 !important;
 }
-@keyframes orbitPath {
+@keyframes ciPherToolOrbit {
   from { offset-distance:var(--orbit-start, 0%); }
   to { offset-distance:calc(var(--orbit-start, 0%) + 100%); }
 }
+/* Set path radii to match each visible track; only bubbles translate, never rotate. */
+.hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:min(560px, 59vw); --path-ry:min(325px, 38vh); --orbit-duration:56s; --orbit-delay:0s; }
+.hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:min(470px, 50vw); --path-ry:min(270px, 32vh); --orbit-duration:48s; --orbit-delay:-6s; }
+.hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:min(380px, 41vw); --path-ry:min(215px, 26vh); --orbit-duration:40s; --orbit-delay:-5s; }
+.hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:min(290px, 32vw); --path-ry:min(160px, 20vh); --orbit-duration:32s; --orbit-delay:-4s; }
+
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:12.5%; }
+.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:37.5%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; }
+.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:33.333%; }
+.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:66.666%; }
+
 .hero-orbit .orbit-logo {
   display:block !important;
   width:100% !important;
@@ -2959,34 +2986,29 @@ select {
   max-width:100% !important;
   max-height:100% !important;
   object-fit:contain !important;
+  transform:none !important;
+  rotate:0deg !important;
 }
-.hero-orbit .orbit-tool:hover { z-index:8 !important; }
-.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(1) { --orbit-start:0%; --orbit-duration:54s; --orbit-delay:0s; }
-.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(2) { --orbit-start:25%; --orbit-duration:54s; --orbit-delay:0s; }
-.hero-orbit .orbit-ring-mechanical .orbit-tool:nth-child(3) { --orbit-start:50%; --orbit-duration:54s; --orbit-delay:0s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(1) { --orbit-start:12.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(2) { --orbit-start:37.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(3) { --orbit-start:62.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-electronics .orbit-tool:nth-child(4) { --orbit-start:87.5%; --orbit-duration:46s; --orbit-delay:-5.75s; }
-.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(1) { --orbit-start:0%; --orbit-duration:38s; --orbit-delay:-4s; }
-.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(2) { --orbit-start:25%; --orbit-duration:38s; --orbit-delay:-4s; }
-.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(3) { --orbit-start:50%; --orbit-duration:38s; --orbit-delay:-4s; }
-.hero-orbit .orbit-ring-programming .orbit-tool:nth-child(4) { --orbit-start:75%; --orbit-duration:38s; --orbit-delay:-4s; }
-.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(1) { --orbit-start:0%; --orbit-duration:32s; --orbit-delay:-6s; }
-.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(2) { --orbit-start:25%; --orbit-duration:32s; --orbit-delay:-6s; }
-.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(3) { --orbit-start:50%; --orbit-duration:32s; --orbit-delay:-6s; }
-.hero-orbit .orbit-ring-administration .orbit-tool:nth-child(4) { --orbit-start:75%; --orbit-duration:32s; --orbit-delay:-6s; }
+.hero-orbit .orbit-ring .orbit-tool:hover { z-index:8 !important; }
 @media(max-width:1100px) {
- .hero-orbit .orbit-ring-mechanical { --orbit-size:1000px; }
- .hero-orbit .orbit-ring-electronics { --orbit-size:820px; }
- .hero-orbit .orbit-ring-programming { --orbit-size:660px; }
- .hero-orbit .orbit-ring-administration { --orbit-size:500px; }
+ .hero-orbit .orbit-ring-mechanical { width:112vw !important; height:68vh !important; }
+ .hero-orbit .orbit-ring-electronics { width:94vw !important; height:56vh !important; }
+ .hero-orbit .orbit-ring-programming { width:76vw !important; height:44vh !important; }
+ .hero-orbit .orbit-ring-administration { width:58vw !important; height:32vh !important; }
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:34vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:28vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:22vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:16vh; }
 }
 @media(max-width:700px) {
- .hero-orbit .orbit-stage { min-height:680px !important; }
- .hero-orbit .orbit-ring-mechanical { --orbit-size:840px; }
- .hero-orbit .orbit-ring-electronics { --orbit-size:690px; }
- .hero-orbit .orbit-ring-programming { --orbit-size:540px; }
- .hero-orbit .orbit-ring-administration { --orbit-size:400px; }
+ .hero-orbit .orbit-stage { min-height:660px !important; }
+ .hero-orbit .orbit-ring-mechanical { width:112vw !important; height:62vh !important; }
+ .hero-orbit .orbit-ring-electronics { width:94vw !important; height:50vh !important; }
+ .hero-orbit .orbit-ring-programming { width:76vw !important; height:38vh !important; }
+ .hero-orbit .orbit-ring-administration { width:58vw !important; height:28vh !important; }
+ .hero-orbit .orbit-ring-mechanical .orbit-tool { --path-rx:56vw; --path-ry:31vh; }
+ .hero-orbit .orbit-ring-electronics .orbit-tool { --path-rx:47vw; --path-ry:25vh; }
+ .hero-orbit .orbit-ring-programming .orbit-tool { --path-rx:38vw; --path-ry:19vh; }
+ .hero-orbit .orbit-ring-administration .orbit-tool { --path-rx:29vw; --path-ry:14vh; }
  .hero-orbit .orbit-ring .orbit-tool { width:48px !important; height:48px !important; min-width:48px !important; min-height:48px !important; padding:6px !important; }
 }
