@@ -3260,7 +3260,6 @@ select {
 
 /* ---- About page: evenly spaced nine-stage engineering cycle ---- */
 .pipeline-cycle {
-  --cycle-radius: 35%;
   position: relative;
   width: min(100%, 820px);
   aspect-ratio: 1;
@@ -3275,105 +3274,85 @@ select {
   z-index: -1;
   overflow: visible;
 }
-.pipeline-ring-base {
-  fill: none;
-  stroke: var(--border);
-  stroke-width: 2;
-}
+.pipeline-ring-base { fill:none; stroke:var(--border); stroke-width:2; }
 .pipeline-ring-flow {
-  fill: none;
-  stroke: #4b8df8;
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-dasharray: 7 10;
-  opacity: .9;
+  fill:none;
+  stroke:#4b8df8;
+  stroke-width:4;
+  stroke-linecap:round;
+  stroke-dasharray:7 10;
+  opacity:.9;
 }
 .pipeline-cycle-center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 29%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: var(--bg);
-  box-shadow: 0 8px 28px rgba(20, 35, 60, .08);
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:29%;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  padding:1rem;
+  text-align:center;
+  border:1px solid var(--border);
+  border-radius:50%;
+  background:var(--bg);
+  box-shadow:0 8px 28px rgba(20,35,60,.08);
 }
-.pipeline-cycle-center span {
-  color: #4b8df8;
-  font-family: var(--font-mono);
-  font-size: .68rem;
-  letter-spacing: .08em;
-}
-.pipeline-cycle-center strong {
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 2.1vw, 1.6rem);
-  line-height: 1.15;
-}
-.pipeline-cycle-center small {
-  color: var(--text-dim);
-  font-size: clamp(.55rem, 1vw, .75rem);
-}
+.pipeline-cycle-center span { color:#4b8df8; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.08em; }
+.pipeline-cycle-center strong { font-family:var(--font-display); font-size:clamp(1rem,2.1vw,1.6rem); line-height:1.15; }
+.pipeline-cycle-center small { color:var(--text-dim); font-size:clamp(.55rem,1vw,.75rem); }
 .pipeline-cycle-stage {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 25%;
-  min-height: 64px;
-  padding: .75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: .65rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg);
-  box-shadow: 0 6px 20px rgba(20, 35, 60, .06);
-  transform: translate(-50%, -50%);
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:25%;
+  min-height:64px;
+  padding:.75rem 1rem;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--bg);
+  box-shadow:0 6px 20px rgba(20,35,60,.06);
+  transform:translate(-50%,-50%) !important;
 }
-/* Stage centers are calculated from one shared radius and 40-degree increments. */
-.pipeline-cycle-stage.stage-1 { left: 50%; top: 15%; }
-.pipeline-cycle-stage.stage-2 { left: 72.5%; top: 22.2%; }
-.pipeline-cycle-stage.stage-3 { left: 84.5%; top: 41.3%; }
-.pipeline-cycle-stage.stage-4 { left: 80%; top: 64.5%; }
-.pipeline-cycle-stage.stage-5 { left: 61.7%; top: 80.5%; }
-.pipeline-cycle-stage.stage-6 { left: 38.3%; top: 80.5%; }
-.pipeline-cycle-stage.stage-7 { left: 20%; top: 64.5%; }
-.pipeline-cycle-stage.stage-8 { left: 15.5%; top: 41.3%; }
-.pipeline-cycle-stage.stage-9 { left: 27.5%; top: 22.2%; }
+/* Nine stage centers use a single circle and equal 40-degree angular spacing. */
+.pipeline-cycle-stage.stage-1 { left:50% !important; top:15% !important; }
+.pipeline-cycle-stage.stage-2 { left:72.5% !important; top:22.2% !important; }
+.pipeline-cycle-stage.stage-3 { left:84.5% !important; top:41.3% !important; }
+.pipeline-cycle-stage.stage-4 { left:80% !important; top:64.5% !important; }
+.pipeline-cycle-stage.stage-5 { left:61.7% !important; top:80.5% !important; }
+.pipeline-cycle-stage.stage-6 { left:38.3% !important; top:80.5% !important; }
+.pipeline-cycle-stage.stage-7 { left:20% !important; top:64.5% !important; }
+.pipeline-cycle-stage.stage-8 { left:15.5% !important; top:41.3% !important; }
+.pipeline-cycle-stage.stage-9 { left:27.5% !important; top:22.2% !important; }
 .pipeline-cycle-stage .pipeline-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 2rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: #eaf2ff;
-  color: #2868d7;
-  font-size: .75rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 2rem;
+  width:2rem;
+  height:2rem;
+  border-radius:50%;
+  background:#eaf2ff;
+  color:#2868d7;
+  font-size:.75rem;
 }
-.pipeline-cycle-stage strong {
-  font-family: var(--font-display);
-  font-size: clamp(.78rem, 1.35vw, 1.05rem);
-  line-height: 1.2;
+.pipeline-cycle-stage strong { font-family:var(--font-display); font-size:clamp(.78rem,1.35vw,1.05rem); line-height:1.2; }
+@media (max-width:620px) {
+  .pipeline-cycle { width:100%; margin-top:1.5rem; }
+  .pipeline-cycle-center { width:27%; padding:.35rem; gap:.25rem; }
+  .pipeline-cycle-center span { font-size:.48rem; }
+  .pipeline-cycle-center small { display:none; }
+  .pipeline-cycle-stage { width:29%; min-height:46px; padding:.4rem; gap:.3rem; border-radius:8px; }
+  .pipeline-cycle-stage .pipeline-num { flex-basis:1.35rem; width:1.35rem; height:1.35rem; font-size:.58rem; }
+  .pipeline-cycle-stage strong { font-size:clamp(.58rem,2.5vw,.8rem); }
 }
-@media (max-width: 620px) {
-  .pipeline-cycle { width: 100%; margin-top: 1.5rem; }
-  .pipeline-cycle-center { width: 27%; padding: .35rem; gap: .25rem; }
-  .pipeline-cycle-center span { font-size: .48rem; }
-  .pipeline-cycle-center small { display: none; }
-  .pipeline-cycle-stage { width: 29%; min-height: 46px; padding: .4rem; gap: .3rem; border-radius: 8px; }
-  .pipeline-cycle-stage .pipeline-num { flex-basis: 1.35rem; width: 1.35rem; height: 1.35rem; font-size: .58rem; }
-  .pipeline-cycle-stage strong { font-size: clamp(.58rem, 2.5vw, .8rem); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pipeline-cycle-stage { transition: none; }
+@media (prefers-reduced-motion:reduce) {
+  .pipeline-cycle-stage { transition:none; }
 }
