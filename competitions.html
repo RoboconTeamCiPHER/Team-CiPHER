@@ -17,10 +17,11 @@
 .competition-tile-track::-webkit-scrollbar{display:none}
 .competition-tile-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
 .competition-tile-track .competition-tile{user-select:none;-webkit-user-drag:none}
-</style>
-<style>
-.robocon-tile .robocon-season-logo{object-fit:contain!important;object-position:center!important;padding:26px;background:#fff;box-sizing:border-box}
-.robocon-tile:has(.robocon-season-logo) .tile-overlay{background:linear-gradient(180deg,rgba(8,12,20,0) 38%,rgba(8,12,20,.78) 100%)}
+.robocon-tile-track .competition-tile{flex-basis:clamp(300px,34vw,430px);height:clamp(270px,29vw,360px)}
+.robocon-tile>img.robocon-season-logo{width:100%;height:100%;object-fit:contain!important;object-position:center!important;padding:18px 20px 76px;background:#fff;box-sizing:border-box;transform:none!important;filter:none!important}
+.robocon-tile:hover>img.robocon-season-logo{transform:none!important;filter:none!important}
+.robocon-tile .tile-overlay{background:linear-gradient(180deg,rgba(8,12,20,0),rgba(8,12,20,.92));padding:14px 0 0}
+@media(max-width:600px){.robocon-tile-track .competition-tile{flex-basis:88vw;height:280px}.robocon-tile>img.robocon-season-logo{padding:14px 14px 76px}}
 </style>
 </head>
 <body>
@@ -62,13 +63,13 @@
         
       </div>
       <div class="competition-tile-track robocon-tile-track" id="robocon-track" tabindex="0" aria-label="DD Robocon seasons">
-        <a class="competition-tile robocon-tile" href="#robocon-2020"><img src="assets/images/competitions/Robocon%202020%20Theme.png" alt="Robocon 2020 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2020</strong><span>Robo Rugby 7s ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2021"><img src="assets/images/competitions/Robocon%202021%20Logo.png" alt="Robocon 2021 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2021</strong><span>Throwing Arrows ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2022"><img src="assets/images/competitions/Robocon%202022%20Logo.png" alt="Robocon 2022 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2022</strong><span>Lagori ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2023"><img src="assets/images/competitions/robocon%202023%20logo.png" alt="Robocon 2023 Elephant Robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2023</strong><span>Casting Flowers ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2024"><img src="assets/images/competitions/Robocon%202024%20Logo.png" alt="Robocon 2024 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2024</strong><span>Harvest Day ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2025"><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Robocon 2025 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2025</strong><span>Robot Basketball ↗</span></span></a>
-        <a class="competition-tile robocon-tile" href="#robocon-2026"><img src="assets/images/competitions/Robocon%202026%20Logo.png" alt="Robocon 2026 robot" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2026</strong><span>Kung Fu Quest ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2020"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202020%20Theme.png" alt="Robocon 2020 theme logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2020</strong><span>Robo Rugby 7s ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2021"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202021%20Logo.png" alt="Robocon 2021 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2021</strong><span>Throwing Arrows ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2022"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202022%20Logo.png" alt="Robocon 2022 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2022</strong><span>Lagori ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2023"><img class="robocon-season-logo" src="assets/images/competitions/robocon%202023%20logo.png" alt="Robocon 2023 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2023</strong><span>Casting Flowers ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2024"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202024%20Logo.png" alt="Robocon 2024 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2024</strong><span>Harvest Day ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2025"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202025%20Logo.png" alt="Robocon 2025 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2025</strong><span>Robot Basketball ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2026"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202026%20Logo.png" alt="Robocon 2026 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2026</strong><span>Kung Fu Quest ↗</span></span></a>
       </div>
       
     </div>
