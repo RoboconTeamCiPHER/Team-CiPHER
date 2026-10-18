@@ -12,6 +12,23 @@
 <link rel="stylesheet" href="css/style.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/animations.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/responsive.css?v=nav-fix-2">
+<style>
+.competition-tile-track{overflow-x:auto;scrollbar-width:none;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.competition-tile-track::-webkit-scrollbar{display:none}
+.competition-tile-track.is-dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.competition-tile-track .competition-tile{user-select:none;-webkit-user-drag:none}
+.robocon-tile-track .competition-tile{flex-basis:clamp(300px,34vw,430px);height:clamp(270px,29vw,360px)}
+.robocon-tile>img.robocon-season-logo{width:100%;height:100%;object-fit:contain!important;object-position:center!important;padding:18px 20px 76px;background:#fff;box-sizing:border-box;transform:none!important;filter:none!important}
+.robocon-tile:hover>img.robocon-season-logo{transform:none!important;filter:none!important}
+.robocon-tile .tile-overlay{background:linear-gradient(180deg,rgba(8,12,20,0),rgba(8,12,20,.92));padding:14px 0 0}
+@media(max-width:600px){.robocon-tile-track .competition-tile{flex-basis:88vw;height:280px}.robocon-tile>img.robocon-season-logo{padding:14px 14px 76px}}
+.competition-hero{min-height:0;display:block;padding:calc(var(--nav-h) + 2rem) var(--gutter) clamp(2rem,4vw,3.5rem);text-align:left}
+.competition-hero>*{width:min(100%,var(--content-max));margin-left:0;margin-right:0}
+.competition-hero .kicker{margin-bottom:.65rem}
+.competition-hero h1{font-size:clamp(2.6rem,5.2vw,4.4rem);line-height:1.04;max-width:18ch;letter-spacing:-.045em}
+.competition-hero .sub{margin-top:.8rem;max-width:62ch;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.55}
+@media(max-width:600px){.competition-hero{padding-top:calc(var(--nav-h) + 1.5rem);padding-bottom:2rem}.competition-hero h1{font-size:clamp(2.25rem,10vw,3.2rem)}.competition-hero .sub{font-size:1rem}}
+</style>
 </head>
 <body>
 
@@ -21,7 +38,7 @@
     <nav class="nav-links" aria-label="Primary">
       <div class="nav-item nav-item-about"><a href="about.html" data-nav="about">About <span class="nav-chevron">⌄</span></a><div class="nav-popover about-popover"><strong>Explore Team CiPHER</strong><a href="about.html#about">Who We Are</a><a href="about.html#pipeline">Our Workflow</a><a href="about.html#competition-robots">Robots & Builds</a><a href="about.html#toolchain">Engineering Toolchain</a></div></div>
       <a href="projects.html" data-nav="projects">Projects</a>
-      <div class="nav-item nav-item-competitions"><a href="competitions.html" data-nav="competitions">Competitions <span class="nav-chevron">⌄</span></a><div class="nav-popover competitions-popover"><div class="popover-heading"><span>COMPETITIONS</span><a href="competitions.html">All competitions ↗</a></div><div class="competition-popover-grid"><a class="competition-popover-card" href="competitions.html#robocon-2025"><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Robocon robot"><span>DD Robocon</span><small>National robotics competition</small></a><a class="competition-popover-card" href="projects.html"><img src="assets/logos/Robofest.svg" alt="Robofest competition logo"><span>Robofest</span><small>Applied robotics projects</small></a><a class="competition-popover-card" href="competitions.html"><img src="assets/logos/MindSpark.svg" alt="MindSpark competition logo"><span>MindSpark</span><small>Technical festival</small></a></div></div></div>
+      <div class="nav-item nav-item-competitions"><a href="competitions.html" data-nav="competitions">Competitions <span class="nav-chevron">⌄</span></a><div class="nav-popover competitions-popover"><div class="popover-heading"><span>COMPETITIONS</span><a href="competitions.html">All competitions ↗</a></div><div class="competition-popover-grid"><a class="competition-popover-card" href="competitions.html#robocon-2025"><img src="assets/images/competitions/Robocon%202025%20Logo.png" alt="Robocon robot"><span>DD Robocon</span><small>National robotics competition</small></a><a class="competition-popover-card" href="projects.html"><img src="assets/logos/Robofest.svg" alt="Robofest competition logo"><span>Robofest</span><small>Applied robotics projects</small></a><a class="competition-popover-card" href="competitions.html"><img src="assets/logos/MindSpark.svg" alt="MindSpark competition logo"><span>MindSpark</span><small>Technical festival</small></a></div></div></div>
       <div class="nav-item nav-item-team"><a href="team.html" data-nav="team">Team <span class="nav-chevron">⌄</span></a><div class="nav-popover team-popover"><strong>Our domains</strong><a href="team.html#mechanical">Mechanical <span>CAD · Design · Analysis</span></a><a href="team.html#electronics">Electronics <span>Embedded · Sensors · Control</span></a><a href="team.html#programming">Programming <span>ROS 2 · Vision · Autonomy</span></a><a href="team.html#administration">Admin <span>Operations · Outreach</span></a></div></div>
       <a href="research.html" data-nav="research">Research</a>
       <div class="nav-item nav-item-contact"><a href="contact.html" data-nav="contact">Contact <span class="nav-chevron">⌄</span></a><div class="nav-popover contact-popover"><strong>Connect with us</strong><a href="https://linkedin.com/company/team-cipher" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://www.instagram.com/team_cipher_/" target="_blank" rel="noopener">Instagram ↗</a><a href="mailto:roboconteamcipher@gmail.com">Email us ↗</a></div></div>
@@ -38,160 +55,121 @@
   </ul>
 </div>
 
-<main id="main">
-
-  <section class="page-hero">
-    <div class="kicker">COMPETITION HISTORY</div>
-    <h1 data-reveal>From DD Robocon to a growing robotics circuit.</h1>
-    <p class="sub" data-reveal>Team CiPHER's competition journey spans DD Robocon from 2020 onward and spans DD Robocon, other robotics competitions, and RoboQuest — an event organized by Team CiPHER in 2026.</p>
+<main id="main" class="competition-hub">
+  <section class="page-hero competition-hero">
+    <h1 data-reveal>Built for the challenge.</h1>
+    <p class="sub" data-reveal>Explore Team CiPHER's Robocon journey, external competitions, and events organized by the team.</p>
   </section>
 
-  <section class="section section-first">
-    <div class="wrap robocon-history">
-      <section class="robocon-entry" id="robocon-2020">
-        <div class="robocon-year">2020</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery two"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202020%20Design.jpg" alt="Team CiPHER Robocon 2020 robot design" loading="lazy"></div></div><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202020%20Design%20R2.jpg" alt="Team CiPHER Robocon 2020 Robot 2 design" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2020</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>ROBO RUGBY 7s</strong></div>
-            <p>The 2020 ABU Robocon challenge, hosted in Suva, Fiji, translated Rugby 7s into a two-robot engineering problem. A Pass Robot worked with a Try Robot to transfer the ball, score a Try and attempt the distinctive Goal Kick over the conversion bar. The theme emphasized coordinated motion, ball handling and precise kicking. citeturn1search22</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>95 / 100</h3></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2021">
-        <div class="robocon-year">2021</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery two"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202021%20Robot%201.jpg" alt="Team CiPHER Robocon 2021 Robot 1" loading="lazy"></div></div><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202021%20Robot%202.jpg" alt="Team CiPHER Robocon 2021 Robot 2" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2021</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>THROWING ARROWS INTO POTS</strong></div>
-            <p>The 2021 competition moved to Jimo, China, with an ancient Chinese game of throwing arrows into pots as its central concept. Teams operated two robots and engineered mechanisms for accurate placement and scoring, bringing together controlled motion, manipulation and repeatable precision. citeturn2search5</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>100 / 100</h3></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2022">
-        <div class="robocon-year">2022</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery two"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202022%20Robot.jpg" alt="Team CiPHER Robocon 2022 main robot" loading="lazy"></div></div><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202022%20Throwing%20Robot.jpg" alt="Team CiPHER Robocon 2022 throwing robot" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2022</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>LAGORI</strong></div>
-            <p>The 2022 theme, Lagori, adapted the traditional Indian game into a robotic competition. Team CiPHER's published archive shows two competition machines, including a dedicated throwing robot, reflecting the need to combine mobility, target interaction and coordinated gameplay.</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>96 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 2</div><div><h3>89 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 3</div><div><h3>Ranked 20th nationally</h3></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2023">
-        <div class="robocon-year">2023</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery one"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202023%20Elephant%20Robot.png" alt="Team CiPHER Robocon 2023 Elephant Robot" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2023</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>CASTING FLOWERS OVER ANGKOR WAT</strong></div>
-            <p>The 2023 challenge in Phnom Penh, Cambodia, was inspired by Angkor Wat and Cambodian folklore. Two robots — a Rabbit Robot and an Elephant Robot — cooperated in a ring-toss game, casting team-coloured rings toward poles around an Angkor Wat-inspired field. Team CiPHER's published robot archive includes the Elephant Robot for this season. citeturn2search0turn2search46</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>100 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 2</div><div><h3>85 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 3</div><div><h3>Ranked 10th nationally</h3></div></div><div class="timeline-item" data-reveal><div class="year">AWARDS</div><div><h3>₹35,000 prize + Autodesk Best Fusion 360 Design Award</h3><p>Team members were also offered internships from IITs across India.</p></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2024">
-        <div class="robocon-year">2024</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery two"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202024%20R1.png" alt="Team CiPHER Robocon 2024 Robot 1" loading="lazy"></div></div><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202024%20R2.png" alt="Team CiPHER Robocon 2024 Robot 2" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2024</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>HARVEST DAY</strong></div>
-            <p>Harvest Day, hosted in Vietnam, transformed the rice-farming cycle into a robotics challenge. The two-robot teams had to reproduce tasks inspired by planting, harvesting and transporting grain on a terraced-field-inspired arena. The design problem therefore combined manipulation, transport, positioning and reliable coordination. citeturn2search3turn2search11</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>99 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 2</div><div><h3>85 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 3</div><div><h3>Ranked 14th nationally</h3></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2025">
-        <div class="robocon-year">2025</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery two"><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202025%20R1.png" alt="Team CiPHER Robocon 2025 Robot 1" loading="lazy"></div></div><div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202025%20R2.png" alt="Team CiPHER Robocon 2025 Robot 2" loading="lazy"></div></div></div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2025</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>ROBOT BASKETBALL</strong></div>
-            <p>Robot Basketball, hosted in Ulaanbaatar, Mongolia, placed two robots on a basketball court where teams alternated between offence and defence. Robots could pass and dribble, take normal shots and attempt high-value dunks while defending their own basket. The competition explicitly tied scoring performance to teamwork, precision and strategy. citeturn2search2turn2search49</p>
-            <div class="timeline mt-lg"><div class="timeline-item" data-reveal><div class="year">STAGE 1</div><div><h3>93 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">STAGE 2</div><div><h3>90 / 100</h3></div></div><div class="timeline-item" data-reveal><div class="year">FOCUS</div><div><h3>Advanced core systems, efficient design and precision manufacturing</h3></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry" id="robocon-2026">
-        <div class="robocon-year">2026</div>
-        <div class="robocon-layout">
-          <div class="robocon-photo">
-            <div class="robocon-robot-gallery one">
-              <div class="robocon-robot-image"><div class="g-item" data-lightbox><img src="assets/images/robots/Robocon%202026%20R2.png" alt="Team CiPHER Robocon 2026 Robot 2" loading="lazy"></div></div>
-            </div>
-          </div>
-          <div class="robocon-info">
-            <div class="section-subhead"><div class="kicker">DD ROBOCON · NATIONAL → ABU ROBOCON · INTERNATIONAL</div><h2 data-reveal>DD Robocon 2026</h2></div>
-            <div class="robocon-theme"><span>THEME</span><strong>KUNG FU QUEST</strong></div>
-            <p>Kung Fu Quest, hosted in Hong Kong, combines Chinese martial-arts traditions with a two-robot engineering challenge. R1 can be manual or autonomous, while R2 must operate autonomously. The robots collaborate to assemble weapons, collect Kung-Fu Scrolls in the Meihua Forest and compete in a Giant Tic-Tac-Toe-style final challenge. Team CiPHER's published 2026 archive currently contains the R2 robot. citeturn1search0turn1search4</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="robocon-entry">
-        <div class="robocon-year">OTHER</div>
-        <div class="robocon-layout robocon-single">
-          <div class="robocon-info robocon-full-width">
-            <div class="section-subhead"><div class="kicker">OTHER COMPETITIONS</div><h2 data-reveal>MindSparks · Bot Wrestling · RoboQuest</h2></div>
-            <div class="timeline mt-lg">
-              <div class="timeline-item" data-reveal><div class="year">2025</div><div><h3>MindSparks</h3><p>Robotics and engineering competition participation.</p></div></div>
-              <div class="timeline-item" data-reveal><div class="year">2025</div><div><h3>Bot Wrestling</h3><p>Competitive robotic systems.</p></div></div>
-              <div class="timeline-item" data-reveal><div class="year">2026</div><div><h3>RoboQuest</h3><p>Robotics competition organized by Team CiPHER.</p></div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="competition-row-section" aria-labelledby="robocon-heading">
     <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>Team-built competition events.</h2>
-        <p class="lede" data-reveal>In 2026, Team CiPHER organized RoboQuest, extending the team's role from competition participant to event organizer.</p>
+      <div class="competition-row-heading">
+        <div><div class="kicker">NATIONAL → INTERNATIONAL</div><h2 id="robocon-heading">DD Robocon</h2><p>Our season-by-season engineering journey.</p></div>
+        
+      </div>
+      <div class="competition-tile-track robocon-tile-track" id="robocon-track" tabindex="0" aria-label="DD Robocon seasons">
+        <a class="competition-tile robocon-tile" href="#robocon-2020"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202020%20Theme.png" alt="Robocon 2020 theme logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2020</strong><span>Robo Rugby 7s ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2021"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202021%20Logo.png" alt="Robocon 2021 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2021</strong><span>Throwing Arrows ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2022"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202022%20Logo.png" alt="Robocon 2022 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2022</strong><span>Lagori ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2023"><img class="robocon-season-logo" src="assets/images/competitions/robocon%202023%20logo.png" alt="Robocon 2023 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2023</strong><span>Casting Flowers ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2024"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202024%20Logo.png" alt="Robocon 2024 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2024</strong><span>Harvest Day ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2025"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202025%20Logo.png" alt="Robocon 2025 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2025</strong><span>Robot Basketball ↗</span></span></a>
+        <a class="competition-tile robocon-tile" href="#robocon-2026"><img class="robocon-season-logo" src="assets/images/competitions/Robocon%202026%20Logo.png" alt="Robocon 2026 logo" loading="lazy"><span class="tile-overlay"><small>DD ROBOCON</small><strong>Robocon 2026</strong><span>Kung Fu Quest ↗</span></span></a>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="competition-row-section" aria-labelledby="robofest-heading">
+    <div class="wrap">
+      <div class="competition-row-heading"><div><div class="kicker">APPLIED ROBOTICS</div><h2 id="robofest-heading">Robofest Gujarat</h2><p>Robotics concepts taken from design to working systems.</p></div></div>
+      <div class="competition-tile-grid">
+        <a class="competition-tile robofest-season-tile" href="projects.html#varuna" aria-label="Robofest Gujarat 5.0 — Varuna, Vasudha and Karna robots">
+          <div class="robofest-robot-gallery robofest-gallery-three">
+            <img src="assets/images/robots/Varuna.jpg" alt="Varuna robot" loading="lazy">
+            <img src="assets/images/robots/Vasudha.jpg" alt="Vasudha robot" loading="lazy">
+            <img src="assets/images/robots/Karna.jpg" alt="Karna robot" loading="lazy">
+          </div>
+          <span class="tile-overlay"><small>ROBOFEST GUJARAT</small><strong>Robofest Gujarat 5.0</strong><span>Varuna · Vasudha · Karna ↗</span></span>
+        </a>
+        <a class="competition-tile robofest-season-tile" href="projects.html#tyson" aria-label="Robofest Gujarat 6.0 — Tyson and Cura robots">
+          <div class="robofest-robot-gallery robofest-gallery-two">
+            <img src="assets/images/robots/Tyson%20First%20Angled%20Projection.png" alt="Tyson robot" loading="lazy">
+            <img src="assets/images/robots/Cura%20First%20Angled%20Projection.png" alt="Cura robot" loading="lazy">
+          </div>
+          <span class="tile-overlay"><small>ROBOFEST GUJARAT</small><strong>Robofest Gujarat 6.0</strong><span>Tyson · Cura ↗</span></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="competition-row-section" aria-labelledby="other-heading">
     <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>What competition robotics teaches.</h2>
-      </div>
-      <div class="stack-grid competition-constraints-grid">
-        <div class="stack-group" data-reveal><h4>Constraints</h4><ul><li>Time</li><li>Weight</li><li>Power</li><li>Cost</li></ul></div>
-        <div class="stack-group" data-reveal><h4>Engineering</h4><ul><li>Reliability</li><li>Manufacturing</li><li>Control</li><li>Performance</li></ul></div>
+      <div class="competition-row-heading"><div><div class="kicker">COMPETITION PARTICIPATION</div><h2 id="other-heading">Other competitions</h2><p>Technical festivals and robotics challenges beyond Robocon.</p></div></div>
+      <div class="competition-tile-grid">
+        <a class="competition-tile" href="https://mindspark.org/" target="_blank" rel="noopener"><img class="tile-contain" src="assets/logos/MindSpark.svg" alt="MindSpark logo" loading="lazy"><span class="tile-overlay"><small>TECHNICAL FESTIVAL</small><strong>MindSpark</strong><span>Explore the event ↗</span></span></a>
+        <a class="competition-tile" href="https://www.kurukshetra.org.in/" target="_blank" rel="noopener"><img class="tile-contain tile-kurukshetra" src="assets/images/competitions/roboquest.jpeg" alt="Robotics competition visual" loading="lazy"><span class="tile-overlay"><small>TECHNICAL FESTIVAL</small><strong>Kurukshetra</strong><span>Competition participation ↗</span></span></a>
       </div>
     </div>
   </section>
+
+  <section class="competition-row-section organized-competitions" aria-labelledby="organized-heading">
+    <div class="wrap">
+      <div class="competition-row-heading"><div><div class="kicker">HOSTED BY TEAM CiPHER</div><h2 id="organized-heading">Organized competitions</h2><p>Creating opportunities for students to build, test, and compete.</p></div></div>
+      <div class="competition-tile-grid competition-tile-grid-single">
+        <a class="competition-tile wide-competition-tile" href="https://roboconteamcipher.github.io/Team-CiPHER/" ><img src="assets/images/competitions/roboquest.jpeg" alt="RoboQuest event" loading="lazy"><span class="tile-overlay"><small>TEAM CiPHER · 2026</small><strong>RoboQuest</strong><span>A robotics competition organized by Team CiPHER ↗</span></span></a>
+      </div>
+    </div>
+  </section>
+
 
 </main>
+
+  <dialog class="competition-detail-dialog" id="competition-detail-dialog" aria-labelledby="competition-dialog-title">
+    <div class="competition-dialog-shell">
+      <button type="button" class="competition-dialog-close" aria-label="Close competition details">×</button>
+      <div class="competition-dialog-kicker" id="competition-dialog-kicker">COMPETITION DETAILS</div>
+      <h2 id="competition-dialog-title">DD Robocon</h2>
+      <p class="competition-dialog-subtitle" id="competition-dialog-subtitle"></p>
+      <div class="competition-dialog-robot-gallery" id="competition-dialog-robot-gallery" aria-label="Team CiPHER season robots"></div>
+      <div class="competition-dialog-content">
+        <section><h3>About the competition</h3><p id="competition-dialog-about"></p></section>
+        <section><h3>Team CiPHER participation</h3><p id="competition-dialog-participation"></p></section>
+        <section><h3>Results and highlights</h3><p id="competition-dialog-results"></p></section>
+      </div>
+      <div class="competition-dialog-actions"><button type="button" class="btn competition-dialog-done">Close</button></div>
+    </div>
+  </dialog>
+
+<style>
+.competition-detail-dialog{width:min(720px,calc(100vw - 32px));max-width:none;max-height:min(84vh,820px);padding:0;border:1px solid #dbe3ef;border-radius:18px;background:#fff;color:#151b2a;box-shadow:0 28px 90px rgba(17,24,39,.24);overflow:auto}
+.competition-detail-dialog::backdrop{background:rgba(16,24,40,.56);backdrop-filter:blur(3px)}
+.competition-dialog-shell{padding:clamp(24px,5vw,44px);position:relative}
+.competition-dialog-close{position:absolute;right:20px;top:14px;border:0;background:transparent;font-size:30px;line-height:1;cursor:pointer;color:#53627a}
+.competition-dialog-kicker{font-size:.76rem;font-weight:750;letter-spacing:.12em;color:#2868f5;margin-bottom:12px}
+.competition-dialog-shell h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.1;margin:0 42px 10px 0}
+.competition-dialog-subtitle{font-size:1.05rem;color:#5b6b84;margin:0 0 26px}
+.competition-dialog-robot-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-bottom:26px}
+.competition-dialog-robot-gallery.has-multiple-robots{grid-template-columns:repeat(2,minmax(0,1fr))}
+.competition-dialog-robot-figure{margin:0;min-width:0;border:1px solid #e1e7f0;border-radius:12px;overflow:hidden;background:#f5f7fa}
+.competition-dialog-robot-figure img{display:block;width:100%;height:clamp(180px,28vw,300px);object-fit:contain;object-position:center;background:#f5f7fa}
+.competition-dialog-robot-figure figcaption{padding:10px 14px;font-size:.85rem;color:#53627a;border-top:1px solid #e1e7f0}
+.robofest-season-tile{height:clamp(270px,29vw,360px);background:#f5f7fa}
+.robofest-robot-gallery{position:absolute;inset:0 0 66px;display:grid;align-items:center;gap:8px;padding:16px;box-sizing:border-box;background:#f5f7fa}
+.robofest-gallery-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.robofest-gallery-two{grid-template-columns:repeat(2,minmax(0,1fr));padding:20px 28px}
+.robofest-robot-gallery img{width:100%;height:100%;max-height:230px;object-fit:contain;min-width:0}
+.robofest-season-tile .tile-overlay{background:linear-gradient(180deg,rgba(8,12,20,0),rgba(8,12,20,.96));padding-top:12px}
+@media(max-width:560px){.competition-dialog-robot-gallery.has-multiple-robots{grid-template-columns:minmax(0,1fr)}.competition-dialog-robot-figure img{height:230px}}
+@media(max-width:600px){.robofest-season-tile{height:280px}.robofest-robot-gallery{padding:10px}.robofest-gallery-two{padding:14px}.robofest-robot-gallery img{max-height:180px}}
+.competition-dialog-content{display:grid;gap:18px}
+.competition-dialog-content section{border-top:1px solid #e1e7f0;padding-top:16px}
+.competition-dialog-content h3{font-size:1rem;margin:0 0 7px}
+.competition-dialog-content p{color:#53627a;line-height:1.65;margin:0}
+.competition-dialog-actions{display:flex;justify-content:flex-end;margin-top:26px}
+.competition-dialog-done{cursor:pointer}
+@media(max-width:600px){.competition-dialog-shell{padding:28px 22px}.competition-dialog-close{right:14px;top:12px}}
+</style>
 
 <footer class="site-footer">
   <div class="wrap">
@@ -228,6 +206,82 @@
   </div>
 </footer>
 
+<script>
+(function(){
+ const dialog=document.getElementById('competition-detail-dialog');
+ if(!dialog)return;
+ const data={
+  '2020':{images:["assets/images/robots/Robocon%202020%20Design.jpg","assets/images/robots/Robocon%202020%20Design%20R2.jpg"],title:'DD Robocon 2020 — Robo Rugby 7s',subtitle:'Robocon season · 2020',about:'The 2020 DD Robocon challenge was based on Robo Rugby 7s, requiring teams to design and build robots for a task-driven competition.',participation:'Team CiPHER participated in the national DD Robocon competition with its season robot.',results:'Stage 1: 95 / 100.'},
+  '2021':{images:["assets/images/robots/Robocon%202021%20Robot%201.jpg","assets/images/robots/Robocon%202021%20Robot%202.jpg"],title:'DD Robocon 2021 — Throwing Arrows into Pots',subtitle:'Robocon season · 2021',about:'The 2021 challenge focused on robots throwing arrows into pots, combining mechanism design, control, and repeatable task execution.',participation:'Team CiPHER participated in the national DD Robocon competition with its season robot.',results:'Stage 1: 100 / 100.'},
+  '2022':{images:["assets/images/robots/Robocon%202022%20Robot.jpg","assets/images/robots/Robocon%202022%20Throwing%20Robot.jpg"],title:'DD Robocon 2022 — Lagori',subtitle:'Robocon season · 2022',about:'Lagori challenged teams to build robots that could complete the competition tasks around the traditional game.',participation:'Team CiPHER progressed through the national competition stages with its 2022 robot.',results:'Stage 1: 96 / 100 · Stage 2: 89 / 100 · Stage 3: 20th nationally.'},
+  '2023':{images:["assets/images/robots/Robocon%202023%20Elephant%20Robot.png"],title:'DD Robocon 2023 — Casting Flowers over Angkor Wat',subtitle:'Robocon season · 2023',about:'The 2023 theme centered on casting flowers over Angkor Wat, requiring coordinated robot mechanisms and accurate task execution.',participation:'Team CiPHER competed nationally with its 2023 robot, developing the mechanical and control systems for the challenge.',results:'Stage 1: 100 / 100 · Stage 2: 85 / 100 · Stage 3: 10th nationally. ₹35,000 prize and Autodesk Best Fusion 360 Design Award.'},
+  '2024':{images:["assets/images/robots/Robocon%202024%20R1.png","assets/images/robots/Robocon%202024%20R2.png"],title:'DD Robocon 2024 — Harvest Day',subtitle:'Robocon season · 2024',about:'Harvest Day focused on robotic collection and placement tasks, requiring coordinated mechanisms and reliable autonomous or controlled operation.',participation:'Team CiPHER participated in the national DD Robocon 2024 competition.',results:'Stage 1: 99 / 100 · Stage 2: 85 / 100 · Stage 3: 14th nationally.'},
+  '2025':{images:["assets/images/robots/Robocon%202025%20R1.png","assets/images/robots/Robocon%202025%20R2.png"],title:'DD Robocon 2025 — Robot Basketball',subtitle:'Robocon season · 2025',about:'Robot Basketball challenged teams to design robots capable of performing basketball-related tasks within the competition arena.',participation:'Team CiPHER competed in DD Robocon 2025 with its competition robot.',results:'Stage 1: 93 / 100 · Stage 2: 90 / 100.'},
+  '2026':{images:["assets/images/robots/Robocon%202026%20R2.png"],title:'DD Robocon 2026 — Kung Fu Quest',subtitle:'Robocon season · 2026',about:'Kung Fu Quest is the 2026 ABU Robocon theme, built around robotic tasks inspired by kung fu movements and coordinated challenges.',participation:'Team CiPHER developed its Robocon 2026 R2 robot for the season.',results:'Stage 1: 89 / 100.'}
+ };
+ function open(key){const d=data[key];if(!d)return;document.getElementById('competition-dialog-kicker').textContent='DD ROBOCON · SEASON '+key;document.getElementById('competition-dialog-title').textContent=d.title;document.getElementById('competition-dialog-subtitle').textContent=d.subtitle;const robotGallery=document.getElementById('competition-dialog-robot-gallery');robotGallery.replaceChildren();d.images.forEach(function(src,index){const figure=document.createElement('figure');figure.className='competition-dialog-robot-figure';const image=document.createElement('img');image.src=src;image.alt='Team CiPHER Robocon '+key+' robot '+(d.images.length>1?index+1:'');image.loading='lazy';const caption=document.createElement('figcaption');caption.textContent='Team CiPHER · Robocon '+key+(d.images.length>1?' · Robot '+(index+1):' robot');figure.append(image,caption);robotGallery.appendChild(figure);});robotGallery.classList.toggle('has-multiple-robots',d.images.length>1);document.getElementById('competition-dialog-about').textContent=d.about;document.getElementById('competition-dialog-participation').textContent=d.participation;document.getElementById('competition-dialog-results').textContent=d.results;dialog.showModal();}
+ document.querySelectorAll('.robocon-tile[href^="#robocon-"]').forEach(function(tile){tile.addEventListener('click',function(e){e.preventDefault();open(tile.getAttribute('href').replace('#robocon-',''));});});
+ dialog.querySelector('.competition-dialog-close').addEventListener('click',()=>dialog.close());
+ dialog.querySelector('.competition-dialog-done').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.open)dialog.close();});
+})();
+</script>
+<script>
+(function () {
+  document.querySelectorAll('.competition-tile-track').forEach(function (track) {
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let moved = false;
+
+    track.style.cursor = 'grab';
+    track.style.userSelect = 'none';
+    track.querySelectorAll('img').forEach(function (img) {
+      img.draggable = false;
+    });
+
+    track.addEventListener('pointerdown', function (event) {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      isDragging = true;
+      moved = false;
+      startX = event.clientX;
+      startScrollLeft = track.scrollLeft;
+      track.style.cursor = 'grabbing';
+      track.classList.add('is-dragging');
+    });
+
+    track.addEventListener('pointermove', function (event) {
+      if (!isDragging) return;
+      const delta = event.clientX - startX;
+      if (Math.abs(delta) > 4) moved = true;
+      track.scrollLeft = startScrollLeft - delta;
+    });
+
+    function stopDragging() {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.cursor = 'grab';
+      track.classList.remove('is-dragging');
+      if (moved) {
+        track.dataset.dragged = 'true';
+        window.setTimeout(function () { delete track.dataset.dragged; }, 80);
+      }
+    }
+
+    track.addEventListener('pointerup', stopDragging);
+    track.addEventListener('pointercancel', stopDragging);
+    track.addEventListener('pointerleave', stopDragging);
+
+    track.addEventListener('click', function (event) {
+      if (track.dataset.dragged === 'true') {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
+  });
+})();
+</script>
 <script src="js/main.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/animations.js"></script>

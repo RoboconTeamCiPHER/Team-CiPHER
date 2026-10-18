@@ -3917,3 +3917,312 @@ select {
     height:var(--project-card-height) !important;
   }
 }
+
+
+/* Homepage hero fills the first viewport; footer begins only after scrolling */
+.hero-orbit {
+  box-sizing:border-box;
+  height:100svh;
+  min-height:100svh !important;
+  max-height:100svh;
+  overflow:hidden;
+}
+.hero-orbit .orbit-stage {
+  box-sizing:border-box;
+  height:100%;
+  min-height:0 !important;
+  max-height:100%;
+  padding:calc(var(--nav-h, 72px) + 1rem) var(--gutter) 2rem;
+}
+@media (max-width:720px) {
+  .hero-orbit {
+    height:100svh;
+    min-height:100svh !important;
+    max-height:100svh;
+  }
+  .hero-orbit .orbit-stage {
+    height:100%;
+    min-height:0 !important;
+    padding:calc(var(--nav-h, 64px) + .5rem) .5rem 1rem;
+  }
+}
+
+
+/* Team page leadership tree */
+.team-structure-section { padding-top: clamp(2.5rem, 5vw, 4.5rem); }
+.team-structure {
+  --tree-line: #8bb5ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+  width: 100%;
+  padding: clamp(1.25rem, 4vw, 3rem) 0 clamp(1.5rem, 4vw, 3rem);
+}
+.team-structure-root,
+.team-structure-lead,
+.team-structure-team {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--line, #dbe3ee);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink, #111827);
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+.team-structure-root {
+  min-width: min(16rem, 90%);
+  min-height: 4.25rem;
+  border-color: #4f8cff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.team-structure-branches {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.75rem, 2vw, 1.5rem);
+  width: 100%;
+  padding-top: 1.8rem;
+}
+.team-structure-branches::before {
+  position: absolute;
+  top: 0;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1.8rem;
+  border-top: 2px solid var(--tree-line);
+  border-left: 2px solid var(--tree-line);
+  border-right: 2px solid var(--tree-line);
+  border-radius: 10px 10px 0 0;
+  content: "";
+}
+.team-structure-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.team-structure-branch::before {
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  height: 1.8rem;
+  border-left: 2px solid var(--tree-line);
+  content: "";
+}
+.team-structure-lead { font-weight: 650; }
+.team-structure-team { min-height: 3.5rem; color: var(--muted, #52637a); }
+.team-structure-team::before {
+  position: absolute;
+  left: 50%;
+  top: -1.55rem;
+  height: 1.5rem;
+  border-left: 2px solid var(--tree-line);
+  content: "";
+}
+@media (max-width: 760px) {
+  .team-structure { gap: 1.5rem; }
+  .team-structure-branches {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-top: 0;
+    padding-left: 1.5rem;
+  }
+  .team-structure-branches::before { display: none; }
+  .team-structure-branch { gap: .75rem; }
+  .team-structure-branch::before {
+    top: 0;
+    left: -1.5rem;
+    height: 100%;
+    border-left: 2px solid var(--tree-line);
+  }
+  .team-structure-team::before {
+    top: 50%;
+    left: -1.5rem;
+    width: 1.5rem;
+    height: 0;
+    border-top: 2px solid var(--tree-line);
+    border-left: 0;
+  }
+}
+
+/* CiPHER cursor hero: keep the shared navbar and footer in normal document flow */
+.hero-cipher-cursor {
+  position: relative;
+  min-height: calc(100svh - var(--nav-height, 76px));
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(1rem, 4vw, 3rem) 5rem;
+  background: var(--page, #fff);
+}
+.cipher-cursor-scene {
+  position: relative;
+  width: min(100%, 1440px);
+  height: min(72svh, 760px);
+  min-height: 420px;
+  overflow: hidden;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.cipher-cursor-scene.is-dragging { cursor: grabbing; }
+#cipher-cursor-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cipher-cursor-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  color: var(--muted, #718096);
+  font-size: .78rem;
+  text-align: center;
+  pointer-events: none;
+}
+.cipher-cursor-controls {
+  position: absolute;
+  right: 1rem;
+  bottom: .75rem;
+}
+.cipher-cursor-button {
+  border: 1px solid var(--line, #dbe3ee);
+  border-radius: 999px;
+  padding: .5rem .85rem;
+  background: rgba(255,255,255,.88);
+  color: var(--ink, #111827);
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.cipher-cursor-button:hover { background: #edf4ff; }
+.cipher-cursor-button:focus-visible { outline: 2px solid #397cff; outline-offset: 3px; }
+@media (max-width: 700px) {
+  .hero-cipher-cursor { min-height: calc(100svh - var(--nav-height, 76px)); padding: 1rem .5rem 4rem; }
+  .cipher-cursor-scene { height: 62svh; min-height: 360px; }
+  .cipher-cursor-hint { bottom: .5rem; font-size: .68rem; }
+  .cipher-cursor-controls { right: .5rem; bottom: .4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cipher-cursor-scene { scroll-behavior: auto; }
+}
+
+
+/* CiPHER logo hero: fixed-size 3D mark; footer starts after the full first viewport */
+.hero-cipher-cursor {
+  height: 100svh !important;
+  min-height: 100svh !important;
+  max-height: 100svh !important;
+  box-sizing: border-box;
+  padding: var(--nav-h) clamp(1rem, 4vw, 3rem) 1rem !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+.cipher-cursor-scene {
+  width: 100% !important;
+  max-width: none !important;
+  height: calc(100svh - var(--nav-h) - 1rem) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+}
+.cipher-cursor-hint { display: none !important; }
+.cipher-cursor-controls { display: none !important; }
+#cipher-cursor-canvas { width: 100%; height: 100%; }
+@media (max-width: 700px) {
+  .hero-cipher-cursor { height: 100svh !important; min-height: 100svh !important; padding: 64px .5rem .5rem !important; }
+  .cipher-cursor-scene { height: calc(100svh - 64px - .5rem) !important; min-height: 0 !important; }
+}
+
+
+/* Homepage CiPHER particle-assembly hero: hide scroll marker and keep a fixed logo scale */
+.hero-cipher-cursor {
+  height:100svh !important; min-height:100svh !important; max-height:100svh !important;
+  padding:var(--nav-h) 0 0 !important; justify-content:center !important; overflow:hidden !important;
+  background:#fff !important; border-bottom:1px solid #dbe3ee !important;
+}
+.hero-cipher-cursor .hero-scroll { display:none !important; }
+.cipher-cursor-scene {
+  position:relative; width:100% !important; height:calc(100svh - var(--nav-h)) !important;
+  min-height:0 !important; max-height:none !important; overflow:hidden; cursor:grab;
+  touch-action:none; user-select:none;
+}
+.cipher-cursor-scene.is-dragging { cursor:grabbing; }
+#cipher-cursor-canvas,#cipher-cursor-dust { position:absolute; inset:0; width:100%; height:100%; display:block; }
+#cipher-cursor-dust { pointer-events:none; }
+@media(max-width:700px) {
+  .hero-cipher-cursor { height:100svh !important; min-height:100svh !important; padding:64px 0 0 !important; }
+  .cipher-cursor-scene { height:calc(100svh - 64px) !important; }
+}
+
+
+/* ==========================================================================
+   COMPETITIONS — visual tile rows and horizontal Robocon carousel
+   ========================================================================== */
+.competition-hub { overflow: clip; }
+.competition-hero { padding-bottom: clamp(2rem, 5vw, 4rem); }
+.competition-row-section { padding: clamp(2.5rem, 5vw, 4.5rem) 0; border-top: 1px solid var(--border); }
+.competition-row-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:2rem; margin-bottom:1.5rem; }
+.competition-row-heading h2 { margin:.3rem 0 .45rem; font-size:clamp(1.8rem,3vw,2.8rem); letter-spacing:-.04em; }
+.competition-row-heading p { margin:0; color:var(--text-dim); }
+.competition-carousel-controls { display:flex; gap:.55rem; flex-shrink:0; }
+.tile-arrow { width:2.8rem; height:2.8rem; border:1px solid var(--border-bright); border-radius:50%; color:var(--text); background:var(--surface); font-size:1.35rem; cursor:pointer; transition:background .2s,border-color .2s,transform .2s; }
+.tile-arrow:hover { background:var(--red); border-color:var(--red); transform:translateY(-2px); }
+.competition-tile-track { display:flex; gap:1rem; overflow-x:auto; padding:.2rem .1rem 1.15rem; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:thin; scrollbar-color:var(--border-bright) transparent; }
+.competition-tile-track .competition-tile { flex:0 0 clamp(245px, 29vw, 360px); }
+.competition-tile-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+.competition-tile { position:relative; display:block; min-width:0; height:clamp(220px,25vw,320px); overflow:hidden; border:1px solid var(--border); border-radius:12px; background:#171717; color:#fff; text-decoration:none; scroll-snap-align:start; isolation:isolate; }
+.competition-tile::after { content:""; position:absolute; inset:35% 0 0; z-index:1; background:linear-gradient(180deg,transparent,rgba(0,0,0,.88)); pointer-events:none; }
+.competition-tile>img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .35s; }
+.competition-tile:hover>img { transform:scale(1.055); filter:brightness(.82); }
+.competition-tile .tile-contain { object-fit:contain; padding:2.4rem; background:#f4f5f7; }
+.competition-tile .tile-kurukshetra { object-fit:cover; padding:0; }
+.tile-overlay { position:absolute; z-index:2; left:1.15rem; right:1.15rem; bottom:1.1rem; display:flex; flex-direction:column; gap:.35rem; }
+.tile-overlay small { font-size:.68rem; letter-spacing:.12em; font-weight:700; color:#c4d4ff; }
+.tile-overlay strong { font-size:clamp(1.2rem,2vw,1.65rem); line-height:1.15; letter-spacing:-.03em; }
+.tile-overlay>span { color:#dedede; font-size:.86rem; }
+.competition-tile-grid-single { grid-template-columns:minmax(0,1fr); }
+.wide-competition-tile { height:clamp(250px,32vw,390px); }
+.wide-competition-tile>img { object-position:center 45%; }
+.tile-track-hint { color:var(--text-faint); font-size:.78rem; margin-top:.45rem; }
+.organized-competitions { border-bottom:1px solid var(--border); }
+.robocon-detail-archive { padding-top:1.5rem; }
+.competition-archive { border:1px solid var(--border); border-radius:10px; padding:1rem 1.25rem; }
+.competition-archive summary { cursor:pointer; font-weight:600; }
+.competition-archive .robocon-entry { display:flex; align-items:flex-start; gap:1.5rem; padding:1rem 0; border-bottom:1px solid var(--border); }
+.competition-archive .robocon-entry:last-child { border-bottom:0; }
+.competition-archive .robocon-year { color:var(--red); font-size:1.3rem; font-weight:700; }
+.competition-archive .robocon-info h3 { margin:0 0 .35rem; }
+.competition-archive .robocon-info p { margin:0; color:var(--text-dim); }
+@media (max-width:760px) {
+ .competition-row-heading { align-items:flex-start; }
+ .competition-tile-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .competition-tile { height:230px; }
+ .competition-tile-grid-single { grid-template-columns:minmax(0,1fr); }
+ .wide-competition-tile { height:250px; }
+}
+@media (max-width:480px) {
+ .competition-row-heading { gap:1rem; }
+ .competition-tile-grid { grid-template-columns:minmax(0,1fr); }
+ .competition-tile-grid .competition-tile { height:250px; }
+ .competition-tile-track .competition-tile { flex-basis:82vw; }
+}
