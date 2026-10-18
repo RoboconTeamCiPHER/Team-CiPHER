@@ -3275,13 +3275,19 @@ select {
   overflow: visible;
 }
 .pipeline-ring-base { fill:none; stroke:var(--border); stroke-width:2; }
-.pipeline-ring-flow {
+.pipeline-ring-dots {
   fill:none;
   stroke:#4b8df8;
   stroke-width:4;
   stroke-linecap:round;
   stroke-dasharray:7 10;
   opacity:.9;
+}
+.pipeline-direction-arrow {
+  fill:none;
+  stroke:#4b8df8;
+  stroke-width:2.5;
+  stroke-linecap:round;
 }
 .pipeline-cycle-center {
   position:absolute;
