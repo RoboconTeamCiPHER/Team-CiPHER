@@ -4736,3 +4736,58 @@ select {
 :root[data-theme="light"] .domain-grid .domain-card:hover { background:#dff3ff !important; }
 :root[data-theme="light"] .domain-grid .domain-card p,
 :root[data-theme="light"] .domain-grid .domain-card li { color:#5d6572 !important; }
+
+
+/* Final pass: ensure the complete project page and Team domain panel follow the theme. */
+:root[data-theme="dark"] body:has(.projects-page),
+:root[data-theme="dark"] body:has(.projects-page) main,
+:root[data-theme="dark"] .projects-page,
+:root[data-theme="dark"] .projects-page .projects-showcase,
+:root[data-theme="dark"] .projects-page .section {
+  background-color:#050505 !important;
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .projects-page .project-ring-shell,
+:root[data-theme="dark"] .projects-page .project-ring-stage {
+  background:transparent !important;
+}
+:root[data-theme="light"] body:has(.projects-page),
+:root[data-theme="light"] body:has(.projects-page) main,
+:root[data-theme="light"] .projects-page,
+:root[data-theme="light"] .projects-page .projects-showcase,
+:root[data-theme="light"] .projects-page .section {
+  background-color:#fff !important;
+  color:#17191d !important;
+}
+:root[data-theme="light"] .projects-page .project-ring-shell,
+:root[data-theme="light"] .projects-page .project-ring-stage {
+  background:transparent !important;
+}
+
+/* The Team hero uses page-local hard-coded light backgrounds, so override them explicitly. */
+:root[data-theme="dark"] .team-page-hero .team-hero-domains,
+:root[data-theme="dark"] .team-page-hero .team-hero-domain {
+  background:#101010 !important;
+  color:#f5f5f5 !important;
+  border-color:#303030 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain strong {
+  color:#f5f5f5 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain small {
+  color:#c4c4c4 !important;
+}
+:root[data-theme="dark"] .team-page-hero .team-hero-domain > span,
+:root[data-theme="dark"] .team-page-hero .team-hero-domain em {
+  color:#80aaff !important;
+}
+:root[data-theme="light"] .team-page-hero .team-hero-domains,
+:root[data-theme="light"] .team-page-hero .team-hero-domain {
+  background:#f8fafc !important;
+  color:#17191d !important;
+  border-color:#dce3ec !important;
+}
+:root[data-theme="light"] .team-page-hero .team-hero-domain strong { color:#17191d !important; }
+:root[data-theme="light"] .team-page-hero .team-hero-domain small { color:#687386 !important; }
+:root[data-theme="light"] .team-page-hero .team-hero-domain > span,
+:root[data-theme="light"] .team-page-hero .team-hero-domain em { color:#2868f5 !important; }
