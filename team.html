@@ -27,7 +27,7 @@
 .team-photo-stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#080b11;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.2px);background-size:24px 24px;perspective:1450px;perspective-origin:50% 48%}
 .team-photo-ring{position:absolute;inset:0;transform-style:preserve-3d}
 .team-photo-pole{position:absolute;left:50%;top:-10%;height:120%;width:8px;margin-left:-4px;border-radius:8px;background:linear-gradient(90deg,#1b2029,#667080 50%,#1b2029);opacity:.45;pointer-events:none}
-.team-year-card{position:absolute;left:50%;top:50%;width:min(54vw,680px);aspect-ratio:3/2;margin-left:min(-27vw,-340px);margin-top:min(-18vw,-170px);transform-style:preserve-3d;cursor:pointer;outline:none;text-decoration:none;will-change:transform;--card-brightness:1;--card-opacity:1}
+.team-year-card{position:absolute;left:50%;top:50%;width:min(54vw,680px);aspect-ratio:3/2;margin-left:calc(min(54vw,680px) / -2);margin-top:calc(min(54vw,680px) / -3);transform-style:preserve-3d;cursor:pointer;outline:none;text-decoration:none;will-change:transform;--card-brightness:1;--card-opacity:1}
 .team-year-card:focus-visible .team-year-front{outline:3px solid #2f6bff;outline-offset:5px}
 .team-year-face{position:absolute;inset:0;overflow:hidden;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;filter:brightness(var(--card-brightness));opacity:var(--card-opacity);box-shadow:0 20px 60px rgba(0,0,0,.42)}
 .team-year-front{background:var(--team-photo) center/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(1.2rem,3vw,2.5rem)}
@@ -228,7 +228,7 @@
   function goTo(index){index=clamp(index,0,count-1);window.scrollTo({top:top()+(index/(count-1))*range(),behavior:reduced?'auto':'smooth'})}
   function tick(){read();var diff=target-current;current=Math.abs(diff)<.0005?target:current+diff*smooth;layout();requestAnimationFrame(tick)}
   function scheduleSnap(){if(reduced)return;clearTimeout(snapTimer);snapTimer=setTimeout(function(){var p=(window.scrollY-top())/range();if(p>0&&p<1)goTo(Math.round(p*(count-1)))},150)}
-  cards.forEach(function(card,i){card.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();goTo(i);var targetId=card.getAttribute('href');history.replaceState(null,'',targetId)});card.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(Math.min(i+1,count-1));cards[Math.min(i+1,count-1)].focus({preventScroll:true})}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(Math.max(i-1,0));cards[Math.max(i-1,0)].focus({preventScroll:true})}})});
+  cards.forEach(function(card,i){card.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();goTo(i);/* Keep the URL unchanged while the selected photo moves to the front. */});card.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();goTo(Math.min(i+1,count-1));cards[Math.min(i+1,count-1)].focus({preventScroll:true})}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();goTo(Math.max(i-1,0));cards[Math.max(i-1,0)].focus({preventScroll:true})}})});
   window.addEventListener('scroll',scheduleSnap,{passive:true});window.addEventListener('resize',measure);
   measure();read();current=target;layout();requestAnimationFrame(tick);
 })();
