@@ -3755,3 +3755,22 @@ select {
   box-shadow:none !important;
   border-bottom-color:transparent !important;
 }
+
+
+/* Restore the navbar to its normal fixed height; do not stretch its background */
+.projects-page .nav {
+  height:var(--nav-h, 76px) !important;
+  min-height:var(--nav-h, 76px) !important;
+  max-height:var(--nav-h, 76px) !important;
+  padding-block:0 !important;
+  inset:0 0 auto 0 !important;
+  box-sizing:border-box !important;
+  background:transparent !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.projects-page .nav .wrap {
+  height:100% !important;
+  min-height:0 !important;
+  padding-block:0 !important;
+}
