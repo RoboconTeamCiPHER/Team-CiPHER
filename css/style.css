@@ -4791,3 +4791,54 @@ select {
 :root[data-theme="light"] .team-page-hero .team-hero-domain small { color:#687386 !important; }
 :root[data-theme="light"] .team-page-hero .team-hero-domain > span,
 :root[data-theme="light"] .team-page-hero .team-hero-domain em { color:#2868f5 !important; }
+
+
+/* Competition details dialog: theme-aware modal surfaces, content, and robot gallery. */
+:root[data-theme="dark"] .competition-detail-dialog {
+  background:#101318 !important;
+  color:#f5f7fb !important;
+  border-color:#343b48 !important;
+  box-shadow:0 28px 90px rgba(0,0,0,.65) !important;
+  color-scheme:dark;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-shell,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content section {
+  background:#101318 !important;
+  color:#f5f7fb !important;
+  border-color:#303744 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog h2,
+:root[data-theme="dark"] .competition-detail-dialog h3 {
+  color:#f5f7fb !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-subtitle,
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-content p {
+  color:#c3cbd8 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-close {
+  color:#e5eaf2 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure {
+  background:#171c25 !important;
+  border-color:#343b48 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure img {
+  background:#171c25 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-robot-figure figcaption {
+  background:#171c25 !important;
+  color:#c3cbd8 !important;
+  border-top-color:#343b48 !important;
+}
+:root[data-theme="dark"] .competition-detail-dialog .competition-dialog-done {
+  background:#171c25 !important;
+  color:#f5f7fb !important;
+  border-color:#454e5e !important;
+}
+:root[data-theme="light"] .competition-detail-dialog {
+  background:#fff !important;
+  color:#151b2a !important;
+  border-color:#dbe3ef !important;
+  color-scheme:light;
+}
