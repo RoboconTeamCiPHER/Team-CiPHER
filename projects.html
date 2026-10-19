@@ -80,25 +80,26 @@
     function layout() {
       if (!cards.length) return;
       var width = cards[0].getBoundingClientRect().width || Math.min(window.innerWidth * .78, 460);
-      /* Place cards on a level, horizontal ring. Position is computed per card
-         so the front card stays centered and the side cards remain visible. */
-      radius = width * (window.innerWidth <= 720 ? 1.22 : 1.38);
+      /* True horizontal 3D cylinder: the cards are fixed around the ring and
+         the ring rotates as one object, giving the side cards real depth. */
+      radius = Math.max(width * 1.05, (width / 2) / Math.tan(Math.PI / count));
+      cards.forEach(function (card, index) {
+        card.style.setProperty('--card-angle', (index * step) + 'deg');
+        card.style.setProperty('--card-radius', radius + 'px');
+      });
       render();
     }
     function render() {
       var normalizedAngle = ((angle % 360) + 360) % 360;
-      spinner.style.transform = 'none';
+      spinner.style.transform = 'rotateY(' + normalizedAngle + 'deg)';
       cards.forEach(function (card, index) {
         var relative = (((index * step + normalizedAngle + 180) % 360) + 360) % 360 - 180;
-        var radians = relative * Math.PI / 180;
         var distance = Math.abs(relative / step);
         var isCenter = distance < .08;
-        var x = Math.sin(radians) * radius;
-        var z = Math.cos(radians) * radius;
-        var scale = isCenter ? 1 : Math.max(.68, 1 - distance * .13);
-        card.style.transform = 'translate3d(' + x + 'px, 0, ' + z + 'px) rotateY(' + relative + 'deg) scale(' + scale + ')';
+        var scale = isCenter ? 1 : Math.max(.78, 1 - distance * .09);
+        card.style.transform = 'rotateY(var(--card-angle)) translateZ(var(--card-radius)) scale(' + scale + ')';
         card.style.zIndex = String(100 - Math.round(distance * 10));
-        card.style.opacity = distance > 1.45 ? '0' : (isCenter ? '1' : String(Math.max(.58, 1 - distance * .18)));
+        card.style.opacity = distance > 1.45 ? '0' : (isCenter ? '1' : String(Math.max(.68, 1 - distance * .14)));
         card.style.visibility = distance > 1.45 ? 'hidden' : 'visible';
         card.style.pointerEvents = distance < .5 ? 'auto' : 'none';
       });
