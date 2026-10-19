@@ -4872,3 +4872,14 @@ select {
 @media (prefers-reduced-motion:reduce) {
   .projects-page .project-ring-card { transition:none; }
 }
+
+/* Separate side cards from the featured project; animation is driven smoothly by requestAnimationFrame. */
+.projects-page .project-ring-card {
+  transition:opacity .2s ease, box-shadow .25s ease, outline-color .25s ease !important;
+}
+.projects-page .project-ring-card.is-front {
+  transform-origin:center center;
+}
+@media (max-width:720px) {
+  .projects-page .project-ring-stage { overflow:hidden; }
+}
