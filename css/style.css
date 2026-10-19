@@ -3503,6 +3503,7 @@ select {
   height:var(--project-card-height);
   transform-style:preserve-3d;
   transform:none;
+  margin:auto;
 }
 .projects-page .project-spinner {
   position:absolute;
@@ -3524,7 +3525,7 @@ select {
   box-shadow:0 12px 32px rgba(20,40,70,.12);
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
-  transform:rotateY(var(--card-angle)) translateZ(var(--card-radius));
+  transform:translate3d(0,0,0);
 }
 .projects-page .project-ring-card.is-front { outline:2px solid #4b8df8; outline-offset:-2px; }
 .projects-page .project-ring-image { flex:0 0 42%; height:42%; min-height:0; overflow:hidden; background:#f2f5f9; }
