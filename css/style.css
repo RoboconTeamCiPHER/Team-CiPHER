@@ -3484,14 +3484,14 @@ select {
 }
 
 
-/* Projects carousel: retain the uploaded tilted 3D ring behavior on a white site */
+/* Projects carousel: front-facing ring with horizontal orbit and no tilt */
 .projects-page { background:#fff; color:#111827; }
 .projects-page .projects-showcase { background:#fff; }
 .projects-page .project-ring-stage {
   --project-card-width:min(34vw, 390px);
   --project-card-height:440px;
   height:clamp(590px, 66vw, 720px);
-  perspective:1400px;
+  perspective:1800px;
   overflow:hidden;
   cursor:grab;
   touch-action:pan-y;
@@ -3502,7 +3502,7 @@ select {
   width:var(--project-card-width);
   height:var(--project-card-height);
   transform-style:preserve-3d;
-  transform:rotateX(-10deg) rotateZ(-7deg);
+  transform:none;
 }
 .projects-page .project-spinner {
   position:absolute;
@@ -4882,4 +4882,12 @@ select {
 }
 @media (max-width:720px) {
   .projects-page .project-ring-stage { overflow:hidden; }
+}
+
+/* Keep the ring level: no pitch or roll, with smooth depth and opacity changes. */
+.projects-page .project-ring { transform: none !important; }
+.projects-page .project-spinner { transform-style: preserve-3d; transition: none; }
+.projects-page .project-ring-card {
+  transition: opacity .24s ease, box-shadow .24s ease, outline-color .24s ease !important;
+  transform-origin: center center;
 }
