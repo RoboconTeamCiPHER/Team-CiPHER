@@ -87,18 +87,22 @@
       /* A flat horizontal carousel: the active card is centered and prominent,
          with adjacent cards smaller and offset to either side. */
       var width = cards[0].getBoundingClientRect().width || Math.min(window.innerWidth * .78, 460);
-      var offset = Math.min(width * .88, window.innerWidth * .34);
+      /* Keep a real gap between the active card and its neighbours. Offset the
+         card centers by more than half the active width plus half the scaled side width. */
+      var sideScale = window.innerWidth <= 720 ? .56 : .62;
+      var offset = width * (window.innerWidth <= 720 ? .88 : 1.05);
       var normalizedAngle = ((angle % 360) + 360) % 360;
       cards.forEach(function (card, index) {
         var relative = (((index * step + normalizedAngle + 180) % 360) + 360) % 360 - 180;
         var slot = relative / step;
         var distance = Math.abs(slot);
-        var scale = distance < .08 ? 1 : Math.max(.58, 1 - distance * .27);
+        var isCenter = distance < .08;
+        var scale = isCenter ? 1 : Math.max(.48, 1 - distance * (1 - sideScale));
         var x = slot * offset;
-        card.style.transform = 'translateX(' + x + 'px) scale(' + scale + ')';
+        card.style.transform = 'translate3d(' + x + 'px, 0, 0) scale(' + scale + ')';
         card.style.zIndex = String(100 - Math.round(distance * 10));
-        card.style.opacity = distance > 1.65 ? '0' : String(Math.max(.38, 1 - distance * .34));
-        card.style.visibility = distance > 1.65 ? 'hidden' : 'visible';
+        card.style.opacity = distance > 1.15 ? '0' : (isCenter ? '1' : '.78');
+        card.style.visibility = distance > 1.15 ? 'hidden' : 'visible';
         card.style.pointerEvents = distance < .5 ? 'auto' : 'none';
       });
       var front = Math.round((((-angle % 360) + 360) % 360) / step) % count;
