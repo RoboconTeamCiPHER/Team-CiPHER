@@ -20,6 +20,38 @@
 <link rel="stylesheet" href="css/style.css?v=global-dark-4">
 <link rel="stylesheet" href="css/animations.css?v=nav-fix-2">
 <link rel="stylesheet" href="css/responsive.css?v=nav-fix-2">
+<style>
+  #hero.about-hero {
+    display: block;
+    min-height: 0 !important;
+    height: auto !important;
+    padding-top: clamp(6.5rem, 11vw, 8.5rem) !important;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem) !important;
+  }
+  #hero.about-hero .eyebrow {
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin: 0 0 0.5rem;
+  }
+  #hero.about-hero .hero-title-giant {
+    font-size: clamp(3.75rem, 10.5vw, 8.5rem) !important;
+    line-height: 0.94 !important;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+    margin: 0 0 0.75rem !important;
+  }
+  #hero.about-hero .hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+    font-weight: 500;
+    margin: 0 0 1.1rem;
+    opacity: 0.92;
+  }
+  #hero.about-hero .lede {
+    max-width: 64ch;
+  }
+</style>
 </head>
 <body>
 
@@ -35,7 +67,7 @@
   <div class="wrap">
     <a href="index.html" class="nav-logo"><img src="assets/logos/CiPHER%20Logo%20Black.png" alt="CiPHER" class="nav-logo-image"></a>
     <nav class="nav-links" aria-label="Primary">
-      <div class="nav-item nav-item-about"><a href="about.html" data-nav="about">About <span class="nav-chevron">⌄</span></a><div class="nav-popover about-popover"><strong>Explore Team CiPHER</strong><a href="about.html#about">Who We Are</a><a href="about.html#pipeline">Our Workflow</a><a href="about.html#competition-robots">Robots &amp; Builds</a><a href="about.html#toolchain">Engineering Toolchain</a></div></div>
+      <div class="nav-item nav-item-about"><a href="about.html" data-nav="about">About <span class="nav-chevron">⌄</span></a><div class="nav-popover about-popover"><strong>Explore Team CiPHER</strong><a href="about.html#hero">Overview</a><a href="about.html#about">Our Domains</a><a href="about.html#competition-robots">Robocon Robots</a></div></div>
       <a href="projects.html" data-nav="projects">Projects</a>
       <div class="nav-item nav-item-competitions"><a href="competitions.html" data-nav="competitions">Competitions <span class="nav-chevron">⌄</span></a><div class="nav-popover competitions-popover"><div class="popover-heading"><span>COMPETITIONS</span><a href="competitions.html">All competitions ↗</a></div><div class="competition-popover-grid"><a class="competition-popover-card" href="competitions.html#robocon-2025"><img class="competition-popover-robocon-logo" src="assets/images/competitions/Robocon%202026%20Logo.png" alt="Robocon 2026 competition logo"><span>DD Robocon</span><small>National robotics competition</small></a><a class="competition-popover-card" href="projects.html"><img class="competition-popover-robocon-logo" src="assets/images/competitions/Robofest%20Logo.png" alt="Robofest competition logo"><span>Robofest</span><small>Applied robotics projects</small></a><a class="competition-popover-card" href="competitions.html"><img class="competition-popover-robocon-logo" src="assets/images/competitions/MindSpark%20Logo.png" alt="MindSpark competition logo"><span>MindSpark</span><small>Technical festival</small></a></div></div></div>
       <div class="nav-item nav-item-team"><a href="team.html" data-nav="team">Team <span class="nav-chevron">⌄</span></a><div class="nav-popover team-popover"><strong>Our domains</strong><a href="team.html#mechanical">Mechanical <span>CAD · Design · Analysis</span></a><a href="team.html#electronics">Electronics <span>Embedded · Sensors · Control</span></a><a href="team.html#programming">Programming <span>ROS 2 · Vision · Autonomy</span></a><a href="team.html#administration">Admin <span>Operations · Outreach</span></a></div></div>
@@ -56,110 +88,80 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="section hero" id="hero">
+  <!-- 1. HERO -->
+  <section class="section hero about-hero" id="hero">
     <div class="wrap">
       <p class="eyebrow" data-reveal>Since 2018</p>
-      <h1 data-reveal>Team CiPHER</h1>
+      <h1 class="hero-title-giant" data-reveal>Team CiPHER</h1>
       <p class="hero-subtitle" data-reveal>Official Robotics Team of JSPM's RSCOE</p>
-      <p class="lede" data-reveal>An independent, student-run robotics lab in the Automation &amp; Robotics building at RSCOE, Pune—building autonomous systems for national competitions and applied research.</p>
+      <p class="lede" data-reveal>An independent, student-run robotics lab in the Automation &amp; Robotics building at RSCOE, Pune—designing, building, and programming autonomous systems for national competitions and applied research.</p>
     </div>
   </section>
 
-  <!-- DOMAINS -->
+  <!-- 2. TEAM INFO -->
   <section class="section" id="about">
     <div class="wrap">
       <div class="section-head">
-        <h2 data-reveal>How we work together.</h2>
-        <p class="lede" data-reveal>Four specialized divisions collaborate end-to-end on every machine. Visit <a href="team.html">Team</a> for member rosters and <a href="projects.html">Projects</a> for active builds.</p>
+        <h2 data-reveal>Who we are.</h2>
+        <p class="lede" data-reveal>Operating across four integrated divisions, we take robots from initial concept and CAD to embedded hardware and autonomous control. Meet the members on our <a href="team.html">Team</a> page.</p>
       </div>
+
       <div class="domains domain-grid" data-reveal-group>
         <article class="domain-card" data-reveal>
           <div class="domain-card-head"><h3>Mechanical</h3></div>
           <ul>
             <li>Parametric CAD &amp; mechanism design</li>
             <li>Structural FEA &amp; lightweight builds</li>
-            <li>Fabrication, assembly &amp; testing</li>
+            <li>Precision fabrication &amp; assembly</li>
           </ul>
-          <p class="mt-sm"><a class="link-arrow" href="team.html#mechanical">Mechanical domain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          <p class="mt-sm"><a class="link-arrow" href="team.html#mechanical">Mechanical roster <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
         </article>
         <article class="domain-card" data-reveal>
           <div class="domain-card-head"><h3>Electronics</h3></div>
           <ul>
-            <li>Embedded hardware &amp; power buses</li>
-            <li>Motor control &amp; actuator drives</li>
-            <li>Sensor integration &amp; bring-up</li>
+            <li>Embedded boards &amp; power distribution</li>
+            <li>Motor &amp; actuator closed-loop control</li>
+            <li>Sensor integration &amp; hardware bring-up</li>
           </ul>
-          <p class="mt-sm"><a class="link-arrow" href="team.html#electronics">Electronics domain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          <p class="mt-sm"><a class="link-arrow" href="team.html#electronics">Electronics roster <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
         </article>
         <article class="domain-card" data-reveal>
           <div class="domain-card-head"><h3>Programming</h3></div>
           <ul>
-            <li>ROS 2 packages &amp; Gazebo simulation</li>
-            <li>Autonomous navigation &amp; vision</li>
+            <li>ROS 2 architecture &amp; Gazebo simulation</li>
+            <li>Autonomous navigation &amp; computer vision</li>
             <li>Hardware-software integration</li>
           </ul>
-          <p class="mt-sm"><a class="link-arrow" href="team.html#programming">Programming domain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          <p class="mt-sm"><a class="link-arrow" href="team.html#programming">Programming roster <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
         </article>
         <article class="domain-card" data-reveal>
           <div class="domain-card-head"><h3>Administration</h3></div>
           <ul>
-            <li>Operations, budgets &amp; schedules</li>
+            <li>Operations, sponsorships &amp; budgets</li>
             <li>Documentation &amp; outreach</li>
-            <li>Event &amp; competition logistics</li>
+            <li>Competition logistics &amp; scheduling</li>
           </ul>
-          <p class="mt-sm"><a class="link-arrow" href="team.html#administration">Admin domain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+          <p class="mt-sm"><a class="link-arrow" href="team.html#administration">Admin roster <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
         </article>
       </div>
-    </div>
-  </section>
 
-  <!-- PIPELINE -->
-  <section class="section" id="pipeline">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>From idea to machine.</h2>
-        <p class="lede" data-reveal>Every build moves through the same nine-stage closed loop—from first sketch to a tested, competition-ready system.</p>
-      </div>
-      <div class="pipeline-cycle" aria-label="Nine-stage engineering cycle">
-        <svg class="pipeline-cycle-ring" viewBox="0 0 800 800" aria-hidden="true">
-          <defs>
-            <marker id="pipeline-arrow" markerWidth="24" markerHeight="24" refX="18" refY="12" orient="auto" markerUnits="userSpaceOnUse">
-              <path d="M2,2 L20,12 L2,22" fill="none" stroke="#2f7df6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </marker>
-          </defs>
-          <circle class="pipeline-ring-base" cx="400" cy="400" r="270"></circle>
-          <circle class="pipeline-ring-dots" cx="400" cy="400" r="270"></circle>
-          <path class="pipeline-direction-arrow" d="M 460.7 136.9 A 270 270 0 0 1 522.6 159.4" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 615.6 237.5 A 270 270 0 0 1 648.5 294.5" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 669.6 414.1 A 270 270 0 0 1 658.2 478.9" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 597.5 584.1 A 270 270 0 0 1 547.1 626.4" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 432.9 668.0 A 270 270 0 0 1 367.1 668.0" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 252.9 626.4 A 270 270 0 0 1 202.5 584.1" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 141.8 478.9 A 270 270 0 0 1 130.4 414.1" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 151.5 294.5 A 270 270 0 0 1 184.4 237.5" marker-end="url(#pipeline-arrow)"></path>
-          <path class="pipeline-direction-arrow" d="M 277.4 159.4 A 270 270 0 0 1 339.3 136.9" marker-end="url(#pipeline-arrow)"></path>
-        </svg>
-        <div class="pipeline-cycle-center"><span>TEAM CiPHER</span><strong>Engineering<br>Cycle</strong><small>Design · Build · Test · Iterate</small></div>
-        <div class="pipeline-cycle-stage stage-1" data-reveal><span class="pipeline-num">01</span><strong>Concept</strong></div>
-        <div class="pipeline-cycle-stage stage-2" data-reveal><span class="pipeline-num">02</span><strong>CAD</strong></div>
-        <div class="pipeline-cycle-stage stage-3" data-reveal><span class="pipeline-num">03</span><strong>Simulation</strong></div>
-        <div class="pipeline-cycle-stage stage-4" data-reveal><span class="pipeline-num">04</span><strong>Fabrication</strong></div>
-        <div class="pipeline-cycle-stage stage-5" data-reveal><span class="pipeline-num">05</span><strong>Electronics</strong></div>
-        <div class="pipeline-cycle-stage stage-6" data-reveal><span class="pipeline-num">06</span><strong>Software</strong></div>
-        <div class="pipeline-cycle-stage stage-7" data-reveal><span class="pipeline-num">07</span><strong>Integration</strong></div>
-        <div class="pipeline-cycle-stage stage-8" data-reveal><span class="pipeline-num">08</span><strong>Testing</strong></div>
-        <div class="pipeline-cycle-stage stage-9" data-reveal><span class="pipeline-num">09</span><strong>Iteration</strong></div>
+      <div class="stats-grid mt-lg">
+        <div class="stat" data-reveal><div class="num">2018</div><div class="label">Founded</div></div>
+        <div class="stat" data-reveal><div class="num">20+</div><div class="label">Team members</div></div>
+        <div class="stat" data-reveal><div class="num">12+</div><div class="label">Robocon robots</div></div>
+        <div class="stat" data-reveal><div class="num">04</div><div class="label">Engineering domains</div></div>
+        <div class="stat" data-reveal><div class="num">4–10 PM</div><div class="label">Daily lab hours</div></div>
+        <div class="stat" data-reveal><div class="num">Weekends</div><div class="label">Full-time build sessions</div></div>
       </div>
     </div>
   </section>
 
-  <!-- COMPETITION ROBOTS -->
+  <!-- 3. ROBOCON ROBOT CAROUSEL -->
   <section class="section" id="competition-robots">
     <div class="wrap">
       <div class="section-head">
         <h2 data-reveal>Robocon Robots.</h2>
-        <p class="lede" data-reveal>Competition machines from Team CiPHER's Robocon seasons—select any robot to jump to its season in Competitions.</p>
+        <p class="lede" data-reveal>Competition machines from Team CiPHER's Robocon seasons—click any robot to view its season in Competitions.</p>
       </div>
 
       <div class="robocon-carousel mt-lg" data-robocon-slider aria-label="Robocon robot carousel">
@@ -219,82 +221,6 @@
       </div>
 
       <p class="mt-lg"><a class="link-arrow" href="competitions.html">Explore competition history <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-    </div>
-  </section>
-
-  <!-- TOOLCHAIN -->
-  <section class="section" id="toolchain">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>Our toolchain.</h2>
-        <p class="lede" data-reveal>The core software, CAD, and embedded stack that carries a build from sketch to field.</p>
-      </div>
-      <div class="stack-grid">
-        <div class="stack-group" data-reveal>
-          <h4>Robotics</h4>
-          <ul><li>ROS 2</li><li>Gazebo</li><li>RViz</li><li>Navigation2</li><li>SLAM</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h4>Programming</h4>
-          <ul><li>C++</li><li>Python</li><li>C</li><li>Embedded C</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h4>CAD &amp; Engineering</h4>
-          <ul><li>Fusion 360</li><li>SolidWorks</li><li>ANSYS</li><li>FEA</li><li>GD&amp;T</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h4>Embedded</h4>
-          <ul><li>STM32</li><li>ESP32</li><li>Arduino</li><li>Raspberry Pi</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h4>Perception</h4>
-          <ul><li>OpenCV</li><li>YOLO</li><li>Computer Vision</li><li>Machine Learning</li></ul>
-        </div>
-        <div class="stack-group" data-reveal>
-          <h4>Development</h4>
-          <ul><li>Linux</li><li>Git</li><li>GitHub</li><li>Docker</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section class="section" id="stats">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>By the numbers.</h2>
-      </div>
-      <div class="stats-grid">
-        <div class="stat" data-reveal><div class="num">2018</div><div class="label">Founded</div></div>
-        <div class="stat" data-reveal><div class="num">20+</div><div class="label">Team members</div></div>
-        <div class="stat" data-reveal><div class="num">12+</div><div class="label">Competition robots</div></div>
-        <div class="stat" data-reveal><div class="num">04</div><div class="label">Engineering domains</div></div>
-        <div class="stat" data-reveal><div class="num">4–10 PM</div><div class="label">Daily lab hours</div></div>
-        <div class="stat" data-reveal><div class="num">Weekends</div><div class="label">Full-time build sessions</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OPEN SOURCE -->
-  <section class="section" id="open-source">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 data-reveal>Open engineering.</h2>
-        <p class="lede" data-reveal>Selected technical packages and documentation shared on GitHub—see <a href="projects.html">Projects</a> and <a href="research.html">Research</a> for full builds and papers.</p>
-      </div>
-      <div class="repo-grid" data-repo-grid></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section cta">
-    <div class="wrap">
-      <h2 data-reveal>Let's build something.</h2>
-      <p class="lede" data-reveal>Interested in partnering, sponsoring, research, or joining the team? Connect with Team CiPHER.</p>
-      <div class="cta-buttons" data-reveal>
-        <a class="btn btn-solid" href="contact.html">Contact Us →</a>
-        <a class="btn" href="projects.html">Explore Projects</a>
-      </div>
     </div>
   </section>
 
